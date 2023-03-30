@@ -17,7 +17,7 @@ export const theme = {
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input
-    xxs: "12", //mobile-selectors
+    xxs: "12px", //mobile-selectors
     xs: "14px", //footer
     s: "16px", //footer
     sm: "18px", //footer
