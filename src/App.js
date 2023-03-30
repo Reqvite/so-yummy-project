@@ -8,11 +8,12 @@ import MainPage from "Pages/MainPage";
 import RegisterPage from "Pages/RegisterPage";
 import SigninPage from "Pages/SigninPage";
 import AuthNavPage from "Pages/AuthNavPage";
-
 import { useAuth } from "hooks";
 import { useDispatch } from "react-redux";
 import { refreshUser } from "redux/auth/operations";
 import { GlobalStyle } from "Components/GlobalStyle/GlobalStyle";
+import { ThemeProvider } from "styled-components";
+import { theme } from "theme/theme";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const App = () => {
   return isRefreshing ? (
     <Loader />
   ) : (
-    <>
+    <ThemeProvider theme={theme}>
       <Routes>
         <Route
           index
@@ -53,7 +54,7 @@ const App = () => {
         </Route>
       </Routes>
       <GlobalStyle />
-    </>
+    </ThemeProvider>
   );
 };
 

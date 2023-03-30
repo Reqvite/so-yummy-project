@@ -4,6 +4,8 @@ import "modern-normalize";
 
 export const GlobalStyle = createGlobalStyle`
 body {
+ background-color: ${(p) => p.theme.colors.mainBackground};
+  color: ${(p) => p.theme.colors.mainTextColor};
   margin: 0;
  font-family: 'Poppins', sans-serif;
 }
