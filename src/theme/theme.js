@@ -4,6 +4,7 @@ export const theme = {
     footerBackground: "#22252A",
 
     mainTextColor: "#23262A",
+    secondaryTextColor: "#FAFAFA",
     footerTextColor: "#FAFAFA",
 
     accentColor: "#8BAA36",

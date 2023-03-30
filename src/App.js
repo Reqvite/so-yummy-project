@@ -4,6 +4,7 @@ import PrivateRoute from "Components/routes/PrivateRoute";
 import RestrictedRoute from "Components/routes/RestrictedRoute";
 import SharedLayout from "Components/SharedLayout/SharedLayout";
 import Loader from "Components/ui/Loader/Loader";
+import { GlobalStyle } from "Components/GlobalStyle/GlobalStyle";
 import MainPage from "Pages/MainPage";
 import RegisterPage from "Pages/RegisterPage";
 import SigninPage from "Pages/SigninPage";
@@ -11,7 +12,6 @@ import AuthNavPage from "Pages/AuthNavPage";
 import { useAuth } from "hooks";
 import { useDispatch } from "react-redux";
 import { refreshUser } from "redux/auth/operations";
-import { GlobalStyle } from "Components/GlobalStyle/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { theme } from "theme/theme";
 
