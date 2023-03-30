@@ -1,15 +1,30 @@
 export const theme = {
   colors: {
-    mainBackground: "#ECECEC",
-    footerBackground: "#22252A",
+    // mainBackground: "#ECECEC", //це не правильний колір, основний backgound "#FAFAFA"
+    mainBackground: "#FAFAFA", //білий background
+    footerBackground: "#22252A", //темний(чорний) для футера, кнопок-посилань,ім'я юзера
+    darkThemeBackground: "#1E1F28", //чорний
+    secondaryBackground: "#EBF3D4", //світло-зелений
 
-    mainTextColor: "#23262A",
-    secondaryTextColor: "#FAFAFA",
-    footerTextColor: "#FAFAFA",
+    mainText: "#23262A",
+    titleText: "#001833", // заголовки h1
+    footerText: "#FAFAFA", //білий
+    cardsText: "#3E4462", //назви страв та надписи на картках
+    opacityText: "#000000", //чорний з опасіті 0,5(текст у селекторах, на 404page)
+    categoryText: "#BDBDBD", //світло-сірий(назви категорій)
 
-    accentColor: "#8BAA36",
+    accentColor: "#8BAA36", //темно-зелений
   },
-  fontSizes: {},
+  fontSizes: {
+    xxxs: "10px", //footer-mobile-input
+    xxs: "12", //mobile-selectors
+    xs: "14px", //footer
+    s: "16px", //footer
+    sm: "18px", //footer
+    m: "24px", // mobile-header
+    l: "28px", //footer, h1-tablet
+    xl: "44px", //h1-desktop,
+  },
   space: {},
   sizes: {},
   fontWeights: {
