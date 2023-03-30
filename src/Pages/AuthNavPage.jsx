@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const AuthNav = () => {
   return (
     <>
@@ -7,6 +9,14 @@ const AuthNav = () => {
         to be your very own digital cookbook. You can easily save and retrieve
         your own recipes at any time.
       </p>
+      <ul>
+        <li>
+          <NavLink to="/register">Registration</NavLink>
+        </li>
+        <li>
+          <NavLink to="/signin">Sign in</NavLink>
+        </li>
+      </ul>
     </>
   );
 };

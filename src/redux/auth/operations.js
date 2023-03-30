@@ -18,7 +18,7 @@ export const register = createAsyncThunk(
   "auth/register",
   async (credentials, thunkAPI) => {
     try {
-      const resp = await instance.post("route", credentials);
+      const resp = await instance.post("api/users/signup", credentials);
       setToken(resp.data.data.token);
       return resp.data;
     } catch (err) {
@@ -31,8 +31,8 @@ export const login = createAsyncThunk(
   "auth/login",
   async (credentials, thunkAPI) => {
     try {
-      const resp = await instance.post("route", credentials);
-      setToken(resp.data.data.token);
+      const resp = await instance.post("api/users/login", credentials);
+      setToken(resp.data.token);
       return resp.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.response.data.message);
@@ -49,7 +49,7 @@ export const refreshUser = createAsyncThunk(
     }
     setToken(token);
     try {
-      const resp = await instance.get("route");
+      const resp = await instance.get("api/users/current");
       return resp.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.response.data.message);
@@ -57,11 +57,14 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
-export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
-  try {
-    await instance.post("route");
-    setToken();
-  } catch (err) {
-    return thunkAPI.rejectWithValue(err.response.data.message);
+export const logOut = createAsyncThunk(
+  "api/users/logout",
+  async (_, thunkAPI) => {
+    try {
+      await instance.post("api/users/logout");
+      setToken();
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.response.data.message);
+    }
   }
-});
+);
