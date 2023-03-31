@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { ReactComponent as SvgOrderWhite } from "../../assets/svg/authFormOrder/Order-food-pana-white.svg";
 import { ReactComponent as SvgOrderBlack } from "../../assets/svg/authFormOrder/Order-food-pana-black.svg";
 const AuthSvg = () => {
-  const matches = useMediaQuery("(min-width: 768px) and (max-width: 1240px)");
+  const matches = useMediaQuery(
+    "(min-width: 768px) and (max-width: 1439.98px)"
+  );
 
   return matches ? <FormSvgBlack /> : <FormSvgWhite />;
 };
@@ -40,8 +42,8 @@ const FormSvgBlack = styled(SvgOrderBlack)`
   transform: translate(-50%, -50%);
 
   ${(p) => p.theme.sizes.tablet} {
-    width: 50vw;
-    height: 34vh;
+    width: 409px;
+    height: 300px;
     top: -130px;
   }
 `;

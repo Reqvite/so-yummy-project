@@ -4,7 +4,7 @@ export const theme = {
     footerBackground: "#22252A", //темний(чорний) для футера, кнопок-посилань,ім'я юзера
     darkThemeBackground: "#1E1F28", //чорний
     secondaryBackground: "#EBF3D4", //світло-зелений
-
+    elementsBackground: "#FFFFFF", // чистий білий в елементах карток, селекторів
     mainText: "#23262A",
     secondaryText: "#FAFAFA",
     titleText: "#001833", // заголовки h1
@@ -32,7 +32,7 @@ export const theme = {
   sizes: {
     mobile: "@media screen and (min-width:374.98px)",
     tablet: "@media screen and (min-width:767.98px)",
-    desktop: "@media screen and (min-width:1239.98px)",
+    desktop: "@media screen and (min-width:1439.98px)",
   },
   fontWeights: {
     regular: 400,
@@ -46,7 +46,7 @@ export const theme = {
     mainHeading: "-0.005em",
   },
   borders: {
-    secondaryButtonBorder: "1px solid #fafafa",
+    secondaryButtonBorder: "2px solid #FAFAFA",
   },
   shadows: {},
   flexCentered: {
