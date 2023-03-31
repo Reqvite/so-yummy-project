@@ -48,7 +48,9 @@ const App = () => {
         />
         <Route
           path="/main"
-          element={<PrivateRoute component={<SharedLayout />} redirectTo="/" />}
+          element={
+            <RestrictedRoute component={<SharedLayout />} redirectTo="/" />
+          }
         >
           <Route index element={<MainPage />} />
         </Route>
