@@ -20,6 +20,13 @@ export const Box = styled.div`
   height: 121px;
 `;
 
+export const Svg = styled.div`
+  margin-bottom: 28px;
+  ${(p) => p.theme.sizes.tablet} {
+    margin-bottom: 44px;
+  }
+`;
+
 export const Heading = styled.h1`
   margin-bottom: 14px;
   font-weight: ${(p) => p.theme.fontWeights.semiBold};

@@ -1,5 +1,36 @@
 import { Form, Field } from "formik";
 import styled from "styled-components";
+import backgroundMobile from "../../assets/images/authFormPage/RectangleMobile.png";
+import backgroundTablet from "../../assets/images/authFormPage/RectangleTablet.png";
+import backgroundDesktop from "../../assets/images/authFormPage/RectangleDesktop.png";
+
+export const Container = styled.div`
+  padding: 0 20px;
+  height: 100vh;
+  width: 100vw;
+  ${(p) => p.theme.flexCentered}
+`;
+
+export const BackgroundImg = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  object-fit: cover;
+  height: 50vh;
+  width: 100%;
+  background-image: url(${backgroundMobile});
+  ${(p) => p.theme.sizes.tablet} {
+    height: 606px;
+    background-image: url(${backgroundTablet});
+  }
+  ${(p) => p.theme.sizes.desktop} {
+    height: 280px;
+    background-image: url(${backgroundDesktop});
+  }
+`;
 
 export const Box = styled.div`
   color: #fafafa;

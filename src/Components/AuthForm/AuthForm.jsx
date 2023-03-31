@@ -2,7 +2,14 @@ import { Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { register, login } from "redux/auth/operations";
-import { Box, FormBox, Heading, Input } from "./AuthForm.styled";
+import {
+  BackgroundImg,
+  Box,
+  Container,
+  FormBox,
+  Heading,
+  Input,
+} from "./AuthForm.styled";
 
 const AuthForm = ({ page, redirect, title, schema }) => {
   const dispatch = useDispatch();
@@ -15,7 +22,8 @@ const AuthForm = ({ page, redirect, title, schema }) => {
           password: "",
         };
   return (
-    <>
+    <Container>
+      <BackgroundImg />
       <Box>
         <Heading>{title}</Heading>
         <Formik
@@ -49,7 +57,7 @@ const AuthForm = ({ page, redirect, title, schema }) => {
           {redirect}
         </NavLink>
       </Box>
-    </>
+    </Container>
   );
 };
 

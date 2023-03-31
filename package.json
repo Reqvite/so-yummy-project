@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.15",
+    "@mui/styled-engine-sc": "^5.11.11",
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -16,6 +20,7 @@
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
     "redux-persist": "^6.0.0",
+    "styled-component": "^2.8.0",
     "styled-components": "^5.3.9",
     "web-vitals": "^2.1.4",
     "yup": "^1.0.2"

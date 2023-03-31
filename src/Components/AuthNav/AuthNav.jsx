@@ -1,5 +1,5 @@
+import { useMediaQuery } from "@mui/material";
 import Logo from "Components/ui/Logo/Logo";
-import { useMedia } from "hooks/usemedia";
 import {
   Box,
   Button,
@@ -7,16 +7,19 @@ import {
   Heading,
   List,
   ListItem,
+  Svg,
   Text,
 } from "./AuthNav.styled";
 
 const AuthNav = () => {
-  const { width } = useMedia();
-  const mediaRule = width >= 768 ? 68 : 54;
+  const matches = useMediaQuery("(min-width:768px)");
+  const mediaRule = matches ? 68 : 54;
   return (
     <Container>
       <Box>
-        <Logo width={mediaRule} height={mediaRule} />
+        <Svg>
+          <Logo width={mediaRule} height={mediaRule} />
+        </Svg>
         <Heading>Welcome to the app</Heading>
         <Text>
           This app offers more than just a collection of recipes - it is
