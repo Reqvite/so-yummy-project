@@ -4,7 +4,7 @@ export const theme = {
     footerBackground: "#22252A", //темний(чорний) для футера, кнопок-посилань,ім'я юзера
     darkThemeBackground: "#1E1F28", //чорний
     secondaryBackground: "#EBF3D4", //світло-зелений
-
+    elementsBackground: "#FFFFFF", // чистий білий в елементах карток, селекторів
     mainText: "#23262A",
     secondaryText: "#FAFAFA",
     titleText: "#001833", // заголовки h1
