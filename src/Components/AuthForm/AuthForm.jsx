@@ -1,6 +1,9 @@
 import { Formik } from "formik";
+import { useAuth } from "hooks";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { register, login } from "redux/auth/operations";
+import { useTheme } from "styled-components";
 import {
   BackgroundImg,
   Box,
@@ -24,6 +27,9 @@ import AuthSvg from "./AuthSvg";
 
 const AuthForm = ({ page, redirect, title, schema }) => {
   const dispatch = useDispatch();
+  const [loginCredentials, setLoginCredentials] = useState(false);
+  const theme = useTheme();
+
   const initialValues =
     page === "login"
       ? { email: "", password: "" }
@@ -32,6 +38,14 @@ const AuthForm = ({ page, redirect, title, schema }) => {
           email: "",
           password: "",
         };
+
+  const { status } = useAuth();
+
+  useEffect(() => {
+    if (status) {
+      dispatch(login(loginCredentials));
+    }
+  }, [dispatch, status, loginCredentials]);
 
   return (
     <Container>
@@ -47,6 +61,8 @@ const AuthForm = ({ page, redirect, title, schema }) => {
               page === "login"
                 ? dispatch(login(credentials))
                 : dispatch(register(credentials));
+
+              setLoginCredentials(credentials);
             }}
           >
             {({ errors, touched }) => (
@@ -63,6 +79,7 @@ const AuthForm = ({ page, redirect, title, schema }) => {
                       {!errors.name && touched.name && <SuccesIcon />}
                       {errors.name && touched.name && <ErrorIcon />}
                       <Input
+                        autoComplete="off"
                         type="text"
                         name="name"
                         placeholder="Name"
@@ -85,6 +102,7 @@ const AuthForm = ({ page, redirect, title, schema }) => {
                   {!errors.email && touched.email && <SuccesIcon />}
                   {errors.email && touched.email && <ErrorIcon />}
                   <Input
+                    autoComplete="off"
                     name="email"
                     type="email"
                     placeholder="Email"
@@ -106,11 +124,12 @@ const AuthForm = ({ page, redirect, title, schema }) => {
                   {errors.password && touched.password && <ErrorIcon />}
                   {errors.password?.includes("secure") && <SecureIcon />}
                   <Input
+                    autoComplete="off"
                     name="password"
                     type="password"
                     placeholder="Password"
                     $error={errors.password && touched.password}
-                    $success={!errors.password && touched.name}
+                    $success={!errors.password && touched.password}
                     $notSecure={errors.password?.includes("secure")}
                   />
                 </Label>
@@ -119,8 +138,20 @@ const AuthForm = ({ page, redirect, title, schema }) => {
                     {errors.password}
                   </ErrorLast>
                 ) : null}
-                <Button type="submit">Submit</Button>
-                <Link to={page === "login" ? "/register" : "/signin"}>
+                <Button
+                  type="submit"
+                  whileHover={{
+                    color: theme.colors.mainText,
+                  }}
+                >
+                  {page === "login" ? "Sing in" : "Sign up"}
+                </Button>
+                <Link
+                  to={page === "login" ? "/register" : "/signin"}
+                  whileHover={{
+                    color: theme.colors.accentColor,
+                  }}
+                >
                   {redirect}
                 </Link>
               </FormBox>

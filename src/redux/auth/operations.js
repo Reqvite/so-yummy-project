@@ -19,7 +19,6 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const resp = await instance.post("api/users/signup", credentials);
-      setToken(resp.data.data.token);
       return resp.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.response.data.message);

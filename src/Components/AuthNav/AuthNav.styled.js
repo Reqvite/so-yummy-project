@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import img from "../../assets/images/authNavPage/authNavBackground.jpg";
@@ -17,7 +18,6 @@ export const Box = styled.div`
   color: ${(p) => p.theme.colors.secondaryText};
   text-align: center;
   width: 540px;
-  height: 121px;
 `;
 
 export const Svg = styled.div`
@@ -68,7 +68,25 @@ export const ListItem = styled.li`
   }
 `;
 
-export const Button = styled(Link)`
+export const MainButton = styled(motion(Link))`
+  font-size: 14px;
+  line-height: 1.5;
+  display: block;
+  background-color: ${(p) => p.theme.colors.accentColor};
+  padding: 12px 24px;
+  border-radius: 24px 44px;
+  border: none;
+
+  cursor: pointer;
+
+  ${(p) => p.theme.sizes.tablet} {
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 22px 44px;
+  }
+`;
+
+export const SecondaryButton = styled(motion(Link))`
   font-size: 14px;
   line-height: 1.5;
   display: block;
@@ -77,14 +95,11 @@ export const Button = styled(Link)`
   border-radius: 24px 44px;
   border: ${(p) => p.theme.borders.secondaryButtonBorder};
 
+  cursor: pointer;
+
   ${(p) => p.theme.sizes.tablet} {
     font-size: 16px;
     line-height: 1.5;
     padding: 22px 44px;
-  }
-
-  :hover {
-    background-color: ${(p) => p.theme.colors.accentColor};
-    border-color: transparent;
   }
 `;

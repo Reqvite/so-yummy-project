@@ -10,9 +10,10 @@ import { ReactComponent as SecureSvg } from "../../assets/svg/authFormOrder/notS
 import { ReactComponent as ErrorSvg } from "../../assets/svg/authFormOrder/error.svg";
 import { ReactComponent as SuccessSvg } from "../../assets/svg/authFormOrder/success.svg";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const Container = styled.div`
-  padding: 0 20px 80px 20px;
+  padding: 0 20px 150px 20px;
   ${(p) => p.theme.sizes.tablet} {
     padding: 0 20px 60px 20px;
   }
@@ -216,19 +217,29 @@ export const Input = styled(Field)`
     `}
 `;
 
-export const Button = styled.button`
+export const Button = styled(motion.button)`
+  display: block;
+  padding: 12px 100px;
   height: 45px;
+  color: ${(p) => p.theme.colors.secondaryText};
+  background: ${(p) => p.theme.colors.accentColor};
+
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+
   ${(p) => p.theme.sizes.tablet} {
     height: 59px;
   }
 `;
 
-export const Link = styled(NavLink)`
+export const Link = styled(motion(NavLink))`
   position: absolute;
   left: 50%;
   bottom: -36px;
   transform: translate(-50%);
   color: ${(p) => p.theme.colors.secondaryText};
+  text-decoration: underline;
 `;
 
 export const Error = styled.p`

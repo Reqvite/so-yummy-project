@@ -46,7 +46,7 @@ export const theme = {
     mainHeading: "-0.005em",
   },
   borders: {
-    secondaryButtonBorder: "1px solid #fafafa",
+    secondaryButtonBorder: "2px solid #FAFAFA",
   },
   shadows: {},
   flexCentered: {

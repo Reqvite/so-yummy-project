@@ -1,17 +1,20 @@
 import { useMediaQuery } from "@mui/material";
 import Logo from "Components/ui/Logo/Logo";
+import { useTheme } from "styled-components";
 import {
   Box,
-  Button,
   Container,
   Heading,
   List,
   ListItem,
+  MainButton,
+  SecondaryButton,
   Svg,
   Text,
 } from "./AuthNav.styled";
 
 const AuthNav = () => {
+  const theme = useTheme();
   const matches = useMediaQuery("(min-width:768px)");
   const mediaRule = matches ? 68 : 54;
   return (
@@ -28,10 +31,25 @@ const AuthNav = () => {
         </Text>
         <List>
           <ListItem>
-            <Button to="/register">Registration</Button>
+            <MainButton
+              whileHover={{
+                backgroundColor: theme.colors.mainText,
+              }}
+              to="/register"
+            >
+              Registration
+            </MainButton>
           </ListItem>
           <ListItem>
-            <Button to="/signin">Sign in</Button>
+            <SecondaryButton
+              whileHover={{
+                backgroundColor: theme.colors.accentColor,
+                borderColor: theme.colors.accentColor,
+              }}
+              to="/signin"
+            >
+              Sign in
+            </SecondaryButton>
           </ListItem>
         </List>
       </Box>

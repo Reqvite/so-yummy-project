@@ -40,8 +40,8 @@ const FormSvgBlack = styled(SvgOrderBlack)`
   transform: translate(-50%, -50%);
 
   ${(p) => p.theme.sizes.tablet} {
-    width: 50vw;
-    height: 34vh;
+    width: 409px;
+    height: 300px;
     top: -130px;
   }
 `;
