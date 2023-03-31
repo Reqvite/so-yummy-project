@@ -14,6 +14,9 @@ export const theme = {
     categoryText: "#BDBDBD", //світло-сірий(назви категорій)
 
     accentColor: "#8BAA36", //темно-зелений
+    inputErrorColor: "#E74A3B",
+    inputNotSecureColor: "#F6C23E",
+    inputSuccessColor: "#3CBC81",
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input
@@ -27,9 +30,9 @@ export const theme = {
   },
   space: {},
   sizes: {
-    mobile: "@media screen and (min-width:375px)",
-    tablet: "@media screen and (min-width:768px)",
-    desktop: "@media screen and (min-width:1240px)",
+    mobile: "@media screen and (min-width:374.98px)",
+    tablet: "@media screen and (min-width:767.98px)",
+    desktop: "@media screen and (min-width:1239.98px)",
   },
   fontWeights: {
     regular: 400,
