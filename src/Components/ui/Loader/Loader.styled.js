@@ -6,6 +6,7 @@ const LoaderWrapper = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
+  background-color: #ebf3d4;
 `;
 
 export default LoaderWrapper;
