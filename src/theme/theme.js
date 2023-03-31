@@ -26,7 +26,11 @@ export const theme = {
     xl: "44px", //h1-desktop,
   },
   space: {},
-  sizes: {},
+  sizes: {
+    mobile: "@media screen and (min-width:375px)",
+    tablet: "@media screen and (min-width:768px)",
+    desktop: "@media screen and (min-width:1240px)",
+  },
   fontWeights: {
     regular: 400,
     medium: 500,
@@ -38,7 +42,9 @@ export const theme = {
     base: "-0.02em",
     mainHeading: "-0.005em",
   },
-  borders: {},
+  borders: {
+    secondaryButtonBorder: "1px solid #fafafa",
+  },
   shadows: {},
   flexCentered: {
     display: "flex",

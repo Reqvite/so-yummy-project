@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import img from "../../assets/images/authNavBackground.jpg";
+import img from "../../assets/images/authNavPage/authNavBackground.jpg";
 
 export const Container = styled.div`
   padding: 0 35px;
@@ -23,34 +23,58 @@ export const Box = styled.div`
 export const Heading = styled.h1`
   margin-bottom: 14px;
   font-weight: ${(p) => p.theme.fontWeights.semiBold};
-  font-size: ${(p) => p.theme.fontSizes.l};
+  font-size: ${(p) => p.theme.fontSizes.m};
   line-height: 1;
-  /* or 100% */
-
   letter-spacing: -0.02em;
-  font-feature-settings: "liga" off;
+
+  ${(p) => p.theme.sizes.tablet} {
+    font-size: ${(p) => p.theme.fontSizes.l};
+  }
 `;
 
 export const Text = styled.p`
   margin-bottom: 40px;
+  font-size: ${(p) => p.theme.fontSizes.xs};
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  ${(p) => p.theme.sizes.tablet} {
+    font-size: ${(p) => p.theme.fontSizes.sm};
+    line-height: 1.33;
+  }
 `;
 
 export const List = styled.ul`
   display: flex;
   justify-content: center;
+  @media screen and (max-width: 299.98px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const ListItem = styled.li`
   :first-child {
-    margin-right: 18px;
+    margin-bottom: 18px;
+
+    @media screen and (min-width: 299.98px) {
+      margin-right: 18px;
+    }
   }
 `;
 
 export const Button = styled(Link)`
+  font-size: 14px;
+  line-height: 1.5;
+  display: block;
   background-color: transparent;
-  padding: 22px 44px;
+  padding: 12px 24px;
   border-radius: 24px 44px;
-  border: 1px solid rgb(250, 250, 250);
+  border: ${(p) => p.theme.borders.secondaryButtonBorder};
+
+  ${(p) => p.theme.sizes.tablet} {
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 22px 44px;
+  }
 
   :hover {
     background-color: ${(p) => p.theme.colors.accentColor};
