@@ -1,17 +1,22 @@
-import { useDispatch } from "react-redux";
-import { logOut } from "redux/auth/operations";
 import { useMediaQuery } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 import styled from "styled-components";
 import Container from "../ui/Container/ContainerStyled";
 import HeaderLogo from "./HeaderLogo/HeaderLogo";
-import Navigation from "./Navigation/Navigation";
+import HeaderNavigation from "./HeaderNavigation/HeaderNavigation";
+import BurgerButton from "./MobileMenu/BurgerButton/BurgerButton";
+import Modal from "../../Components/ui/Modal/Modal";
+import MobileNavMenu from "../../Components/Header/MobileMenu/MobileMenu";
 
 const Header = () => {
-  const dispatch = useDispatch();
-  const notDesktop = useMediaQuery("(max-width: 1439px)");
+  const [menu, setMenu] = useState(false);
 
-  console.log(notDesktop);
+  const isMobileTablet = useMediaQuery("(max-width: 1439px)");
+
+  const toggleModal = () => {
+    setMenu(!menu);
+  };
 
   return (
     <Container>
@@ -21,12 +26,15 @@ const Header = () => {
             <HeaderLogo />
           </LogoLink>
         </LogoWrap>
-
-        <Navigation />
-
-        <button type="button" onClick={() => dispatch(logOut())}>
-          Logout
-        </button>
+        {!isMobileTablet && <HeaderNavigation />}
+        <div>
+          {isMobileTablet && <BurgerButton toggleModal={toggleModal} />}
+        </div>
+        {isMobileTablet && menu && (
+          <Modal toggleModal={toggleModal}>
+            <MobileNavMenu toggleModal={toggleModal} />
+          </Modal>
+        )}
       </HeaderElement>
     </Container>
   );
@@ -51,4 +59,5 @@ const LogoWrap = styled.div`
 `;
 
 const LogoLink = styled(NavLink)``;
+
 export default Header;
