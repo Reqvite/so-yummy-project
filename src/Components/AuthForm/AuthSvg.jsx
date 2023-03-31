@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { ReactComponent as SvgOrderWhite } from "../../assets/svg/authFormOrder/Order-food-pana-white.svg";
 import { ReactComponent as SvgOrderBlack } from "../../assets/svg/authFormOrder/Order-food-pana-black.svg";
 const AuthSvg = () => {
-  const matches = useMediaQuery("(min-width: 768px) and (max-width: 1240px)");
+  const matches = useMediaQuery(
+    "(min-width: 768px) and (max-width: 1399.98px)"
+  );
 
   return matches ? <FormSvgBlack /> : <FormSvgWhite />;
 };

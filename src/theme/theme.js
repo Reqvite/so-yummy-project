@@ -32,7 +32,7 @@ export const theme = {
   sizes: {
     mobile: "@media screen and (min-width:374.98px)",
     tablet: "@media screen and (min-width:767.98px)",
-    desktop: "@media screen and (min-width:1239.98px)",
+    desktop: "@media screen and (min-width:1439.98px)",
   },
   fontWeights: {
     regular: 400,
