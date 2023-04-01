@@ -8,7 +8,7 @@ import imgTab from "../../../assets/images/MobileMenu/backgroundTab.png";
 import { useMediaQuery } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const MobileNavMenu = ({ toggleModal }) => {
+const MobileNavMenu = ({ toggleModal, menu }) => {
   const isMobile = useMediaQuery("(max-width: 767px)");
   let width = 44;
   let height = 44;
@@ -22,7 +22,7 @@ const MobileNavMenu = ({ toggleModal }) => {
     <Wrap>
       <div onClick={() => toggleModal()}>
         <LogoLink to="/main">
-          <Logo width={width} height={height} />
+          <Logo width={width} height={height} menu={menu} />
         </LogoLink>
       </div>
       <CloseBtn toggleModal={toggleModal} />
@@ -48,8 +48,12 @@ const Wrap = styled.div`
 `;
 const LogoLink = styled(Link)`
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 18px;
+  left: 16px;
+  @media screen and (min-width: 768px) {
+    top: 18px;
+    left: 32px;
+  }
 `;
 const CloseBtn = styled(MobMenuCloseBtn)`
   position: absolute;

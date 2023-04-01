@@ -8,6 +8,7 @@ import HeaderNavigation from "./HeaderNavigation/HeaderNavigation";
 import BurgerButton from "./MobileMenu/BurgerButton/BurgerButton";
 import Modal from "../../Components/ui/Modal/Modal";
 import MobileNavMenu from "../../Components/Header/MobileMenu/MobileMenu";
+import UserLogo from "./UserLogo/UserLogo";
 
 const Header = () => {
   const [menu, setMenu] = useState(false);
@@ -26,13 +27,16 @@ const Header = () => {
             <HeaderLogo />
           </LogoLink>
         </LogoWrap>
+
         {!isMobileTablet && <HeaderNavigation />}
-        <div>
-          {isMobileTablet && <BurgerButton toggleModal={toggleModal} />}
-        </div>
+
+        <UserLogo />
+
+        {isMobileTablet && <BurgerButton toggleModal={toggleModal} />}
+
         {isMobileTablet && menu && (
           <Modal toggleModal={toggleModal}>
-            <MobileNavMenu toggleModal={toggleModal} />
+            <MobileNavMenu toggleModal={toggleModal} menu={menu} />
           </Modal>
         )}
       </HeaderElement>

@@ -47,8 +47,24 @@ const App = () => {
           }
         />
         <Route
+          path="/categories"
+          element={
+            <RestrictedRoute component={<SharedLayout />} redirectTo="/main" />
+          }
+        />
+
+        <Route
+          path="/add"
+          element={
+            <RestrictedRoute component={<SharedLayout />} redirectTo="/main" />
+          }
+        />
+
+        <Route
           path="/main"
-          element={<PrivateRoute component={<SharedLayout />} redirectTo="/" />}
+          element={
+            <RestrictedRoute component={<SharedLayout />} redirectTo="/" />
+          }
         >
           <Route index element={<MainPage />} />
         </Route>
