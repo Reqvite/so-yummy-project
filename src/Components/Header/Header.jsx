@@ -8,9 +8,14 @@ import HeaderNavigation from "./HeaderNavigation/HeaderNavigation";
 import BurgerButton from "./MobileMenu/BurgerButton/BurgerButton";
 import Modal from "../../Components/ui/Modal/Modal";
 import MobileNavMenu from "../../Components/Header/MobileMenu/MobileMenu";
+
 import UserLogo from "./UserLogo/UserLogo";
 
+import { useDispatch } from "react-redux";
+import { logOut } from "redux/auth/operations";
+
 const Header = () => {
+  const dispatch = useDispatch();
   const [menu, setMenu] = useState(false);
 
   const isMobileTablet = useMediaQuery("(max-width: 1439px)");
@@ -39,6 +44,7 @@ const Header = () => {
             <MobileNavMenu toggleModal={toggleModal} menu={menu} />
           </Modal>
         )}
+        <button onClick={() => dispatch(logOut())}>logout</button>
       </HeaderElement>
     </Container>
   );
