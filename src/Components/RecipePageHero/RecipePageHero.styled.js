@@ -14,10 +14,20 @@ export const MainPageTitle = styled.h1`
 `;
 
 export const Text = styled.p`
+width: 100%;
+max-width: 656px;
+ margin: 0 auto;
+
+ margin-top: 18px;
+
+color: ${(p) => p.theme.colors.darkText};
   font-size: ${(p) => p.theme.fontSizes.xxs}
   line-height: 1.33;
   text-align: center;
-  letter-spacing: ${(p) => p.theme.letterSpacings.base}
+  letter-spacing: ${(p) => p.theme.letterSpacings.base};
 
-  color: #22252a;
+ ${(p) => p.theme.sizes.tablet} {
+     margin-top: 24px;
+  }
+
 `;
