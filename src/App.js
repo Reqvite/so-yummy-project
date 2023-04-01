@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import { refreshUser } from "redux/auth/operations";
 import { ThemeProvider } from "styled-components";
 import { theme } from "theme/theme";
+import ShoppingListPage from "Pages/ShoppingListPage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -47,10 +48,11 @@ const App = () => {
           }
         />
         <Route
-          path="/main"
+          path="/"
           element={<PrivateRoute component={<SharedLayout />} redirectTo="/" />}
         >
-          <Route index element={<MainPage />} />
+          <Route path="main" element={<MainPage />} />
+          <Route path="shopping-list" element={<ShoppingListPage />} />
         </Route>
       </Routes>
       <GlobalStyle />
