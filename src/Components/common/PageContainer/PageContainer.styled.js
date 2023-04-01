@@ -16,15 +16,15 @@ export const MainContainer = styled.div`
   padding: 114px 16px 100px 16px;
   background-color: ${(p) => p.theme.colors.mainBackground};
   ${(p) => p.theme.sizes.mobile} {
-    min-width: 375px;
+    max-width: 375px;
   }
 
   ${(p) => p.theme.sizes.tablet} {
-    min-width: 768px;
+    max-width: 768px;
     padding: 136px 32px 200px 32px;
   }
   ${(p) => p.theme.sizes.desktop} {
-    min-width: 1440px;
+    max-width: 1440px;
     padding: 100px 100px 200px 100px;
   }
 `;
