@@ -1,13 +1,14 @@
 import { Container } from "@mui/material";
+import PageContainer from "Components/common/PageContainer/PageContainer";
 import IngredientsShoppingList from "Components/IngredientsShoppingList/IngredientsShoppingList";
 import MainPageTitle from "Components/ui/MainPageTitle/MainPageTitle";
 
 const ShoppingListPage = () => {
   return (
-    <Container>
+    <PageContainer>
       <MainPageTitle title="Shopping List" />
       <IngredientsShoppingList />
-    </Container>
+    </PageContainer>
   );
 };
 
