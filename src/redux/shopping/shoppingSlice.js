@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { deleteIngredient, getIngredients } from "./operations";
 
 const initialState = {
   list: [],
@@ -6,24 +7,24 @@ const initialState = {
   error: null,
 };
 
-const contactsSlice = createSlice({
-  name: "contacts",
+const shoppingSlice = createSlice({
+  name: "shopping",
   initialState,
   extraReducers: (builder) =>
     builder
-      //   .addCase(fetchContacts.pending, (state, action) => {
-      //     state.isLoading = true;
-      //   })
-      //   .addCase(fetchContacts.fulfilled, (state, action) => {
-      //     state.isLoading = false;
-      //     state.error = null;
-      //     state.items = action.payload;
-      //   })
-      //   .addCase(fetchContacts.rejected, (state, action) => {
-      //     state.isLoading = false;
-      //     state.isLoading = false;
-      //     state.error = action.payload;
-      //   })
+      .addCase(getIngredients.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(getIngredients.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.list = action.payload.ingredients;
+      })
+      .addCase(getIngredients.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isLoading = false;
+        state.error = action.payload;
+      })
       //   .addCase(addContact.pending, (state, action) => {
       //     state.isLoading = true;
       //   })
@@ -35,14 +36,16 @@ const contactsSlice = createSlice({
       //     state.isLoading = false;
       //     state.error = action.payload;
       //   })
-      .addCase(deleteIngredient.pending, (state, action) => {})
+      .addCase(deleteIngredient.pending, (state, action) => {
+        state.isLoading = true;
+      })
       .addCase(deleteIngredient.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const idx = state.items.findIndex(
-          (contact) => contact.id === action.payload.id
+        const idx = state.list.findIndex(
+          (ingredient) => ingredient._id === action.payload.ingredientId
         );
-        state.items.splice(idx, 1);
+        state.list.splice(idx, 1);
       })
       .addCase(deleteIngredient.rejected, (state, action) => {
         state.isLoading = false;
@@ -50,4 +53,4 @@ const contactsSlice = createSlice({
       }),
 });
 
-export const contactsReduser = contactsSlice.reducer;
+export const shoppingReducer = shoppingSlice.reducer;
