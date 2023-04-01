@@ -7,7 +7,7 @@ const rotateAnimation = keyframes`
 }`;
 
 export const MainContainer = styled.div`
-  max-width: 100%;
+  width: 100%;
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -16,15 +16,15 @@ export const MainContainer = styled.div`
   padding: 114px 16px 100px 16px;
   background-color: ${(p) => p.theme.colors.mainBackground};
   ${(p) => p.theme.sizes.mobile} {
-    max-width: 375px;
+    min-width: 375px;
   }
 
   ${(p) => p.theme.sizes.tablet} {
-    max-width: 768px;
+    min-width: 768px;
     padding: 136px 32px 200px 32px;
   }
   ${(p) => p.theme.sizes.desktop} {
-    max-width: 1440px;
+    min-width: 1440px;
     padding: 100px 100px 200px 100px;
   }
 `;
@@ -62,8 +62,16 @@ export const RotateBlock = styled.div`
 
 export const ImageBackground = styled.img`
   position: absolute;
-  width: 50%;
-  height: 60%;
+  max-width: 187px;
+  height: 100px;
   bottom: 0px;
   left: 0px;
+  ${(p) => p.theme.sizes.tablet} {
+    max-width: 360px;
+    height: 200px;
+  }
+  ${(p) => p.theme.sizes.desktop} {
+    max-width: 500px;
+    height: 250px;
+  }
 `;
