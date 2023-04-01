@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deleteIngredient, getIngredients } from "redux/shopping/operations";
-import { selectIsLoading, selectList } from "redux/shopping/selectors";
+// import { selectIsLoading, selectList } from "redux/shopping/selectors";
 import {
   Box,
   Button,
@@ -39,8 +39,8 @@ const ingr = [
 
 const IngredientsShoppingList = () => {
   const dispatch = useDispatch();
-  const list = useSelector(selectList);
-  const isLoading = useSelector(selectIsLoading);
+  // const list = useSelector(selectList);
+  // const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
     dispatch(getIngredients());
@@ -56,7 +56,7 @@ const IngredientsShoppingList = () => {
             <ListHeaderText>Remove</ListHeaderText>
           </div>
         </ListItemHeader>
-        {list?.map(({ _id, ttl, desc, thb, measure }) => (
+        {ingr?.map(({ _id, ttl, desc, thb, measure }) => (
           <ListItem key={_id}>
             <Wrapper>
               <ImgBox>
