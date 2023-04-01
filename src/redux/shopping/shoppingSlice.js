@@ -35,8 +35,8 @@ const contactsSlice = createSlice({
       //     state.isLoading = false;
       //     state.error = action.payload;
       //   })
-      .addCase(deleteContact.pending, (state, action) => {})
-      .addCase(deleteContact.fulfilled, (state, action) => {
+      .addCase(deleteIngredient.pending, (state, action) => {})
+      .addCase(deleteIngredient.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         const idx = state.items.findIndex(
@@ -44,7 +44,7 @@ const contactsSlice = createSlice({
         );
         state.items.splice(idx, 1);
       })
-      .addCase(deleteContact.rejected, (state, action) => {
+      .addCase(deleteIngredient.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       }),
