@@ -1,12 +1,6 @@
-import {
-  ImageBackground,
-  MainContainer,
-  RotateBlock,
-} from "./PageContainer.styled";
+import { MainContainer, RotateBlock } from "./PageContainer.styled";
 
 import { useMediaQuery } from "@mui/material";
-
-import bgImage from "../../../assets/images/MobileMenu/bgLeaves.png";
 
 const PageContainer = ({ children }) => {
   const adaptive = {
@@ -87,7 +81,6 @@ const PageContainer = ({ children }) => {
       />
       <RotateBlock {...propsTwo} />
       {children}
-      <ImageBackground src={bgImage} alt="salad leaves" />
     </MainContainer>
   );
 };

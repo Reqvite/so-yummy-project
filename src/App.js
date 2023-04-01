@@ -15,6 +15,7 @@ import { refreshUser } from "redux/auth/operations";
 import { ThemeProvider } from "styled-components";
 import { theme } from "theme/theme";
 import ShoppingListPage from "Pages/ShoppingListPage";
+import CategoriesPage from "Pages/CategoriesPage";
 import RecipePage from "Pages/RecipePage";
 
 const App = () => {
@@ -53,6 +54,7 @@ const App = () => {
           element={<PrivateRoute component={<SharedLayout />} redirectTo="/" />}
         >
           <Route path="main" element={<MainPage />} />
+          <Route path="categories" element={<CategoriesPage />} />
           <Route path="shopping-list" element={<ShoppingListPage />} />
           <Route path="recipe/:id" element={<RecipePage />}></Route>
         </Route>

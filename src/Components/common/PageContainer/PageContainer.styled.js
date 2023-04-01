@@ -16,11 +16,11 @@ export const MainContainer = styled.div`
   padding: 114px 16px 100px 16px;
   background-color: ${(p) => p.theme.colors.mainBackground};
   ${(p) => p.theme.sizes.mobile} {
-    min-width: 375px;
+    max-width: 375px;
   }
 
   ${(p) => p.theme.sizes.tablet} {
-    min-width: 768px;
+    max-width: 768px;
     padding: 136px 32px 200px 32px;
   }
   ${(p) => p.theme.sizes.desktop} {
@@ -58,20 +58,4 @@ export const RotateBlock = styled.div`
     top: ${(p) => p.top || 52};
     left: ${(p) => p.left || 328}px;
   } ;
-`;
-
-export const ImageBackground = styled.img`
-  position: absolute;
-  max-width: 187px;
-  height: 100px;
-  bottom: 0px;
-  left: 0px;
-  ${(p) => p.theme.sizes.tablet} {
-    max-width: 360px;
-    height: 200px;
-  }
-  ${(p) => p.theme.sizes.desktop} {
-    max-width: 500px;
-    height: 250px;
-  }
 `;
