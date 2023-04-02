@@ -8,7 +8,7 @@ const UserConfirmModal = ({ toggleConfirmModal }) => {
 
   const handleLogoutButtonClick = () => {
     toggleConfirmModal();
-    dispatch(logOut);
+    dispatch(logOut());
   };
 
   return (
