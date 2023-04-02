@@ -24,10 +24,12 @@ import {
   User,
 } from "./AuthForm.styled";
 import AuthSvg from "./AuthSvg";
+import ButtonLoader from "Components/ui/ButtonLoader/ButtonLoader";
 
 const AuthForm = ({ page, redirect, title, schema }) => {
   const dispatch = useDispatch();
   const [loginCredentials, setLoginCredentials] = useState(false);
+  const { isLoading } = useAuth();
   const theme = useTheme();
 
   const initialValues =
@@ -122,7 +124,9 @@ const AuthForm = ({ page, redirect, title, schema }) => {
                   <Password />
                   {!errors.password && touched.password && <SuccesIcon />}
                   {errors.password && touched.password && <ErrorIcon />}
-                  {errors.password?.includes("secure") && <SecureIcon />}
+                  {errors.password &&
+                    touched.password &&
+                    errors.password?.includes("secure") && <SecureIcon />}
                   <Input
                     autoComplete="off"
                     name="password"
@@ -139,12 +143,19 @@ const AuthForm = ({ page, redirect, title, schema }) => {
                   </ErrorLast>
                 ) : null}
                 <Button
+                  disabled={isLoading}
                   type="submit"
                   whileHover={{
                     color: theme.colors.mainText,
                   }}
                 >
-                  {page === "login" ? "Sing in" : "Sign up"}
+                  {isLoading ? (
+                    <ButtonLoader color="white" width={25} />
+                  ) : page === "login" ? (
+                    "Sing in"
+                  ) : (
+                    "Sign up"
+                  )}
                 </Button>
                 <Link
                   to={page === "login" ? "/register" : "/signin"}
