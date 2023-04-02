@@ -15,6 +15,9 @@ import { useDispatch } from "react-redux";
 import { refreshUser } from "redux/auth/operations";
 import { ThemeProvider } from "styled-components";
 import { theme } from "theme/theme";
+import ShoppingListPage from "Pages/ShoppingListPage";
+import CategoriesPage from "Pages/CategoriesPage";
+import RecipePage from "Pages/RecipePage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -49,19 +52,14 @@ const App = () => {
         />
 
         <Route
-          path="/main"
-          element={
-            <RestrictedRoute component={<SharedLayout />} redirectTo="/" />
-          }
+          path="/"
+          element={<PrivateRoute component={<SharedLayout />} redirectTo="/" />}
         >
-          <Route index element={<MainPage />} />
-
-          <Route
-            path="/add"
-            element={
-              <RestrictedRoute component={<AddRecipe />} redirectTo="/main" />
-            }
-          />
+          <Route path="main" element={<MainPage />} />
+          <Route path="add" element={<AddRecipe />} />
+          <Route path="categories" element={<CategoriesPage />} />
+          <Route path="shopping-list" element={<ShoppingListPage />} />
+          <Route path="recipe/:id" element={<RecipePage />}></Route>
         </Route>
       </Routes>
       <GlobalStyle />
