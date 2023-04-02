@@ -18,8 +18,6 @@ import { theme } from "theme/theme";
 import ShoppingListPage from "Pages/ShoppingListPage";
 import CategoriesPage from "Pages/CategoriesPage";
 import RecipePage from "Pages/RecipePage";
-import Alert from "Components/ui/Alert";
-import NotFoundPage from "Pages/NotFoundPage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -55,19 +53,15 @@ const App = () => {
 
         <Route
           path="/"
-          element={
-            <RestrictedRoute component={<SharedLayout />} redirectTo="/" />
-          }
+          element={<PrivateRoute component={<SharedLayout />} redirectTo="/" />}
         >
           <Route path="main" element={<MainPage />} />
           <Route path="add" element={<AddRecipe />} />
           <Route path="categories" element={<CategoriesPage />} />
           <Route path="shopping-list" element={<ShoppingListPage />} />
           <Route path="recipe/:id" element={<RecipePage />}></Route>
-          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-      <Alert />
       <GlobalStyle />
     </ThemeProvider>
   );
