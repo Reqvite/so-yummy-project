@@ -52,7 +52,7 @@ const IngredientsShoppingList = () => {
 
   return (
     <Box>
-      <Link to={`/recipe/640cd5ac2d9fecf12e8897fc`}>recipe</Link>
+      <Link to={`/recipe/640cd5ac2d9fecf12e8897f2`}>recipe</Link>
       <List>
         <ListItemHeader>
           <ListHeaderText>Product</ListHeaderText>
