@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 
-const modalRoot = document.querySelector("#mobile-menu");
+const modalRoot = document.querySelector("#modal");
 
 const Modal = ({ toggleModal, children }) => {
   useEffect(() => {
@@ -44,6 +44,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 1000;
 `;
 const ModalContainer = styled.div`
   width: fit-content;

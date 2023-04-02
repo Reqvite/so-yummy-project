@@ -9,6 +9,7 @@ import MainPage from "Pages/MainPage";
 import RegisterPage from "Pages/RegisterPage";
 import SigninPage from "Pages/SigninPage";
 import AuthNavPage from "Pages/AuthNavPage";
+import AddRecipe from "Pages/AddRecipe";
 import { useAuth } from "hooks";
 import { useDispatch } from "react-redux";
 import { refreshUser } from "redux/auth/operations";
@@ -49,11 +50,13 @@ const App = () => {
             <RestrictedRoute component={<SigninPage />} redirectTo="/main" />
           }
         />
+
         <Route
           path="/"
           element={<PrivateRoute component={<SharedLayout />} redirectTo="/" />}
         >
           <Route path="main" element={<MainPage />} />
+          <Route path="add" element={<AddRecipe />} />
           <Route path="categories" element={<CategoriesPage />} />
           <Route path="shopping-list" element={<ShoppingListPage />} />
           <Route path="recipe/:id" element={<RecipePage />}></Route>
