@@ -1,10 +1,11 @@
 import React from "react";
 import HeaderNavigation from "../HeaderNavigation/HeaderNavigation";
 import MobMenuCloseBtn from "../MobileMenu/CloseButton/CloseButton";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Logo from "../../ui/Logo/Logo";
 import img from "../../../assets/images/MobileMenu/background.png";
 import imgTab from "../../../assets/images/MobileMenu/backgroundTab.png";
+
 import { useMediaQuery } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -30,6 +31,14 @@ const MobileNavMenu = ({ toggleModal, menu }) => {
     </Wrap>
   );
 };
+const slideDown = keyframes`
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
 
 const Wrap = styled.div`
   position: fixed;
@@ -41,12 +50,17 @@ const Wrap = styled.div`
   background-image: url(${img});
   background-repeat: no-repeat;
   background-position: bottom right;
+  animation-name: ${slideDown};
+  animation-duration: 500ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
   z-index: 101;
 
   @media screen and (min-width: 768px) {
     background-image: url(${imgTab});
   }
 `;
+
 const LogoLink = styled(Link)`
   position: absolute;
   top: 18px;
