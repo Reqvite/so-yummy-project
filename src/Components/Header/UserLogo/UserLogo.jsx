@@ -10,7 +10,6 @@ const UserLogo = () => {
   // const [userConfirmModal, setUserConfirmModal] = useState(false);
 
   const toggleLogoModal = () => {
-    console.log("open");
     setUserLogoModal(!userLogoModal);
   };
   // const toggleInfoModal = () => {
@@ -49,10 +48,13 @@ const UserInfoWrap = styled.div`
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-
-  /* @media screen and (min-width: 768px) {
-    margin-right: 50px;
-  } */
+  margin-right: 28px;
+  @media screen and (min-width: 768px) {
+    margin-right: 54px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-right: 0px;
+  }
 `;
 
 const Avatar = styled.div`

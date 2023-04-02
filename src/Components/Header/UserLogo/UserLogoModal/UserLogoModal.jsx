@@ -1,7 +1,15 @@
 import styled from "styled-components";
+import { ReactComponent as UserEdit } from "../../../../assets/svg/UserEditIcon/userEditIcon.svg";
 
 const UserLogoModal = () => {
-  return <Wrap>edit</Wrap>;
+  return (
+    <Wrap>
+      <Button>
+        <Text>Edit profile</Text>
+        <UserEdit></UserEdit>
+      </Button>
+    </Wrap>
+  );
 };
 
 const Wrap = styled.div`
@@ -22,5 +30,23 @@ const Wrap = styled.div`
     right: 211px;
   }
 `;
+
+const Button = styled.button`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 125px;
+  height: 23px;
+  border: none;
+  background-color: transparent;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--textColorForModal);
+  line-height: 1.6;
+  cursor: pointer;
+`;
+const Text = styled.p``;
 
 export default UserLogoModal;

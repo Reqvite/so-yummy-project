@@ -5,7 +5,6 @@ import styled, { keyframes } from "styled-components";
 import Logo from "../../ui/Logo/Logo";
 import img from "../../../assets/images/MobileMenu/background.png";
 import imgTab from "../../../assets/images/MobileMenu/backgroundTab.png";
-
 import { useMediaQuery } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -31,6 +30,7 @@ const MobileNavMenu = ({ toggleModal, menu }) => {
     </Wrap>
   );
 };
+
 const slideDown = keyframes`
   0% {
     transform: translateY(-100%);
