@@ -5,7 +5,7 @@ import axios from "axios";
 //https://so-yummy-api-x9xv.onrender.com
 
 export const instance = axios.create({
-  baseURL: "https://so-yummy-api-x9xv.onrender.com",
+  baseURL: "http://localhost:3000",
 });
 
 const setToken = (token) => {
