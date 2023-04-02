@@ -18,6 +18,7 @@ import { theme } from "theme/theme";
 import ShoppingListPage from "Pages/ShoppingListPage";
 import CategoriesPage from "Pages/CategoriesPage";
 import RecipePage from "Pages/RecipePage";
+import Alert from "Components/ui/Alert";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -62,6 +63,7 @@ const App = () => {
           <Route path="recipe/:id" element={<RecipePage />}></Route>
         </Route>
       </Routes>
+      <Alert />
       <GlobalStyle />
     </ThemeProvider>
   );
