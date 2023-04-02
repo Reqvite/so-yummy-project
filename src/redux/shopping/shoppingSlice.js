@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { deleteIngredient, getIngredients } from "./operations";
+import {
+  deleteIngredient,
+  getIngredients,
+  updateShoppinList,
+} from "./operations";
 
 const initialState = {
   list: [],
@@ -16,6 +20,7 @@ const shoppingSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getIngredients.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.isLoading = false;
         state.error = null;
         state.list = action.payload.ingredients;
@@ -25,17 +30,18 @@ const shoppingSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      //   .addCase(addContact.pending, (state, action) => {
-      //     state.isLoading = true;
-      //   })
-      //   .addCase(addContact.fulfilled, (state, action) => {
-      //     state.isLoading = false;
-      //     state.items.push(action.payload);
-      //   })
-      //   .addCase(addContact.rejected, (state, action) => {
-      //     state.isLoading = false;
-      //     state.error = action.payload;
-      //   })
+      .addCase(updateShoppinList.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(updateShoppinList.fulfilled, (state, action) => {
+        state.isLoading = false;
+        console.log(action.payload);
+        state.list = action.payload.shoppingList;
+      })
+      .addCase(updateShoppinList.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
       .addCase(deleteIngredient.pending, (state, action) => {
         state.isLoading = true;
       })

@@ -22,7 +22,7 @@ const Header = () => {
   };
 
   return (
-    <Container>
+    <Container style={{ position: "absolute" }}>
       <HeaderElement>
         <LogoWrap>
           <LogoLink to="/main">

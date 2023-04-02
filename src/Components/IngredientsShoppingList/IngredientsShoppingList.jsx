@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteIngredient, getIngredients } from "redux/shopping/operations";
-// import { selectIsLoading, selectList } from "redux/shopping/selectors";
+import { selectIsLoading, selectList } from "redux/shopping/selectors";
 import {
   Box,
   Button,
@@ -17,6 +17,7 @@ import {
   Title,
   Wrapper,
 } from "./IngredientsShoppingList.styled";
+import { Link, NavLink } from "react-router-dom";
 
 const ingr = [
   {
@@ -39,8 +40,8 @@ const ingr = [
 
 const IngredientsShoppingList = () => {
   const dispatch = useDispatch();
-  // const list = useSelector(selectList);
-  // const isLoading = useSelector(selectIsLoading);
+  const list = useSelector(selectList);
+  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
     dispatch(getIngredients());
@@ -48,6 +49,7 @@ const IngredientsShoppingList = () => {
 
   return (
     <Box>
+      <Link to={`/recipe/640cd5ac2d9fecf12e8897fc`}>recipe</Link>
       <List>
         <ListItemHeader>
           <ListHeaderText>Product</ListHeaderText>
@@ -56,7 +58,7 @@ const IngredientsShoppingList = () => {
             <ListHeaderText>Remove</ListHeaderText>
           </div>
         </ListItemHeader>
-        {ingr?.map(({ _id, ttl, desc, thb, measure }) => (
+        {list?.map(({ _id, ttl, desc, thb, measure }) => (
           <ListItem key={_id}>
             <Wrapper>
               <ImgBox>
