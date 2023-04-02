@@ -6,7 +6,6 @@ export const getCategories = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await instance.get("/api/recipes/category-list");
-      // console.log(res);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

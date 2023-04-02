@@ -1,11 +1,9 @@
-import React from "react";
 import styled from "styled-components";
 
 import PageContainer from "Components/common/PageContainer/PageContainer";
 import ImageBackground from "Components/common/ImageBackground/ImageBackground";
-
-import { Title } from "Components/ui/MainPageTitle/MainPageTitle.styled";
 import CategoriesList from "Components/CategoriesList/CategoriesList";
+import { Title } from "Components/ui/MainPageTitle/MainPageTitle.styled";
 
 const PageWrapper = styled.div`
   position: relative;
