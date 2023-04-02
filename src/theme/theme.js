@@ -6,6 +6,7 @@ export const theme = {
     secondaryBackground: "#EBF3D4", //світло-зелений
     elementsBackground: "#FFFFFF", // чистий білий в елементах карток, селекторів
     mainText: "#23262A",
+    darkText: "#22252A",
     secondaryText: "#FAFAFA",
     titleText: "#001833", // заголовки h1
     footerText: "#FAFAFA", //білий
