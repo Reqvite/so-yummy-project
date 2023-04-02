@@ -2,15 +2,28 @@ import styled, { keyframes } from "styled-components";
 import { ReactComponent as UserEdit } from "../../../../assets/svg/UserEditIcon/userEditIcon.svg";
 import { ReactComponent as UserButtonArrow } from "../../../../assets/svg/UserButtonArrow/userButtonArrow.svg";
 
-const UserLogoModal = () => {
+const UserLogoModal = ({
+  toggleLogoModal,
+  toggleInfoModal,
+  toggleConfirmModal,
+}) => {
+  const editButtonClickHandler = () => {
+    toggleLogoModal();
+    toggleInfoModal();
+  };
+
+  const confirmButtonClickHandler = () => {
+    toggleLogoModal();
+    toggleConfirmModal();
+  };
   return (
     <Wrap>
-      <Button>
+      <Button onClick={() => editButtonClickHandler()}>
         <Text>Edit profile</Text>
-        <UserEdit></UserEdit>
+        <UserEdit />
       </Button>
 
-      <ButtonLogout>
+      <ButtonLogout onClick={() => confirmButtonClickHandler()}>
         Log out
         <ArrowIcon />
       </ButtonLogout>
@@ -89,6 +102,7 @@ const ButtonLogout = styled.button`
   line-height: 21px;
 `;
 const Text = styled.p``;
+
 const ArrowIcon = styled(UserButtonArrow)`
   margin-left: 6px;
 `;

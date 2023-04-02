@@ -3,22 +3,24 @@ import { useState } from "react";
 import styled from "styled-components";
 import Modal from "../../ui/Modal/Modal";
 import UserLogoModal from "../UserLogo/UserLogoModal/UserLogoModal";
+import UserInfoModal from "../UserLogo/UserInfoModal/UserInfoModal";
+import UserConfirmModal from "../UserLogo/UserConfirmModal/UserConfirmModal";
 
 const UserLogo = () => {
-  // const [userInfoModal, setUserInfoModal] = useState(false);
+  const [userInfoModal, setUserInfoModal] = useState(false);
   const [userLogoModal, setUserLogoModal] = useState(false);
-  // const [userConfirmModal, setUserConfirmModal] = useState(false);
+  const [userConfirmModal, setUserConfirmModal] = useState(false);
 
   const toggleLogoModal = () => {
     setUserLogoModal(!userLogoModal);
   };
-  // const toggleInfoModal = () => {
-  //   setUserInfoModal(!userInfoModal);
-  // };
+  const toggleInfoModal = () => {
+    setUserInfoModal(!userInfoModal);
+  };
 
-  // const toggleConfirmModal = () => {
-  //   setUserConfirmModal(!userConfirmModal);
-  // };
+  const toggleConfirmModal = () => {
+    setUserConfirmModal(!userConfirmModal);
+  };
 
   return (
     <UserLogoWrap>
@@ -29,7 +31,22 @@ const UserLogo = () => {
 
       {userLogoModal && (
         <Modal toggleModal={toggleLogoModal}>
-          <UserLogoModal />
+          <UserLogoModal
+            toggleLogoModal={toggleLogoModal}
+            toggleInfoModal={toggleInfoModal}
+            toggleConfirmModal={toggleConfirmModal}
+          />
+        </Modal>
+      )}
+      {userInfoModal && (
+        <Modal toggleModal={toggleInfoModal}>
+          <UserInfoModal toggleInfoModal={toggleInfoModal} />
+        </Modal>
+      )}
+
+      {userConfirmModal && (
+        <Modal toggleModal={toggleConfirmModal}>
+          <UserConfirmModal toggleConfirmModal={toggleConfirmModal} />
         </Modal>
       )}
     </UserLogoWrap>

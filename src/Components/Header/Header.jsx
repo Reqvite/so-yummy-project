@@ -29,7 +29,7 @@ const Header = () => {
             </LogoLink>
           </LogoWrap>
 
-          {!isMobileTablet && <HeaderNavigation />}
+          {!isMobileTablet && <HeaderNavigation toggleModal={toggleModal} />}
 
           <UserLogo />
 
