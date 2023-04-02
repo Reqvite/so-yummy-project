@@ -2,6 +2,7 @@ import { Container } from "@mui/system";
 import RecipeInngredientsList from "Components/Recipe/RecipeInngredientsList/RecipeInngredientsList";
 
 import RecipePageHero from "Components/Recipe/RecipePageHero/RecipePageHero";
+import RecipePreparation from "Components/Recipe/RecipePreparation/RecipePreparation";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
@@ -12,22 +13,22 @@ const RecipePage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const {
-    area,
-    category,
-    createdAt,
+    // area,
+    // category,
+    // createdAt,
     description,
-    favorites,
+    // favorites,
     ingredients,
     instructions,
-    likes,
-    popularity,
+    // likes,
+    // popularity,
     preview,
-    tags,
-    thumb,
+    // tags,
+    // thumb,
     time,
     title,
-    updatedAt,
-    youtube,
+    // updatedAt,
+    // youtube,
     _id,
   } = useSelector(selectRecipe);
 
@@ -39,6 +40,11 @@ const RecipePage = () => {
     <Container>
       <RecipePageHero title={title} description={description} time={time} />
       <RecipeInngredientsList ingredients={ingredients} recipeId={_id} />
+      <RecipePreparation
+        preview={preview}
+        title={title}
+        instructions={instructions}
+      />
     </Container>
   );
 };
