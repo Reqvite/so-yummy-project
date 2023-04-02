@@ -13,12 +13,11 @@ import {
 
 const RecipePreparation = ({ preview, title, instructions }) => {
   const cleanedInstructions = instructions?.replace(/^\d+\)\s*/gm, "");
-  const sentences = cleanedInstructions?.split(/(?<=\.|\?|!) /g);
+  const sentences = cleanedInstructions?.split(/(?:\.|\?|!)\s/g);
   const steps = sentences?.map((sentence) =>
     sentence.replace(/^\d+\)/, "").trim()
   );
 
-  steps?.splice(steps.lenght - 1, 1);
   return (
     <MainBox>
       <Title>Recipe Preparation</Title>

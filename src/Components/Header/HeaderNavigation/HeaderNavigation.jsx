@@ -7,15 +7,31 @@ import React from "react";
 const HeaderNavigation = ({ toggleModal }) => {
   const isMobile = useMediaQuery("(max-width: 1439px)");
 
+  const HandleLinkClick = () => {
+    if (isMobile) {
+      return toggleModal();
+    }
+    return null;
+  };
   return (
     <Navigation>
-      <Link to="/categories">Categories</Link>
-      <Link to="/add">Add recipes</Link>
-      <Link to="/my">My recipes</Link>
-      <Link to="/favorite">Favorites</Link>
-      <Link to="/shopping-list">Shopping list</Link>
+      <Link to="/categories" onClick={() => HandleLinkClick()}>
+        Categories
+      </Link>
+      <Link to="/add" onClick={() => HandleLinkClick()}>
+        Add recipes
+      </Link>
+      <Link to="/my" onClick={() => HandleLinkClick()}>
+        My recipes
+      </Link>
+      <Link to="/favorite" onClick={() => HandleLinkClick()}>
+        Favorites
+      </Link>
+      <Link to="/shopping-list" onClick={() => HandleLinkClick()}>
+        Shopping list
+      </Link>
 
-      <Link to="/search">
+      <Link to="/search" onClick={() => HandleLinkClick()}>
         <IconWrap>
           <Icon />
         </IconWrap>

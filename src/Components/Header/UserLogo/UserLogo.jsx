@@ -3,23 +3,24 @@ import { useState } from "react";
 import styled from "styled-components";
 import Modal from "../../ui/Modal/Modal";
 import UserLogoModal from "../UserLogo/UserLogoModal/UserLogoModal";
+import UserInfoModal from "../UserLogo/UserInfoModal/UserInfoModal";
+import UserConfirmModal from "../UserLogo/UserConfirmModal/UserConfirmModal";
 
 const UserLogo = () => {
-  // const [userInfoModal, setUserInfoModal] = useState(false);
+  const [userInfoModal, setUserInfoModal] = useState(false);
   const [userLogoModal, setUserLogoModal] = useState(false);
-  // const [userConfirmModal, setUserConfirmModal] = useState(false);
+  const [userConfirmModal, setUserConfirmModal] = useState(false);
 
   const toggleLogoModal = () => {
-    console.log("open");
     setUserLogoModal(!userLogoModal);
   };
-  // const toggleInfoModal = () => {
-  //   setUserInfoModal(!userInfoModal);
-  // };
+  const toggleInfoModal = () => {
+    setUserInfoModal(!userInfoModal);
+  };
 
-  // const toggleConfirmModal = () => {
-  //   setUserConfirmModal(!userConfirmModal);
-  // };
+  const toggleConfirmModal = () => {
+    setUserConfirmModal(!userConfirmModal);
+  };
 
   return (
     <UserLogoWrap>
@@ -30,7 +31,22 @@ const UserLogo = () => {
 
       {userLogoModal && (
         <Modal toggleModal={toggleLogoModal}>
-          <UserLogoModal />
+          <UserLogoModal
+            toggleLogoModal={toggleLogoModal}
+            toggleInfoModal={toggleInfoModal}
+            toggleConfirmModal={toggleConfirmModal}
+          />
+        </Modal>
+      )}
+      {userInfoModal && (
+        <Modal toggleModal={toggleInfoModal}>
+          <UserInfoModal toggleInfoModal={toggleInfoModal} />
+        </Modal>
+      )}
+
+      {userConfirmModal && (
+        <Modal toggleModal={toggleConfirmModal}>
+          <UserConfirmModal toggleConfirmModal={toggleConfirmModal} />
         </Modal>
       )}
     </UserLogoWrap>
@@ -49,15 +65,18 @@ const UserInfoWrap = styled.div`
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-
-  /* @media screen and (min-width: 768px) {
-    margin-right: 50px;
-  } */
+  margin-right: 28px;
+  @media screen and (min-width: 768px) {
+    margin-right: 54px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-right: 0px;
+  }
 `;
 
 const Avatar = styled.div`
   display: inline-block;
-  background-color: blueviolet;
+  background-color: #589b58;
   border-radius: 50%;
   width: 34px;
   height: 34px;

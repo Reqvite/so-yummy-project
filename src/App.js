@@ -18,7 +18,6 @@ import { theme } from "theme/theme";
 import ShoppingListPage from "Pages/ShoppingListPage";
 import CategoriesPage from "Pages/CategoriesPage";
 import RecipePage from "Pages/RecipePage";
-import Alert from "Components/ui/Alert";
 import NotFoundPage from "Pages/NotFoundPage";
 
 const App = () => {
@@ -65,7 +64,6 @@ const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-      <Alert />
       <GlobalStyle />
     </ThemeProvider>
   );

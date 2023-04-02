@@ -1,17 +1,83 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import img from "../../assets/images/authNavPage/authNavBackground.jpg";
+import imgDesk from "../../assets/images/authNavPage/authNavBackgroundDesk.jpg";
+import imgDeskx2 from "../../assets/images/authNavPage/deskx2.jpg";
+import imgMobile from "../../assets/images/authNavPage/authNavBackgroundMobile.jpg";
+import imgMobilex2 from "../../assets/images/authNavPage/mobilex2.jpg";
+import imgTablet from "../../assets/images/authNavPage/authNavBackgroundTablet.jpg";
+import imgTabletx2 from "../../assets/images/authNavPage/tabletx2.jpg";
 
 export const Container = styled.div`
   padding: 0 35px;
-  background-image: url(${img});
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 58.58%,
+      rgba(0, 0, 0, 0.345172) 78.98%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url(${imgMobile});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
   width: 100vw;
   ${(p) => p.theme.flexCentered}
+
+  @media screen and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.6) 58.58%,
+        rgba(0, 0, 0, 0.345172) 78.98%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      url(${imgMobilex2});
+  }
+
+  ${(p) => p.theme.sizes.tablet} {
+    background-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.6) 58.58%,
+        rgba(0, 0, 0, 0.345172) 78.98%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      url(${imgTablet});
+
+    @media screen and (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.6) 58.58%,
+          rgba(0, 0, 0, 0.345172) 78.98%,
+          rgba(0, 0, 0, 0) 100%
+        ),
+        url(${imgTabletx2});
+    }
+  }
+  ${(p) => p.theme.sizes.desktop} {
+    background-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.6) 58.58%,
+        rgba(0, 0, 0, 0.345172) 78.98%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      url(${imgDesk});
+
+    @media screen and (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.6) 58.58%,
+          rgba(0, 0, 0, 0.345172) 78.98%,
+          rgba(0, 0, 0, 0) 100%
+        ),
+        url(${imgDeskx2});
+    }
+  }
 `;
 
 export const Box = styled.div`

@@ -6,6 +6,7 @@ import { authReducer } from "./auth/authSlice";
 import { shoppingReducer } from "./shopping/shoppingSlice";
 import { recipeReducer } from "./recipes/recipesSlice";
 import { categoriesReducer } from "./categories/categoriesSlice";
+import { ingredientsReducer } from "./ingredients/ingredientsSlice";
 
 const authPersistConfig = {
   key: "auth",
@@ -19,6 +20,7 @@ export const store = configureStore({
     shopping: shoppingReducer,
     recipes: recipeReducer,
     categories: categoriesReducer,
+    ingredients: ingredientsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),
