@@ -9,53 +9,13 @@ const HeaderNavigation = ({ toggleModal }) => {
 
   return (
     <Navigation>
-      <Link
-        to="/categories"
-        onClick={() => {
-          toggleModal();
-        }}
-      >
-        Categories
-      </Link>
-      <Link
-        to="/add"
-        onClick={() => {
-          toggleModal();
-        }}
-      >
-        Add recipes
-      </Link>
-      <Link
-        to="/my"
-        onClick={() => {
-          toggleModal();
-        }}
-      >
-        My recipes
-      </Link>
-      <Link
-        to="/favorite"
-        onClick={() => {
-          toggleModal();
-        }}
-      >
-        Favorites
-      </Link>
-      <Link
-        to="/shopping-list"
-        onClick={() => {
-          toggleModal();
-        }}
-      >
-        Shopping list
-      </Link>
+      <Link to="/categories">Categories</Link>
+      <Link to="/add">Add recipes</Link>
+      <Link to="/my">My recipes</Link>
+      <Link to="/favorite">Favorites</Link>
+      <Link to="/shopping-list">Shopping list</Link>
 
-      <Link
-        to="/search"
-        onClick={() => {
-          toggleModal();
-        }}
-      >
+      <Link to="/search">
         <IconWrap>
           <Icon />
         </IconWrap>
