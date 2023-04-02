@@ -20,7 +20,6 @@ const shoppingSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getIngredients.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.isLoading = false;
         state.error = null;
         state.list = action.payload.ingredients;
