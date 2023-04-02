@@ -6,15 +6,15 @@ import bgMainPageMobile from "../../assets/images/mainPage/mainPageMobile/bgMain
 import bgMobile from "../../assets/images/mainPage/mainPageMobile/bgMobile.png";
 
 import bgLeafLeftTablet from "../../assets/images/mainPage/mainPageTablet/bgLeafLeftTablet.png";
-import bgLeafRightTablet from "../../assets/images/mainPage/mainPageTablet/bgLeafRightTablet.png";
+// import bgLeafRightTablet from "../../assets/images/mainPage/mainPageTablet/bgLeafRightTablet.png";
 import bgMainPageTablet from "../../assets/images/mainPage/mainPageTablet/bgMainPageTablet.png";
-import bgTablet from "../../assets/images/mainPage/mainPageTablet/bgTablet.png";
-import arrowTablet from "../../assets/images/mainPage/mainPageTablet/arrowTablet.png";
+// import bgTablet from "../../assets/images/mainPage/mainPageTablet/bgTablet.png";
+// import arrowTablet from "../../assets/images/mainPage/mainPageTablet/arrowTablet.png";
 
-import arrowDesktop from "../../assets/images/mainPage/mainPageDesktop/arrowDesktop.png";
-import bgDesktop from "../../assets/images/mainPage/mainPageDesktop/bgDesktop.png";
+// import arrowDesktop from "../../assets/images/mainPage/mainPageDesktop/arrowDesktop.png";
+// import bgDesktop from "../../assets/images/mainPage/mainPageDesktop/bgDesktop.png";
 import bgLeafLeftDesktop from "../../assets/images/mainPage/mainPageDesktop/bgLeafLeftDesktop.png";
-import bgLeafRightDesktop from "../../assets/images/mainPage/mainPageDesktop/bgLeafRightDesktop.png";
+// import bgLeafRightDesktop from "../../assets/images/mainPage/mainPageDesktop/bgLeafRightDesktop.png";
 import bgMainPageDesktop from "../../assets/images/mainPage/mainPageDesktop/bgMainPageDesktop.png";
 
 import { ReactComponent as ArrowMainPage } from "../../assets/svg/mainPage/arrowMainPage.svg";

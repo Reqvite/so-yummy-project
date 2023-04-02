@@ -2,7 +2,7 @@ import Container from "../ui/Container/ContainerStyled";
 import {
   WrapperBreakfast,
   Title,
-  AccentTitle,
+  // AccentTitle,
   Text,
   BgLeafLeft,
   Background,
