@@ -59,7 +59,7 @@ const UserInfoWrap = styled.div`
 
 const Avatar = styled.div`
   display: inline-block;
-  background-color: blueviolet;
+  background-color: #589b58;
   border-radius: 50%;
   width: 34px;
   height: 34px;
