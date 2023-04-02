@@ -6,6 +6,7 @@ import RecipePreparation from "Components/Recipe/RecipePreparation/RecipePrepara
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { getIngredients } from "redux/ingredients/operations";
 import { getRecipe } from "redux/recipes/operations";
 import { selectRecipe } from "redux/recipes/selectors";
 
@@ -34,6 +35,7 @@ const RecipePage = () => {
 
   useEffect(() => {
     dispatch(getRecipe(id));
+    dispatch(getIngredients());
   }, [dispatch, id]);
 
   return (

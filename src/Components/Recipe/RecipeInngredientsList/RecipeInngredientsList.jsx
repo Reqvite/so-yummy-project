@@ -11,29 +11,26 @@ import {
   Wrapper,
 } from "./RecipeInngredientsList.styled";
 import CustomCheckbox from "../CheckBox/CkeckBox";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectList } from "redux/shopping/selectors";
+import { selectIngredients } from "redux/ingredients/selectors";
+import { useEffect, useState } from "react";
+import { getIngredients } from "redux/shopping/operations";
 
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
+  const dispatch = useDispatch();
   const list = useSelector(selectList);
-  const ingr = [
-    {
-      _id: "640c2dd963a319ea671e36e3",
-      ttl: "Garlic",
-      desc: "A bulbous plant related to onions, chives, and shallots, known for its pungent flavor and aroma. It is used in many cuisines around the world and is a staple ingredient in Mediterranean and Asian cooking.",
-      t: "",
-      thb: "https://res.cloudinary.com/ddbvbv5sp/image/upload/v1678564798/q4gnbvysfhkjv5husoxx.png",
-      measure: "1 clove",
-    },
-    {
-      _id: "640c2dd963a319ea671e372c",
-      ttl: "Olive Oil",
-      desc: "A type of oil made from pressing whole olives, commonly used in cooking and as a salad dressing.",
-      t: "",
-      thb: "https://res.cloudinary.com/ddbvbv5sp/image/upload/v1678564854/hzcfvlja7hmbp84z7f3q.png",
-      measure: "1tbsp",
-    },
-  ];
+  const listOfIngredients = useSelector(selectIngredients);
+  const [recipeList, setRecipeList] = useState([]);
+
+  useEffect(() => {
+    const updatedRecipeList = ingredients?.map(({ id, measure }) => {
+      const ingredient = listOfIngredients?.find((ingr) => ingr._id === id);
+      return { ...ingredient, measure };
+    });
+    dispatch(getIngredients());
+    setRecipeList(updatedRecipeList);
+  }, [ingredients, listOfIngredients, dispatch]);
 
   return (
     <Box>
@@ -45,8 +42,11 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
             <ListHeaderText>Add to list</ListHeaderText>
           </div>
         </ListItemHeader>
-        {ingr?.map(({ _id, ttl, desc, thb, measure }) => {
+        {recipeList?.map(({ _id, ttl, desc, thb, measure }) => {
           const isChecked = list?.some((item) => item._id === _id);
+          if (!_id) {
+            return null;
+          }
           return (
             <ListItem key={_id}>
               <Wrapper>
