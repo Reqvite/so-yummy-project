@@ -6,8 +6,6 @@ import { NavLink } from "react-router-dom";
 const ShoppingListPage = () => {
   return (
     <PageContainer>
-      <NavLink to={`/recipe/fdsfdsfdsfsdf`}>recipe</NavLink>
-
       <MainPageTitle title="Shopping List" />
       <IngredientsShoppingList />
     </PageContainer>
