@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import styled from "styled-components";
 import Modal from "../../ui/Modal/Modal";
+import UserLogoModal from "../UserLogo/UserLogoModal/UserLogoModal";
 
 const UserLogo = () => {
   const [userInfoModal, setUserInfoModal] = useState(false);
@@ -29,7 +30,7 @@ const UserLogo = () => {
 
       {userLogoModal && (
         <Modal toggleModal={toggleLogoModal}>
-          <>123</>
+          <UserLogoModal />
         </Modal>
       )}
     </>

@@ -20,31 +20,38 @@ const Header = () => {
   };
 
   return (
-    <Container>
-      <HeaderElement>
-        <LogoWrap>
-          <LogoLink to="/main">
-            <HeaderLogo />
-          </LogoLink>
-        </LogoWrap>
+    <HeaderBlock>
+      <Container>
+        <HeaderElement>
+          <LogoWrap>
+            <LogoLink to="/main">
+              <HeaderLogo />
+            </LogoLink>
+          </LogoWrap>
 
-        {!isMobileTablet && <HeaderNavigation />}
+          {!isMobileTablet && <HeaderNavigation />}
 
-        <UserLogo />
+          <UserLogo />
 
-        {isMobileTablet && <BurgerButton toggleModal={toggleModal} />}
+          {isMobileTablet && <BurgerButton toggleModal={toggleModal} />}
 
-        {isMobileTablet && menu && (
-          <Modal toggleModal={toggleModal}>
-            <MobileNavMenu toggleModal={toggleModal} menu={menu} />
-          </Modal>
-        )}
-      </HeaderElement>
-    </Container>
+          {isMobileTablet && menu && (
+            <Modal toggleModal={toggleModal}>
+              <MobileNavMenu toggleModal={toggleModal} menu={menu} />
+            </Modal>
+          )}
+        </HeaderElement>
+      </Container>
+    </HeaderBlock>
   );
 };
 
-const HeaderElement = styled.header`
+const HeaderBlock = styled.header`
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+`;
+const HeaderElement = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,6 +63,7 @@ const HeaderElement = styled.header`
   }
   @media screen and (min-width: 1440px) {
     padding-top: 18px;
+    padding-right: 211px;
   }
 `;
 const LogoWrap = styled.div`

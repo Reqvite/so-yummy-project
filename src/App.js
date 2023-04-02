@@ -53,7 +53,9 @@ const App = () => {
 
         <Route
           path="/"
-          element={<PrivateRoute component={<SharedLayout />} redirectTo="/" />}
+          element={
+            <RestrictedRoute component={<SharedLayout />} redirectTo="/" />
+          }
         >
           <Route path="main" element={<MainPage />} />
           <Route path="add" element={<AddRecipe />} />
