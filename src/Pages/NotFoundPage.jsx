@@ -1,10 +1,10 @@
-import ErrorBox from "Components/ErrorBox/ErrorBox";
+import NotFoundBox from "Components/ui/NotFoundBox/NotFoundBox";
 import PageContainer from "Components/common/PageContainer/PageContainer";
 
 const NotFoundPage = () => {
   return (
     <PageContainer>
-      <ErrorBox />
+      <NotFoundBox />
     </PageContainer>
   );
 };
