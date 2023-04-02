@@ -71,6 +71,7 @@ const Navigation = styled.nav`
   justify-content: center;
   padding-top: 182px;
   gap: 32px;
+
   @media screen and (min-width: 768px) {
     padding-top: 186px;
     gap: 40px;

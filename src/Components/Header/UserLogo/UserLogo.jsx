@@ -22,7 +22,7 @@ const UserLogo = () => {
   };
 
   return (
-    <>
+    <UserLogoWrap>
       <UserInfoWrap onClick={toggleLogoModal}>
         <Avatar alt="User's avatar" />
         <UserName>Mykola</UserName>
@@ -33,10 +33,15 @@ const UserLogo = () => {
           <UserLogoModal />
         </Modal>
       )}
-    </>
+    </UserLogoWrap>
   );
 };
 
+const UserLogoWrap = styled.div`
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+`;
 const UserInfoWrap = styled.div`
   display: flex;
   align-items: center;
@@ -44,10 +49,10 @@ const UserInfoWrap = styled.div`
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  margin-right: 20px;
-  @media screen and (min-width: 768px) {
+
+  /* @media screen and (min-width: 768px) {
     margin-right: 50px;
-  }
+  } */
 `;
 
 const Avatar = styled.div`

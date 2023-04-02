@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const UserLogoModal = () => {
-  return <Wrap>123</Wrap>;
+  return <Wrap>edit</Wrap>;
 };
 
 const Wrap = styled.div`

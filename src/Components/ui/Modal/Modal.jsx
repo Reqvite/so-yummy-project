@@ -44,6 +44,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 1000;
 `;
 const ModalContainer = styled.div`
   width: fit-content;

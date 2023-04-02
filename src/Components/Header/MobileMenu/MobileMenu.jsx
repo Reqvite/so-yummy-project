@@ -41,6 +41,7 @@ const Wrap = styled.div`
   background-image: url(${img});
   background-repeat: no-repeat;
   background-position: bottom right;
+  z-index: 101;
 
   @media screen and (min-width: 768px) {
     background-image: url(${imgTab});

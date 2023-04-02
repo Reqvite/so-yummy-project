@@ -49,7 +49,7 @@ const Header = () => {
 const HeaderBlock = styled.header`
   position: absolute;
   width: 100%;
-  z-index: 100;
+  z-index: 10;
 `;
 const HeaderElement = styled.section`
   display: flex;
@@ -67,7 +67,9 @@ const HeaderElement = styled.section`
   }
 `;
 const LogoWrap = styled.div`
-  margin-right: 187px;
+  @media screen and (min-width: 1440px) {
+    margin-right: 187px;
+  }
 `;
 
 const LogoLink = styled(NavLink)``;
