@@ -1,9 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 
 import "modern-normalize";
+import "react-toastify/dist/ReactToastify.css";
 
 export const GlobalStyle = createGlobalStyle`
+
+
 body {
+   color: ${(p) => p.theme.colors.mainText};
  background-color: ${(p) => p.theme.colors.mainBackground};
   color: ${(p) => p.theme.colors.mainTextColor};
   margin: 0;

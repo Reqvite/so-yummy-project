@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { login, logOut, refreshUser, register } from "./operations";
+import { toast } from "react-toastify";
 
 const initialState = {
   user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
-  isRefreshing: false,
+  isRefreshing: true,
   isLoading: false,
   status: false,
 };
@@ -21,8 +22,10 @@ export const authSlice = createSlice({
       })
       .addCase(register.fulfilled, (state, action) => {
         state.status = true;
+        state.isLoading = false;
       })
       .addCase(register.rejected, (state, action) => {
+        toast.error(action.payload);
         state.isLoading = false;
       })
       .addCase(login.pending, (state) => {
@@ -36,6 +39,7 @@ export const authSlice = createSlice({
         state.status = false;
       })
       .addCase(login.rejected, (state, action) => {
+        toast.error(action.payload);
         state.isLoading = false;
       })
       .addCase(refreshUser.pending, (state) => {
@@ -61,6 +65,12 @@ export const authSlice = createSlice({
       .addCase(logOut.rejected, (state) => {
         state.isRefreshing = false;
         state.isLoading = false;
+      })
+      .addDefaultCase((state, action) => {
+        if (action.error) {
+          state.error = action.payload;
+          toast.error(action.payload);
+        }
       }),
 });
 
