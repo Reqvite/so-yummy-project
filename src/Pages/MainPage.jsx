@@ -1,5 +1,11 @@
+import ChooseYourBreakfast from "../Components/ChooseYourBreakfast/ChooseYourBreakfast";
+
 const MainPage = () => {
-  return <h1>Home</h1>;
+  return (
+    <>
+      <ChooseYourBreakfast />
+    </>
+  );
 };
 
 export default MainPage;
