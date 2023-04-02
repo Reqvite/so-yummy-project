@@ -5,21 +5,21 @@ import Modal from "../../ui/Modal/Modal";
 import UserLogoModal from "../UserLogo/UserLogoModal/UserLogoModal";
 
 const UserLogo = () => {
-  const [userInfoModal, setUserInfoModal] = useState(false);
+  // const [userInfoModal, setUserInfoModal] = useState(false);
   const [userLogoModal, setUserLogoModal] = useState(false);
-  const [userConfirmModal, setUserConfirmModal] = useState(false);
+  // const [userConfirmModal, setUserConfirmModal] = useState(false);
 
   const toggleLogoModal = () => {
     console.log("open");
     setUserLogoModal(!userLogoModal);
   };
-  const toggleInfoModal = () => {
-    setUserInfoModal(!userInfoModal);
-  };
+  // const toggleInfoModal = () => {
+  //   setUserInfoModal(!userInfoModal);
+  // };
 
-  const toggleConfirmModal = () => {
-    setUserConfirmModal(!userConfirmModal);
-  };
+  // const toggleConfirmModal = () => {
+  //   setUserConfirmModal(!userConfirmModal);
+  // };
 
   return (
     <UserLogoWrap>
