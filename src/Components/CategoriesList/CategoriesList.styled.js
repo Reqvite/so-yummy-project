@@ -5,9 +5,9 @@ export const StyledCategory = styled.button`
   cursor: pointer;
   color: ${(p) => p.theme.colors.categoryText};
   font-weight: 400;
-  font-size: 18px;
+  font-size: ${(p) => p.theme.fontSizes.xs};
   line-height: 1;
-  padding: 10px 20px;
+  padding: 10px 15px 30px 15px;
   transition: all 0.3s ease-in-out;
   border: none;
   border-bottom: 2px solid ${(p) => p.theme.colors.categoryText};
@@ -19,6 +19,11 @@ export const StyledCategory = styled.button`
     color: ${(p) => p.theme.colors.accentColor};
     border-bottom: 2px solid ${(p) => p.theme.colors.accentColor};
   }
+
+  ${(p) => p.theme.sizes.tablet} {
+    font-size: ${(p) => p.theme.fontSizes.sm};
+    padding: 10px 30px 30px 30px;
+  }
 `;
 
 export const StyledCategoryList = styled.div`
@@ -26,7 +31,8 @@ export const StyledCategoryList = styled.div`
   justify-content: flex-start;
   align-items: center;
   overflow-x: auto;
-  margin-top: 100px;
+  height: 56px;
+  margin-top: 50px;
   margin-bottom: 50px;
 
   &::-webkit-scrollbar {

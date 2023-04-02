@@ -1,25 +1,17 @@
 import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getCategories } from "redux/categories/operations";
+import { selectCategories } from "redux/categories/selectors";
 import { StyledCategory, StyledCategoryList } from "./CategoriesList.styled";
 
 const CategoriesList = () => {
   const ref = useRef();
+  const { items } = useSelector(selectCategories);
+  const dispatch = useDispatch();
 
-  const items = [
-    "Beef",
-    "Breakfast",
-    "Chicken",
-    "Dessert",
-    "Goat",
-    "Lamb",
-    "Miscellaneous",
-    "Pasta",
-    "Pork",
-    "Seafood",
-    "Side",
-    "Starter",
-    "Vegan",
-    "Vegetarian",
-  ];
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
 
   useEffect(() => {
     const el = ref.current;

@@ -1,6 +1,6 @@
-import { Box, ErrorIcon, Text, Title } from "./ErrorBox.styled";
+import { Box, ErrorIcon, Text, Title } from "./NotFoundBox.styled";
 
-const ErrorBox = () => {
+const NotFoundBox = () => {
   return (
     <Box>
       <ErrorIcon />
@@ -10,4 +10,4 @@ const ErrorBox = () => {
   );
 };
 
-export default ErrorBox;
+export default NotFoundBox;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as ErrorSvg } from "../../assets/svg/notFound/bro-mobile.svg";
+import { ReactComponent as ErrorSvg } from "../../../assets/svg/notFound/bro-mobile.svg";
 
 export const Box = styled.div`
   ${(p) => p.theme.flexCentered};
