@@ -18,6 +18,9 @@ import {
   Wrapper,
 } from "./IngredientsShoppingList.styled";
 import { Link } from "react-router-dom";
+import { selectIsLoading } from "redux/auth/selectors";
+import { nanoid } from "@reduxjs/toolkit";
+import EmptyErrorBox from "Components/ui/EmptyErrorBox/EmptyErrorBox";
 
 // const ingr = [
 //   {
@@ -41,7 +44,7 @@ import { Link } from "react-router-dom";
 const IngredientsShoppingList = () => {
   const dispatch = useDispatch();
   const list = useSelector(selectList);
-  // const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
     dispatch(getIngredients());
@@ -58,22 +61,27 @@ const IngredientsShoppingList = () => {
             <ListHeaderText>Remove</ListHeaderText>
           </div>
         </ListItemHeader>
-        {list?.map(({ _id, ttl, desc, thb, measure }) => (
-          <ListItem key={_id}>
-            <Wrapper>
-              <ImgBox>
-                <Img alt={ttl} src={thb} width={48} height={48} />
-              </ImgBox>
-              <Title>{ttl}</Title>
-            </Wrapper>
-            <ButtonWrapper>
-              <Measure>{measure}</Measure>
-              <Button onClick={() => dispatch(deleteIngredient(_id))}>
-                <CloseIcon />
-              </Button>
-            </ButtonWrapper>
-          </ListItem>
-        ))}
+        <>
+          {list?.map(({ _id, ttl, desc, thb, measure }) => (
+            <ListItem key={nanoid()}>
+              <Wrapper>
+                <ImgBox>
+                  <Img alt={ttl} src={thb} width={48} height={48} />
+                </ImgBox>
+                <Title>{ttl}</Title>
+              </Wrapper>
+              <ButtonWrapper>
+                <Measure>{measure}</Measure>
+                <Button onClick={() => dispatch(deleteIngredient(_id))}>
+                  <CloseIcon />
+                </Button>
+              </ButtonWrapper>
+            </ListItem>
+          ))}
+        </>
+        {!isLoading && list.length === 0 && (
+          <EmptyErrorBox text="Your shopping list is empty." />
+        )}
       </List>
     </Box>
   );
