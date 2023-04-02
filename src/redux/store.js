@@ -5,6 +5,7 @@ import persistReducer from "redux-persist/es/persistReducer";
 import { authReducer } from "./auth/authSlice";
 import { shoppingReducer } from "./shopping/shoppingSlice";
 import { recipeReducer } from "./recipes/recipesSlice";
+import { categoriesReducer } from "./categories/categoriesSlice";
 
 const authPersistConfig = {
   key: "auth",
@@ -17,6 +18,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     shopping: shoppingReducer,
     recipes: recipeReducer,
+    categories: categoriesReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),
