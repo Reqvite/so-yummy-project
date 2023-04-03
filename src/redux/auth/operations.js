@@ -68,3 +68,15 @@ export const logOut = createAsyncThunk(
     }
   }
 );
+
+export const updateUser = createAsyncThunk(
+  "auth/updateUser",
+  async (data, thunkAPI) => {
+    try {
+      const resp = await instance.patch("api/users/update", data);
+      return resp.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.response.data.message);
+    }
+  }
+);

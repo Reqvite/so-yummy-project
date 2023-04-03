@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { login, logOut, refreshUser, register } from "./operations";
+import { login, logOut, refreshUser, register, updateUser } from "./operations";
 import { toast } from "react-toastify";
 
 const initialState = {
-  user: { name: null, email: null },
+  user: { name: null, email: null, avatarURL: null },
   token: null,
   isLoggedIn: false,
   isRefreshing: true,
@@ -65,6 +65,19 @@ export const authSlice = createSlice({
       .addCase(logOut.rejected, (state) => {
         state.isRefreshing = false;
         state.isLoading = false;
+      })
+      .addCase(updateUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.isLoggedIn = true;
+        state.isLoading = false;
+        toast.success("Updated successfully");
+      })
+      .addCase(updateUser.rejected, (state, action) => {
+        state.isRefreshing = false;
+        toast.error(action.payload);
       })
       .addDefaultCase((state, action) => {
         if (action.error) {

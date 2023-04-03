@@ -21,6 +21,7 @@ const Button = styled.button`
   right: 15px;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 `;
 
 export default CloseButton;

@@ -1,60 +1,105 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { ErrorMessage, Form, Formik } from "formik";
 import CloseButton from "../../MobileMenu/CloseButton/CloseButton";
 import {
+  Button,
+  EditSvg,
+  Error,
   FieldStyled,
   ImgBox,
   Input,
   Label,
   PlusSvg,
-  UserImg,
   UserSvg,
+  UserSvgBlack,
   Wrap,
 } from "./UserInfoModal.styled";
+import { InputLabel } from "@mui/material";
+import UserPreviewImg from "./UserPreviewImg";
+import { useDispatch } from "react-redux";
+import { updateUser } from "redux/auth/operations";
+import { useState } from "react";
+import { useAuth } from "hooks";
+import ButtonLoader from "Components/ui/ButtonLoader/ButtonLoader";
+import { useTheme } from "styled-components";
+import { UpdateUserSchema } from "helpers/validations";
 
 const UserInfoModal = ({ toggleInfoModal }) => {
+  const theme = useTheme();
+  const {
+    user: { name },
+    isLoading,
+  } = useAuth();
+  const dispatch = useDispatch();
+  const [photo, setPhoto] = useState("");
+
   const initialValues = {
-    photo: "",
-    nickname: "",
+    file: null,
+    nickname: name,
   };
+
+  const getPhoto = (url) => {
+    setPhoto(url);
+  };
+
   return (
     <Wrap>
       <Formik
         initialValues={initialValues}
-        // validationSchema={validationSchema}
-        // onSubmit={onSubmit}
+        validationSchema={UpdateUserSchema}
+        onSubmit={(values) =>
+          dispatch(updateUser({ avatar: photo, name: values.nickname }))
+        }
       >
-        {({ setFieldValue, errors, touched }) => (
+        {({ values, setFieldValue, errors, touched }) => (
           <Form>
             <div>
               <Label htmlFor="photo">
                 <ImgBox>
-                  <UserImg />
-                  <UserSvg />
+                  {values.file && (
+                    <UserPreviewImg file={values.file} getPhoto={getPhoto} />
+                  )}
+                  {!photo && <UserSvg />}
                   <PlusSvg />
                   <FieldStyled
                     name="photo"
                     type="file"
-                    onChange={(event) => {
-                      setFieldValue("photo", event.currentTarget.files[0]);
-                    }}
+                    onChange={(e) =>
+                      setFieldValue("file", e.currentTarget.files[0])
+                    }
                   />
                   <ErrorMessage name="photo" />
                 </ImgBox>
               </Label>
             </div>
             <div>
-              <label htmlFor="nickname">
-                <Input name="nickname" />
-                {errors.nickname && touched.nickname && (
-                  <div>{errors.nickname}</div>
+              <InputLabel htmlFor="nickname">
+                <UserSvgBlack />
+                <EditSvg />
+                <Input
+                  name="nickname"
+                  onChange={(e) => setFieldValue("nickname", e.target.value)}
+                />
+              </InputLabel>
+              {errors.nickname && touched.nickname && (
+                <Error>{errors.nickname}</Error>
+              )}
+              <Button
+                type="submit"
+                disabled={isLoading}
+                whileHover={{
+                  color: theme.colors.mainText,
+                }}
+              >
+                {isLoading ? (
+                  <ButtonLoader color="white" width={25} />
+                ) : (
+                  "Save changes"
                 )}
-              </label>
+              </Button>
             </div>
-            <button type="submit">Save changes</button>
           </Form>
         )}
       </Formik>
-      Info
       <CloseButton toggleModal={toggleInfoModal} />
     </Wrap>
   );
