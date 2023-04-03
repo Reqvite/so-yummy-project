@@ -47,11 +47,12 @@ const Header = () => {
 };
 
 const HeaderBlock = styled.header`
-  /* position: absolute; */
+  position: absolute;
   width: 100%;
   z-index: 10;
 `;
-const HeaderElement = styled.section`
+
+const HeaderElement = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -66,6 +67,7 @@ const HeaderElement = styled.section`
     padding-right: 211px;
   }
 `;
+
 const LogoWrap = styled.div`
   @media screen and (min-width: 1440px) {
     margin-right: 187px;
