@@ -9,7 +9,7 @@ const SubscribeForm = () => {
         Subscribe to our newsletter. Be in touch with latest news and special
         offers, etc.
       </Text>
-      <SubscribeFormWrap>{/* <FooterForm /> */}</SubscribeFormWrap>
+      <SubscribeFormWrap>{"FooterForm"}</SubscribeFormWrap>
     </SubscribeWrap>
   );
 };

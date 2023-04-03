@@ -51,6 +51,7 @@ const HeaderBlock = styled.header`
   width: 100%;
   z-index: 10;
 `;
+
 const HeaderElement = styled.div`
   display: flex;
   justify-content: space-between;
@@ -66,6 +67,7 @@ const HeaderElement = styled.div`
     padding-right: 211px;
   }
 `;
+
 const LogoWrap = styled.div`
   @media screen and (min-width: 1440px) {
     margin-right: 187px;
