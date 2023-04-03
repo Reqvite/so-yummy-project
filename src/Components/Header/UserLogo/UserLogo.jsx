@@ -5,8 +5,12 @@ import Modal from "../../ui/Modal/Modal";
 import UserLogoModal from "../UserLogo/UserLogoModal/UserLogoModal";
 import UserInfoModal from "../UserLogo/UserInfoModal/UserInfoModal";
 import UserConfirmModal from "../UserLogo/UserConfirmModal/UserConfirmModal";
+import { useAuth } from "hooks";
 
 const UserLogo = () => {
+  const {
+    user: { name, avatarURL },
+  } = useAuth();
   const [userInfoModal, setUserInfoModal] = useState(false);
   const [userLogoModal, setUserLogoModal] = useState(false);
   const [userConfirmModal, setUserConfirmModal] = useState(false);
@@ -25,8 +29,8 @@ const UserLogo = () => {
   return (
     <UserLogoWrap>
       <UserInfoWrap onClick={toggleLogoModal}>
-        <Avatar alt="User's avatar" />
-        <UserName>Mykola</UserName>
+        <Avatar alt="User's avatar" src={avatarURL} />
+        <UserName>{name}</UserName>
       </UserInfoWrap>
 
       {userLogoModal && (
@@ -74,13 +78,14 @@ const UserInfoWrap = styled.div`
   }
 `;
 
-const Avatar = styled.div`
+const Avatar = styled.img`
   display: inline-block;
   background-color: #589b58;
   border-radius: 50%;
   width: 34px;
   height: 34px;
   margin-right: 14px;
+  object-fit: cover;
   @media screen and (min-width: 768px) {
     width: 44px;
     height: 44px;

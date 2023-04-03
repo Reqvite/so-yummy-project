@@ -2,7 +2,9 @@ import styled, { keyframes } from "styled-components";
 import { ReactComponent as EditIcon } from "../../../../assets/svg/userInfoModal/edit-01.svg";
 import { ReactComponent as PlusIcon } from "../../../../assets/svg/userInfoModal/plus.svg";
 import { ReactComponent as UserIcon } from "../../../../assets/svg/userInfoModal/user-01.svg";
+import { ReactComponent as UserIconBlack } from "../../../../assets/svg/userInfoModal/user-black.svg";
 import { Field } from "formik";
+import { motion } from "framer-motion";
 
 export const slideDown = keyframes`
   0% {
@@ -63,7 +65,13 @@ export const ImgBox = styled.div`
   }
 `;
 
-export const UserImg = styled.img``;
+export const UserImg = styled.img`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+`;
 
 export const UserSvg = styled(UserIcon)`
   position: absolute;
@@ -92,32 +100,6 @@ export const PlusSvg = styled(PlusIcon)`
   }
 `;
 
-export const Input = styled(Field)`
-  color: ${(p) => p.theme.colors.mainText};
-  margin-top: 52px;
-  width: 100%;
-  max-width: 248px;
-  height: 48px;
-  padding: 16.5px 13.5px 16.5px 39.5px;
-
-  ${(p) => p.theme.sizes.tablet} {
-    height: 59px;
-  }
-
-  background-color: transparent;
-  border: 1px solid #23262a;
-  border-radius: 6px;
-
-  ::placeholder {
-    color: #ffffff;
-  }
-
-  ${(p) => p.theme.sizes.tablet} {
-    padding: 16.5px 13.5px 16.5px 51px;
-    max-width: 400px;
-  }
-`;
-
 export const FieldStyled = styled(Field)`
   opacity: 0;
 
@@ -126,4 +108,90 @@ export const FieldStyled = styled(Field)`
   border-radius: 50%;
 
   cursor: pointer;
+`;
+
+export const InputLabel = styled.label`
+  position: relative;
+`;
+
+export const UserSvgBlack = styled(UserIconBlack)`
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 15px;
+  left: 15.5px;
+
+  ${(p) => p.theme.sizes.tablet} {
+    bottom: 18px;
+    width: 22px;
+    height: 22px;
+  }
+`;
+
+export const EditSvg = styled(EditIcon)`
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 15px;
+  right: 15.5px;
+
+  ${(p) => p.theme.sizes.tablet} {
+    bottom: 18px;
+    width: 22px;
+    height: 22px;
+  }
+`;
+
+export const Input = styled(Field)`
+  color: ${(p) => p.theme.colors.mainText};
+  margin-top: 52px;
+
+  width: 248px;
+  height: 48px;
+  padding: 16.5px 36.5px 16.5px 39.5px;
+
+  ${(p) => p.theme.sizes.tablet} {
+    height: 59px;
+  }
+
+  background-color: transparent;
+  border: 2px solid #c4c4c4;
+  border-radius: 6px;
+
+  ::placeholder {
+    color: #ffffff;
+  }
+
+  ${(p) => p.theme.sizes.tablet} {
+    padding: 16.5px 36.5px 16.5px 51px;
+    width: 400px;
+  }
+`;
+
+export const Button = styled(motion.button)`
+  margin-top: 24px;
+  display: block;
+
+  width: 248px;
+  height: 45px;
+  color: ${(p) => p.theme.colors.secondaryText};
+  background: ${(p) => p.theme.colors.accentColor};
+
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+
+  ${(p) => p.theme.sizes.tablet} {
+    height: 59px;
+    margin-top: 32px;
+    width: 400px;
+  }
+`;
+
+export const Error = styled.p`
+  font-size: 10px;
+  line-height: 2;
+  ${(p) => p.theme.sizes.tablet} {
+    font-size: 14px;
+  }
 `;
