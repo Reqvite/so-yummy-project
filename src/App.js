@@ -58,7 +58,7 @@ const App = () => {
         >
           <Route path="main" element={<MainPage />} />
           <Route path="add" element={<AddRecipe />} />
-          <Route path="categories" element={<CategoriesPage />} />
+          <Route path="categories/:categoryName" element={<CategoriesPage />} />
           <Route path="shopping-list" element={<ShoppingListPage />} />
           <Route path="recipe/:id" element={<RecipePage />}></Route>
           <Route path="*" element={<NotFoundPage />} />

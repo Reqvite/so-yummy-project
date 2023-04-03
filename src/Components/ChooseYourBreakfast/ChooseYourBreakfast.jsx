@@ -32,7 +32,7 @@ const ChooseYourBreakfast = () => {
                 <span>Delicious and healthy</span> way to enjoy a variety of
                 fresh ingredients in one satisfying meal
               </RecipeText>
-              <NavLink to={"/categories"}>
+              <NavLink to={`/categories/breakfast`}>
                 See recipes
                 <ArrowSvg />
               </NavLink>
