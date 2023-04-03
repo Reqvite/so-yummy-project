@@ -26,7 +26,6 @@ const shoppingSlice = createSlice({
       })
       .addCase(getIngredients.rejected, (state, action) => {
         state.isLoading = false;
-        state.isLoading = false;
         state.error = action.payload;
       })
       .addCase(updateShoppinList.pending, (state, action) => {
