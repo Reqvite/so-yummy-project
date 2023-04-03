@@ -1,18 +1,26 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { Tab } from "@mui/material";
-import { getCategories } from "redux/categories/operations";
+
+import { getCategories, getCategoryRecipes } from "redux/categories/operations";
+
 import { selectCategories } from "redux/categories/selectors";
 import { StyledCategory, StyledCategoryList } from "./CategoriesList.styled";
+import { useParams } from "react-router-dom";
 
 const CategoriesList = () => {
-  const { items } = useSelector(selectCategories);
+  const { items, recipeCategories } = useSelector(selectCategories);
   const dispatch = useDispatch();
+  const { categoryName } = useParams();
   const [value, setValue] = useState(0);
 
   useEffect(() => {
     dispatch(getCategories());
-  }, [dispatch]);
+    dispatch(getCategoryRecipes(categoryName));
+  }, [dispatch, categoryName]);
+
+  console.log(recipeCategories);
 
   const handleChange = (e, newValue) => {
     setValue(newValue);
