@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import { getCategories, getCategoryRecipes } from "redux/categories/operations";
+import { selectCategories } from "redux/categories/selectors";
 import { PageWrapper } from "Components/CategoriesList/CategoriesList.styled";
 import { Title } from "Components/ui/MainPageTitle/MainPageTitle.styled";
 import PageContainer from "Components/common/PageContainer/PageContainer";
@@ -13,9 +14,9 @@ import SearchRecipesList from "Components/SearchRecipesList/SearchRecipesList";
 const CategoriesPage = () => {
   const dispatch = useDispatch();
   const { categoryName } = useParams();
+  const { recipeCategories, isLoading, error } = useSelector(selectCategories);
 
   useEffect(() => {
-    console.log(categoryName);
     dispatch(getCategories());
     dispatch(getCategoryRecipes(categoryName));
   }, [dispatch, categoryName]);
@@ -27,7 +28,11 @@ const CategoriesPage = () => {
         <PageContainer>
           <Title>Categories</Title>
           <CategoriesList />
-          <SearchRecipesList />
+          <SearchRecipesList
+            query={recipeCategories}
+            isLoading={isLoading}
+            error={error}
+          />
         </PageContainer>
       </PageWrapper>
     </main>

@@ -1,8 +1,11 @@
 import { PageWrapper } from "Components/CategoriesList/CategoriesList.styled";
 import ImageBackground from "Components/common/ImageBackground/ImageBackground";
 import PageContainer from "Components/common/PageContainer/PageContainer";
-import SearchRecipesList from "Components/SearchRecipesList/SearchRecipesList";
-import Title from "Components/ui/MainPageTitle/MainPageTitle";
+import { Title } from "Components/ui/MainPageTitle/MainPageTitle.styled";
+
+// import SearchRecipesList from "Components/SearchRecipesList/SearchRecipesList";
+
+import SearchForm from "Components/ui/SearchForm/SearchForm";
 
 const SearchPage = () => {
   return (
@@ -11,7 +14,10 @@ const SearchPage = () => {
         <ImageBackground />
         <PageContainer>
           <Title>Search</Title>
-          <SearchRecipesList />
+
+          <SearchForm />
+
+          {/* <SearchRecipesList query="" /> */}
         </PageContainer>
       </PageWrapper>
     </main>
