@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { instance } from "redux/auth/operations";
 
-export const getIngredients = createAsyncThunk(
+export const getShoppingIngredients = createAsyncThunk(
   "shopping/getIngredients",
   async (_, thunkAPI) => {
     try {

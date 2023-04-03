@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectList } from "redux/shopping/selectors";
 import { selectIngredients } from "redux/ingredients/selectors";
 import { useEffect, useState } from "react";
-import { getIngredients } from "redux/shopping/operations";
+import { getShoppingIngredients } from "redux/shopping/operations";
 
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
       const ingredient = listOfIngredients?.find((ingr) => ingr._id === id);
       return { ...ingredient, measure };
     });
-    dispatch(getIngredients());
+    dispatch(getShoppingIngredients());
     setRecipeList(updatedRecipeList);
   }, [ingredients, listOfIngredients, dispatch]);
 
