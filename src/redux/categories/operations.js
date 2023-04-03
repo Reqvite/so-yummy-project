@@ -12,3 +12,15 @@ export const getCategories = createAsyncThunk(
     }
   }
 );
+
+export const getCategoryRecipes = createAsyncThunk(
+  "categories/getCategoriesRecipes",
+  async (categoryName, thunkAPI) => {
+    try {
+      const resp = await instance.get(`/api/recipes/${categoryName}`);
+      return resp.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);

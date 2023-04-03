@@ -24,7 +24,6 @@ const recipeSlice = createSlice({
       })
       .addCase(getRecipe.rejected, (state, action) => {
         state.isLoading = false;
-        state.isLoading = false;
         state.error = action.payload;
       }),
 });
