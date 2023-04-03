@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   deleteIngredient,
-  getIngredients,
+  getShoppingIngredients,
   updateShoppinList,
 } from "./operations";
 
@@ -16,15 +16,15 @@ const shoppingSlice = createSlice({
   initialState,
   extraReducers: (builder) =>
     builder
-      .addCase(getIngredients.pending, (state, action) => {
+      .addCase(getShoppingIngredients.pending, (state, action) => {
         state.isLoading = true;
       })
-      .addCase(getIngredients.fulfilled, (state, action) => {
+      .addCase(getShoppingIngredients.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.list = action.payload.ingredients;
       })
-      .addCase(getIngredients.rejected, (state, action) => {
+      .addCase(getShoppingIngredients.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })

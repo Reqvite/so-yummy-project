@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteIngredient, getIngredients } from "redux/shopping/operations";
+import {
+  deleteIngredient,
+  getShoppingIngredients,
+} from "redux/shopping/operations";
 import { selectIsLoading, selectList } from "redux/shopping/selectors";
 import {
   Box,
@@ -17,8 +20,6 @@ import {
   Title,
   Wrapper,
 } from "./IngredientsShoppingList.styled";
-import { Link } from "react-router-dom";
-import { nanoid } from "@reduxjs/toolkit";
 import EmptyErrorBox from "Components/ui/EmptyErrorBox/EmptyErrorBox";
 
 // const ingr = [
@@ -46,12 +47,11 @@ const IngredientsShoppingList = () => {
   const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
-    dispatch(getIngredients());
+    dispatch(getShoppingIngredients());
   }, [dispatch]);
 
   return (
     <Box>
-      <Link to={`/recipe/640cd5ac2d9fecf12e8897f2`}>recipe</Link>
       <List>
         <ListItemHeader>
           <ListHeaderText>Product</ListHeaderText>
@@ -62,7 +62,7 @@ const IngredientsShoppingList = () => {
         </ListItemHeader>
         <>
           {list?.map(({ _id, ttl, desc, thb, measure }) => (
-            <ListItem key={nanoid()}>
+            <ListItem key={_id}>
               <Wrapper>
                 <ImgBox>
                   <Img alt={ttl} src={thb} width={48} height={48} />
