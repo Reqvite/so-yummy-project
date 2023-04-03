@@ -1,29 +1,29 @@
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
+import { useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import { Tab } from "@mui/material";
-
-import { getCategories, getCategoryRecipes } from "redux/categories/operations";
 
 import { selectCategories } from "redux/categories/selectors";
 import { StyledCategory, StyledCategoryList } from "./CategoriesList.styled";
-import { useParams } from "react-router-dom";
 
 const CategoriesList = () => {
-  const { items, recipeCategories } = useSelector(selectCategories);
-  const dispatch = useDispatch();
-  const { categoryName } = useParams();
+  const { items } = useSelector(selectCategories);
   const [value, setValue] = useState(0);
+  const { categoryName } = useParams();
+  let navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(getCategories());
-    dispatch(getCategoryRecipes(categoryName));
-  }, [dispatch, categoryName]);
-
-  console.log(recipeCategories);
+    const categoryIndex = items.findIndex(
+      (item) => item.toLowerCase() === categoryName
+    );
+    setValue(categoryIndex !== -1 ? categoryIndex : 0);
+  }, [categoryName, items]);
 
   const handleChange = (e, newValue) => {
+    e.preventDefault();
     setValue(newValue);
+    const newCategoryName = items[newValue];
+    navigate(`/categories/${newCategoryName.toLowerCase()}`);
   };
 
   return (
@@ -37,7 +37,12 @@ const CategoriesList = () => {
         aria-label="scrollable prevent tabs example"
         sx={{
           "& button": {
+            paddingLeft: "12px",
+            paddingRight: "12px",
+            paddingTop: "15px",
+            paddingBottom: "15px",
             textTransform: "capitalize",
+            fontSize: 16,
             fontFamily: "Poppins",
             fontWeight: 400,
           },
@@ -47,7 +52,11 @@ const CategoriesList = () => {
         }}
       >
         {items.map((item, i) => (
-          <Tab key={i} label={item}></Tab>
+          <Tab
+            key={i}
+            label={item}
+            className={value === i ? "Mui-selected" : ""}
+          ></Tab>
         ))}
       </StyledCategory>
     </StyledCategoryList>
