@@ -5,7 +5,7 @@ export const SignupSchema = Yup.object().shape({
     .required("Please enter your name")
     .matches(/^[a-zA-Z0-9]+$/, "Special symbols are not allowed")
     .min(3, "Your username is too short")
-    .max(15, "Username cannot be longer than 15 characters"),
+    .max(10, "Username cannot be longer than 10 characters"),
   email: Yup.string()
     .email("Invalid email")
     .required("Please enter your email"),
@@ -33,9 +33,10 @@ export const LoginSchema = Yup.object().shape({
 });
 
 export const UpdateUserSchema = Yup.object().shape({
-  file: Yup.mixed(),
+  file: Yup.mixed().notRequired(),
   nickname: Yup.string()
     .matches(/^[a-zA-Z0-9]+$/, "Special symbols are not allowed")
     .min(3, "Your username is too short")
-    .max(15, "Username cannot be longer than 15 characters"),
+    .max(10, "Username cannot be longer than 10 characters")
+    .notRequired(),
 });

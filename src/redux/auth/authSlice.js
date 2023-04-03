@@ -73,9 +73,11 @@ export const authSlice = createSlice({
         state.user = action.payload.user;
         state.isLoggedIn = true;
         state.isLoading = false;
+        toast.success("Updated successfully");
       })
-      .addCase(updateUser.rejected, (state) => {
+      .addCase(updateUser.rejected, (state, action) => {
         state.isRefreshing = false;
+        toast.error(action.payload);
       })
       .addDefaultCase((state, action) => {
         if (action.error) {
