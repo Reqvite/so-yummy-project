@@ -20,7 +20,6 @@ import CategoriesPage from "Pages/CategoriesPage";
 import RecipePage from "Pages/RecipePage";
 import SearchPage from "Pages/SearchPage";
 import NotFoundPage from "Pages/NotFoundPage";
-import Alert from "Components/ui/Alert";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -56,9 +55,7 @@ const App = () => {
 
         <Route
           path="/"
-          element={
-            <RestrictedRoute component={<SharedLayout />} redirectTo="/" />
-          }
+          element={<PrivateRoute component={<SharedLayout />} redirectTo="/" />}
         >
           <Route path="main" element={<MainPage />} />
           <Route path="add" element={<AddRecipe />} />
@@ -69,7 +66,6 @@ const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-      <Alert />
       <GlobalStyle />
     </ThemeProvider>
   );
