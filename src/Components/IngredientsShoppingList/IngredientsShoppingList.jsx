@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteIngredient, getIngredients } from "redux/shopping/operations";
-import { selectList } from "redux/shopping/selectors";
+import { selectIsLoading, selectList } from "redux/shopping/selectors";
 import {
   Box,
   Button,
@@ -18,7 +18,6 @@ import {
   Wrapper,
 } from "./IngredientsShoppingList.styled";
 import { Link } from "react-router-dom";
-import { selectIsLoading } from "redux/auth/selectors";
 import { nanoid } from "@reduxjs/toolkit";
 import EmptyErrorBox from "Components/ui/EmptyErrorBox/EmptyErrorBox";
 
