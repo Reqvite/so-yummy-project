@@ -7,7 +7,6 @@ import { shoppingReducer } from "./shopping/shoppingSlice";
 import { recipeReducer } from "./recipes/recipesSlice";
 import { categoriesReducer } from "./categories/categoriesSlice";
 import { ingredientsReducer } from "./ingredients/ingredientsSlice";
-import { categoryRecipesReducer } from "./recipes/categoryRecipes/categoryRecipesSlice";
 
 const authPersistConfig = {
   key: "auth",
@@ -21,7 +20,6 @@ export const store = configureStore({
     shopping: shoppingReducer,
     recipes: recipeReducer,
     categories: categoriesReducer,
-    categoryRecipes: categoryRecipesReducer,
     ingredients: ingredientsReducer,
   },
   middleware: (getDefaultMiddleware) =>

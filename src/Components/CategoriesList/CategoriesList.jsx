@@ -1,17 +1,22 @@
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategories } from "redux/categories/operations";
+import { getCategories, getCategoryRecipes } from "redux/categories/operations";
 import { selectCategories } from "redux/categories/selectors";
 import { StyledCategory, StyledCategoryList } from "./CategoriesList.styled";
+import { useParams } from "react-router-dom";
 
 const CategoriesList = () => {
   const ref = useRef();
-  const { items } = useSelector(selectCategories);
+  const { items, recipeCategories } = useSelector(selectCategories);
   const dispatch = useDispatch();
+  const { categoryName } = useParams();
 
   useEffect(() => {
     dispatch(getCategories());
-  }, [dispatch]);
+    dispatch(getCategoryRecipes(categoryName));
+  }, [dispatch, categoryName]);
+
+  console.log(recipeCategories);
 
   useEffect(() => {
     const el = ref.current;
