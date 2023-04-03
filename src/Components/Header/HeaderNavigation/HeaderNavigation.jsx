@@ -15,7 +15,7 @@ const HeaderNavigation = ({ toggleModal }) => {
   };
   return (
     <Navigation>
-      <Link to="/categories" onClick={() => HandleLinkClick()}>
+      <Link to="/categories/beef" onClick={() => HandleLinkClick()}>
         Categories
       </Link>
       <Link to="/add" onClick={() => HandleLinkClick()}>

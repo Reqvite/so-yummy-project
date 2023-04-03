@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const PageWrapper = styled.div`
+  position: relative;
+`;
+
 export const StyledCategory = styled.button`
   display: inline-block;
   cursor: pointer;
