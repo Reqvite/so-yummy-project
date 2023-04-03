@@ -5,9 +5,10 @@ import { Tab } from "@mui/material";
 
 import { selectCategories } from "redux/categories/selectors";
 import { StyledCategory, StyledCategoryList } from "./CategoriesList.styled";
+import Alert from "Components/ui/Alert";
 
 const CategoriesList = () => {
-  const { items } = useSelector(selectCategories);
+  const { items, error } = useSelector(selectCategories);
   const [value, setValue] = useState(0);
   const { categoryName } = useParams();
   let navigate = useNavigate();
@@ -28,6 +29,7 @@ const CategoriesList = () => {
 
   return (
     <StyledCategoryList>
+      {error && <Alert />}
       <StyledCategory
         value={value}
         onChange={handleChange}
