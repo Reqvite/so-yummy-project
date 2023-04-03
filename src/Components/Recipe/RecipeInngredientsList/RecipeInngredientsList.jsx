@@ -16,20 +16,26 @@ import { selectList } from "redux/shopping/selectors";
 import { selectIngredients } from "redux/ingredients/selectors";
 import { useEffect, useState } from "react";
 import { getShoppingIngredients } from "redux/shopping/operations";
+import { selectIsLoading } from "redux/auth/selectors";
 
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
   const dispatch = useDispatch();
   const list = useSelector(selectList);
   const listOfIngredients = useSelector(selectIngredients);
   const [recipeList, setRecipeList] = useState([]);
+  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
-    const updatedRecipeList = ingredients?.map(({ id, measure }) => {
-      const ingredient = listOfIngredients?.find((ingr) => ingr._id === id);
-      return { ...ingredient, measure };
-    });
-    dispatch(getShoppingIngredients());
-    setRecipeList(updatedRecipeList);
+    const getList = async () => {
+      const updatedRecipeList = ingredients?.map(({ id, measure }) => {
+        const ingredient = listOfIngredients?.find((ingr) => ingr._id === id);
+        return { ...ingredient, measure };
+      });
+      await dispatch(getShoppingIngredients());
+      setRecipeList(updatedRecipeList);
+    };
+
+    getList();
   }, [ingredients, listOfIngredients, dispatch]);
 
   return (
@@ -42,28 +48,29 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
             <ListHeaderText>Add to list</ListHeaderText>
           </div>
         </ListItemHeader>
-        {recipeList?.map(({ _id, ttl, desc, thb, measure }) => {
-          const isChecked = list?.some((item) => item._id === _id);
-          if (!_id) {
-            return null;
-          }
-          return (
-            <ListItem key={_id}>
-              <Wrapper>
-                <Img alt={ttl} src={thb} width={48} height={48} />
-                <Title>{ttl}</Title>
-              </Wrapper>
-              <ButtonWrapper>
-                <Measure>{measure}</Measure>
-                <CustomCheckbox
-                  recipeId={recipeId}
-                  ingredientId={_id}
-                  isChecked={isChecked}
-                />
-              </ButtonWrapper>
-            </ListItem>
-          );
-        })}
+        {!isLoading &&
+          recipeList?.map(({ _id, ttl, desc, thb, measure }) => {
+            const isChecked = list?.some((item) => item._id === _id);
+            if (!_id) {
+              return null;
+            }
+            return (
+              <ListItem key={_id}>
+                <Wrapper>
+                  <Img alt={ttl} src={thb} width={48} height={48} />
+                  <Title>{ttl}</Title>
+                </Wrapper>
+                <ButtonWrapper>
+                  <Measure>{measure}</Measure>
+                  <CustomCheckbox
+                    recipeId={recipeId}
+                    ingredientId={_id}
+                    isChecked={isChecked}
+                  />
+                </ButtonWrapper>
+              </ListItem>
+            );
+          })}
       </List>
     </Box>
   );
