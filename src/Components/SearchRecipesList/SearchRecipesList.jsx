@@ -18,7 +18,7 @@ const SearchRecipesList = () => {
       <RecipesList>
         {recipeCategories.map(({ _id, title, area, thumb }) => (
           <RecipeItem key={_id}>
-            <NavLink to={`/recipes/${_id}`}>
+            <NavLink to={`/recipe/${_id}`}>
               <RecipeImg
                 src={thumb ? thumb : defaultImg}
                 alt={area}
