@@ -8,25 +8,19 @@ const rotateAnimation = keyframes`
 
 export const MainContainer = styled.div`
   width: 100%;
-  position: relative;
   margin-left: auto;
   margin-right: auto;
-  overflow-x: hidden;
 
   padding: 114px 16px 100px 16px;
   background-color: ${(p) => p.theme.colors.mainBackground};
-  ${(p) => p.theme.sizes.mobile} {
-    max-width: 375px;
-  }
 
   ${(p) => p.theme.sizes.tablet} {
-    max-width: 768px;
     padding: 136px 32px 200px 32px;
   }
   ${(p) => p.theme.sizes.desktop} {
-    max-width: 1440px;
-    padding: 100px 100px 200px 100px;
+    padding: 100px 90px 200px 99px;
   }
+  max-width: 1440px;
 `;
 
 export const RotateBlock = styled.div`
