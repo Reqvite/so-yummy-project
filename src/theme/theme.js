@@ -18,6 +18,9 @@ export const theme = {
     inputErrorColor: "#E74A3B",
     inputNotSecureColor: "#F6C23E",
     inputSuccessColor: "#3CBC81",
+
+    mainIconColor: "#22252A",
+    secondaryIconColor: "#FAFAFA",
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input

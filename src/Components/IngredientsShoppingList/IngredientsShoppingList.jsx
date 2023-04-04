@@ -21,6 +21,7 @@ import {
   Wrapper,
 } from "./IngredientsShoppingList.styled";
 import EmptyErrorBox from "Components/ui/EmptyErrorBox/EmptyErrorBox";
+import { useTheme } from "styled-components";
 
 // const ingr = [
 //   {
@@ -42,6 +43,7 @@ import EmptyErrorBox from "Components/ui/EmptyErrorBox/EmptyErrorBox";
 // ];
 
 const IngredientsShoppingList = () => {
+  const theme = useTheme();
   const dispatch = useDispatch();
   const list = useSelector(selectList);
   const isLoading = useSelector(selectIsLoading);
@@ -79,7 +81,9 @@ const IngredientsShoppingList = () => {
                     disabled={isLoading}
                     onClick={() => dispatch(deleteIngredient(_id))}
                   >
-                    <CloseIcon />
+                    <CloseIcon
+                      whileHover={{ stroke: theme.colors.accentColor }}
+                    />
                   </Button>
                 </ButtonWrapper>
               </ListItem>
