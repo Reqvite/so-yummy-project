@@ -26,11 +26,15 @@ import { UpdateUserSchema } from "helpers/validations";
 const UserInfoModal = ({ toggleInfoModal }) => {
   const theme = useTheme();
   const {
+    user: { avatarURL },
+  } = useAuth();
+
+  const {
     user: { name },
     isLoading,
   } = useAuth();
   const dispatch = useDispatch();
-  const [photo, setPhoto] = useState("");
+  const [photo, setPhoto] = useState(avatarURL);
 
   const initialValues = {
     file: null,
@@ -55,8 +59,12 @@ const UserInfoModal = ({ toggleInfoModal }) => {
             <div>
               <Label htmlFor="photo">
                 <ImgBox>
-                  {values.file && (
-                    <UserPreviewImg file={values.file} getPhoto={getPhoto} />
+                  {(values.file || avatarURL) && (
+                    <UserPreviewImg
+                      file={values.file}
+                      avatarURL={avatarURL}
+                      getPhoto={getPhoto}
+                    />
                   )}
                   {!photo && <UserSvg />}
                   <PlusSvg />
