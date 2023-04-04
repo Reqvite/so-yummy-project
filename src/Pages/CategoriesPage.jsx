@@ -22,20 +22,17 @@ const CategoriesPage = () => {
   }, [dispatch, categoryName]);
 
   return (
-    <main>
+    <>
       <PageWrapper>
-        <ImageBackground />
-        <PageContainer>
-          <Title>Categories</Title>
-          <CategoriesList />
-          <SearchRecipesList
-            query={recipeCategories}
-            isLoading={isLoading}
-            error={error}
-          />
-        </PageContainer>
+        <Title>Categories</Title>
+        <CategoriesList />
+        <SearchRecipesList
+          query={recipeCategories}
+          isLoading={isLoading}
+          error={error}
+        />
       </PageWrapper>
-    </main>
+    </>
   );
 };
 

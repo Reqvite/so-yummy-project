@@ -2,6 +2,7 @@ import { Container } from "@mui/system";
 import RecipeInngredientsList from "Components/Recipe/RecipeInngredientsList/RecipeInngredientsList";
 
 import RecipePageHero from "Components/Recipe/RecipePageHero/RecipePageHero";
+import { ImgBox } from "Components/Recipe/RecipePageHero/RecipePageHero.styled";
 import RecipePreparation from "Components/Recipe/RecipePreparation/RecipePreparation";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -39,7 +40,7 @@ const RecipePage = () => {
   }, [dispatch, id]);
 
   return (
-    <Container>
+    <>
       <RecipePageHero title={title} description={description} time={time} />
       <RecipeInngredientsList ingredients={ingredients} recipeId={_id} />
       <RecipePreparation
@@ -47,7 +48,7 @@ const RecipePage = () => {
         title={title}
         instructions={instructions}
       />
-    </Container>
+    </>
   );
 };
 

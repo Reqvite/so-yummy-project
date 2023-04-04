@@ -9,7 +9,7 @@ export const ImgBox = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: 2;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center center;
