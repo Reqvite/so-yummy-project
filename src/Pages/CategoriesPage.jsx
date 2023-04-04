@@ -6,8 +6,6 @@ import { getCategories, getCategoryRecipes } from "redux/categories/operations";
 import { selectCategories } from "redux/categories/selectors";
 import { PageWrapper } from "Components/CategoriesList/CategoriesList.styled";
 import { Title } from "Components/ui/MainPageTitle/MainPageTitle.styled";
-import PageContainer from "Components/common/PageContainer/PageContainer";
-import ImageBackground from "Components/common/ImageBackground/ImageBackground";
 import CategoriesList from "Components/CategoriesList/CategoriesList";
 import SearchRecipesList from "Components/SearchRecipesList/SearchRecipesList";
 
@@ -22,20 +20,17 @@ const CategoriesPage = () => {
   }, [dispatch, categoryName]);
 
   return (
-    <main>
+    <>
       <PageWrapper>
-        <ImageBackground />
-        <PageContainer>
-          <Title>Categories</Title>
-          <CategoriesList />
-          <SearchRecipesList
-            query={recipeCategories}
-            isLoading={isLoading}
-            error={error}
-          />
-        </PageContainer>
+        <Title>Categories</Title>
+        <CategoriesList />
+        <SearchRecipesList
+          query={recipeCategories}
+          isLoading={isLoading}
+          error={error}
+        />
       </PageWrapper>
-    </main>
+    </>
   );
 };
 

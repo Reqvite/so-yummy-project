@@ -153,6 +153,18 @@ export const User = styled(UserSvg)`
     width: 24px;
     height: 24px;
   }
+  stroke: ${(p) => p.theme.colors.secondaryIconColor};
+
+  ${(p) =>
+    p.$error &&
+    css`
+      stroke: ${(p) => p.theme.colors.inputErrorColor};
+    `}
+  ${(p) =>
+    p.$success &&
+    css`
+      stroke: ${(p) => p.theme.colors.inputSuccessColor};
+    `}
 `;
 export const Mail = styled(MailSvg)`
   width: 18px;
@@ -166,6 +178,18 @@ export const Mail = styled(MailSvg)`
     width: 24px;
     height: 24px;
   }
+  stroke: ${(p) => p.theme.colors.secondaryIconColor};
+
+  ${(p) =>
+    p.$error &&
+    css`
+      stroke: ${(p) => p.theme.colors.inputErrorColor};
+    `}
+  ${(p) =>
+    p.$success &&
+    css`
+      stroke: ${(p) => p.theme.colors.inputSuccessColor};
+    `}
 `;
 export const Password = styled(PasswordSvg)`
   width: 18px;
@@ -179,6 +203,22 @@ export const Password = styled(PasswordSvg)`
     width: 24px;
     height: 24px;
   }
+  stroke: ${(p) => p.theme.colors.secondaryIconColor};
+  ${(p) =>
+    p.$error &&
+    css`
+      stroke: ${(p) => p.theme.colors.inputErrorColor};
+    `}
+  ${(p) =>
+    p.$success &&
+    css`
+      stroke: ${(p) => p.theme.colors.inputSuccessColor};
+    `}
+    ${(p) =>
+    p.$notSecure &&
+    css`
+      stroke: ${(p) => p.theme.colors.inputNotSecureColor};
+    `}
 `;
 
 export const Input = styled(Field)`

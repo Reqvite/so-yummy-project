@@ -4,7 +4,7 @@ export const Box = styled.div`
   margin-top: 144px;
 
   ${(p) => p.theme.sizes.tablet} {
-    margin-top: 100px;
+    margin-top: 80px;
   }
 `;
 

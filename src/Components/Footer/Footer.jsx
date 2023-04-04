@@ -55,7 +55,7 @@ const GreenLeafsTop = styled.div`
   background-image: url(${imgTop1x});
   background-repeat: no-repeat;
   background-size: contain;
-  z-index: -1;
+  z-index: 2;
 
   @media screen and (min-resolution: 192dpi) {
     background-image: url(${imgTop2x});

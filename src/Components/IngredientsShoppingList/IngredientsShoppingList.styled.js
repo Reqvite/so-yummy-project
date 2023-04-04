@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { ReactComponent as CloseSvg } from "../../assets/svg/CloseMenuIcon/closeMenuIcon.svg";
+import { ReactComponent as CloseSvg } from "../../assets/svg/crossIcon/closeIcon.svg";
+import { motion } from "framer-motion";
 
 export const Box = styled.div`
   margin-top: 50px;
@@ -155,7 +156,8 @@ export const Button = styled.button`
   }
 `;
 
-export const CloseIcon = styled(CloseSvg)`
-  width: 20px;
-  height: 20px;
+export const CloseIcon = styled(motion(CloseSvg))`
+  width: 25px;
+  height: 25px;
+  stroke: ${(p) => p.theme.colors.mainIconColor};
 `;

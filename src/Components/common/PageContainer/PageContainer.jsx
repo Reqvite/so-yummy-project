@@ -73,7 +73,7 @@ const PageContainer = ({ children }) => {
     : matchesDesktop && desktopTwo;
 
   return (
-    <MainContainer>
+    <MainContainer as="main">
       <RotateBlock />
       <RotateBlock
         {...props}
