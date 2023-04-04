@@ -14,18 +14,13 @@ export const MainContainer = styled.div`
   padding: 114px 16px 100px 16px;
   background-color: ${(p) => p.theme.colors.mainBackground};
 
-  ${(p) => p.theme.sizes.mobile} {
-    max-width: 375px;
-  }
-
   ${(p) => p.theme.sizes.tablet} {
     padding: 136px 32px 200px 32px;
-    max-width: 768px;
   }
   ${(p) => p.theme.sizes.desktop} {
     padding: 164px 100px 100px 100px;
-    max-width: 1440px;
   }
+  max-width: 1440px;
 `;
 
 export const RotateBlock = styled.div`
