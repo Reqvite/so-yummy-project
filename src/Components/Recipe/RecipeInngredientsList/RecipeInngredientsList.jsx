@@ -13,10 +13,12 @@ import {
 import CustomCheckbox from "../CheckBox/CkeckBox";
 import { useDispatch, useSelector } from "react-redux";
 import { selectList } from "redux/shopping/selectors";
-import { selectIngredients } from "redux/ingredients/selectors";
+import {
+  selectIngredients,
+  selectIsLoading,
+} from "redux/ingredients/selectors";
 import { useEffect, useState } from "react";
 import { getShoppingIngredients } from "redux/shopping/operations";
-import { selectIsLoading } from "redux/auth/selectors";
 
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
   const dispatch = useDispatch();
@@ -26,17 +28,17 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
   const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
-    const getList = async () => {
+    dispatch(getShoppingIngredients());
+    if (!isLoading) {
       const updatedRecipeList = ingredients?.map(({ id, measure }) => {
         const ingredient = listOfIngredients?.find((ingr) => ingr._id === id);
         return { ...ingredient, measure };
       });
-      await dispatch(getShoppingIngredients());
-      setRecipeList(updatedRecipeList);
-    };
-
-    getList();
-  }, [ingredients, listOfIngredients, dispatch]);
+      if (updatedRecipeList) {
+        setRecipeList(updatedRecipeList);
+      }
+    }
+  }, [ingredients, listOfIngredients, dispatch, isLoading]);
 
   return (
     <Box>
