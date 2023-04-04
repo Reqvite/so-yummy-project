@@ -31,6 +31,10 @@ const PageContainer = ({ children }) => {
     left: 807,
   };
 
+  const large = {
+    left: 1000,
+  };
+
   const adaptiveTwo = {
     top: 109,
     left: 250,
@@ -48,6 +52,9 @@ const PageContainer = ({ children }) => {
     top: 65,
     left: 1250,
   };
+  const largeTwo = {
+    left: 1450,
+  };
   const matchesAdaptive = useMediaQuery("(max-width: 374.8px)");
   const matchesMobile = useMediaQuery(
     "(min-width: 374.9px) and (max-width: 767.98px)"
@@ -63,14 +70,18 @@ const PageContainer = ({ children }) => {
     ? phone
     : matchesTablet
     ? tablet
-    : matchesDesktop && desktop;
+    : matchesDesktop
+    ? desktop
+    : large;
   const propsTwo = matchesAdaptive
     ? adaptiveTwo
     : matchesMobile
     ? phoneTwo
     : matchesTablet
     ? tabletTwo
-    : matchesDesktop && desktopTwo;
+    : matchesDesktop
+    ? desktopTwo
+    : largeTwo;
 
   return (
     <MainContainer as="main">

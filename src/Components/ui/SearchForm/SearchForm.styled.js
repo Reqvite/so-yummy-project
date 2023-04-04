@@ -3,12 +3,20 @@ import { MainButton } from "Components/AuthNav/AuthNav.styled";
 
 export const FormContainer = styled.div`
   ${(p) => p.theme.flexCentered};
-  margin-top: 50px;
-  margin-bottom: 24px;
+  margin-top: ${(p) => p.margTop || null};
 `;
 
 export const Form = styled.form`
-  width: 295px;
+  width: 100%;
+  ${(p) => p.theme.sizes.mobile} {
+    width: 295px;
+  }
+  ${(p) => p.theme.sizes.tablet} {
+    width: 362px;
+  }
+  ${(p) => p.theme.sizes.desktop} {
+    width: 510px;
+  }
 `;
 
 export const FormInput = styled.input`
@@ -16,12 +24,12 @@ export const FormInput = styled.input`
   height: 53px;
   padding: 16px 120px 16px 32px;
 
-  color: "#3E4462";
+  color: ${(p) => p.theme.colors.cardsText};
   border-radius: 24px 44px;
   border: 1px solid #f0f0f0;
-  background-color: #fafafa;
+  background-color: ${(p) => p.theme.colors.footerText};
   ${(p) => p.theme.sizes.tablet} {
-    height: 66px;
+    height: 64px;
   }
 
   &:focus {
@@ -36,7 +44,7 @@ export const SearchBtn = styled(MainButton)`
   left: 64%;
 
   ${(p) => p.theme.sizes.tablet} {
-    height: 66px;
-    left: 60%;
+    height: 65px;
+    left: 55%;
   }
 `;

@@ -16,27 +16,28 @@ import { selectList } from "redux/shopping/selectors";
 import { selectIngredients } from "redux/ingredients/selectors";
 import { useEffect, useState } from "react";
 import { getShoppingIngredients } from "redux/shopping/operations";
-import { selectIsLoading } from "redux/auth/selectors";
+import RecipeSkeleton from "Components/ui/Skeletons/RecipeSkeleton";
+import { selectRecipeLoading } from "redux/recipes/selectors";
 
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
   const dispatch = useDispatch();
   const list = useSelector(selectList);
   const listOfIngredients = useSelector(selectIngredients);
   const [recipeList, setRecipeList] = useState([]);
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectRecipeLoading);
 
   useEffect(() => {
-    const getList = async () => {
+    dispatch(getShoppingIngredients());
+    if (!isLoading) {
       const updatedRecipeList = ingredients?.map(({ id, measure }) => {
         const ingredient = listOfIngredients?.find((ingr) => ingr._id === id);
         return { ...ingredient, measure };
       });
-      await dispatch(getShoppingIngredients());
-      setRecipeList(updatedRecipeList);
-    };
-
-    getList();
-  }, [ingredients, listOfIngredients, dispatch]);
+      if (updatedRecipeList) {
+        setRecipeList(updatedRecipeList);
+      }
+    }
+  }, [ingredients, listOfIngredients, dispatch, isLoading]);
 
   return (
     <Box>
@@ -48,7 +49,9 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
             <ListHeaderText>Add to list</ListHeaderText>
           </div>
         </ListItemHeader>
-        {!isLoading &&
+        {isLoading ? (
+          <RecipeSkeleton />
+        ) : (
           recipeList?.map(({ _id, ttl, desc, thb, measure }) => {
             const isChecked = list?.some((item) => item._id === _id);
             if (!_id) {
@@ -70,7 +73,8 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
                 </ButtonWrapper>
               </ListItem>
             );
-          })}
+          })
+        )}
       </List>
     </Box>
   );
