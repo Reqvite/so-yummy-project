@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useTheme } from "@mui/material/styles";
 import { TextStyled } from "./SelectSearch.styled";
 
 const {
@@ -11,11 +10,14 @@ const {
 const { FormContainer } = require("Components/ui/SearchForm/SearchForm.styled");
 
 const SelectSearch = () => {
-  const theme = useTheme();
   const [query, setQuery] = useState("");
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
-  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "lg"));
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isDesktop = useMediaQuery("(min-width: 1439.9px)");
+  const isTablet = useMediaQuery(
+    "(min-width: 768px) and (max-width: 1439.8px)"
+  );
+  const isMobile = useMediaQuery(
+    "(min-width: 375px) and (max-width: 767.98px)"
+  );
 
   const handleChange = (event) => {
     setQuery(event.target.value);
@@ -40,18 +42,8 @@ const SelectSearch = () => {
             color: "rgba(0,0,0,0.5)",
             fontSize: isMobile ? "12px" : "14px",
             borderRadius: "6px",
+            fontFamily: "Poppins",
           },
-          //   "& li.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root": {
-          //     backgroundColor: "white",
-          //     height: "40px",
-          //   },
-          //   "& li.Mui-selected": {
-          //     backgroundColor: "white",
-          //   },
-          //   "& li.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root:hover": {
-          //     backgroundColor: "white",
-          //   },
-
           "& div.css-1ka5eyc-MuiPaper-root-MuiMenu-paper-MuiPopover-paper": {
             width: isMobile
               ? "146px"
