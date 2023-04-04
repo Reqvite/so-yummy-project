@@ -10,7 +10,8 @@ const initialState = {
   userFavouritesRecipes: [],
   recipes: [],
   recipe: [],
-  isLoading: false,
+  recipeIsLoading: false,
+  loading: false,
   error: null,
 };
 
@@ -20,15 +21,15 @@ const recipeSlice = createSlice({
   extraReducers: (builder) =>
     builder
       .addCase(getRecipe.pending, (state, action) => {
-        state.isLoading = true;
+        state.recipeIsLoading = true;
       })
       .addCase(getRecipe.fulfilled, (state, action) => {
-        state.isLoading = false;
+        state.recipeIsLoading = false;
         state.error = null;
         state.recipe = action.payload;
       })
       .addCase(getRecipe.rejected, (state, action) => {
-        state.isLoading = false;
+        state.recipeIsLoading = false;
         state.error = action.payload;
       })
       .addCase(getUserFavouritesRecipes.pending, (state, action) => {

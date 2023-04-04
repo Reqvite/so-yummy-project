@@ -13,19 +13,18 @@ import {
 import CustomCheckbox from "../CheckBox/CkeckBox";
 import { useDispatch, useSelector } from "react-redux";
 import { selectList } from "redux/shopping/selectors";
-import {
-  selectIngredients,
-  selectIsLoading,
-} from "redux/ingredients/selectors";
+import { selectIngredients } from "redux/ingredients/selectors";
 import { useEffect, useState } from "react";
 import { getShoppingIngredients } from "redux/shopping/operations";
+import RecipeSkeleton from "Components/ui/Skeletons/RecipeSkeleton";
+import { selectRecipeLoading } from "redux/recipes/selectors";
 
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
   const dispatch = useDispatch();
   const list = useSelector(selectList);
   const listOfIngredients = useSelector(selectIngredients);
   const [recipeList, setRecipeList] = useState([]);
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectRecipeLoading);
 
   useEffect(() => {
     dispatch(getShoppingIngredients());
@@ -50,7 +49,9 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
             <ListHeaderText>Add to list</ListHeaderText>
           </div>
         </ListItemHeader>
-        {!isLoading &&
+        {isLoading ? (
+          <RecipeSkeleton />
+        ) : (
           recipeList?.map(({ _id, ttl, desc, thb, measure }) => {
             const isChecked = list?.some((item) => item._id === _id);
             if (!_id) {
@@ -72,7 +73,8 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
                 </ButtonWrapper>
               </ListItem>
             );
-          })}
+          })
+        )}
       </List>
     </Box>
   );
