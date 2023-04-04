@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { Tab } from "@mui/material";
+import { Tab, useMediaQuery } from "@mui/material";
 
 import { selectCategories } from "redux/categories/selectors";
 import { StyledCategory, StyledCategoryList } from "./CategoriesList.styled";
@@ -27,6 +27,14 @@ const CategoriesList = () => {
     navigate(`/categories/${newCategoryName.toLowerCase()}`);
   };
 
+  const isDesktop = useMediaQuery("(min-width: 1439.9px)");
+  const isTablet = useMediaQuery(
+    "(min-width: 768px) and (max-width: 1439.8px)"
+  );
+  const isMobile = useMediaQuery(
+    "(min-width: 375px) and (max-width: 767.98px)"
+  );
+
   return (
     <StyledCategoryList>
       {error && <Alert />}
@@ -39,14 +47,27 @@ const CategoriesList = () => {
         aria-label="scrollable prevent tabs example"
         sx={{
           "& button": {
-            paddingLeft: "12px",
-            paddingRight: "12px",
+            paddingLeft: isMobile
+              ? "12px"
+              : isTablet
+              ? "27px"
+              : isDesktop
+              ? "27px"
+              : "12px",
+            paddingRight: isMobile
+              ? "12px"
+              : isTablet
+              ? "27px"
+              : isDesktop
+              ? "27px"
+              : "12px",
             paddingTop: "15px",
             paddingBottom: "15px",
             textTransform: "capitalize",
-            fontSize: 16,
+            fontSize: isMobile ? 14 : isTablet ? 18 : isDesktop ? 18 : 14,
             fontFamily: "Poppins",
             fontWeight: 400,
+            color: "#OEOEOE",
           },
           "& button.Mui-selected": {
             color: "#8BAA36",
