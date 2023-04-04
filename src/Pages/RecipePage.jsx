@@ -5,9 +5,10 @@ import RecipeSkeleton from "Components/ui/Skeletons/RecipeSkeleton";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { getIngredients } from "redux/ingredients/operations";
 import { getRecipe, getUserFavouritesRecipes } from "redux/recipes/operations";
 import { selectRecipe, selectRecipeLoading } from "redux/recipes/selectors";
+import { getShoppingIngredients } from "redux/shopping/operations";
+import { selectIsLoading } from "redux/shopping/selectors";
 
 const RecipePage = () => {
   const dispatch = useDispatch();
@@ -33,16 +34,17 @@ const RecipePage = () => {
   } = useSelector(selectRecipe);
 
   useEffect(() => {
+    dispatch(getShoppingIngredients());
     dispatch(getRecipe(id));
-    dispatch(getIngredients());
     dispatch(getUserFavouritesRecipes());
   }, [dispatch, id]);
 
   const isLoading = useSelector(selectRecipeLoading);
+  const isLoadingShopping = useSelector(selectIsLoading);
 
   return (
     <>
-      {isLoading ? (
+      {isLoadingShopping || isLoading ? (
         <RecipeSkeleton />
       ) : (
         <>
