@@ -24,3 +24,17 @@ export const getCategoryRecipes = createAsyncThunk(
     }
   }
 );
+
+export const getSearchResultByTitle = createAsyncThunk(
+  "search/getSearchQuery",
+  async (searchType, value, thunkAPI) => {
+    try {
+      const resp = await instance.get(
+        `/api/recipes/search/?${searchType}=${value}`
+      );
+      return resp.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);
