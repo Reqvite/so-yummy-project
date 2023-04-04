@@ -18,7 +18,7 @@ export const MainContainer = styled.div`
     padding: 136px 32px 200px 32px;
   }
   ${(p) => p.theme.sizes.desktop} {
-    padding: 100px 90px 200px 99px;
+    padding: 164px 100px 100px 100px;
   }
   max-width: 1440px;
 `;
