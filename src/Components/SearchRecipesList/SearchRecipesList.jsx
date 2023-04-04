@@ -7,15 +7,15 @@ import {
   RecipesList,
 } from "./SearchRecipesList.styled";
 import defaultImg from "../../assets/images/defaultDish.png";
-import Loader from "Components/ui/Loader/Loader";
 import Alert from "Components/ui/Alert";
+import CategorySkeleton from "Components/ui/Skeletons/CategorySkeleton";
 
 const SearchRecipesList = ({ query, isLoading, error }) => {
   return (
     <div>
       {error && <Alert />}
       {isLoading ? (
-        <Loader />
+        <CategorySkeleton />
       ) : (
         <RecipesList>
           {query.map(({ _id, title, area, thumb }) => (

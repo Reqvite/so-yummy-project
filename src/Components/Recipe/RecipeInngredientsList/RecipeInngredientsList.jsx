@@ -19,6 +19,7 @@ import {
 } from "redux/ingredients/selectors";
 import { useEffect, useState } from "react";
 import { getShoppingIngredients } from "redux/shopping/operations";
+import RecipeSkeleton from "Components/ui/Skeletons/RecipeSkeleton";
 
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
   const dispatch = useDispatch();
@@ -50,7 +51,9 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
             <ListHeaderText>Add to list</ListHeaderText>
           </div>
         </ListItemHeader>
-        {!isLoading &&
+        {isLoading ? (
+          <RecipeSkeleton />
+        ) : (
           recipeList?.map(({ _id, ttl, desc, thb, measure }) => {
             const isChecked = list?.some((item) => item._id === _id);
             if (!_id) {
@@ -72,7 +75,8 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
                 </ButtonWrapper>
               </ListItem>
             );
-          })}
+          })
+        )}
       </List>
     </Box>
   );

@@ -22,6 +22,7 @@ import {
 } from "./IngredientsShoppingList.styled";
 import EmptyErrorBox from "Components/ui/EmptyErrorBox/EmptyErrorBox";
 import { useTheme } from "styled-components";
+import ShoppingListSkeleton from "Components/ui/Skeletons/ShoppingListSkeleton";
 
 // const ingr = [
 //   {
@@ -63,32 +64,36 @@ const IngredientsShoppingList = () => {
           </div>
         </ListItemHeader>
         <>
-          {list?.map(({ _id, ttl, desc, thb, measure }) => {
-            if (!_id) {
-              return null;
-            }
-            return (
-              <ListItem key={_id}>
-                <Wrapper>
-                  <ImgBox>
-                    <Img alt={ttl} src={thb} width={48} height={48} />
-                  </ImgBox>
-                  <Title>{ttl}</Title>
-                </Wrapper>
-                <ButtonWrapper>
-                  <Measure>{measure}</Measure>
-                  <Button
-                    disabled={isLoading}
-                    onClick={() => dispatch(deleteIngredient(_id))}
-                  >
-                    <CloseIcon
-                      whileHover={{ stroke: theme.colors.accentColor }}
-                    />
-                  </Button>
-                </ButtonWrapper>
-              </ListItem>
-            );
-          })}
+          {isLoading ? (
+            <ShoppingListSkeleton />
+          ) : (
+            list?.map(({ _id, ttl, desc, thb, measure }) => {
+              if (!_id) {
+                return null;
+              }
+              return (
+                <ListItem key={_id}>
+                  <Wrapper>
+                    <ImgBox>
+                      <Img alt={ttl} src={thb} width={48} height={48} />
+                    </ImgBox>
+                    <Title>{ttl}</Title>
+                  </Wrapper>
+                  <ButtonWrapper>
+                    <Measure>{measure}</Measure>
+                    <Button
+                      disabled={isLoading}
+                      onClick={() => dispatch(deleteIngredient(_id))}
+                    >
+                      <CloseIcon
+                        whileHover={{ stroke: theme.colors.accentColor }}
+                      />
+                    </Button>
+                  </ButtonWrapper>
+                </ListItem>
+              );
+            })
+          )}
         </>
         {!isLoading && list.length === 0 && (
           <EmptyErrorBox text="Your shopping list is empty." />
