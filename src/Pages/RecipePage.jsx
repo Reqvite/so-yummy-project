@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { getIngredients } from "redux/ingredients/operations";
-import { getRecipe } from "redux/recipes/operations";
+import { getRecipe, getUserFavouritesRecipes } from "redux/recipes/operations";
 import { selectRecipe } from "redux/recipes/selectors";
 
 const RecipePage = () => {
@@ -34,11 +34,17 @@ const RecipePage = () => {
   useEffect(() => {
     dispatch(getRecipe(id));
     dispatch(getIngredients());
+    dispatch(getUserFavouritesRecipes());
   }, [dispatch, id]);
 
   return (
     <>
-      <RecipePageHero title={title} description={description} time={time} />
+      <RecipePageHero
+        title={title}
+        description={description}
+        time={time}
+        id={_id}
+      />
       <RecipeInngredientsList ingredients={ingredients} recipeId={_id} />
       <RecipePreparation
         preview={preview}

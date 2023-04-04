@@ -158,4 +158,8 @@ export const Button = styled.button`
 export const CloseIcon = styled(CloseSvg)`
   width: 20px;
   height: 20px;
+  /* :hover {
+    color: ${(p) => p.theme.colors.accentColor};
+    stroke: ${(p) => p.theme.colors.accentColor};
+  } */
 `;

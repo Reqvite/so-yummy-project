@@ -61,22 +61,30 @@ const IngredientsShoppingList = () => {
           </div>
         </ListItemHeader>
         <>
-          {list?.map(({ _id, ttl, desc, thb, measure }) => (
-            <ListItem key={_id}>
-              <Wrapper>
-                <ImgBox>
-                  <Img alt={ttl} src={thb} width={48} height={48} />
-                </ImgBox>
-                <Title>{ttl}</Title>
-              </Wrapper>
-              <ButtonWrapper>
-                <Measure>{measure}</Measure>
-                <Button onClick={() => dispatch(deleteIngredient(_id))}>
-                  <CloseIcon />
-                </Button>
-              </ButtonWrapper>
-            </ListItem>
-          ))}
+          {list?.map(({ _id, ttl, desc, thb, measure }) => {
+            if (!_id) {
+              return null;
+            }
+            return (
+              <ListItem key={_id}>
+                <Wrapper>
+                  <ImgBox>
+                    <Img alt={ttl} src={thb} width={48} height={48} />
+                  </ImgBox>
+                  <Title>{ttl}</Title>
+                </Wrapper>
+                <ButtonWrapper>
+                  <Measure>{measure}</Measure>
+                  <Button
+                    disabled={isLoading}
+                    onClick={() => dispatch(deleteIngredient(_id))}
+                  >
+                    <CloseIcon />
+                  </Button>
+                </ButtonWrapper>
+              </ListItem>
+            );
+          })}
         </>
         {!isLoading && list.length === 0 && (
           <EmptyErrorBox text="Your shopping list is empty." />

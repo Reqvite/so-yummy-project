@@ -72,6 +72,7 @@ export const Button = styled(motion.button)`
   position: relative;
   z-index: 3;
 
+  min-width: 200px;
   margin-top: 24px;
   margin-left: auto;
   margin-right: auto;
