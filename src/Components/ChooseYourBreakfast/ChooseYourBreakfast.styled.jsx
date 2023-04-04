@@ -6,21 +6,22 @@ import bgMainPageMobile from "../../assets/images/mainPage/mainPageMobile/bgMain
 import bgMobile from "../../assets/images/mainPage/mainPageMobile/bgMobile.png";
 
 import bgLeafLeftTablet from "../../assets/images/mainPage/mainPageTablet/bgLeafLeftTablet.png";
-// import bgLeafRightTablet from "../../assets/images/mainPage/mainPageTablet/bgLeafRightTablet.png";
+import bgLeafRightTablet from "../../assets/images/mainPage/mainPageTablet/bgLeafRightTablet.png";
 import bgMainPageTablet from "../../assets/images/mainPage/mainPageTablet/bgMainPageTablet.png";
-// import bgTablet from "../../assets/images/mainPage/mainPageTablet/bgTablet.png";
-// import arrowTablet from "../../assets/images/mainPage/mainPageTablet/arrowTablet.png";
-
-// import arrowDesktop from "../../assets/images/mainPage/mainPageDesktop/arrowDesktop.png";
-// import bgDesktop from "../../assets/images/mainPage/mainPageDesktop/bgDesktop.png";
+import bgTablet from "../../assets/images/mainPage/mainPageTablet/bgTablet.png";
+import bgDesktop from "../../assets/images/mainPage/mainPageDesktop/bgDesktop.png";
 import bgLeafLeftDesktop from "../../assets/images/mainPage/mainPageDesktop/bgLeafLeftDesktop.png";
-// import bgLeafRightDesktop from "../../assets/images/mainPage/mainPageDesktop/bgLeafRightDesktop.png";
+import bgLeafRightDesktop from "../../assets/images/mainPage/mainPageDesktop/bgLeafRightDesktop.png";
 import bgMainPageDesktop from "../../assets/images/mainPage/mainPageDesktop/bgMainPageDesktop.png";
 
 import { ReactComponent as ArrowMainPage } from "../../assets/svg/mainPage/arrowMainPage.svg";
+import { ReactComponent as ArrowMain } from "../../assets/svg/mainPage/arrow.svg";
 
-export const WrapperBreakfast = styled.section`
-  padding-top: 71px;
+export const PositionWrapper = styled.div`
+  position: relative;
+  ${(div) => div.theme.sizes.tablet} {
+    position: static;
+  }
 `;
 
 export const Title = styled.h1`
@@ -47,20 +48,45 @@ export const Title = styled.h1`
 
 export const Text = styled.p`
   color: ${(h1) => h1.theme.colors.mainText};
-  width: 248px;
+  max-width: 248px;
   margin: 14px auto 0 auto;
   font-weight: 400;
   font-size: ${(h1) => h1.theme.fontSizes.xs};
   line-height: 1.28;
   text-align: center;
   letter-spacing: -0.02em;
+
   ${(p) => p.theme.sizes.tablet} {
     font-size: 14px;
     line-height: 1.28;
+    margin: 24px 0 0 0;
+    max-width: 362px;
+    text-align: inherit;
   }
   ${(p) => p.theme.sizes.desktop} {
     font-size: 18px;
     line-height: 1.33;
+    max-width: 465px;
+    margin: 14px 0 0 0;
+  }
+`;
+
+export const Flex = styled.div`
+  ${(div) => div.theme.sizes.tablet} {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  ${(div) => div.theme.sizes.desktop} {
+    margin-right: 73px;
+  }
+`;
+
+export const FlexContainer = styled.div`
+  ${(div) => div.theme.sizes.tablet} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -72,30 +98,69 @@ export const BgLeafLeft = styled.div`
   height: 184px;
   position: absolute;
   left: 0;
-  top: 0;
+  top: 30px;
   z-index: -1;
 
   ${(div) => div.theme.sizes.tablet} {
-    height: 315px;
     background-image: url(${bgLeafLeftTablet});
+    top: 0;
+    width: 67px;
+    height: 323px;
   }
 
   ${(div) => div.theme.sizes.desktop} {
-    height: 438px;
+    height: 398px;
+    width: 116px;
     background-image: url(${bgLeafLeftDesktop});
   }
 `;
 
-export const Background = styled.div`
-  background-image: url(${bgLeafRightMobile}), url(${bgMobile});
+export const BgLeafRightMobile = styled.div`
+  background-image: url(${bgLeafRightMobile});
   background-repeat: no-repeat;
   background-size: contain;
-  width: 300px;
+  width: 375px;
+  height: 814px;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+
+  ${(div) => div.theme.sizes.tablet} {
+    background-image: url(${bgLeafRightTablet});
+    width: 583px;
+    height: 640px;
+    top: -35px;
+  }
+  ${(div) => div.theme.sizes.desktop} {
+    background-image: url(${bgLeafRightDesktop});
+    width: 913px;
+    height: 800px;
+  }
+`;
+
+export const Background = styled.div`
+  background-image: url(${bgMobile});
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 270px;
   height: 800px;
   position: absolute;
   z-index: -1;
-  top: 15%;
+  top: 130px;
   right: 0;
+
+  ${(div) => div.theme.sizes.tablet} {
+    background-image: url(${bgTablet});
+    width: 332px;
+    height: 640px;
+    top: 0;
+  }
+  ${(div) => div.theme.sizes.desktop} {
+    background-image: url(${bgDesktop});
+    width: 725px;
+    height: 689px;
+  }
 `;
 
 export const WrapperBackground = styled.div`
@@ -104,6 +169,7 @@ export const WrapperBackground = styled.div`
   height: 296px;
   width: 320px;
   margin: 0 auto;
+  background-size: contain;
   margin-top: 44px;
   display: flex;
   justify-content: flex-end;
@@ -111,13 +177,21 @@ export const WrapperBackground = styled.div`
 
   ${(div) => div.theme.sizes.tablet} {
     background-image: url(${bgMainPageTablet});
-    width: 378px;
-    height: 351px;
+    max-width: 341px;
+    height: 335px;
+    align-items: center;
+    justify-content: center;
+    align-items: end;
+    padding-bottom: 60px;
+    margin: 0;
+    position: relative;
   }
   ${(div) => div.theme.sizes.desktop} {
     background-image: url(${bgMainPageDesktop});
     width: 578px;
     height: 539px;
+    justify-content: flex-end;
+    max-width: none;
   }
 `;
 
@@ -163,9 +237,7 @@ export const RecipeText = styled.p`
 
 export const NavLink = styled(Link)`
   margin-top: 7px;
-  display: block;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   font-weight: ${(Link) => Link.theme.fontWeights.regular};
   font-size: ${(Link) => Link.theme.fontSizes.xxxs};
@@ -177,4 +249,25 @@ export const NavLink = styled(Link)`
 
 export const ArrowSvg = styled(ArrowMainPage)`
   margin-left: 7px;
+`;
+
+export const Arrow = styled(ArrowMain)`
+  display: none;
+  ${(ArrowMain) => ArrowMain.theme.sizes.tablet} {
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    right: 75px;
+    width: 146px;
+    height: 56px;
+    fill: none;
+  }
+  ${(ArrowMain) => ArrowMain.theme.sizes.desktop} {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    fill: none;
+    width: 146px;
+    height: 56px;
+  }
 `;

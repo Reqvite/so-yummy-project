@@ -12,7 +12,6 @@ export const MainContainer = styled.div`
   margin-right: auto;
 
   padding: 114px 16px 100px 16px;
-  background-color: ${(p) => p.theme.colors.mainBackground};
 
   ${(p) => p.theme.sizes.tablet} {
     padding: 136px 32px 200px 32px;
