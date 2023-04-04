@@ -30,7 +30,8 @@ export const ImgBox = styled.div`
 export const MainPageTitle = styled.h1`
   position: relative;
   z-index: 3;
-  padding-top: 144px;
+
+  padding-top: 30px;
   color: ${(p) => p.theme.colors.accentColor};
   text-align: center;
   font-size: ${(p) => p.theme.fontSizes.m};
@@ -40,18 +41,17 @@ export const MainPageTitle = styled.h1`
 
   ${(p) => p.theme.sizes.tablet} {
     font-size: ${(p) => p.theme.fontSizes.xl};
-    padding-top: 136px;
   }
 
   ${(p) => p.theme.sizes.desktop} {
     font-size: ${(p) => p.theme.fontSizes.xl};
-    padding-top: 164px;
   }
 `;
 
 export const Text = styled.p`
   position: relative;
   z-index: 3;
+
   width: 100%;
   max-width: 656px;
   margin: 0 auto;
@@ -69,6 +69,9 @@ export const Text = styled.p`
 `;
 
 export const Button = styled(motion.button)`
+  position: relative;
+  z-index: 3;
+
   margin-top: 24px;
   margin-left: auto;
   margin-right: auto;
@@ -92,6 +95,9 @@ export const Button = styled(motion.button)`
 `;
 
 export const Box = styled.div`
+  position: relative;
+  z-index: 3;
+
   margin-top: 42px;
   display: flex;
   justify-content: center;
