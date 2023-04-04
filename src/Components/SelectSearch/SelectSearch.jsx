@@ -38,7 +38,7 @@ const SelectSearch = () => {
           "& div": {
             backgroundColor: "grey.100",
             color: "rgba(0,0,0,0.5)",
-            fontSize: isMobile ? "12" : "14px",
+            fontSize: isMobile ? "12px" : "14px",
             borderRadius: "6px",
           },
           //   "& li.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root": {
