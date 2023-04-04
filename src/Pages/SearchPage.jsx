@@ -11,7 +11,6 @@ const SearchPage = () => {
   return (
     <>
       <PageWrapper>
-        <ImageBackground />
         <Title margBottom="50px">Search</Title>
         <SearchForm />
         <SelectSearch />
