@@ -28,6 +28,8 @@ export const ImgBox = styled.div`
 `;
 
 export const MainPageTitle = styled.h1`
+  position: relative;
+  z-index: 3;
   padding-top: 144px;
   color: ${(p) => p.theme.colors.accentColor};
   text-align: center;
@@ -48,6 +50,8 @@ export const MainPageTitle = styled.h1`
 `;
 
 export const Text = styled.p`
+  position: relative;
+  z-index: 3;
   width: 100%;
   max-width: 656px;
   margin: 0 auto;
