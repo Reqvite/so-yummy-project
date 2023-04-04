@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { TextStyled } from "./SelectSearch.styled";
+import { useEffect } from "react";
 
 const {
   FormControl,
@@ -9,8 +11,9 @@ const {
 } = require("@mui/material");
 const { FormContainer } = require("Components/ui/SearchForm/SearchForm.styled");
 
-const SelectSearch = () => {
-  const [query, setQuery] = useState("");
+const SelectSearch = ({ param }) => {
+  const [query, setQuery] = useState(param ? param : "query");
+
   const isDesktop = useMediaQuery("(min-width: 1439.9px)");
   const isTablet = useMediaQuery(
     "(min-width: 768px) and (max-width: 1439.8px)"
@@ -19,8 +22,17 @@ const SelectSearch = () => {
     "(min-width: 375px) and (max-width: 767.98px)"
   );
 
-  const handleChange = (event) => {
-    setQuery(event.target.value);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (param !== query) {
+      navigate(`/search?${param}`);
+    }
+    navigate(`/search?${query}`);
+  }, [query, navigate, param]);
+
+  const handleChange = (e) => {
+    setQuery(e.target.value);
   };
 
   return (
@@ -84,8 +96,8 @@ const SelectSearch = () => {
             "aria-label": "Without label",
           }}
         >
-          <MenuItem value="">Title</MenuItem>
-          <MenuItem value="Ingredient">Ingredient</MenuItem>
+          <MenuItem value="query">Title</MenuItem>
+          <MenuItem value="ingredient">Ingredient</MenuItem>
         </Select>
       </FormControl>
     </FormContainer>
