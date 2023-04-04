@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useTheme } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 import { TextStyled } from "./SelectSearch.styled";
+import { useEffect } from "react";
 
 const {
   FormControl,
@@ -10,15 +11,28 @@ const {
 } = require("@mui/material");
 const { FormContainer } = require("Components/ui/SearchForm/SearchForm.styled");
 
-const SelectSearch = () => {
-  const theme = useTheme();
-  const [query, setQuery] = useState("");
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
-  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "lg"));
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+const SelectSearch = ({ param }) => {
+  const [query, setQuery] = useState(param ? param : "query");
 
-  const handleChange = (event) => {
-    setQuery(event.target.value);
+  const isDesktop = useMediaQuery("(min-width: 1439.9px)");
+  const isTablet = useMediaQuery(
+    "(min-width: 768px) and (max-width: 1439.8px)"
+  );
+  const isMobile = useMediaQuery(
+    "(min-width: 375px) and (max-width: 767.98px)"
+  );
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (param !== query) {
+      navigate(`/search?${param}`);
+    }
+    navigate(`/search?${query}`);
+  }, [query, navigate, param]);
+
+  const handleChange = (e) => {
+    setQuery(e.target.value);
   };
 
   return (
@@ -38,20 +52,10 @@ const SelectSearch = () => {
           "& div": {
             backgroundColor: "grey.100",
             color: "rgba(0,0,0,0.5)",
-            fontSize: isMobile ? "12" : "14px",
+            fontSize: isMobile ? "12px" : "14px",
             borderRadius: "6px",
+            fontFamily: "Poppins",
           },
-          //   "& li.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root": {
-          //     backgroundColor: "white",
-          //     height: "40px",
-          //   },
-          //   "& li.Mui-selected": {
-          //     backgroundColor: "white",
-          //   },
-          //   "& li.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root:hover": {
-          //     backgroundColor: "white",
-          //   },
-
           "& div.css-1ka5eyc-MuiPaper-root-MuiMenu-paper-MuiPopover-paper": {
             width: isMobile
               ? "146px"
@@ -92,8 +96,8 @@ const SelectSearch = () => {
             "aria-label": "Without label",
           }}
         >
-          <MenuItem value="">Title</MenuItem>
-          <MenuItem value="Ingredient">Ingredient</MenuItem>
+          <MenuItem value="query">Title</MenuItem>
+          <MenuItem value="ingredient">Ingredient</MenuItem>
         </Select>
       </FormControl>
     </FormContainer>

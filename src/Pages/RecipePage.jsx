@@ -1,12 +1,14 @@
 import RecipeInngredientsList from "Components/Recipe/RecipeInngredientsList/RecipeInngredientsList";
 import RecipePageHero from "Components/Recipe/RecipePageHero/RecipePageHero";
 import RecipePreparation from "Components/Recipe/RecipePreparation/RecipePreparation";
+import RecipeSkeleton from "Components/ui/Skeletons/RecipeSkeleton";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { getIngredients } from "redux/ingredients/operations";
 import { getRecipe, getUserFavouritesRecipes } from "redux/recipes/operations";
-import { selectRecipe } from "redux/recipes/selectors";
+import { selectRecipe, selectRecipeLoading } from "redux/recipes/selectors";
+import { getShoppingIngredients } from "redux/shopping/operations";
+import { selectIsLoading } from "redux/shopping/selectors";
 
 const RecipePage = () => {
   const dispatch = useDispatch();
@@ -32,25 +34,34 @@ const RecipePage = () => {
   } = useSelector(selectRecipe);
 
   useEffect(() => {
+    dispatch(getShoppingIngredients());
     dispatch(getRecipe(id));
-    dispatch(getIngredients());
     dispatch(getUserFavouritesRecipes());
   }, [dispatch, id]);
 
+  const isLoading = useSelector(selectRecipeLoading);
+  const isLoadingShopping = useSelector(selectIsLoading);
+
   return (
     <>
-      <RecipePageHero
-        title={title}
-        description={description}
-        time={time}
-        id={_id}
-      />
-      <RecipeInngredientsList ingredients={ingredients} recipeId={_id} />
-      <RecipePreparation
-        preview={preview}
-        title={title}
-        instructions={instructions}
-      />
+      {isLoadingShopping || isLoading ? (
+        <RecipeSkeleton />
+      ) : (
+        <>
+          <RecipePageHero
+            title={title}
+            description={description}
+            time={time}
+            id={_id}
+          />
+          <RecipeInngredientsList ingredients={ingredients} recipeId={_id} />
+          <RecipePreparation
+            preview={preview}
+            title={title}
+            instructions={instructions}
+          />
+        </>
+      )}
     </>
   );
 };

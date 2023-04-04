@@ -17,7 +17,7 @@ const Navigation = () => {
 const NavWrap = styled.nav`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 14px;
   font-size: 14px;
   font-weight: 500;
@@ -26,13 +26,17 @@ const NavWrap = styled.nav`
 
   @media screen and (min-width: 768px) {
     gap: 24px;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-right: 242px;
+    align-items: flex-start;
   }
 `;
 const Link = styled(NavLink)`
   display: block;
   text-decoration: none;
   font-weight: 500;
-  font-size: 18px;
   line-height: 1;
 
   :hover {
