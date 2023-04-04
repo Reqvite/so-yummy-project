@@ -3,6 +3,7 @@ import Container from "../../Components/ui/Container/ContainerStyled";
 import LogoAndAbilities from "../Footer/LogoAndAbilities/LogoAndAbilities";
 import Navigation from "../Footer/Nav/Nav";
 import SubscribeForm from "../Footer/SubscribeForm/SubscribeForm";
+import FollowUs from "../Footer/FollowUs/FollowUs";
 
 import imgTop1x from "../../assets/images/Footer/BackgroundImageTop/leafs-footer-mob.png";
 import imgTop2x from "../../assets/images/Footer/BackgroundImageTop/leafs-footer-mob@2x.png";
@@ -24,11 +25,15 @@ const Footer = () => {
       <GreenLeafsTop />
 
       <Container>
-        <LogoAndAbilities />
+        <LogoNavSubWrap>
+          <LogoAndAbilities />
 
-        <Navigation />
+          <Navigation />
 
-        <SubscribeForm />
+          <SubscribeForm />
+
+          <FollowUs />
+        </LogoNavSubWrap>
       </Container>
 
       <FooterBottomWrap>
@@ -44,6 +49,26 @@ const FooterWrap = styled.footer`
   position: relative;
   background-color: ${(p) => p.theme.colors.footerBackground};
   color: ${(p) => p.theme.colors.footerText};
+`;
+
+const LogoNavSubWrap = styled.div`
+  padding-top: 28px;
+  padding-bottom: 19px;
+
+  align-items: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 50px;
+  }
+  @media screen and (min-width: 1440px) {
+    align-items: flex-start;
+  }
 `;
 
 const GreenLeafsTop = styled.div`

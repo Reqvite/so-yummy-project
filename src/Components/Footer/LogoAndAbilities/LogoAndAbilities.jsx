@@ -38,7 +38,14 @@ const LogoAndAbilities = () => {
     </Wrap>
   );
 };
-const Wrap = styled.div``;
+const Wrap = styled.div`
+  @media (min-width: 768px) {
+    margin-right: 175px;
+  }
+  @media (min-width: 1440px) {
+    margin-right: 119px;
+  }
+`;
 
 const LogoWrap = styled.div`
   display: flex;
@@ -51,11 +58,17 @@ const LogoWrap = styled.div`
   letter-spacing: 0.015em;
   text-align: left;
   padding: 0px;
+  margin-bottom: 32px;
 
   @media (min-width: 768px) {
     font-size: 28px;
     line-height: 28px;
+
     gap: 12px;
+    margin-bottom: 24px;
+  }
+  @media (min-width: 1440px) {
+    margin-bottom: 40px;
   }
 `;
 
@@ -65,8 +78,6 @@ const AbilitiesList = styled.ul`
   display: none;
 
   @media screen and (min-width: 768px) {
-    margin-top: 40px;
-    margin-right: 173px;
     padding-left: 20px;
     list-style-type: disc;
     display: flex;
@@ -78,7 +89,6 @@ const AbilitiesList = styled.ul`
     gap: 10px;
   }
   @media screen and (min-width: 1440px) {
-    margin-right: 159px;
     font-size: 18px;
     line-height: 24px;
     max-width: 418px;
