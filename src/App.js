@@ -23,6 +23,7 @@ import Alert from "Components/ui/Alert";
 
 import { darkTheme, lightTheme } from "./theme/theme";
 import { selectTheme } from "redux/theme/selectors";
+import FavoritePage from "Pages/FavoritePage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -70,6 +71,7 @@ const App = () => {
           <Route path="shopping-list" element={<ShoppingListPage />} />
           <Route path="recipe/:id" element={<RecipePage />}></Route>
           <Route path="search" element={<SearchPage />}></Route>
+          <Route path="favorite" element={<FavoritePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

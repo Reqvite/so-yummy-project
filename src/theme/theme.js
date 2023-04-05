@@ -29,6 +29,7 @@ export const lightTheme = {
     footerButtonBg: "#8BAA36",
     footerButtonHover: "#22252A",
     themeButtonBg: "#efefef",
+    cardBackGround: "#FFFFFF",
 
     userNameColor: "#22252A",
     mainIconColor: "#22252A",
@@ -108,6 +109,7 @@ export const darkTheme = {
     footerButtonBg: "#1E1F28",
     footerButtonHover: "#8BAA36",
     themeButtonBg: "#8BAA36",
+    cardBackGround: "#2A2C36",
 
     userNameColor: "#8BAA36",
     mainIconColor: "#FAFAFA",
