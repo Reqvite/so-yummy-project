@@ -23,7 +23,7 @@ const categoriesSlice = createSlice({
     isLoading: false,
     error: null,
   },
-  extraReducers: (builder) => {
+  extraReducers: (builder) =>
     builder
       .addCase(getCategories.pending, handlePending)
       .addCase(getCategories.rejected, handleRejected)
@@ -45,8 +45,14 @@ const categoriesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.searchByTitle = action.payload;
-      });
-  },
+      })
+      .addDefaultCase((state, action) => {
+        if (action.type === "auth/logout/fulfilled") {
+          state.items = [];
+          state.recipeCategories = [];
+          state.searchByTitle = [];
+        }
+      }),
 });
 
 export const categoriesReducer = categoriesSlice.reducer;

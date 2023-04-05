@@ -1,7 +1,5 @@
 import React from "react";
 
-import { useTheme } from "styled-components";
-
 import {
   SocialList,
   SocialItem,
@@ -13,7 +11,6 @@ import {
 } from "./FollowUs.styled";
 
 const FollowUs = ({ text }) => {
-  const theme = useTheme();
   return (
     <SocialList>
       <SocialItem>
@@ -22,11 +19,7 @@ const FollowUs = ({ text }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FacebookIcon
-            width="18"
-            height="18"
-            fill={theme.colors.socialIconColor}
-          />
+          <FacebookIcon width="18" height="18" />
         </Link>
       </SocialItem>
 
@@ -36,11 +29,7 @@ const FollowUs = ({ text }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <YoutubeIcon
-            width="19"
-            height="14"
-            fill={theme.colors.socialIconColor}
-          />
+          <YoutubeIcon width="19" height="14" />
         </Link>
       </SocialItem>
 
@@ -50,11 +39,7 @@ const FollowUs = ({ text }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <TwitterIcon
-            width="18"
-            height="14"
-            fill={theme.colors.socialIconColor}
-          />
+          <TwitterIcon width="18" height="14" />
         </Link>
       </SocialItem>
 
@@ -64,11 +49,7 @@ const FollowUs = ({ text }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <InstagramIcon
-            width="17"
-            height="17"
-            fill={theme.colors.socialIconColor}
-          />
+          <InstagramIcon width="17" height="17" />
         </Link>
       </SocialItem>
     </SocialList>

@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import persistStore from "redux-persist/es/persistStore";
 import persistReducer from "redux-persist/es/persistReducer";
@@ -20,15 +20,17 @@ const themePersistConfig = {
   storage,
 };
 
+const rootReducer = combineReducers({
+  auth: persistReducer(authPersistConfig, authReducer),
+  shopping: shoppingReducer,
+  recipes: recipeReducer,
+  categories: categoriesReducer,
+  ingredients: ingredientsReducer,
+  theme: persistReducer(themePersistConfig, themeReducer),
+});
+
 export const store = configureStore({
-  reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
-    shopping: shoppingReducer,
-    recipes: recipeReducer,
-    categories: categoriesReducer,
-    ingredients: ingredientsReducer,
-    theme: persistReducer(themePersistConfig, themeReducer),
-  },
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),
 });

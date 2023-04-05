@@ -9,9 +9,15 @@ const themeSlice = createSlice({
   initialState,
   reducers: {
     toggleTheme(state, action) {
-      console.log(action.payload);
       state.theme = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addDefaultCase((state, action) => {
+      if (action.type === "auth/logout/fulfilled") {
+        state.theme = "light";
+      }
+    });
   },
 });
 
