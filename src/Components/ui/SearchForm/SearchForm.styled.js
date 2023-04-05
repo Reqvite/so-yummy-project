@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { MainButton } from "Components/AuthNav/AuthNav.styled";
 
 export const FormContainer = styled.div`
   ${(p) => p.theme.flexCentered};
@@ -7,15 +6,16 @@ export const FormContainer = styled.div`
 `;
 
 export const Form = styled.form`
+  position: relative;
   width: 100%;
   ${(p) => p.theme.sizes.mobile} {
-    width: 295px;
+    max-width: 295px;
   }
   ${(p) => p.theme.sizes.tablet} {
-    width: 362px;
+    min-width: 362px;
   }
   ${(p) => p.theme.sizes.desktop} {
-    width: 510px;
+    min-width: 510px;
   }
 `;
 
@@ -37,14 +37,23 @@ export const FormInput = styled.input`
   }
 `;
 
-export const SearchBtn = styled(MainButton)`
-  ${(p) => p.theme.flexCentered};
-  height: 53px;
+export const SearchBtn = styled.button`
   position: absolute;
-  left: 64%;
+  right: 0;
+  bottom: 0;
+  ${(p) => p.theme.flexCentered};
+  width: 113px;
+  height: 53px;
+  color: ${(p) => p.theme.colors.footerText};
+  border-radius: 24px 44px;
+  border: 1px solid #f0f0f0;
+  background-color: ${(p) => p.theme.colors.accentColor};
 
   ${(p) => p.theme.sizes.tablet} {
+    width: 161px;
     height: 65px;
-    left: 55%;
+  }
+  ${(p) => p.theme.sizes.desktop} {
+    height: 65px;
   }
 `;
