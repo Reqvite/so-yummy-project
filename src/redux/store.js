@@ -7,11 +7,17 @@ import { shoppingReducer } from "./shopping/shoppingSlice";
 import { recipeReducer } from "./recipes/recipesSlice";
 import { categoriesReducer } from "./categories/categoriesSlice";
 import { ingredientsReducer } from "./ingredients/ingredientsSlice";
+import { themeReducer } from "./theme/themeSlice";
 
 const authPersistConfig = {
   key: "auth",
   storage,
   whitelist: ["token"],
+};
+
+const themePersistConfig = {
+  key: "theme",
+  storage,
 };
 
 export const store = configureStore({
@@ -21,6 +27,7 @@ export const store = configureStore({
     recipes: recipeReducer,
     categories: categoriesReducer,
     ingredients: ingredientsReducer,
+    theme: persistReducer(themePersistConfig, themeReducer),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),

@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { useAuth } from "hooks";
 import { ThemeProvider } from "styled-components";
-import { theme } from "theme/theme";
 import { refreshUser } from "redux/auth/operations";
 import { GlobalStyle } from "Components/GlobalStyle/GlobalStyle";
 import PrivateRoute from "Components/routes/PrivateRoute";
@@ -22,9 +21,16 @@ import SearchPage from "Pages/SearchPage";
 import NotFoundPage from "Pages/NotFoundPage";
 import Alert from "Components/ui/Alert";
 
+import { darkTheme, lightTheme } from "./theme/theme";
+import { selectTheme } from "redux/theme/selectors";
+
 const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
+
+  const themeSelector = useSelector(selectTheme);
+
+  const theme = themeSelector === "light" ? lightTheme : darkTheme;
 
   useEffect(() => {
     dispatch(refreshUser());

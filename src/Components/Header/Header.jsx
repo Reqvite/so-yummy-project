@@ -9,6 +9,9 @@ import BurgerButton from "./MobileMenu/BurgerButton/BurgerButton";
 import Modal from "../../Components/ui/Modal/Modal";
 import MobileNavMenu from "../../Components/Header/MobileMenu/MobileMenu";
 import UserLogo from "./UserLogo/UserLogo";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "redux/theme/themeSlice";
+import { selectTheme } from "redux/theme/selectors";
 
 const Header = () => {
   const [menu, setMenu] = useState(false);
@@ -17,6 +20,14 @@ const Header = () => {
 
   const toggleModal = () => {
     setMenu(!menu);
+  };
+
+  const dispatch = useDispatch();
+  const theme = useSelector(selectTheme);
+
+  const handleTheme = () => {
+    const value = theme === "light" ? "dark" : "light";
+    dispatch(toggleTheme(value));
   };
 
   return (
@@ -42,6 +53,7 @@ const Header = () => {
           )}
         </HeaderElement>
       </Container>
+      <button onClick={handleTheme}>theme</button>
     </HeaderBlock>
   );
 };

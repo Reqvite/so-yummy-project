@@ -1,7 +1,8 @@
-import { theme } from "theme/theme";
 import { Form, FormContainer, FormInput, SearchBtn } from "./SearchForm.styled";
+import { useTheme } from "styled-components";
 
 const SearchForm = () => {
+  const theme = useTheme();
   return (
     <FormContainer>
       <Form>

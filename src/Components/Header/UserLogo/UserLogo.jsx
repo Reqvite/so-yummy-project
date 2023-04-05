@@ -30,7 +30,7 @@ const UserLogo = () => {
     <UserLogoWrap>
       <UserInfoWrap onClick={toggleLogoModal}>
         <Avatar alt="User's avatar" src={avatarURL} />
-        <UserName>{name}</UserName>
+        <UserName $theme>{name}</UserName>
       </UserInfoWrap>
 
       {userLogoModal && (
@@ -92,6 +92,8 @@ const Avatar = styled.img`
   }
 `;
 
-const UserName = styled.p``;
+const UserName = styled.p`
+  color: ${(p) => p.theme.colors.userNameColor};
+`;
 
 export default UserLogo;
