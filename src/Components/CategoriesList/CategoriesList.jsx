@@ -44,7 +44,6 @@ const CategoriesList = () => {
         value={value}
         onChange={handleChange}
         variant="scrollable"
-        scrollButtons={false}
         TabIndicatorProps={{ sx: { backgroundColor: "#8BAA36", height: 2 } }}
         aria-label="scrollable prevent tabs example"
         sx={{

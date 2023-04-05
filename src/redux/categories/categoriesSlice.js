@@ -6,6 +6,7 @@ import {
 } from "./operations";
 
 const handlePending = (state) => {
+  state.recipeCategories = [];
   state.isLoading = true;
 };
 
@@ -21,6 +22,7 @@ const categoriesSlice = createSlice({
     recipeCategories: [],
     searchByTitle: [],
     isLoading: false,
+    recipeCategoriesIsLoading: false,
     error: null,
   },
   extraReducers: (builder) =>
@@ -32,10 +34,14 @@ const categoriesSlice = createSlice({
         state.error = null;
         state.items = action.payload;
       })
-      .addCase(getCategoryRecipes.pending, handlePending)
-      .addCase(getCategoryRecipes.rejected, handleRejected)
+      .addCase(getCategoryRecipes.pending, (state, action) => {
+        state.recipeCategoriesIsLoading = true;
+      })
+      .addCase(getCategoryRecipes.rejected, (state, action) => {
+        state.recipeCategoriesIsLoading = false;
+      })
       .addCase(getCategoryRecipes.fulfilled, (state, action) => {
-        state.isLoading = false;
+        state.recipeCategoriesIsLoading = false;
         state.error = null;
         state.recipeCategories = action.payload.recipes;
       })
