@@ -32,7 +32,7 @@ export const deleteIngredient = createAsyncThunk(
       const resp = await instance.delete(`/api/shopping-list/${ingredientId}`);
       return resp.data;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.response.data.message);
     }
   }
 );

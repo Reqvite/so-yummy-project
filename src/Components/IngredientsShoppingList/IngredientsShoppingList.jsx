@@ -4,7 +4,11 @@ import {
   deleteIngredient,
   getShoppingIngredients,
 } from "redux/shopping/operations";
-import { selectIsLoading, selectList } from "redux/shopping/selectors";
+import {
+  selectIsLoading,
+  selectList,
+  selectShoppingListUpateIsLoading,
+} from "redux/shopping/selectors";
 import {
   Box,
   Button,
@@ -23,31 +27,16 @@ import {
 import EmptyErrorBox from "Components/ui/EmptyErrorBox/EmptyErrorBox";
 import { useTheme } from "styled-components";
 import ShoppingListSkeleton from "Components/ui/Skeletons/ShoppingListSkeleton";
-
-// const ingr = [
-//   {
-//     _id: "640c2dd963a319ea671e36e3",
-//     ttl: "Garlic",
-//     desc: "A bulbous plant related to onions, chives, and shallots, known for its pungent flavor and aroma. It is used in many cuisines around the world and is a staple ingredient in Mediterranean and Asian cooking.",
-//     t: "",
-//     thb: "https://res.cloudinary.com/ddbvbv5sp/image/upload/v1678564798/q4gnbvysfhkjv5husoxx.png",
-//     measure: "1 clove",
-//   },
-//   {
-//     _id: "640c2dd963a319ea671e372c",
-//     ttl: "Olive Oil",
-//     desc: "A type of oil made from pressing whole olives, commonly used in cooking and as a salad dressing.",
-//     t: "",
-//     thb: "https://res.cloudinary.com/ddbvbv5sp/image/upload/v1678564854/hzcfvlja7hmbp84z7f3q.png",
-//     measure: "1tbsp",
-//   },
-// ];
+import ButtonLoader from "Components/ui/ButtonLoader/ButtonLoader";
 
 const IngredientsShoppingList = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const list = useSelector(selectList);
   const isLoading = useSelector(selectIsLoading);
+  const updateShoppingListIsLoading = useSelector(
+    selectShoppingListUpateIsLoading
+  );
 
   useEffect(() => {
     dispatch(getShoppingIngredients());
@@ -81,14 +70,23 @@ const IngredientsShoppingList = () => {
                   </Wrapper>
                   <ButtonWrapper>
                     <Measure>{measure}</Measure>
-                    <Button
-                      disabled={isLoading}
-                      onClick={() => dispatch(deleteIngredient(_id))}
-                    >
-                      <CloseIcon
-                        whileHover={{ stroke: theme.colors.accentColor }}
-                      />
-                    </Button>
+                    {updateShoppingListIsLoading ? (
+                      <Button>
+                        <ButtonLoader
+                          width={25}
+                          color={theme.colors.accentColor}
+                        />
+                      </Button>
+                    ) : (
+                      <Button
+                        disabled={updateShoppingListIsLoading}
+                        onClick={() => dispatch(deleteIngredient(_id))}
+                      >
+                        <CloseIcon
+                          whileHover={{ stroke: theme.colors.accentColor }}
+                        />
+                      </Button>
+                    )}
                   </ButtonWrapper>
                 </ListItem>
               );

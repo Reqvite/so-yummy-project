@@ -1,8 +1,14 @@
+import { useLocation } from "react-router-dom";
 import { MainContainer, RotateBlock } from "./PageContainer.styled";
 
 import { useMediaQuery } from "@mui/material";
 
 const PageContainer = ({ children }) => {
+  const { pathname } = useLocation();
+
+  const isRenderBlocks =
+    pathname.includes("main") || pathname.includes("recipe");
+
   const adaptive = {
     width: 6,
     height: 6,
@@ -85,12 +91,17 @@ const PageContainer = ({ children }) => {
 
   return (
     <MainContainer as="main">
-      <RotateBlock />
-      <RotateBlock
-        {...props}
-        background={(p) => p.theme.colors.footerBackground}
-      />
-      <RotateBlock {...propsTwo} />
+      {!isRenderBlocks && (
+        <>
+          {" "}
+          <RotateBlock />
+          <RotateBlock
+            {...props}
+            background={(p) => p.theme.colors.footerBackground}
+          />
+          <RotateBlock {...propsTwo} />
+        </>
+      )}
       {children}
     </MainContainer>
   );
