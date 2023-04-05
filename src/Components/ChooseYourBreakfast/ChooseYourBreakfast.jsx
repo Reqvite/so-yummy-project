@@ -41,7 +41,7 @@ const ChooseYourBreakfast = () => {
                 justifyContent: "flex-end",
               }}
             >
-              <NavLink to={"/categories"}>
+              <NavLink to={"/categories/breakfast"}>
                 See recipes
                 <ArrowSvg />
               </NavLink>
