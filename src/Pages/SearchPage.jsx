@@ -11,16 +11,22 @@ const SearchPage = () => {
   const url = useLocation();
 
   const getParameterType = () => {
-    const searchParams = url.search;
-    const param = searchParams.replace("?", "");
-    return param;
+    const searchParams = new URLSearchParams(url.search);
+    for (const key of searchParams.keys()) {
+      return key;
+    }
+  };
+  const getParamValue = () => {
+    const paramValue = getParameterType();
+    const searchParams = new URLSearchParams(url.search);
+    return searchParams.get(paramValue);
   };
 
   return (
     <>
       <PageWrapper>
         <Title margBottom="50px">Search</Title>
-        <SearchForm />
+        <SearchForm param={getParameterType()} paramValue={getParamValue()} />
         <SelectSearch param={getParameterType()} />
 
         {/* <SearchRecipesList query="" /> */}
