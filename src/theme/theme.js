@@ -56,6 +56,7 @@ export const lightTheme = {
   },
   borders: {
     secondaryButtonBorder: "2px solid #FAFAFA",
+    shoppingListBorder: "1px solid #e0e0e0",
   },
   shadows: {},
   flexCentered: {
@@ -68,21 +69,21 @@ export const lightTheme = {
 
 export const darkTheme = {
   colors: {
-    mainBackground: "#1E1F28", //білий background
-    footerBackground: "#8BAA36", //темний(чорний) для футера, кнопок-посилань,ім'я юзера
-    darkThemeBackground: "#1E1F28", //чорний
-    secondaryBackground: "#1E1F28", //світло-зелений
-    elementsBackground: "#2A2C36", // чистий білий в елементах карток, селекторів
+    mainBackground: "#1E1F28",
+    footerBackground: "#8BAA36",
+    darkThemeBackground: "#1E1F28",
+    secondaryBackground: "#2A2C36",
+    elementsBackground: "#2A2C36",
     mainText: "#FAFAFA",
-    darkText: "#FAFAFA;",
+    darkText: "#FAFAFA",
     secondaryText: "#FAFAFA",
-    titleText: "#FAFAFA;", // заголовки h1
-    footerText: "#FAFAFA", //білий
-    cardsText: "#FAFAFA", //назви страв та надписи на картках
-    opacityText: "#000000", //чорний з опасіті 0,5(текст у селекторах, на 404page)
-    categoryText: "#BDBDBD", //світло-сірий(назви категорій)
+    titleText: "#FAFAFA",
+    footerText: "#FAFAFA",
+    cardsText: "#FAFAFA",
+    opacityText: "#000000",
+    categoryText: "#BDBDBD",
 
-    accentColor: "#8BAA36", //темно-зелений
+    accentColor: "#8BAA36",
     inputErrorColor: "#E74A3B",
     inputNotSecureColor: "#F6C23E",
     inputSuccessColor: "#3CBC81",
@@ -124,6 +125,7 @@ export const darkTheme = {
   },
   borders: {
     secondaryButtonBorder: "2px solid #FAFAFA",
+    shoppingListBorder: "1px solid rgba(250, 250, 250, 0.3)",
   },
   shadows: {},
   flexCentered: {

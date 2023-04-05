@@ -70,8 +70,7 @@ export const ListItem = styled.li`
   }
 
   margin-top: 25px;
-  border-bottom: 1px solid #e0e0e0;
-
+  border-bottom: ${(p) => p.theme.borders.shoppingListBorder};
   ${(p) => p.theme.sizes.tablet} {
     padding-bottom: 42px;
     margin-top: 45px;
