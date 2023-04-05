@@ -1,17 +1,18 @@
+import { useLocation } from "react-router-dom";
+
 import { PageWrapper } from "Components/CategoriesList/CategoriesList.styled";
 import SelectSearch from "Components/SelectSearch/SelectSearch";
+import SearchForm from "Components/ui/SearchForm/SearchForm";
 import { Title } from "Components/ui/MainPageTitle/MainPageTitle.styled";
 
 // import SearchRecipesList from "Components/SearchRecipesList/SearchRecipesList";
 
-import SearchForm from "Components/ui/SearchForm/SearchForm";
-
 const SearchPage = () => {
+  const url = useLocation();
+
   const getParameterType = () => {
-    const url = window.location.href;
-    const parsedUrl = new URL(url);
-    const searchParams = parsedUrl.searchParams;
-    const param = [...searchParams.keys()].join();
+    const searchParams = url.search;
+    const param = searchParams.replace("?", "");
     return param;
   };
 
@@ -20,7 +21,7 @@ const SearchPage = () => {
       <PageWrapper>
         <Title margBottom="50px">Search</Title>
         <SearchForm />
-        <SelectSearch param={getParameterType} />
+        <SelectSearch param={getParameterType()} />
 
         {/* <SearchRecipesList query="" /> */}
       </PageWrapper>
