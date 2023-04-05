@@ -35,6 +35,7 @@ export const lightTheme = {
     secondaryIconColor: "#FAFAFA",
     burgerMenuIconColor: "#22252A",
     socialIconColor: "#8BAA36",
+    containerBlockIcon: "#FAFAFA",
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input
@@ -113,6 +114,7 @@ export const darkTheme = {
     secondaryIconColor: "#FAFAFA",
     burgerMenuIconColor: "#8BAA36",
     socialIconColor: "#FAFAFA",
+    containerBlockIcon: "#FAFAFA",
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input
