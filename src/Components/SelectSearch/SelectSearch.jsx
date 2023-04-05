@@ -25,7 +25,7 @@ const SelectSearch = ({ param }) => {
       navigate(`/search?${param}`);
     }
     navigate(`/search?${query}`);
-  }, []);
+  }, [navigate, query, param]);
 
   const isDesktop = useMediaQuery("(min-width: 1439.9px)");
   const isTablet = useMediaQuery(
