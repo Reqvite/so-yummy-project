@@ -11,7 +11,7 @@ const initialState = {
   recipes: [],
   recipe: [],
   recipeIsLoading: false,
-  loading: false,
+  isLoading: false,
   error: null,
 };
 
