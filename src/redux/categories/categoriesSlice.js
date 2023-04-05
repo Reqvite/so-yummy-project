@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCategories, getCategoryRecipes } from "./operations";
+import {
+  getCategories,
+  getCategoryRecipes,
+  getSearchResultByTitle,
+} from "./operations";
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -15,6 +19,7 @@ const categoriesSlice = createSlice({
   initialState: {
     items: [],
     recipeCategories: [],
+    searchByTitle: [],
     isLoading: false,
     error: null,
   },
@@ -33,6 +38,13 @@ const categoriesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.recipeCategories = action.payload.recipes;
+      })
+      .addCase(getSearchResultByTitle.pending, handlePending)
+      .addCase(getSearchResultByTitle.rejected, handleRejected)
+      .addCase(getSearchResultByTitle.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.searchByTitle = action.payload;
       });
   },
 });

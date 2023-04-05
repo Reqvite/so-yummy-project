@@ -7,12 +7,20 @@ import { Title } from "Components/ui/MainPageTitle/MainPageTitle.styled";
 import SearchForm from "Components/ui/SearchForm/SearchForm";
 
 const SearchPage = () => {
+  const getParameterType = () => {
+    const url = window.location.href;
+    const parsedUrl = new URL(url);
+    const searchParams = parsedUrl.searchParams;
+    const param = [...searchParams.keys()].join();
+    return param;
+  };
+
   return (
     <>
       <PageWrapper>
         <Title margBottom="50px">Search</Title>
         <SearchForm />
-        <SelectSearch />
+        <SelectSearch param={getParameterType} />
 
         {/* <SearchRecipesList query="" /> */}
       </PageWrapper>

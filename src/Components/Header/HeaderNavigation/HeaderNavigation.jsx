@@ -31,7 +31,7 @@ const HeaderNavigation = ({ toggleModal }) => {
         Shopping list
       </Link>
 
-      <Link to="/search" onClick={() => HandleLinkClick()}>
+      <Link to="/search?query" onClick={() => HandleLinkClick()}>
         <IconWrap>
           <Icon />
         </IconWrap>
