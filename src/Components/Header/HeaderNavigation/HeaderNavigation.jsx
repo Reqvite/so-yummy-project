@@ -13,8 +13,9 @@ const HeaderNavigation = ({ toggleModal }) => {
     }
     return null;
   };
+
   return (
-    <Navigation $page={pathname.includes("recipe")}>
+    <Navigation $page={pathname.includes("recipe")} $isMobile={isMobile}>
       <Link to="/categories/beef" onClick={() => HandleLinkClick()}>
         Categories
       </Link>

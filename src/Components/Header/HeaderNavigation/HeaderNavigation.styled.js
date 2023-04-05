@@ -8,6 +8,13 @@ export const Navigation = styled.nav`
     css`
       color: ${(p) => p.theme.colors.recipeHeaderTextColor};
     `}
+
+  ${(p) =>
+    p.$isMobile &&
+    css`
+      color: ${(p) => p.theme.colors.mainText};
+    `}
+
   display: flex;
   flex-direction: column;
   align-items: center;
