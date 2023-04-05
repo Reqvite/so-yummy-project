@@ -73,7 +73,7 @@ const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-      <Alert />
+      <Alert theme={theme} />
       <GlobalStyle />
     </ThemeProvider>
   );

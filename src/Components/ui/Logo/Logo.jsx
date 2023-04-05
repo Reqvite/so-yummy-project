@@ -8,9 +8,9 @@ const Logo = ({ width, height, menu, footer }) => {
   const path = useLocation().pathname;
   const isMobile = useMediaQuery("(max-width: 767px)");
 
-  if (path === "/main" && isMobile && !menu) {
-    return <LogoLight width={width} height={height} />;
-  }
+  // if (path === "/main" && isMobile && !menu) {
+  //   return <LogoLight width={width} height={height} />;
+  // }
   if (footer) {
     return <LogoLight width={width} height={height} />;
   }

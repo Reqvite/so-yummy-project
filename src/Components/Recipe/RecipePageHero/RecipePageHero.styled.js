@@ -56,7 +56,7 @@ export const Text = styled.p`
   max-width: 656px;
   margin: 0 auto;
   margin-top: 18px;
-  color: ${(p) => p.theme.colors.darkText};
+  color: ${(p) => p.theme.colors.recipeDescriptionText};
   font-size: ${(p) => p.theme.fontSizes.xxs};
   line-height: 1.33;
   text-align: center;
@@ -119,7 +119,7 @@ export const ClockSvg = styled(ClockIcon)`
 `;
 export const Time = styled.span`
   margin-left: 5px;
-   color: ${(p) => p.theme.colors};
+    color: ${(p) => p.theme.colors.recipeDescriptionText};
   font-weight:  ${(p) => p.theme.fontWeights.medium};
  font-size: ${(p) => p.theme.fontSizes.xs};
   line-height: 1.43
