@@ -35,7 +35,7 @@ export const lightTheme = {
     secondaryIconColor: "#FAFAFA",
     burgerMenuIconColor: "#22252A",
     socialIconColor: "#8BAA36",
-    containerBlockIcon: "#FAFAFA",
+    containerBlockIcon: "#22252A",
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input
