@@ -3,9 +3,9 @@ import PageContainer from "Components/common/PageContainer/PageContainer";
 
 const NotFoundPage = () => {
   return (
-    <PageContainer>
+    <>
       <NotFoundBox />
-    </PageContainer>
+    </>
   );
 };
 
