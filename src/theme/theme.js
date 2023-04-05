@@ -19,6 +19,8 @@ export const lightTheme = {
     inputNotSecureColor: "#F6C23E",
     inputSuccessColor: "#3CBC81",
 
+    categoryTabTextColor: "#BDBDBD",
+
     userNameColor: "#22252A",
     mainIconColor: "#22252A",
     secondaryIconColor: "#FAFAFA",
@@ -69,8 +71,8 @@ export const darkTheme = {
     mainBackground: "#1E1F28", //білий background
     footerBackground: "#8BAA36", //темний(чорний) для футера, кнопок-посилань,ім'я юзера
     darkThemeBackground: "#1E1F28", //чорний
-    secondaryBackground: "#EBF3D4", //світло-зелений
-    elementsBackground: "#FFFFFF", // чистий білий в елементах карток, селекторів
+    secondaryBackground: "#1E1F28", //світло-зелений
+    elementsBackground: "#2A2C36", // чистий білий в елементах карток, селекторів
     mainText: "#FAFAFA",
     darkText: "#FAFAFA;",
     secondaryText: "#FAFAFA",
@@ -84,6 +86,8 @@ export const darkTheme = {
     inputErrorColor: "#E74A3B",
     inputNotSecureColor: "#F6C23E",
     inputSuccessColor: "#3CBC81",
+
+    categoryTabTextColor: "rgba(250, 250, 250, 0.6)",
 
     userNameColor: "#8BAA36",
     mainIconColor: "#FAFAFA;",
