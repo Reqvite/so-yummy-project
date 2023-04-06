@@ -1,26 +1,20 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { theme } from "theme/theme";
 import { Form, FormContainer, FormInput, SearchBtn } from "./SearchForm.styled";
-import { getSearchResultByTitle } from "redux/categories/operations";
 
 const SearchForm = ({ paramValue, param }) => {
-  console.log(param);
-  console.log(paramValue);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [value, setValue] = useState(paramValue ? paramValue : "");
-  const [type, setType] = useState(param ? param : "");
 
   useEffect(() => {
     if (value === "") {
       return;
     }
     if (paramValue) {
-      navigate(`/search?${type}=${value}`);
+      navigate(`/search?${param}=${paramValue}`);
     }
-  }, [navigate, param, paramValue, type, value, dispatch]);
+  }, [navigate, param, paramValue, value]);
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -33,14 +27,8 @@ const SearchForm = ({ paramValue, param }) => {
       console.log("error");
       return;
     }
-    console.log(type);
-    console.log(value);
 
-    navigate(`/search?${type}=${value}`);
-    if (type === "query") {
-      dispatch(getSearchResultByTitle({ type, value }));
-    }
-    // тут буде dispatch(запит пошуку по інгридієнту)
+    navigate(`/search?${param}=${value}`);
   };
 
   return (

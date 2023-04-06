@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@mui/material";
 import {
   // PositionWrapper,
   Title,
@@ -14,10 +15,12 @@ import {
   FlexContainer,
   Arrow,
 } from "./ChooseYourBreakfast.styled.jsx";
+import Search from "Components/Search/Search";
 
 const ChooseYourBreakfast = () => {
+  const matches = useMediaQuery("(min-width:768px)");
   return (
-    <>
+    <section>
       <BgLeafLeft />
       <FlexContainer>
         <Flex>
@@ -28,6 +31,7 @@ const ChooseYourBreakfast = () => {
             "What to cook?" is not only a recipe app, it is, in fact, your
             cookbook. You can add your own recipes to save them for the future.
           </Text>
+          {matches && <Search />}
         </Flex>
         <WrapperBackground>
           <WrapperText>
@@ -41,7 +45,7 @@ const ChooseYourBreakfast = () => {
                 justifyContent: "flex-end",
               }}
             >
-              <NavLink to={"/categories/breakfast"}>
+              <NavLink to={"/categories/beef"}>
                 See recipes
                 <ArrowSvg />
               </NavLink>
@@ -52,7 +56,7 @@ const ChooseYourBreakfast = () => {
       </FlexContainer>
       <Background />
       <BgLeafRightMobile />
-    </>
+    </section>
   );
 };
 
