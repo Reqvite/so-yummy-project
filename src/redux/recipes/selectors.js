@@ -3,3 +3,5 @@ export const selectIsLoading = (state) => state.recipes.isLoading;
 export const selectRecipeLoading = (state) => state.recipes.recipeIsLoading;
 export const selectUserFavouritesRecipes = (state) =>
   state.recipes.userFavouritesRecipes;
+export const selectUserFavoritesIsLoading = (state) =>
+  state.recipes.userFavoritesIsLoading;

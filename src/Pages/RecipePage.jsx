@@ -6,7 +6,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { getRecipe, getUserFavouritesRecipes } from "redux/recipes/operations";
-import { selectRecipe, selectRecipeLoading } from "redux/recipes/selectors";
+import {
+  selectRecipe,
+  selectRecipeLoading,
+  selectUserFavoritesIsLoading,
+} from "redux/recipes/selectors";
 import { getShoppingIngredients } from "redux/shopping/operations";
 import { selectIsLoading } from "redux/shopping/selectors";
 
@@ -41,10 +45,11 @@ const RecipePage = () => {
 
   const isLoading = useSelector(selectRecipeLoading);
   const isLoadingShopping = useSelector(selectIsLoading);
+  const favoriteIsLoading = useSelector(selectUserFavoritesIsLoading);
 
   return (
     <>
-      {isLoadingShopping || isLoading ? (
+      {isLoadingShopping || isLoading || favoriteIsLoading ? (
         <RecipeSkeleton />
       ) : (
         <>
