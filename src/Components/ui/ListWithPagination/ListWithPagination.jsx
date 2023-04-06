@@ -1,42 +1,57 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
+  BodyBox,
   BottomBox,
   Box,
-  DishDescriptionFirst,
+  DescriptionFirst,
   Img,
   ListItem,
+  MainBox,
   TextTime,
   Title,
-  TopBox,
-  TrashBox,
 } from "./ListWithPagination.styled";
+import DeleteButton from "../DeleteButton/DeleteButton";
+import { useTheme } from "styled-components";
+import { useMediaQuery } from "@mui/material";
 
 const ListWithPagination = ({ list }) => {
+  const theme = useTheme();
+  const { pathname } = useLocation();
+  const isMobile = useMediaQuery("(max-width:767px)");
+
   return (
-    <div>
+    <MainBox>
       <ul>
         {list.map(({ _id, title, description, preview, time }) => (
           <ListItem key={_id}>
             <Link to={`/recipe/${_id}`}>
               <Img alt="dish visually" src={preview} />
             </Link>
-            <TopBox>
+            <BodyBox>
               <Box>
                 <Title>{title}</Title>
-                <TrashBox>delete</TrashBox>
+                {pathname.includes("my") && (
+                  <DeleteButton bgColor={theme.colors.deleteButtonBgFavorite} />
+                )}
               </Box>
-              <DishDescriptionFirst>{description}</DishDescriptionFirst>
+              <DescriptionFirst>{description}</DescriptionFirst>
               <BottomBox>
-                <TextTime>{time}</TextTime>
+                <TextTime>{time} min</TextTime>
                 <Link to={`/recipe/${_id}`}>
-                  <button>See more</button>
+                  {pathname.includes("favorite") && isMobile ? (
+                    <DeleteButton
+                      bgColor={theme.colors.deleteButtonBgFavorite}
+                    />
+                  ) : (
+                    <button>See more</button>
+                  )}
                 </Link>
               </BottomBox>
-            </TopBox>
+            </BodyBox>
           </ListItem>
         ))}
       </ul>
-    </div>
+    </MainBox>
   );
 };
 

@@ -16,6 +16,26 @@ const list = [
       "https://res.cloudinary.com/ddbvbv5sp/image/upload/v1678560401/huqdxgwkvbhsfjqtexsm.jpg",
     time: "45",
   },
+  {
+    _id: "640cd5ac2dd9fecf12e8897fc",
+
+    title: "Spaghetti Bolognese",
+    description:
+      "An Italian pasta dish made with spaghetti and a meat-based sauce, typically containing beef, tomatoes, onions, garlic, and herbs.",
+    preview:
+      "https://res.cloudinary.com/ddbvbv5sp/image/upload/v1678560401/huqdxgwkvbhsfjqtexsm.jpg",
+    time: "45",
+  },
+  {
+    _id: "640cd5ac2ds9fecf12e8897fc",
+
+    title: "Spaghetti Bolognese",
+    description:
+      "An Italian pasta dish made with spaghetti and a meat-based sauce, typically containing beef, tomatoes, onions, garlic, and herbs.",
+    preview:
+      "https://res.cloudinary.com/ddbvbv5sp/image/upload/v1678560401/huqdxgwkvbhsfjqtexsm.jpg",
+    time: "45",
+  },
 ];
 const FavoritePage = () => {
   const dispatch = useDispatch();

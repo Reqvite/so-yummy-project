@@ -1,9 +1,16 @@
 import styled from "styled-components";
 
+export const MainBox = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const List = styled.ul``;
+
 export const ListItem = styled.li`
-display: flex;
-  width: 100%;
-  max-width: 1240px
+  display: flex;
+  justify-content: space-between;
+  width: 343px;
   height: 152px;
   padding: 14px;
   border-radius: 8px;
@@ -18,6 +25,8 @@ display: flex;
   }
 
   ${(p) => p.theme.sizes.tablet} {
+    width: 704px;
+    height: 288px;
     padding: 28px 24px;
 
     &:not(:last-child) {
@@ -30,6 +39,8 @@ display: flex;
   }
 
   ${(p) => p.theme.sizes.desktop} {
+    width: 1240px;
+    height: 404px;
     padding: 40px;
 
     &:not(:last-child) {
@@ -54,14 +65,14 @@ export const Img = styled.img`
   }
 `;
 
-export const TopBox = styled.div`
+export const BodyBox = styled.div`
   margin-left: 14px;
   ${(p) => p.theme.sizes.tablet} {
-    margin-left: 24px;
+    width: 404px;
   }
 
   ${(p) => p.theme.sizes.desktop} {
-    margin-left: 40px;
+    width: 788px;
   }
 `;
 export const Box = styled.div`
@@ -71,61 +82,44 @@ export const Box = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: 14px;
+  font-size: ${(p) => p.theme.fontSizes.xs};
   line-height: 1;
   font-weight: 500;
-  margin: 0;
-  vertical-align: top;
-  text-align: left;
 
-  @media screen and (min-width: 768px) {
-    font-size: 24px;
+  ${(p) => p.theme.sizes.tablet} {
+    font-size: ${(p) => p.theme.fontSizes.m};
     font-weight: 500;
     line-height: 1;
   }
 
-  @media screen and (min-width: 1440px) {
-    margin-bottom: 50px;
+  ${(p) => p.theme.sizes.desktop} {
   }
 `;
 
-export const TrashBox = styled.div`
-  /* @media screen and (min-width: 768px) {
-    margin-bottom: 18px;
-    height: 38px;
-    width: 38px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    margin-bottom: 30px;
-    height: 44px;
-    width: 44px;
-  } */
-`;
-
-export const DishDescriptionFirst = styled.p`
-  margin: 0;
-  text-align: left;
+export const DescriptionFirst = styled.p`
+  margin-top: 14px;
   line-height: 1.3;
   width: 173px;
-  height: 57px;
-  font-size: 8px;
+  height: 50px;
+  font-size: ${(p) => p.theme.fontSizes.xxxs};
   line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 
-  @media screen and (min-width: 768px) {
+  ${(p) => p.theme.sizes.tablet} {
+    margin-top: 28px;
     width: 298px;
     height: 73px;
-    margin-bottom: 58px;
-    overflow: hidden;
     line-height: 1.28;
-    font-size: 14px;
-    color: var(--secondaryTextColorForText);
+    font-size: ${(p) => p.theme.fontSizes.xs};
   }
 
-  @media screen and (min-width: 1440px) {
-    font-size: 18px;
+  ${(p) => p.theme.sizes.desktop} {
+    font-size: ${(p) => p.theme.fontSizes.sm};
     line-height: 1.33;
-    display: block;
     width: 679px;
     margin-bottom: 14px;
   }
@@ -168,7 +162,20 @@ export const DishDescriptionFirst = styled.p`
 //   }
 // `;
 
-export const BottomBox = styled.div``;
+export const BottomBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+
+  ${(p) => p.theme.sizes.tablet} {
+    margin-top: 28px;
+  }
+
+  ${(p) => p.theme.sizes.desktop} {
+    margin-top: 67px;
+  }
+`;
 
 export const TextTime = styled.p`
   font-size: 10px;

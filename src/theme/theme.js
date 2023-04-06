@@ -30,6 +30,8 @@ export const lightTheme = {
     footerButtonHover: "#22252A",
     themeButtonBg: "#efefef",
     cardBackGround: "#FFFFFF",
+    deleteButtonBgFavorite: "#EBF3D4",
+    deleteButtonBgMyRecipes: "#8BAA36",
 
     userNameColor: "#22252A",
     mainIconColor: "#22252A",
@@ -110,6 +112,7 @@ export const darkTheme = {
     footerButtonHover: "#8BAA36",
     themeButtonBg: "#8BAA36",
     cardBackGround: "#2A2C36",
+    deleteButtonBgFavorite: "#1E1F28",
 
     userNameColor: "#8BAA36",
     mainIconColor: "#FAFAFA",
