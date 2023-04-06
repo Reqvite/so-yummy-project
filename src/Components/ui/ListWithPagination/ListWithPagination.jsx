@@ -14,11 +14,16 @@ import {
 import DeleteButton from "../DeleteButton/DeleteButton";
 import { useTheme } from "styled-components";
 import { useMediaQuery } from "@mui/material";
+import { useSelector } from "react-redux";
+import { selectTheme } from "redux/theme/selectors";
 
 const ListWithPagination = ({ list }) => {
   const theme = useTheme();
   const { pathname } = useLocation();
   const isMobile = useMediaQuery("(max-width:767px)");
+  const themeSelect = useSelector(selectTheme);
+
+  console.log(themeSelect);
 
   return (
     <MainBox>
@@ -50,7 +55,9 @@ const ListWithPagination = ({ list }) => {
                   <MainButton
                     to={`/recipe/${_id}`}
                     $bgColor={
-                      pathname.includes("my")
+                      themeSelect === "dark"
+                        ? theme.colors.accentColor
+                        : pathname.includes("my")
                         ? theme.colors.accentColor
                         : theme.colors.buttonBg
                     }
