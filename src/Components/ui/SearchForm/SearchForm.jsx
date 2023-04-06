@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { theme } from "theme/theme";
 import { Form, FormContainer, FormInput, SearchBtn } from "./SearchForm.styled";
 import { getSearchResultByTitle } from "redux/categories/operations";
 
@@ -53,14 +52,7 @@ const SearchForm = ({ paramValue, param }) => {
           placeholder="Search query"
           onChange={handleChange}
         />
-        <SearchBtn
-          whileHover={{
-            backgroundColor: theme.colors.mainText,
-            color: theme.colors.elementsBackground,
-          }}
-        >
-          Search
-        </SearchBtn>
+        <SearchBtn>Search</SearchBtn>
       </Form>
     </FormContainer>
   );
