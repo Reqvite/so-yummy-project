@@ -27,7 +27,7 @@ export const getCategoryRecipes = createAsyncThunk(
 
 export const getSearchResultByTitle = createAsyncThunk(
   "search/getSearchQuery",
-  async (searchType, value, thunkAPI) => {
+  async ({ searchType, value }, thunkAPI) => {
     try {
       const resp = await instance.get(
         `/api/recipes/search/?${searchType}=${value}`
