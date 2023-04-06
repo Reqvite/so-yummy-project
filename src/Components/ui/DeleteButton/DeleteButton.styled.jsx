@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ReactComponent as TrashIcon } from "../../../assets/svg/trashIcon/trash-01.svg";
 
 export const Button = styled.div`
@@ -19,6 +19,7 @@ export const Button = styled.div`
   }
 
   border-radius: 4px;
+  cursor: pointer;
 `;
 
 export const TrashSvg = styled(TrashIcon)`
@@ -29,4 +30,10 @@ export const TrashSvg = styled(TrashIcon)`
     height: 22px;
   }
   stroke: ${(p) => p.theme.colors.mainIconColor};
+
+  ${(p) =>
+    p.$isMyRecipePage &&
+    css`
+      stroke: ${(p) => p.theme.colors.secondaryIconColor};
+    `}
 `;

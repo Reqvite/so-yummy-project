@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const MainBox = styled.div`
@@ -66,7 +68,6 @@ export const Img = styled.img`
 `;
 
 export const BodyBox = styled.div`
-  margin-left: 14px;
   ${(p) => p.theme.sizes.tablet} {
     width: 404px;
   }
@@ -125,43 +126,6 @@ export const DescriptionFirst = styled.p`
   }
 `;
 
-// export const DishDescription = styled.p`
-//   margin: 0;
-//   text-align: left;
-//   line-height: 1.3;
-
-//   &:first-of-type {
-//     width: 173px;
-//     height: 57px;
-//     font-size: 8px;
-//     line-height: 1.25;
-//   }
-
-//   &:last-of-type {
-//     display: none;
-
-//     @media screen and (min-width: 768px) {
-//       display: block;
-//       font-size: 14px;
-//       line-height: 1.28;
-//       overflow: hidden;
-//       width: 298px;
-//       height: 73px;
-//       margin-bottom: 58px;
-//       color: var(--secondaryTextColorForText);
-//     }
-
-//     @media screen and (min-width: 1440px) {
-//       display: block;
-//       font-size: 18px;
-//       line-height: 1.33;
-//       display: block;
-//       width: 679px;
-//       margin-bottom: 14px;
-//     }
-//   }
-// `;
-
 export const BottomBox = styled.div`
   display: flex;
   justify-content: space-between;
@@ -191,21 +155,26 @@ export const TextTime = styled.p`
   }
 `;
 
-export const DishButton = styled.button`
-  display: none;
+export const MainButton = styled(motion(Link))`
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 87px;
+  height: 27px;
 
-  @media screen and (min-width: 768px) {
+  background-color: ${(p) => p.$bgColor};
+  border-radius: 24px 44px;
+  border: none;
+
+  cursor: pointer;
+
+  ${(p) => p.theme.sizes.tablet} {
     width: 138px;
     height: 45px;
-    display: block;
-    line-height: 1.5;
-    font-size: 14px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 160px;
-    height: 54px;
-    display: block;
     font-size: 16px;
+    line-height: 1.5;
   }
 `;

@@ -7,6 +7,7 @@ import {
   Img,
   ListItem,
   MainBox,
+  MainButton,
   TextTime,
   Title,
 } from "./ListWithPagination.styled";
@@ -30,22 +31,38 @@ const ListWithPagination = ({ list }) => {
             <BodyBox>
               <Box>
                 <Title>{title}</Title>
-                {pathname.includes("my") && (
-                  <DeleteButton bgColor={theme.colors.deleteButtonBgFavorite} />
+                {!isMobile && (
+                  <DeleteButton
+                    bgColor={
+                      pathname.includes("favorite")
+                        ? theme.colors.deleteButtonBgFavorite
+                        : theme.colors.deleteButtonBgMyRecipes
+                    }
+                  />
                 )}
               </Box>
               <DescriptionFirst>{description}</DescriptionFirst>
               <BottomBox>
                 <TextTime>{time} min</TextTime>
-                <Link to={`/recipe/${_id}`}>
-                  {pathname.includes("favorite") && isMobile ? (
-                    <DeleteButton
-                      bgColor={theme.colors.deleteButtonBgFavorite}
-                    />
-                  ) : (
-                    <button>See more</button>
-                  )}
-                </Link>
+                {pathname.includes("favorite") && isMobile ? (
+                  <DeleteButton bgColor={theme.colors.deleteButtonBgFavorite} />
+                ) : (
+                  <MainButton
+                    to={`/recipe/${_id}`}
+                    $bgColor={
+                      pathname.includes("my")
+                        ? theme.colors.accentColor
+                        : theme.colors.buttonBg
+                    }
+                    whileHover={{
+                      backgroundColor: pathname.includes("my")
+                        ? theme.colors.buttonBg
+                        : theme.colors.accentColor,
+                    }}
+                  >
+                    See more
+                  </MainButton>
+                )}
               </BottomBox>
             </BodyBox>
           </ListItem>

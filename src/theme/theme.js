@@ -32,6 +32,7 @@ export const lightTheme = {
     cardBackGround: "#FFFFFF",
     deleteButtonBgFavorite: "#EBF3D4",
     deleteButtonBgMyRecipes: "#8BAA36",
+    buttonBg: "#22252A",
 
     userNameColor: "#22252A",
     mainIconColor: "#22252A",
@@ -113,6 +114,7 @@ export const darkTheme = {
     themeButtonBg: "#8BAA36",
     cardBackGround: "#2A2C36",
     deleteButtonBgFavorite: "#1E1F28",
+    deleteButtonBgMyRecipes: "#1E1F28",
 
     userNameColor: "#8BAA36",
     mainIconColor: "#FAFAFA",
