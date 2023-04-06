@@ -17,6 +17,10 @@ export const ImgBox = styled.div`
   height: 455px;
 
   background-image: url(${backgroundMobile});
+
+  @media screen and (min-width: 555px) {
+    background-image: url(${backgroundTablet});
+  }
   ${(p) => p.theme.sizes.tablet} {
     height: 495px;
     background-image: url(${backgroundTablet});
@@ -44,6 +48,7 @@ export const MainPageTitle = styled.h1`
   }
 
   ${(p) => p.theme.sizes.desktop} {
+    padding-top: 0;
     font-size: ${(p) => p.theme.fontSizes.xl};
   }
 `;
