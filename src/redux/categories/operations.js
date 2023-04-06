@@ -30,7 +30,7 @@ export const getSearchResultByTitle = createAsyncThunk(
   async ({ searchType, value }, thunkAPI) => {
     try {
       const resp = await instance.get(
-        `/api/recipes/search/?${searchType}=${value}`
+        `/api/recipes/search?${searchType}=${value}`
       );
       return resp.data;
     } catch (err) {
