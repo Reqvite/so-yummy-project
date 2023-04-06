@@ -26,7 +26,7 @@ const ListWithPagination = ({ list }) => {
         {list.map(({ _id, title, description, preview, time }) => (
           <ListItem key={_id}>
             <Link to={`/recipe/${_id}`}>
-              <Img alt="dish visually" src={preview} />
+              <Img alt={title} src={preview} />
             </Link>
             <BodyBox>
               <Box>
