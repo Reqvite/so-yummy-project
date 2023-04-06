@@ -40,6 +40,7 @@ export const lightTheme = {
     burgerMenuIconColor: "#22252A",
     socialIconColor: "#8BAA36",
     containerBlockIcon: "#22252A",
+    hoverButtondarkTheme: "#81B733",
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input
@@ -122,6 +123,7 @@ export const darkTheme = {
     burgerMenuIconColor: "#8BAA36",
     socialIconColor: "#FAFAFA",
     containerBlockIcon: "#FAFAFA",
+    hoverButtondarkTheme: "#81B733",
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input

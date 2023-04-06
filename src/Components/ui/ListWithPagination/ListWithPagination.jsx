@@ -62,9 +62,12 @@ const ListWithPagination = ({ list }) => {
                         : theme.colors.buttonBg
                     }
                     whileHover={{
-                      backgroundColor: pathname.includes("my")
-                        ? theme.colors.buttonBg
-                        : theme.colors.accentColor,
+                      backgroundColor:
+                        themeSelect === "dark"
+                          ? theme.colors.hoverButtondarkTheme
+                          : pathname.includes("my")
+                          ? theme.colors.buttonBg
+                          : theme.colors.accentColor,
                     }}
                   >
                     See more
