@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { ReactComponent as UserEdit } from "../../../../assets/svg/UserEditIcon/userEditIcon.svg";
 import { ReactComponent as UserButtonArrow } from "../../../../assets/svg/UserButtonArrow/userButtonArrow.svg";
 
@@ -35,6 +35,12 @@ export const Wrap = styled.div`
     top: 78px;
     right: 350px;
   }
+
+  ${(p) =>
+    p.$isDark &&
+    css`
+      outline: 2px solid #8baa36;
+    `}
 `;
 
 export const Button = styled.button`

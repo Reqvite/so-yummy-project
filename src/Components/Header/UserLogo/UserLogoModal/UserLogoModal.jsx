@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import {
   ArrowIcon,
   Button,
@@ -6,6 +7,7 @@ import {
   Text,
   Wrap,
 } from "./UserLogoModal.styled";
+import { selectTheme } from "redux/theme/selectors";
 
 const UserLogoModal = ({
   toggleLogoModal,
@@ -21,8 +23,12 @@ const UserLogoModal = ({
     toggleLogoModal();
     toggleConfirmModal();
   };
+
+  const theme = useSelector(selectTheme);
+  const isDark = theme === "dark";
+
   return (
-    <Wrap>
+    <Wrap $isDark={isDark}>
       <Button onClick={() => editButtonClickHandler()}>
         <Text>Edit profile</Text>
         <EditIcon />

@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { ReactComponent as EditIcon } from "../../../../assets/svg/userInfoModal/edit-01.svg";
 import { ReactComponent as PlusIcon } from "../../../../assets/svg/userInfoModal/plus.svg";
 import { ReactComponent as UserIcon } from "../../../../assets/svg/userInfoModal/user-01.svg";
@@ -43,6 +43,12 @@ export const Wrap = styled.div`
     height: 425px;
     border-radius: 30px;
   }
+
+  ${(p) =>
+    p.$isDark &&
+    css`
+      outline: 2px solid #8baa36;
+    `}
 `;
 
 export const Label = styled.div`

@@ -1,7 +1,8 @@
-import styled, { keyframes } from "styled-components";
-import { useDispatch } from "react-redux";
+import styled, { css, keyframes } from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../../../redux/auth/operations";
 import CloseButton from "../../MobileMenu/CloseButton/CloseButton";
+import { selectTheme } from "redux/theme/selectors";
 
 const UserConfirmModal = ({ toggleConfirmModal }) => {
   const dispatch = useDispatch();
@@ -11,8 +12,11 @@ const UserConfirmModal = ({ toggleConfirmModal }) => {
     dispatch(logOut());
   };
 
+  const theme = useSelector(selectTheme);
+  const isDark = theme === "dark";
+
   return (
-    <Wrap>
+    <Wrap $isDark={isDark}>
       <Text>Are you sure you want to log out?</Text>
       <ButtonsWrap>
         <ConfirmButton onClick={() => handleLogoutButtonClick()}>
@@ -65,6 +69,12 @@ const Wrap = styled.div`
     height: 215px;
     border-radius: 24px;
   }
+
+  ${(p) =>
+    p.$isDark &&
+    css`
+      outline: 2px solid #8baa36;
+    `}
 `;
 
 const Text = styled.p`
