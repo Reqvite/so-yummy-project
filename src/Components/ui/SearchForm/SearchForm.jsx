@@ -16,10 +16,10 @@ const SearchForm = ({ paramValue, param }) => {
   useEffect(() => {
     if (value === "") {
       return;
+      setType("");
     }
     if (paramValue) {
       navigate(`/search?${type}=${value}`);
-      setType();
     }
   }, [navigate, param, paramValue, type, value, dispatch]);
 
