@@ -2,17 +2,15 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const MainBox = styled.div`
-  display: flex;
-  justify-content: center;
-`;
+export const MainBox = styled.div``;
 
 export const List = styled.ul``;
 
 export const ListItem = styled.li`
   display: flex;
   justify-content: space-between;
-  width: 343px;
+  width: 100%;
+  max-width: 1240px;
   height: 152px;
   padding: 14px;
   border-radius: 8px;

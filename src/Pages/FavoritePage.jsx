@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserFavouritesRecipes } from "redux/recipes/operations";
 import { selectUserFavouritesRecipes } from "redux/recipes/selectors";
+import styled from "styled-components";
 
 const FavoritePage = () => {
   const dispatch = useDispatch();
@@ -14,11 +15,25 @@ const FavoritePage = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <Box>
       <MainPageTitle title="Favorites" />
       <ListWithPagination list={userFavoriteList} />
-    </>
+    </Box>
   );
 };
 
 export default FavoritePage;
+
+export const Box = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  width: 375px;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1240px;
+  }
+`;

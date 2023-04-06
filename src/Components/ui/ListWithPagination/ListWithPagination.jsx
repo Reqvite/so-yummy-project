@@ -16,6 +16,10 @@ import { useTheme } from "styled-components";
 import { useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux";
 import { selectTheme } from "redux/theme/selectors";
+import EmptyErrorBox from "../EmptyErrorBox/EmptyErrorBox";
+import { selectUserFavoritesIsLoading } from "redux/recipes/selectors";
+import FavoriteRecipeSkeleton from "../Skeletons/FavoriteRecipeSkeleton";
+import MainPageTitle from "../MainPageTitle/MainPageTitle";
 
 const ListWithPagination = ({ list }) => {
   const theme = useTheme();
@@ -23,61 +27,74 @@ const ListWithPagination = ({ list }) => {
   const isMobile = useMediaQuery("(max-width:767px)");
   const themeSelect = useSelector(selectTheme);
 
-  console.log(themeSelect);
+  const isLoading = useSelector(selectUserFavoritesIsLoading);
 
   return (
     <MainBox>
       <ul>
-        {list.map(({ _id, title, description, preview, time }) => (
-          <ListItem key={_id}>
-            <Link to={`/recipe/${_id}`}>
-              <Img alt={title} src={preview} />
-            </Link>
-            <BodyBox>
-              <Box>
-                <Title>{title}</Title>
-                {!isMobile && (
-                  <DeleteButton
-                    bgColor={
-                      pathname.includes("favorite")
-                        ? theme.colors.deleteButtonBgFavorite
-                        : theme.colors.deleteButtonBgMyRecipes
-                    }
-                  />
-                )}
-              </Box>
-              <DescriptionFirst>{description}</DescriptionFirst>
-              <BottomBox>
-                <TextTime>{time} min</TextTime>
-                {pathname.includes("favorite") && isMobile ? (
-                  <DeleteButton bgColor={theme.colors.deleteButtonBgFavorite} />
-                ) : (
-                  <MainButton
-                    to={`/recipe/${_id}`}
-                    $bgColor={
-                      themeSelect === "dark"
-                        ? theme.colors.accentColor
-                        : pathname.includes("my")
-                        ? theme.colors.accentColor
-                        : theme.colors.buttonBg
-                    }
-                    whileHover={{
-                      backgroundColor:
-                        themeSelect === "dark"
-                          ? theme.colors.hoverButtondarkTheme
-                          : pathname.includes("my")
-                          ? theme.colors.buttonBg
-                          : theme.colors.accentColor,
-                    }}
-                  >
-                    See more
-                  </MainButton>
-                )}
-              </BottomBox>
-            </BodyBox>
-          </ListItem>
-        ))}
+        {isLoading ? (
+          <FavoriteRecipeSkeleton />
+        ) : (
+          <>
+            {list.map(({ _id, title, description, preview, time }) => (
+              <ListItem key={_id}>
+                <Link to={`/recipe/${_id}`}>
+                  <Img alt={title} src={preview} />
+                </Link>
+                <BodyBox>
+                  <Box>
+                    <Title>{title}</Title>
+                    {!isMobile && (
+                      <DeleteButton
+                        id={_id}
+                        bgColor={
+                          pathname.includes("favorite")
+                            ? theme.colors.deleteButtonBgFavorite
+                            : theme.colors.deleteButtonBgMyRecipes
+                        }
+                      />
+                    )}
+                  </Box>
+                  <DescriptionFirst>{description}</DescriptionFirst>
+                  <BottomBox>
+                    <TextTime>{time} min</TextTime>
+                    {pathname.includes("favorite") && isMobile ? (
+                      <DeleteButton
+                        id={_id}
+                        bgColor={theme.colors.deleteButtonBgFavorite}
+                      />
+                    ) : (
+                      <MainButton
+                        to={`/recipe/${_id}`}
+                        $bgColor={
+                          themeSelect === "dark"
+                            ? theme.colors.accentColor
+                            : pathname.includes("my")
+                            ? theme.colors.accentColor
+                            : theme.colors.buttonBg
+                        }
+                        whileHover={{
+                          backgroundColor:
+                            themeSelect === "dark"
+                              ? theme.colors.hoverButtondarkTheme
+                              : pathname.includes("my")
+                              ? theme.colors.buttonBg
+                              : theme.colors.accentColor,
+                        }}
+                      >
+                        See more
+                      </MainButton>
+                    )}
+                  </BottomBox>
+                </BodyBox>
+              </ListItem>
+            ))}
+          </>
+        )}
       </ul>
+      {!isLoading && list.length === 0 && (
+        <EmptyErrorBox text="You don't add any recipe yet." />
+      )}
     </MainBox>
   );
 };
