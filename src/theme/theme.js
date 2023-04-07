@@ -59,4 +59,15 @@ export const theme = {
     alignItems: "center",
   },
   components: {},
+
+  modes: {
+    white: {
+      mainText: "#23262A",
+      cardsText: "#3E4462", 
+      background: "#FAFAFA",
+
+      accentColor: "#8BAA36",
+      secondaryBackground: "#EBF3D4", 
+    },
+  },
 };

@@ -15,6 +15,8 @@ import RegisterPage from "Pages/RegisterPage";
 import SigninPage from "Pages/SigninPage";
 import AuthNavPage from "Pages/AuthNavPage";
 import AddRecipe from "Pages/AddRecipe";
+import FavoritePage from "Pages/FavoritePage";
+import MyRecipesPage from "Pages/MyRecipesPage";
 import ShoppingListPage from "Pages/ShoppingListPage";
 import CategoriesPage from "Pages/CategoriesPage";
 import RecipePage from "Pages/RecipePage";
@@ -63,6 +65,8 @@ const App = () => {
           <Route path="categories/:categoryName" element={<CategoriesPage />} />
           <Route path="shopping-list" element={<ShoppingListPage />} />
           <Route path="recipe/:id" element={<RecipePage />}></Route>
+          <Route path="favorite" element={<FavoritePage />}></Route>
+          <Route path="recipe/:id" element={<MyRecipesPage />}></Route>
           <Route path="search" element={<SearchPage />}></Route>
           <Route path="*" element={<NotFoundPage />} />
         </Route>
