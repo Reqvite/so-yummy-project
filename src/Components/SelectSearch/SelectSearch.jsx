@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { TextStyled } from "./SelectSearch.styled";
 
@@ -11,14 +11,7 @@ const {
 } = require("@mui/material");
 const { FormContainer } = require("Components/ui/SearchForm/SearchForm.styled");
 
-const SelectSearch = ({ param }) => {
-  const navigate = useNavigate();
-  const [query, setQuery] = useState(param ? param : "query");
-  const menuItems = [
-    { value: "query", label: "Title" },
-    { value: "ingredient", label: "Ingredient" },
-  ];
-
+const SelectSearch = () => {
   const isDesktop = useMediaQuery("(min-width: 1439.9px)");
   const isTablet = useMediaQuery(
     "(min-width: 768px) and (max-width: 1439.8px)"
@@ -26,11 +19,26 @@ const SelectSearch = ({ param }) => {
   const isMobile = useMediaQuery(
     "(min-width: 375px) and (max-width: 767.98px)"
   );
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const menuItems = [
+    { value: "query", label: "Title" },
+    { value: "ingredient", label: "Ingredient" },
+  ];
+
+  const [currentValue, setCurrentValue] = useState("");
+
+  useEffect(() => {
+    if (searchParams.get("query") === null) {
+      setCurrentValue("ingredient");
+    } else {
+      setCurrentValue("query");
+    }
+  }, [searchParams]);
 
   const handleChange = (e) => {
-    setQuery(e.target.value);
-    console.log(e.target.value);
-    navigate(`/search?${e.target.value}`);
+    setCurrentValue(e.target.value);
+    setSearchParams(e.target.value);
   };
 
   return (
@@ -87,7 +95,7 @@ const SelectSearch = ({ param }) => {
         }}
       >
         <Select
-          value={query}
+          value={currentValue}
           onChange={handleChange}
           displayEmpty
           inputProps={{

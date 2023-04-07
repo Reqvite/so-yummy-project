@@ -13,14 +13,14 @@ import { Title } from "Components/ui/MainPageTitle/MainPageTitle.styled";
 // import SearchRecipesList from "Components/SearchRecipesList/SearchRecipesList";
 
 const SearchPage = () => {
-  const url = useLocation();
+  // const url = useLocation();
   // const dispatch = useDispatch();
   // const [list, setList] = useState([]);
   // let page = 1;
 
-  const key = getParamKey(url);
-  const value = getParamValue(url);
-  console.log(key, value);
+  // const key = getParamKey(url);
+  // const value = getParamValue(url);
+  // console.log(key, value);
 
   // if (key === "query" && value !== "" && list.length === 0) {
   //   dispatch(getSearchResultByTitle({ key, value, page }));
@@ -46,8 +46,13 @@ const SearchPage = () => {
     <>
       <PageWrapper>
         <Title margBottom="50px">Search</Title>
-        <SearchForm param={key} paramValue={value} />
-        <SelectSearch param={key} />
+        <SearchForm
+        // param={key}
+        // paramValue={value}
+        />
+        <SelectSearch
+        // param={key}
+        />
         {/* {list !== [] && (
           <SearchRecipesList array={list} isLoading={isLoading} error={error} />
         )} */}
