@@ -48,7 +48,7 @@ export const RotateBlock = styled.div`
   border-radius: 3px;
   background: ${(p) => p.background || p.theme.colors.accentColor};
 
-  animation: ${rotateAnimation} 1000ms infinite linear;
+  animation: ${rotateAnimation} 1600ms infinite linear;
   ${(p) => p.theme.sizes.mobile} {
     width: ${(p) => p.width || 8}px;
     height: ${(p) => p.height || 8}px;
