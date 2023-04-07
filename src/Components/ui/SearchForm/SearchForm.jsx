@@ -20,6 +20,10 @@ const SearchForm = ({ paramValue, param }) => {
     if (paramValue) {
       navigate(`/search?${type}=${value}`);
     }
+
+    if (value === "dsdsadsa131313cdsdcasds") {
+      setType("");
+    }
   }, [navigate, param, paramValue, type, value, dispatch]);
 
   const handleChange = (e) => {
