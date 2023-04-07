@@ -17,6 +17,7 @@ const initialState = {
   userFavoritesIsLoading: false,
   popularIsLoading: false,
   error: null,
+  pagination: {},
 };
 
 const recipeSlice = createSlice({
@@ -42,7 +43,11 @@ const recipeSlice = createSlice({
       .addCase(getUserFavouritesRecipes.fulfilled, (state, action) => {
         state.userFavoritesIsLoading = false;
         state.error = null;
-        state.userFavouritesRecipes = action.payload;
+        state.userFavouritesRecipes = action.payload.favorites;
+        state.pagination = {
+          currentPage: action.payload.currentPage,
+          totalPages: action.payload.totalPages,
+        };
       })
       .addCase(getUserFavouritesRecipes.rejected, (state, action) => {
         state.userFavoritesIsLoading = false;

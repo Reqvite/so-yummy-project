@@ -34,6 +34,7 @@ export const lightTheme = {
     deleteButtonBgMyRecipes: "#8BAA36",
     buttonBg: "#22252A",
     mainPageButton: "#22252A",
+    paginationActive: "#EBF3D4",
 
     userNameColor: "#22252A",
     mainIconColor: "#22252A",
@@ -74,7 +75,9 @@ export const lightTheme = {
     secondaryButtonBorder: "2px solid #FAFAFA",
     shoppingListBorder: "1px solid #e0e0e0",
   },
-  shadows: {},
+  shadows: {
+    paginationShadow: "0px 4px 4px rgba(135, 135, 135, 0.2)",
+  },
   flexCentered: {
     display: "flex",
     justifyContent: "center",
@@ -119,6 +122,7 @@ export const darkTheme = {
     deleteButtonBgMyRecipes: "#1E1F28",
     buttonBg: "#22252A",
     mainPageButton: "#8BAA36",
+    paginationActive: "#8BAA36",
 
     userNameColor: "#8BAA36",
     mainIconColor: "#FAFAFA",
@@ -159,7 +163,9 @@ export const darkTheme = {
     secondaryButtonBorder: "2px solid #FAFAFA",
     shoppingListBorder: "1px solid rgba(250, 250, 250, 0.3)",
   },
-  shadows: {},
+  shadows: {
+    paginationShadow: "0px 4px 4px rgba(31, 30, 30, 0.2)",
+  },
   flexCentered: {
     display: "flex",
     justifyContent: "center",
