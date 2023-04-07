@@ -6,10 +6,8 @@ import {
   getSearchResultByIngredient,
   getSearchResultByTitle,
 } from "redux/categories/operations";
-import { useTheme } from "styled-components";
 
 const SearchForm = ({ paramValue, param }) => {
-  const theme = useTheme();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [value, setValue] = useState(paramValue ? paramValue : "");
