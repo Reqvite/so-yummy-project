@@ -32,9 +32,11 @@ const ListWithPagination = ({ list }) => {
       {!isLoading && list.length === 0 && (
         <EmptyErrorBox text="You don't add any recipe yet." />
       )}
-      <PaginatorBox>
-        <Paginator />
-      </PaginatorBox>
+      {list.length >= 1 && (
+        <PaginatorBox>
+          <Paginator />
+        </PaginatorBox>
+      )}
     </MainBox>
   );
 };

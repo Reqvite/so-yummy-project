@@ -2,7 +2,7 @@ import ListWithPagination from "Components/ui/ListWithPagination/ListWithPaginat
 import MainPageTitle from "Components/ui/MainPageTitle/MainPageTitle";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserFavouritesRecipes } from "redux/recipes/operations";
+import { getUserFavouritesPaginationRecipes } from "redux/recipes/operations";
 import { selectUserFavouritesRecipes } from "redux/recipes/selectors";
 import styled from "styled-components";
 
@@ -11,7 +11,7 @@ const FavoritePage = () => {
   const userFavoriteList = useSelector(selectUserFavouritesRecipes);
 
   useEffect(() => {
-    dispatch(getUserFavouritesRecipes());
+    dispatch(getUserFavouritesPaginationRecipes());
   }, [dispatch]);
 
   return (
