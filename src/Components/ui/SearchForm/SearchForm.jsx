@@ -21,6 +21,7 @@ const SearchForm = ({ paramValue, param }) => {
     setType(param);
   }, [param]);
 
+
   const handleChange = (e) => {
     const { value } = e.target;
     setValue(value);

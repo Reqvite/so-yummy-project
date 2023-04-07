@@ -42,6 +42,7 @@ export const LogoNavSubWrap = styled.div`
 
 export const GreenLeafsTop = styled.div`
   position: absolute;
+  z-index: -2;
   top: -200px;
   left: 0;
   width: 256px;
