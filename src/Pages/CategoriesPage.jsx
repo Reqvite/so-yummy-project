@@ -12,7 +12,8 @@ import SearchRecipesList from "Components/SearchRecipesList/SearchRecipesList";
 const CategoriesPage = () => {
   const dispatch = useDispatch();
   const { categoryName } = useParams();
-  const { recipeCategories, isLoading, error } = useSelector(selectCategories);
+  const { recipeCategories, recipeCategoriesIsLoading, error } =
+    useSelector(selectCategories);
 
   useEffect(() => {
     dispatch(getCategories());
@@ -26,7 +27,7 @@ const CategoriesPage = () => {
         <CategoriesList />
         <SearchRecipesList
           query={recipeCategories}
-          isLoading={isLoading}
+          isLoading={recipeCategoriesIsLoading}
           error={error}
         />
       </PageWrapper>

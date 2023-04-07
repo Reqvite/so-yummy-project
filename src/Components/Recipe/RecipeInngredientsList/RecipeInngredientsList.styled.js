@@ -61,7 +61,7 @@ export const ListItem = styled.li`
   justify-content: space-between;
   padding: 14.5px 29px 14px 14px;
 
-  background: #ebf3d4;
+  background: ${(p) => p.theme.colors.secondaryBackground};
   border-radius: 8px;
   :nth-of-type(2) {
     margin-top: 24px;
@@ -71,7 +71,6 @@ export const ListItem = styled.li`
   }
 
   margin-top: 16px;
-  border-bottom: 1px solid #e0e0e0;
 
   ${(p) => p.theme.sizes.tablet} {
     padding: 33px 58px 33px 40px;

@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { theme } from "theme/theme";
 import { Form, FormContainer, FormInput, SearchBtn } from "./SearchForm.styled";
+import { useTheme } from "styled-components";
 import { getSearchResultByTitle } from "redux/categories/operations";
 
 const SearchForm = ({ paramValue, param }) => {
-  console.log(param);
-  console.log(paramValue);
+  const theme = useTheme();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [value, setValue] = useState(paramValue ? paramValue : "");
@@ -46,7 +45,6 @@ const SearchForm = ({ paramValue, param }) => {
     }
     // тут буде dispatch(запит пошуку по інгридієнту)
   };
-
   return (
     <FormContainer>
       <Form onSubmit={handleSubmit}>

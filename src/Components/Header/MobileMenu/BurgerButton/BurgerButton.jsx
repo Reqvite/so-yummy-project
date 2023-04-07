@@ -31,6 +31,7 @@ const Icon = styled(MobMenuBtn)`
       height: 35px;
     }
   }
+  stroke: ${(p) => p.theme.colors.burgerMenuIconColor};
 `;
 
 export default BurgerButton;

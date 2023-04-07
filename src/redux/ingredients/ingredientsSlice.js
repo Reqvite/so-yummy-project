@@ -24,6 +24,11 @@ const ingredientsSlice = createSlice({
         state.isLoading = false;
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addDefaultCase((state, action) => {
+        if (action.type === "auth/logout/fulfilled") {
+          state.ingredients = [];
+        }
       }),
 });
 

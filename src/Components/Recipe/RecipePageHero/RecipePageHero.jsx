@@ -22,15 +22,19 @@ import ButtonLoader from "Components/ui/ButtonLoader/ButtonLoader";
 
 const RecipePageHero = ({ title, description, time, id }) => {
   const userFavouritesRecipes = useSelector(selectUserFavouritesRecipes);
-  const [isFavorite, setIsFavorite] = useState();
+  const [first, setFirst] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
   const theme = useTheme();
 
   const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
-    setIsFavorite(userFavouritesRecipes.includes(id));
-  }, [userFavouritesRecipes, id]);
+    if (!first) {
+      setIsFavorite(userFavouritesRecipes.some((recipe) => recipe._id === id));
+      setFirst(true);
+    }
+  }, [userFavouritesRecipes, id, first]);
 
   const handleFavoriteButton = (id) => {
     if (isFavorite) {
@@ -38,6 +42,7 @@ const RecipePageHero = ({ title, description, time, id }) => {
     } else {
       dispatch(addFavoriteRecipe(id));
     }
+
     setIsFavorite(!isFavorite);
   };
 

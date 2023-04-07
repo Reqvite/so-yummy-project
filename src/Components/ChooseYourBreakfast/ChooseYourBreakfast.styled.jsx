@@ -249,6 +249,7 @@ export const NavLink = styled(Link)`
 
 export const ArrowSvg = styled(ArrowMainPage)`
   margin-left: 7px;
+  stroke: ${(p) => p.theme.colors.mainIconColor};
 `;
 
 export const Arrow = styled(ArrowMain)`

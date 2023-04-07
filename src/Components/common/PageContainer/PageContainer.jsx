@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { MainContainer, RotateBlock } from "./PageContainer.styled";
+import { Box, MainContainer, RotateBlock } from "./PageContainer.styled";
 
 import { useMediaQuery } from "@mui/material";
 
@@ -61,9 +61,9 @@ const PageContainer = ({ children }) => {
   const largeTwo = {
     left: 1450,
   };
-  const matchesAdaptive = useMediaQuery("(max-width: 374.8px)");
+  const matchesAdaptive = useMediaQuery("(max-width: 340px)");
   const matchesMobile = useMediaQuery(
-    "(min-width: 374.9px) and (max-width: 767.98px)"
+    "(min-width: 340px) and (max-width: 767.98px)"
   );
   const matchesTablet = useMediaQuery(
     "(min-width: 768px) and (max-width: 1439.8px)"
@@ -92,15 +92,14 @@ const PageContainer = ({ children }) => {
   return (
     <MainContainer as="main">
       {!isRenderBlocks && (
-        <>
-          {" "}
+        <Box>
           <RotateBlock />
           <RotateBlock
             {...props}
-            background={(p) => p.theme.colors.footerBackground}
+            background={(p) => p.theme.colors.containerBlockIcon}
           />
           <RotateBlock {...propsTwo} />
-        </>
+        </Box>
       )}
       {children}
     </MainContainer>
