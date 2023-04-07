@@ -5,8 +5,7 @@ import styled from "styled-components";
 export const CardItem = styled.li`
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  max-width: 1240px;
+  width: 343px;
   height: 152px;
   padding: 14px;
   border-radius: 8px;
@@ -148,6 +147,21 @@ export const Time = styled.div`
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 1.42;
+  }
+`;
+
+export const BottomBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+
+  ${(p) => p.theme.sizes.tablet} {
+    margin-top: 28px;
+  }
+
+  ${(p) => p.theme.sizes.desktop} {
+    margin-top: 67px;
   }
 `;
 

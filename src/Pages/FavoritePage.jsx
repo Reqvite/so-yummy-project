@@ -27,7 +27,7 @@ export default FavoritePage;
 export const Box = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width: 375px;
+  width: 343px;
 
   @media screen and (min-width: 768px) {
     width: 768px;

@@ -48,7 +48,7 @@ export const SearchBtn = styled.button`
   color: ${(button) => button.theme.colors.secondaryText};
   border-radius: 24px 44px;
   border: inherit;
-  background-color: ${(button) => button.theme.colors.darkText};
+  background-color: ${(button) => button.theme.colors.mainPageButton};
   font-weight: ${(button) => button.theme.fontWeights.regular};
   font-size: ${(button) => button.theme.fontSizes.xs};
   line-height: 1.5;

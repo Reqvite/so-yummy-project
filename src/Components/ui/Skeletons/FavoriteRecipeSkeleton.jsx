@@ -1,20 +1,20 @@
 import { motion } from "framer-motion";
 import { ReactComponent as ProductSvg } from "../../../assets/svg/skeletonProductImage/skeletonImg.svg";
 import styled from "styled-components";
-import { ListItem } from "../ListWithPagination/ListWithPagination.styled";
+import { CardItem } from "../RecipeItem/RecipeItem.styled";
 
 const FavoriteRecipeSkeleton = () => {
   return (
     <ul>
-      <ListItem>
+      <CardItem>
         <AnimatedSkeleton />
-      </ListItem>
-      <ListItem>
+      </CardItem>
+      <CardItem>
         <AnimatedSkeleton />
-      </ListItem>
-      <ListItem>
+      </CardItem>
+      <CardItem>
         <AnimatedSkeleton />
-      </ListItem>
+      </CardItem>
     </ul>
   );
 };

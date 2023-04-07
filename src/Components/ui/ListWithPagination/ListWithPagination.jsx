@@ -1,4 +1,4 @@
-import { MainBox } from "./ListWithPagination.styled";
+import { List, MainBox } from "./ListWithPagination.styled";
 import { useSelector } from "react-redux";
 import EmptyErrorBox from "../EmptyErrorBox/EmptyErrorBox";
 import { selectUserFavoritesIsLoading } from "redux/recipes/selectors";
@@ -10,7 +10,7 @@ const ListWithPagination = ({ list }) => {
 
   return (
     <MainBox>
-      <ul>
+      <List>
         {isLoading ? (
           <FavoriteRecipeSkeleton />
         ) : (
@@ -27,7 +27,7 @@ const ListWithPagination = ({ list }) => {
             ))}
           </>
         )}
-      </ul>
+      </List>
       {!isLoading && list.length === 0 && (
         <EmptyErrorBox text="You don't add any recipe yet." />
       )}

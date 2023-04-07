@@ -2,20 +2,20 @@ import { Link, useLocation } from "react-router-dom";
 
 import {
   CardItem,
-  Info,
   Title,
   Description,
   Time,
   Img,
   Box,
   MainButton,
+  Info,
+  BottomBox,
 } from "./RecipeItem.styled";
 import DeleteButton from "../DeleteButton/DeleteButton";
 import { useTheme } from "styled-components";
 import { useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux";
 import { selectTheme } from "redux/theme/selectors";
-import { BottomBox } from "../ListWithPagination/ListWithPagination.styled";
 
 const RecipeItem = ({ _id, description, preview, time, title }) => {
   const theme = useTheme();
