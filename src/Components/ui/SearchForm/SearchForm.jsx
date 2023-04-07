@@ -1,57 +1,59 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { Form, FormContainer, FormInput, SearchBtn } from "./SearchForm.styled";
 import {
   getSearchResultByIngredient,
   getSearchResultByTitle,
 } from "redux/categories/operations";
 
-const SearchForm = ({ paramValue, param }) => {
-  const navigate = useNavigate();
+const SearchForm = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
-  const [value, setValue] = useState(paramValue ? paramValue : "");
-  const [type, setType] = useState("query");
-  let page = 1;
+  const [currentInputValue, setCurrentInputValue] = useState();
 
   useEffect(() => {
-    if (param === "ingredient") {
-      setType(param);
+    if (searchParams.get("query") === null) {
+      setCurrentInputValue(searchParams.get("ingredient"));
+    } else {
+      setCurrentInputValue(searchParams.get("query"));
     }
-    setType(param);
-  }, [param]);
+  }, [searchParams]);
 
   const handleChange = (e) => {
-    const { value } = e.target;
-    setValue(value);
+    if (searchParams.get("query") === null) {
+      setSearchParams({ ingredient: e.target.value });
+    } else {
+      setSearchParams({ query: e.target.value });
+    }
+    setCurrentInputValue(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (value === "") {
-      console.log("error");
-      return;
-    }
-    console.log(type);
-    console.log(value);
-
-    if (value !== "") {
-      if (param === "query") {
-        navigate(`/search?query=${value}`);
-        dispatch(getSearchResultByTitle({ type, value, page }));
-      } else {
-        navigate(`/search?ingredient=${value}`);
-        dispatch(getSearchResultByIngredient({ type, value, page }));
-      }
+    if (searchParams.get("query") === null) {
+      const type = "ingredient";
+      const value = searchParams.get("ingredient");
+      const page = 1;
+      console.log(type);
+      console.log(value);
+      console.log(page);
+      dispatch(getSearchResultByIngredient({ type, value, page }));
+    } else {
+      const type = "query";
+      const value = searchParams.get("query");
+      const page = 1;
+      dispatch(getSearchResultByTitle({ type, value, page }));
     }
   };
+
   return (
-    <FormContainer>
-      <Form onSubmit={handleSubmit}>
+    <FormContainer onSubmit={handleSubmit}>
+      <Form>
         <FormInput
+          value={currentInputValue}
           type="text"
           name="searchValue"
-          value={value}
           placeholder="Search query"
           onChange={handleChange}
         />

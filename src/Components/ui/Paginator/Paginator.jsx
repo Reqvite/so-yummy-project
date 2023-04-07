@@ -11,6 +11,7 @@ const Paginator = () => {
 
   const handleChange = (e, value) => {
     dispatch(getUserFavouritesRecipes(value));
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -33,7 +34,7 @@ const Paginator = () => {
           background: theme.colors.paginationActive,
 
           "&:hover": {
-            background: "red",
+            background: theme.colors.inputSuccessColor,
           },
         },
         "ul>li .MuiPaginationItem-text": {

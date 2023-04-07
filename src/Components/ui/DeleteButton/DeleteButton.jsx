@@ -10,7 +10,9 @@ const DeleteButton = ({ bgColor, id }) => {
   return (
     <Button
       $bgColor={bgColor}
-      onClick={() => dispatch(deleteFavoriteRecipe(id))}
+      onClick={() => {
+        dispatch(deleteFavoriteRecipe(id));
+      }}
     >
       <TrashSvg $isMyRecipePage={pathname?.includes("my")} />
     </Button>
