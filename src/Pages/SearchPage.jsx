@@ -1,9 +1,5 @@
 // import { useEffect, useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
-
-import { getParamKey } from "helpers/getUrlParam";
-import { getParamValue } from "helpers/getUrlParamValue";
 // import { getSearchResultByTitle } from "redux/categories/operations";
 // import { selectCategories } from "redux/categories/selectors";
 import { PageWrapper } from "Components/CategoriesList/CategoriesList.styled";
@@ -46,13 +42,8 @@ const SearchPage = () => {
     <>
       <PageWrapper>
         <Title margBottom="50px">Search</Title>
-        <SearchForm
-        // param={key}
-        // paramValue={value}
-        />
-        <SelectSearch
-        // param={key}
-        />
+        <SearchForm />
+        <SelectSearch />
         {/* {list !== [] && (
           <SearchRecipesList array={list} isLoading={isLoading} error={error} />
         )} */}

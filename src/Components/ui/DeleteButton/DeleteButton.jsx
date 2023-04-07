@@ -1,10 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { Button, TrashSvg } from "./DeleteButton.styled";
 import { useDispatch } from "react-redux";
-import {
-  deleteFavoriteRecipe,
-  getUserFavouritesRecipes,
-} from "redux/recipes/operations";
+import { deleteFavoriteRecipe } from "redux/recipes/operations";
 
 const DeleteButton = ({ bgColor, id }) => {
   const dispatch = useDispatch();

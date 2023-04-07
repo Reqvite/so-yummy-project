@@ -40,8 +40,10 @@ const SearchForm = () => {
       console.log(page);
       dispatch(getSearchResultByIngredient({ type, value, page }));
     } else {
-      console.log("query");
-      // dispatch(getSearchResultByTitle({ type, value, page }));
+      const type = "query";
+      const value = searchParams.get("query");
+      const page = 1;
+      dispatch(getSearchResultByTitle({ type, value, page }));
     }
   };
 
@@ -52,7 +54,6 @@ const SearchForm = () => {
           value={currentInputValue}
           type="text"
           name="searchValue"
-          // value={value}
           placeholder="Search query"
           onChange={handleChange}
         />
