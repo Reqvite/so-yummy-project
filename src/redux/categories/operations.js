@@ -27,10 +27,24 @@ export const getCategoryRecipes = createAsyncThunk(
 
 export const getSearchResultByTitle = createAsyncThunk(
   "search/getSearchQuery",
-  async (searchType, value, thunkAPI) => {
+  async ({ type, value, page }, thunkAPI) => {
     try {
       const resp = await instance.get(
-        `/api/recipes/search/?${searchType}=${value}`
+        `/api/recipes/search?${type}=${value}&page=${page}`
+      );
+      return resp.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);
+
+export const getSearchResultByIngredient = createAsyncThunk(
+  "search/getSearchByIngredient",
+  async ({ type, value, page }, thunkAPI) => {
+    try {
+      const resp = await instance.get(
+        `/api/recipes/search/ingredient?${type}=${value}&page=${page}`
       );
       return resp.data;
     } catch (err) {

@@ -9,9 +9,12 @@ export const GlobalStyle = createGlobalStyle`
 body {
    color: ${(p) => p.theme.colors.mainText};
  background-color: ${(p) => p.theme.colors.mainBackground};
-  color: ${(p) => p.theme.colors.mainTextColor};
   margin: 0;
  font-family: 'Poppins', sans-serif;
+
+  * {
+  transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 }
 
 code {
@@ -44,5 +47,19 @@ ul {
 a {
   text-decoration: none;
   color: currentColor;
-}   
+}  
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+ 
+*::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+*::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+  background-color: darkgrey;
+}
+
 `;

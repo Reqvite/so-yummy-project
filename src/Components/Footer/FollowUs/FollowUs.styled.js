@@ -41,6 +41,7 @@ export const FacebookIcon = styled(Facebook)`
     width: 20px;
     height: 20px;
   }
+  fill: ${(p) => p.theme.colors.socialIconColor};
 `;
 
 export const YoutubeIcon = styled(Youtube)`
@@ -51,6 +52,7 @@ export const YoutubeIcon = styled(Youtube)`
     width: 20px;
     height: 15px;
   }
+  fill: ${(p) => p.theme.colors.socialIconColor};
 `;
 
 export const TwitterIcon = styled(Twitter)`
@@ -61,6 +63,7 @@ export const TwitterIcon = styled(Twitter)`
     width: 20px;
     height: 16px;
   }
+  fill: ${(p) => p.theme.colors.socialIconColor};
 `;
 
 export const InstagramIcon = styled(Instagram)`
@@ -71,4 +74,5 @@ export const InstagramIcon = styled(Instagram)`
     width: 20px;
     height: 20px;
   }
+  fill: ${(p) => p.theme.colors.socialIconColor};
 `;

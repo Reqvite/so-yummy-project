@@ -1,20 +1,25 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { theme } from "theme/theme";
 import { Form, FormContainer, FormInput, SearchBtn } from "./SearchForm.styled";
+import {
+  getSearchResultByIngredient,
+  getSearchResultByTitle,
+} from "redux/categories/operations";
 
 const SearchForm = ({ paramValue, param }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [value, setValue] = useState(paramValue ? paramValue : "");
+  const [type, setType] = useState("query");
+  let page = 1;
 
   useEffect(() => {
-    if (value === "") {
-      return;
+    if (param === "ingredient") {
+      setType(param);
     }
-    if (paramValue) {
-      navigate(`/search?${param}=${paramValue}`);
-    }
-  }, [navigate, param, paramValue, value]);
+    setType(param);
+  }, [param]);
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -27,10 +32,19 @@ const SearchForm = ({ paramValue, param }) => {
       console.log("error");
       return;
     }
+    console.log(type);
+    console.log(value);
 
-    navigate(`/search?${param}=${value}`);
+    if (value !== "") {
+      if (param === "query") {
+        navigate(`/search?query=${value}`);
+        dispatch(getSearchResultByTitle({ type, value, page }));
+      } else {
+        navigate(`/search?ingredient=${value}`);
+        dispatch(getSearchResultByIngredient({ type, value, page }));
+      }
+    }
   };
-
   return (
     <FormContainer>
       <Form onSubmit={handleSubmit}>
@@ -41,14 +55,7 @@ const SearchForm = ({ paramValue, param }) => {
           placeholder="Search query"
           onChange={handleChange}
         />
-        <SearchBtn
-          whileHover={{
-            backgroundColor: theme.colors.mainText,
-            color: theme.colors.elementsBackground,
-          }}
-        >
-          Search
-        </SearchBtn>
+        <SearchBtn>Search</SearchBtn>
       </Form>
     </FormContainer>
   );

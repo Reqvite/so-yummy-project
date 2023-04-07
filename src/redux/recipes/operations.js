@@ -18,7 +18,7 @@ export const addFavoriteRecipe = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const resp = await instance.post(`api/favorite/${id}`);
-      return resp.data;
+      return resp.data.recipe;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
     }
@@ -29,7 +29,7 @@ export const getUserFavouritesRecipes = createAsyncThunk(
   "recipes/getUserFavouritesRecipes",
   async (_, thunkAPI) => {
     try {
-      const resp = await instance.get("api/favorite");
+      const resp = await instance.get(`api/favorite`);
       return resp.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
@@ -42,6 +42,18 @@ export const deleteFavoriteRecipe = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const resp = await instance.delete(`api/favorite/${id}`);
+      return resp.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);
+
+export const getPopularRecipes = createAsyncThunk(
+  "recipes/getPopularRecipes",
+  async (_, thunkAPI) => {
+    try {
+      const resp = await instance.get(`/api/popular-recipes`);
       return resp.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);

@@ -2,16 +2,20 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   addFavoriteRecipe,
   deleteFavoriteRecipe,
+  getPopularRecipes,
   getRecipe,
   getUserFavouritesRecipes,
 } from "./operations";
 
 const initialState = {
   userFavouritesRecipes: [],
+  popularRecipes: [],
   recipes: [],
   recipe: [],
   recipeIsLoading: false,
   isLoading: false,
+  userFavoritesIsLoading: false,
+  popularIsLoading: false,
   error: null,
 };
 
@@ -33,15 +37,15 @@ const recipeSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(getUserFavouritesRecipes.pending, (state, action) => {
-        state.isLoading = true;
+        state.userFavoritesIsLoading = true;
       })
       .addCase(getUserFavouritesRecipes.fulfilled, (state, action) => {
-        state.isLoading = false;
+        state.userFavoritesIsLoading = false;
         state.error = null;
         state.userFavouritesRecipes = action.payload;
       })
       .addCase(getUserFavouritesRecipes.rejected, (state, action) => {
-        state.isLoading = false;
+        state.userFavoritesIsLoading = false;
         state.error = action.payload;
       })
       .addCase(addFavoriteRecipe.pending, (state, action) => {
@@ -50,7 +54,7 @@ const recipeSlice = createSlice({
       .addCase(addFavoriteRecipe.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.userFavouritesRecipes.push(action.payload.id);
+        state.userFavouritesRecipes.push(action.payload);
       })
       .addCase(addFavoriteRecipe.rejected, (state, action) => {
         state.isLoading = false;
@@ -63,13 +67,31 @@ const recipeSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const idx = state.userFavouritesRecipes.findIndex(
-          (id) => id === action.payload
+          ({ _id }) => _id === action.payload.id
         );
         state.userFavouritesRecipes.splice(idx, 1);
       })
       .addCase(deleteFavoriteRecipe.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(getPopularRecipes.pending, (state, action) => {
+        state.popularIsLoading = true;
+      })
+      .addCase(getPopularRecipes.fulfilled, (state, action) => {
+        state.popularIsLoading = false;
+        state.popularRecipes = action.payload;
+      })
+      .addCase(getPopularRecipes.rejected, (state, action) => {
+        state.popularIsLoading = false;
+        state.error = action.payload;
+      })
+      .addDefaultCase((state, action) => {
+        if (action.type === "auth/logout/fulfilled") {
+          state.userFavouritesRecipes = [];
+          state.recipes = [];
+          state.recipe = [];
+        }
       }),
 });
 
