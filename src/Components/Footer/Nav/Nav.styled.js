@@ -27,6 +27,6 @@ export const Link = styled(NavLink)`
   line-height: 1;
 
   :hover {
-    color: ${(p) => p.theme.colors.accentColor};
+    color: ${(p) => p.theme.colors.footerHoverColor};
   }
 `;

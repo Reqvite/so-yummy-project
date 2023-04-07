@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { ReactComponent as EditIcon } from "../../../../assets/svg/userInfoModal/edit-01.svg";
 import { ReactComponent as PlusIcon } from "../../../../assets/svg/userInfoModal/plus.svg";
 import { ReactComponent as UserIcon } from "../../../../assets/svg/userInfoModal/user-01.svg";
@@ -43,6 +43,12 @@ export const Wrap = styled.div`
     height: 425px;
     border-radius: 30px;
   }
+
+  ${(p) =>
+    p.$isDark &&
+    css`
+      outline: 2px solid #8baa36;
+    `}
 `;
 
 export const Label = styled.div`
@@ -56,8 +62,6 @@ export const ImgBox = styled.div`
   width: 88px;
   height: 88px;
   border-radius: 50%;
-
-  background: #d9d9d9;
 
   ${(p) => p.theme.sizes.tablet} {
     width: 103px;
@@ -126,6 +130,7 @@ export const UserSvgBlack = styled(UserIconBlack)`
     width: 22px;
     height: 22px;
   }
+  stroke: ${(p) => p.theme.colors.mainIconColor};
 `;
 
 export const EditSvg = styled(EditIcon)`
@@ -140,6 +145,7 @@ export const EditSvg = styled(EditIcon)`
     width: 22px;
     height: 22px;
   }
+  stroke: ${(p) => p.theme.colors.mainIconColor};
 `;
 
 export const Input = styled(Field)`
@@ -166,6 +172,7 @@ export const Input = styled(Field)`
     padding: 16.5px 36.5px 16.5px 51px;
     width: 400px;
   }
+  outline: none;
 `;
 
 export const Button = styled(motion.button)`

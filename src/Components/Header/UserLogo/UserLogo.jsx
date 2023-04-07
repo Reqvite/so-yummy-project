@@ -6,6 +6,8 @@ import UserLogoModal from "../UserLogo/UserLogoModal/UserLogoModal";
 import UserInfoModal from "../UserLogo/UserInfoModal/UserInfoModal";
 import UserConfirmModal from "../UserLogo/UserConfirmModal/UserConfirmModal";
 import { useAuth } from "hooks";
+import ThemeButton from "Components/ui/ThemeButton/ThemeButton";
+import { useMediaQuery } from "@mui/material";
 
 const UserLogo = () => {
   const {
@@ -14,6 +16,8 @@ const UserLogo = () => {
   const [userInfoModal, setUserInfoModal] = useState(false);
   const [userLogoModal, setUserLogoModal] = useState(false);
   const [userConfirmModal, setUserConfirmModal] = useState(false);
+
+  const matches = useMediaQuery("(min-width:1439px)");
 
   const toggleLogoModal = () => {
     setUserLogoModal(!userLogoModal);
@@ -30,8 +34,9 @@ const UserLogo = () => {
     <UserLogoWrap>
       <UserInfoWrap onClick={toggleLogoModal}>
         <Avatar alt="User's avatar" src={avatarURL} />
-        <UserName>{name}</UserName>
+        <UserName $theme>{name}</UserName>
       </UserInfoWrap>
+      {matches && <ThemeButton />}
 
       {userLogoModal && (
         <Modal toggleModal={toggleLogoModal}>
@@ -61,6 +66,7 @@ const UserLogoWrap = styled.div`
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 `;
 const UserInfoWrap = styled.div`
   display: flex;
@@ -80,7 +86,6 @@ const UserInfoWrap = styled.div`
 
 const Avatar = styled.img`
   display: inline-block;
-  background-color: #589b58;
   border-radius: 50%;
   width: 34px;
   height: 34px;
@@ -92,6 +97,8 @@ const Avatar = styled.img`
   }
 `;
 
-const UserName = styled.p``;
+const UserName = styled.p`
+  color: ${(p) => p.theme.colors.userNameColor};
+`;
 
 export default UserLogo;
