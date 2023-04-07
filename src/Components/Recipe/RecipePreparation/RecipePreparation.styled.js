@@ -6,6 +6,7 @@ export const MainBox = styled.div`
     flex-direction: column;
     align-items: center;
   }
+  padding-bottom: 20px;
 `;
 
 export const Title = styled.h2`
@@ -23,7 +24,7 @@ export const Title = styled.h2`
 
 export const Text = styled.p`
 margin-left: 14px;
-  color: rgba(0, 0, 0, 0.8);
+  color: ${(p) => p.theme.colors.recipePreparationTextColor}
  font-size: ${(p) => p.theme.fontSizes.xxs}
   line-height: 1.17;
   letter-spacing: -0.02em;
@@ -58,16 +59,16 @@ export const Item = styled.li`
 
 export const SpanBox = styled.div`
   color: white;
-  width: 21px;
-  height: 21px;
+  min-width: 25px;
+  min-height: 25px;
+  max-height: 25px;
   border-radius: 50%;
   background: ${(p) => p.theme.colors.accentColor};
   ${(p) => p.theme.flexCentered};
 `;
 export const Span = styled.span`
-  padding: 8px;
-  font-weight: ${(p) => p.theme.fontWeights.semiBold}
-  font-size: ${(p) => p.theme.fontSizes.xxs}
+  font-weight: ${(p) => p.theme.fontWeights.semiBold};
+  font-size: ${(p) => p.theme.fontSizes.xxs};
   line-height: 1.3;
 `;
 

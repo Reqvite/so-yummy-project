@@ -53,6 +53,11 @@ const shoppingSlice = createSlice({
       .addCase(deleteIngredient.rejected, (state, action) => {
         state.shoppingListUpateIsLoading = false;
         state.error = action.payload.message;
+      })
+      .addDefaultCase((state, action) => {
+        if (action.type === "auth/logout/fulfilled") {
+          state.list = [];
+        }
       }),
 });
 

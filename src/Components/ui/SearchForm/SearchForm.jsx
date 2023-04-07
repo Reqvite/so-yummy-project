@@ -6,8 +6,10 @@ import {
   getSearchResultByIngredient,
   getSearchResultByTitle,
 } from "redux/categories/operations";
+import { useTheme } from "styled-components";
 
 const SearchForm = ({ paramValue, param }) => {
+  const theme = useTheme();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [value, setValue] = useState(paramValue ? paramValue : "");
@@ -20,7 +22,6 @@ const SearchForm = ({ paramValue, param }) => {
     }
     setType(param);
   }, [param]);
-
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -46,7 +47,6 @@ const SearchForm = ({ paramValue, param }) => {
       }
     }
   };
-
   return (
     <FormContainer>
       <Form onSubmit={handleSubmit}>

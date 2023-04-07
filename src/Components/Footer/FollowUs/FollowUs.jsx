@@ -19,7 +19,7 @@ const FollowUs = ({ text }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FacebookIcon />
+          <FacebookIcon width="18" height="18" />
         </Link>
       </SocialItem>
 
@@ -29,7 +29,7 @@ const FollowUs = ({ text }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <YoutubeIcon />
+          <YoutubeIcon width="19" height="14" />
         </Link>
       </SocialItem>
 
@@ -39,7 +39,7 @@ const FollowUs = ({ text }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <TwitterIcon />
+          <TwitterIcon width="18" height="14" />
         </Link>
       </SocialItem>
 
@@ -49,7 +49,7 @@ const FollowUs = ({ text }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <InstagramIcon />
+          <InstagramIcon width="17" height="17" />
         </Link>
       </SocialItem>
     </SocialList>
