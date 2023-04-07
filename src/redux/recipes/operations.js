@@ -48,3 +48,15 @@ export const deleteFavoriteRecipe = createAsyncThunk(
     }
   }
 );
+
+export const getPopularRecipes = createAsyncThunk(
+  "recipes/getPopularRecipes",
+  async (_, thunkAPI) => {
+    try {
+      const resp = await instance.get(`/api/popular-recipes`);
+      return resp.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);

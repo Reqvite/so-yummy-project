@@ -1,9 +1,10 @@
 import ListWithPagination from "Components/ui/ListWithPagination/ListWithPagination";
 import MainPageTitle from "Components/ui/MainPageTitle/MainPageTitle";
+import PopularList from "Components/ui/PopularList/PopularList";
 
 const list = [
   {
-    _id: "640cd5ac2d9fecf12e8897fc",
+    _id: "640cd5ac2dx9fecf12e8897fc",
 
     title: "Spaghetti Bolognese",
     description:
@@ -13,7 +14,7 @@ const list = [
     time: "45",
   },
   {
-    _id: "640cd5ac2dd9fecf12e8897fc",
+    _id: "640cd5ac2dd9fecf123e8897fc",
 
     title: "Spaghetti Bolognese",
     description:
@@ -23,7 +24,7 @@ const list = [
     time: "45",
   },
   {
-    _id: "640cd5ac2ds9fecf12e8897fc",
+    _id: "640cd5ac2ds9fecf12e8c897fc",
 
     title: "Spaghetti Bolognese",
     description:
@@ -38,6 +39,7 @@ const MyRecipePage = () => {
     <>
       <MainPageTitle title="My recipes" />
       <ListWithPagination list={list} />
+      <PopularList />
     </>
   );
 };
