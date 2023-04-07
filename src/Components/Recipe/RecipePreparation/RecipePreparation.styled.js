@@ -12,20 +12,20 @@ export const MainBox = styled.div`
 export const Title = styled.h2`
   margin-top: 50px;
 
-  font-size: ${(p) => p.theme.fontSizes.m}
+  font-size: ${(p) => p.theme.fontSizes.m};
   line-height: 1;
 
   letter-spacing: -0.24px;
 
   ${(p) => p.theme.sizes.tablet} {
     margin-top: 96px;
-  }
+  } ;
 `;
 
 export const Text = styled.p`
-margin-left: 14px;
-  color: ${(p) => p.theme.colors.recipePreparationTextColor}
- font-size: ${(p) => p.theme.fontSizes.xxs}
+  margin-left: 14px;
+  color: ${(p) => p.theme.colors.recipePreparationTextColor};
+  font-size: ${(p) => p.theme.fontSizes.xxs};
   line-height: 1.17;
   letter-spacing: -0.02em;
 `;

@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { TextStyled } from "./SelectSearch.styled";
+import { SelectWrapper, TextStyled } from "./SelectSearch.styled";
 
 const {
   FormControl,
@@ -9,11 +9,17 @@ const {
   MenuItem,
   useMediaQuery,
 } = require("@mui/material");
-const { FormContainer } = require("Components/ui/SearchForm/SearchForm.styled");
 
 const SelectSearch = ({ param }) => {
   const navigate = useNavigate();
   const [query, setQuery] = useState(param ? param : "query");
+
+  useEffect(() => {
+    if (param !== "query") {
+      setQuery(param);
+    }
+  }, [param, query]);
+
   const menuItems = [
     { value: "query", label: "Title" },
     { value: "ingredient", label: "Ingredient" },
@@ -28,12 +34,12 @@ const SelectSearch = ({ param }) => {
   );
 
   const handleChange = (e) => {
-    setQuery(e.target.value);
     navigate(`/search?${e.target.value}`);
+    setQuery(e.target.value);
   };
 
   return (
-    <FormContainer margTop="28px">
+    <SelectWrapper>
       <TextStyled>Search by:</TextStyled>
       <FormControl
         variant="filled"
@@ -100,7 +106,7 @@ const SelectSearch = ({ param }) => {
           ))}
         </Select>
       </FormControl>
-    </FormContainer>
+    </SelectWrapper>
   );
 };
 

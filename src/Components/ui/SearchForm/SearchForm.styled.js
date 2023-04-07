@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-export const FormContainer = styled.div`
-  ${(p) => p.theme.flexCentered};
-  margin-top: ${(p) => p.margTop || null};
-`;
-
 export const Form = styled.form`
   position: relative;
   width: 100%;
@@ -27,13 +22,14 @@ export const FormInput = styled.input`
   color: ${(p) => p.theme.colors.cardsText};
   border-radius: 24px 44px;
   border: 1px solid #f0f0f0;
+  outline: none;
   background-color: ${(p) => p.theme.colors.footerText};
   ${(p) => p.theme.sizes.tablet} {
-    height: 64px;
+    height: 65px;
   }
 
   &:focus {
-    outline: 1px solid ${(p) => p.theme.colors.accentColor};
+    border: 1px solid ${(p) => p.theme.colors.accentColor};
   }
 `;
 
@@ -46,14 +42,11 @@ export const SearchBtn = styled.button`
   height: 53px;
   color: ${(p) => p.theme.colors.footerText};
   border-radius: 24px 44px;
-  border: 1px solid #f0f0f0;
+  border: 1px solid transparent;
   background-color: ${(p) => p.theme.colors.accentColor};
 
   ${(p) => p.theme.sizes.tablet} {
     width: 161px;
-    height: 65px;
-  }
-  ${(p) => p.theme.sizes.desktop} {
     height: 65px;
   }
 

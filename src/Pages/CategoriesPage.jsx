@@ -7,7 +7,7 @@ import { selectCategories } from "redux/categories/selectors";
 import { PageWrapper } from "Components/CategoriesList/CategoriesList.styled";
 import { Title } from "Components/ui/MainPageTitle/MainPageTitle.styled";
 import CategoriesList from "Components/CategoriesList/CategoriesList";
-import SearchRecipesList from "Components/SearchRecipesList/SearchRecipesList";
+import SearchRecipesList from "Components/CategoriesRecipesList/CategoriesRecipesList";
 
 const CategoriesPage = () => {
   const dispatch = useDispatch();
