@@ -1,7 +1,10 @@
 import { useLocation } from "react-router-dom";
 import { Button, TrashSvg } from "./DeleteButton.styled";
 import { useDispatch } from "react-redux";
-import { deleteFavoriteRecipe } from "redux/recipes/operations";
+import {
+  deleteFavoriteRecipe,
+  getUserFavouritesRecipes,
+} from "redux/recipes/operations";
 
 const DeleteButton = ({ bgColor, id }) => {
   const dispatch = useDispatch();
@@ -10,7 +13,9 @@ const DeleteButton = ({ bgColor, id }) => {
   return (
     <Button
       $bgColor={bgColor}
-      onClick={() => dispatch(deleteFavoriteRecipe(id))}
+      onClick={() => {
+        dispatch(deleteFavoriteRecipe(id));
+      }}
     >
       <TrashSvg $isMyRecipePage={pathname?.includes("my")} />
     </Button>

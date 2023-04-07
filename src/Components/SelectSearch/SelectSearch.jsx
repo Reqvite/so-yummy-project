@@ -29,6 +29,7 @@ const SelectSearch = ({ param }) => {
 
   const handleChange = (e) => {
     setQuery(e.target.value);
+    console.log(e.target.value);
     navigate(`/search?${e.target.value}`);
   };
 

@@ -8,52 +8,52 @@ import {
 } from "redux/categories/operations";
 
 const SearchForm = ({ paramValue, param }) => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [value, setValue] = useState(paramValue ? paramValue : "");
-  const [type, setType] = useState("query");
-  let page = 1;
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // const [value, setValue] = useState(paramValue ? paramValue : "");
+  // const [type, setType] = useState("query");
+  // let page = 1;
 
-  useEffect(() => {
-    if (param === "ingredient") {
-      setType(param);
-    }
-    setType(param);
-  }, [param]);
+  // useEffect(() => {
+  //   if (param === "ingredient") {
+  //     setType(param);
+  //   }
+  //   setType(param);
+  // }, [param]);
 
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setValue(value);
-  };
+  // const handleChange = (e) => {
+  //   const { value } = e.target;
+  //   setValue(value);
+  // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (value === "") {
-      console.log("error");
-      return;
-    }
-    console.log(type);
-    console.log(value);
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (value === "") {
+  //     console.log("error");
+  //     return;
+  //   }
+  //   console.log(type);
+  //   console.log(value);
 
-    if (value !== "") {
-      if (param === "query") {
-        navigate(`/search?query=${value}`);
-        dispatch(getSearchResultByTitle({ type, value, page }));
-      } else {
-        navigate(`/search?ingredient=${value}`);
-        dispatch(getSearchResultByIngredient({ type, value, page }));
-      }
-    }
-  };
+  //   if (value !== "") {
+  //     if (param === "query") {
+  //       navigate(`/search?query=${value}`);
+  //       dispatch(getSearchResultByTitle({ type, value, page }));
+  //     } else {
+  //       navigate(`/search?ingredient=${value}`);
+  //       dispatch(getSearchResultByIngredient({ type, value, page }));
+  //     }
+  //   }
+  // };
   return (
     <FormContainer>
-      <Form onSubmit={handleSubmit}>
+      <Form>
         <FormInput
           type="text"
           name="searchValue"
-          value={value}
+          // value={value}
           placeholder="Search query"
-          onChange={handleChange}
+          // onChange={handleChange}
         />
         <SearchBtn>Search</SearchBtn>
       </Form>
