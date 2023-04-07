@@ -56,4 +56,8 @@ export const SearchBtn = styled.button`
   ${(p) => p.theme.sizes.desktop} {
     height: 65px;
   }
+
+  &:hover {
+    background-color: ${(p) => p.theme.colors.footerBackground};
+  }
 `;

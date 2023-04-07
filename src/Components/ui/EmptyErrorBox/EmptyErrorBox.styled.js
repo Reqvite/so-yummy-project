@@ -18,7 +18,7 @@ export const ErrorText = styled.p`
     margin-top: 14px;
     font-size: ${(p) => p.theme.fontSizes.sm};
   }
-  color: #000000;
+  color: ${(p) => p.theme.colors.mainText};
 
   opacity: 0.5;
 `;

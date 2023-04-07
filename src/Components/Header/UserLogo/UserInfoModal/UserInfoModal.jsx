@@ -15,13 +15,14 @@ import {
 } from "./UserInfoModal.styled";
 import { InputLabel } from "@mui/material";
 import UserPreviewImg from "./UserPreviewImg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "redux/auth/operations";
 import { useState } from "react";
 import { useAuth } from "hooks";
 import ButtonLoader from "Components/ui/ButtonLoader/ButtonLoader";
 import { useTheme } from "styled-components";
 import { UpdateUserSchema } from "helpers/validations";
+import { selectTheme } from "redux/theme/selectors";
 
 const UserInfoModal = ({ toggleInfoModal }) => {
   const theme = useTheme();
@@ -45,8 +46,11 @@ const UserInfoModal = ({ toggleInfoModal }) => {
     setPhoto(url);
   };
 
+  const themeSelect = useSelector(selectTheme);
+  const isDark = themeSelect === "dark";
+
   return (
-    <Wrap>
+    <Wrap $isDark={isDark}>
       <Formik
         initialValues={initialValues}
         validationSchema={UpdateUserSchema}

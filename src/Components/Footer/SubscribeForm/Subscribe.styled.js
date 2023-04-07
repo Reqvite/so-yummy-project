@@ -124,7 +124,7 @@ export const Button = styled.button`
   align-items: center;
   width: 204px;
   height: 38px;
-  background: ${(p) => p.theme.colors.accentColor};
+  background: ${(p) => p.theme.colors.footerButtonBg};
   color: ${(p) => p.theme.colors.footerText};
   border: none;
   border-radius: 6px;
@@ -135,7 +135,7 @@ export const Button = styled.button`
   transition: color 0.5s;
 
   :hover {
-    color: ${(p) => p.theme.colors.darkText};
+    color: ${(p) => p.theme.colors.footerButtonHover};
   }
   @media screen and (min-width: 768px) {
     width: 171px;

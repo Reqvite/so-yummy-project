@@ -10,7 +10,7 @@ import defaultImg from "../../assets/images/defaultDish.png";
 import Alert from "Components/ui/Alert";
 import CategorySkeleton from "Components/ui/Skeletons/CategorySkeleton";
 
-const SearchRecipesList = ({ query, isLoading, error }) => {
+const SearchRecipesList = ({ array, isLoading, error }) => {
   return (
     <div>
       {error && <Alert />}
@@ -18,7 +18,7 @@ const SearchRecipesList = ({ query, isLoading, error }) => {
         <CategorySkeleton />
       ) : (
         <RecipesList>
-          {query.map(({ _id, title, area, thumb }) => (
+          {array.map(({ _id, title, area, thumb }) => (
             <RecipeItem key={_id}>
               <NavLink to={`/recipe/${_id}`}>
                 <RecipeImg

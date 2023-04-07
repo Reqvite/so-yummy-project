@@ -38,12 +38,15 @@ export const RecipeImg = styled.img`
 
 export const RecipeTitleWrapper = styled.div`
   position: absolute;
-  width: 307px;
+  width: 87%;
   bottom: 26px;
   left: 18px;
   padding: 16px;
   border-radius: 8px;
   background-color: ${(p) => p.theme.colors.elementsBackground};
+  ${(p) => p.theme.sizes.mobile} {
+    width: 307px;
+  }
 
   ${(p) => p.theme.sizes.tablet} {
     width: 300px;

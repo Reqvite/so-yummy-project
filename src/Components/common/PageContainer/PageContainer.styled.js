@@ -6,6 +6,22 @@ const rotateAnimation = keyframes`
     transform: rotate(360deg);
 }`;
 
+export const Box = styled.div`
+  position: absolute;
+  top: 20px;
+  left: calc(50% - 200px);
+
+  ${(p) => p.theme.sizes.tablet} {
+    top: 30px;
+    left: calc(50% - 400px);
+  }
+
+  ${(p) => p.theme.sizes.desktop} {
+    top: 30px;
+    left: calc(50% - 725px);
+  }
+`;
+
 export const MainContainer = styled.div`
   width: 100%;
   margin-left: auto;
@@ -32,7 +48,7 @@ export const RotateBlock = styled.div`
   border-radius: 3px;
   background: ${(p) => p.background || p.theme.colors.accentColor};
 
-  animation: ${rotateAnimation} 1000ms infinite linear;
+  animation: ${rotateAnimation} 1600ms infinite linear;
   ${(p) => p.theme.sizes.mobile} {
     width: ${(p) => p.width || 8}px;
     height: ${(p) => p.height || 8}px;

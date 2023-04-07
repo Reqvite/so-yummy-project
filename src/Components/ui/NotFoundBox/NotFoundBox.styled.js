@@ -21,7 +21,7 @@ export const ErrorIcon = styled(ErrorSvg)`
 `;
 
 export const Title = styled.p`
-  color: #000000;
+  color: ${(p) => p.theme.colors.notFoundTitle}
   margin-top: 14px;
   font-weight: ${(p) => p.theme.fontWeights.semiBold};
   font-size: ${(p) => p.theme.fontSizes.sm};
@@ -36,6 +36,7 @@ export const Title = styled.p`
 `;
 
 export const Text = styled.span`
+ color: ${(p) => p.theme.colors.notFoundText}
   margin-top: 8px;
   text-align: center;
 
@@ -47,7 +48,7 @@ export const Text = styled.span`
     margin-top: 14px;
     font-size: ${(p) => p.theme.fontSizes.sm};
   }
-  color: #000000;
+ 
 
   opacity: 0.5;
 `;

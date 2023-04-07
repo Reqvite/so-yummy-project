@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { TextStyled } from "./SelectSearch.styled";
@@ -18,14 +18,6 @@ const SelectSearch = ({ param }) => {
     { value: "query", label: "Title" },
     { value: "ingredient", label: "Ingredient" },
   ];
-
-  useEffect(() => {
-    if (query !== param) {
-      setQuery(param);
-      navigate(`/search?${param}`);
-    }
-    navigate(`/search?${query}`);
-  }, [navigate, query, param]);
 
   const isDesktop = useMediaQuery("(min-width: 1439.9px)");
   const isTablet = useMediaQuery(
