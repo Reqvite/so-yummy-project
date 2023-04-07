@@ -1,18 +1,26 @@
 import ListWithPagination from "Components/ui/ListWithPagination/ListWithPagination";
 import MainPageTitle from "Components/ui/MainPageTitle/MainPageTitle";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserFavouritesRecipes } from "redux/recipes/operations";
-import { selectUserFavouritesRecipes } from "redux/recipes/selectors";
+import { getUserFavouritesPaginationRecipes } from "redux/recipes/operations";
+import {
+  selectPagination,
+  selectUserFavouritesRecipes,
+} from "redux/recipes/selectors";
 import styled from "styled-components";
 
 const FavoritePage = () => {
   const dispatch = useDispatch();
   const userFavoriteList = useSelector(selectUserFavouritesRecipes);
+  const { currentPage } = useSelector(selectPagination);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    dispatch(getUserFavouritesRecipes());
-  }, [dispatch]);
+    if (!isReady) {
+      dispatch(getUserFavouritesPaginationRecipes(currentPage));
+      setIsReady(true);
+    }
+  }, [dispatch, currentPage, isReady]);
 
   return (
     <Box>

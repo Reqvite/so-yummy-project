@@ -1,21 +1,23 @@
 import { Pagination } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserFavouritesRecipes } from "redux/recipes/operations";
+import { getUserFavouritesPaginationRecipes } from "redux/recipes/operations";
 import { selectPagination } from "redux/recipes/selectors";
 import { useTheme } from "styled-components";
 
 const Paginator = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
-  const { totalPages } = useSelector(selectPagination);
+  const { totalPages, currentPage } = useSelector(selectPagination);
 
   const handleChange = (e, value) => {
-    dispatch(getUserFavouritesRecipes(value));
+    dispatch(getUserFavouritesPaginationRecipes(value));
     window.scrollTo(0, 0);
   };
 
+  console.log(currentPage);
   return (
     <Pagination
+      page={currentPage}
       count={totalPages}
       size="small"
       onChange={handleChange}

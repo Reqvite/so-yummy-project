@@ -4,6 +4,7 @@ import {
   deleteFavoriteRecipe,
   getPopularRecipes,
   getRecipe,
+  getUserFavouritesPaginationRecipes,
   getUserFavouritesRecipes,
 } from "./operations";
 
@@ -49,6 +50,25 @@ const recipeSlice = createSlice({
           totalPages: action.payload.totalPages,
         };
       })
+      .addCase(getUserFavouritesPaginationRecipes.rejected, (state, action) => {
+        state.userFavoritesIsLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(getUserFavouritesPaginationRecipes.pending, (state, action) => {
+        state.userFavoritesIsLoading = true;
+      })
+      .addCase(
+        getUserFavouritesPaginationRecipes.fulfilled,
+        (state, action) => {
+          state.userFavoritesIsLoading = false;
+          state.error = null;
+          state.userFavouritesRecipes = action.payload.favorites;
+          state.pagination = {
+            currentPage: action.payload.currentPage,
+            totalPages: action.payload.totalPages,
+          };
+        }
+      )
       .addCase(getUserFavouritesRecipes.rejected, (state, action) => {
         state.userFavoritesIsLoading = false;
         state.error = action.payload;
