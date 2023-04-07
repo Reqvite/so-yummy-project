@@ -7,15 +7,17 @@ import { useTheme } from "styled-components";
 const Paginator = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
-  const { totalPages } = useSelector(selectPagination);
+  const { totalPages, currentPage } = useSelector(selectPagination);
 
   const handleChange = (e, value) => {
     dispatch(getUserFavouritesPaginationRecipes(value));
     window.scrollTo(0, 0);
   };
 
+  console.log(currentPage);
   return (
     <Pagination
+      page={currentPage}
       count={totalPages}
       size="small"
       onChange={handleChange}
