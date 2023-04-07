@@ -26,7 +26,7 @@ const CategoriesPage = () => {
         <Title>Categories</Title>
         <CategoriesList />
         <SearchRecipesList
-          query={recipeCategories}
+          array={recipeCategories}
           isLoading={recipeCategoriesIsLoading}
           error={error}
         />
