@@ -1,6 +1,5 @@
 import ListWithPagination from "Components/ui/ListWithPagination/ListWithPagination";
 import MainPageTitle from "Components/ui/MainPageTitle/MainPageTitle";
-import PopularList from "Components/ui/PopularList/PopularList";
 
 const list = [
   {
@@ -39,7 +38,6 @@ const MyRecipePage = () => {
     <>
       <MainPageTitle title="My recipes" />
       <ListWithPagination list={list} />
-      <PopularList />
     </>
   );
 };
