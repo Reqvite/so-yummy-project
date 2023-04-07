@@ -27,9 +27,9 @@ export const addFavoriteRecipe = createAsyncThunk(
 
 export const getUserFavouritesRecipes = createAsyncThunk(
   "recipes/getUserFavouritesRecipes",
-  async (_, thunkAPI,page = 1, limit = 4) => {
+  async (_, thunkAPI) => {
     try {
-      const resp = await instance.get(`api/favorite?page=${page}&limit=${limit}`);
+      const resp = await instance.get(`api/favorite`);
       return resp.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
