@@ -2,17 +2,20 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   addFavoriteRecipe,
   deleteFavoriteRecipe,
+  getPopularRecipes,
   getRecipe,
   getUserFavouritesRecipes,
 } from "./operations";
 
 const initialState = {
   userFavouritesRecipes: [],
+  popularRecipes: [],
   recipes: [],
   recipe: [],
   recipeIsLoading: false,
   isLoading: false,
   userFavoritesIsLoading: false,
+  popularIsLoading: false,
   error: null,
 };
 
@@ -70,6 +73,17 @@ const recipeSlice = createSlice({
       })
       .addCase(deleteFavoriteRecipe.rejected, (state, action) => {
         state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(getPopularRecipes.pending, (state, action) => {
+        state.popularIsLoading = true;
+      })
+      .addCase(getPopularRecipes.fulfilled, (state, action) => {
+        state.popularIsLoading = false;
+        state.popularRecipes = action.payload;
+      })
+      .addCase(getPopularRecipes.rejected, (state, action) => {
+        state.popularIsLoading = false;
         state.error = action.payload;
       })
       .addDefaultCase((state, action) => {
