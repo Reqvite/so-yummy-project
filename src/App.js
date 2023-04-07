@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { useAuth } from "hooks";
 import { ThemeProvider } from "styled-components";
-import { theme } from "theme/theme";
 import { refreshUser } from "redux/auth/operations";
 import { GlobalStyle } from "Components/GlobalStyle/GlobalStyle";
 import PrivateRoute from "Components/routes/PrivateRoute";
@@ -15,8 +14,6 @@ import RegisterPage from "Pages/RegisterPage";
 import SigninPage from "Pages/SigninPage";
 import AuthNavPage from "Pages/AuthNavPage";
 import AddRecipe from "Pages/AddRecipe";
-import FavoritePage from "Pages/FavoritePage";
-import MyRecipesPage from "Pages/MyRecipesPage";
 import ShoppingListPage from "Pages/ShoppingListPage";
 import CategoriesPage from "Pages/CategoriesPage";
 import RecipePage from "Pages/RecipePage";
@@ -24,9 +21,18 @@ import SearchPage from "Pages/SearchPage";
 import NotFoundPage from "Pages/NotFoundPage";
 import Alert from "Components/ui/Alert";
 
+import { darkTheme, lightTheme } from "./theme/theme";
+import { selectTheme } from "redux/theme/selectors";
+import FavoritePage from "Pages/FavoritePage";
+import MyRecipePage from "Pages/MyRecipePage";
+
 const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
+
+  const themeSelector = useSelector(selectTheme);
+
+  const theme = themeSelector === "light" ? lightTheme : darkTheme;
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -65,13 +71,13 @@ const App = () => {
           <Route path="categories/:categoryName" element={<CategoriesPage />} />
           <Route path="shopping-list" element={<ShoppingListPage />} />
           <Route path="recipe/:id" element={<RecipePage />}></Route>
-          <Route path="favorite" element={<FavoritePage />}></Route>
-          <Route path="recipe/:id" element={<MyRecipesPage />}></Route>
           <Route path="search" element={<SearchPage />}></Route>
+          <Route path="my" element={<MyRecipePage />} />
+          <Route path="favorite" element={<FavoritePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-      <Alert />
+      <Alert theme={theme} />
       <GlobalStyle />
     </ThemeProvider>
   );
