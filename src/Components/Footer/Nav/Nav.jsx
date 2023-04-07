@@ -4,7 +4,7 @@ import { NavWrap, Link } from "./Nav.styled";
 const Navigation = () => {
   return (
     <NavWrap>
-      <Link to="/search?ingridients">Ingredients</Link>
+      <Link to="/search?ingridient">Ingredients</Link>
       <Link to="/add">Add recipes</Link>
       <Link to="/my">My recipes</Link>
       <Link to="/favorite">Favorite</Link>
