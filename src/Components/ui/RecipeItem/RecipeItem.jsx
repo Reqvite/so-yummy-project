@@ -23,6 +23,15 @@ const RecipeItem = ({ _id, description, preview, time, title }) => {
   const isMobile = useMediaQuery("(max-width:767px)");
   const themeSelect = useSelector(selectTheme);
 
+  const newTitle = isMobile ? title.substring(0, 20) + "..." : title;
+
+  // const editedDescripiton = description.split(/[.?!]/);
+
+  // if (editedDescripiton.length > 3) {
+  //   description = `\n\n${description}`;
+  // }
+  // console.log(description);
+
   return (
     <CardItem key={_id}>
       <Link to={`/recipe/${_id}`}>
@@ -30,7 +39,7 @@ const RecipeItem = ({ _id, description, preview, time, title }) => {
       </Link>
       <Info>
         <Box>
-          <Title>{title}</Title>
+          <Title>{newTitle}</Title>
           {!isMobile && (
             <DeleteButton
               id={_id}
