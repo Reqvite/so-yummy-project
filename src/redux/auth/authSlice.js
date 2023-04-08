@@ -1,5 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { login, logOut, refreshUser, register, updateUser } from "./operations";
+import {
+  login,
+  logOut,
+  refreshUser,
+  register,
+  updateUser,
+  subscribe,
+} from "./operations";
 import { toast } from "react-toastify";
 
 const initialState = {
@@ -78,6 +85,17 @@ export const authSlice = createSlice({
       .addCase(updateUser.rejected, (state, action) => {
         state.isRefreshing = false;
         toast.error(action.payload);
+      })
+      .addCase(subscribe.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(subscribe.fulfilled, (state, action) => {
+        state.isLoading = false;
+        toast.success("Thank you for subscribing to our news.");
+      })
+      .addCase(subscribe.rejected, (state, action) => {
+        state.isRefreshing = false;
+        toast.warn(action.payload);
       })
       .addDefaultCase((state, action) => {
         if (action.error) {
