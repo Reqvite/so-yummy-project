@@ -37,33 +37,33 @@ export const PositionWrapper = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: ${(h1) => h1.theme.colors.titleText};
-  font-weight: ${(h1) => h1.theme.fontWeights.regular};
+  color: ${(p) => p.theme.colors.titleText};
+  font-weight: ${(p) => p.theme.fontWeights.regular};
   font-size: 60px;
   line-height: 1;
   text-align: center;
   letter-spacing: -0.005em;
 
   span {
-    color: ${(span) => span.theme.colors.accentColor};
+    color: ${(p) => p.theme.colors.accentColor};
   }
 
-  ${(h1) => h1.theme.sizes.tablet} {
+  ${(p) => p.theme.sizes.tablet} {
     font-size: 72px;
     line-height: 1;
   }
-  ${(h1) => h1.theme.sizes.desktop} {
+  ${(p) => p.theme.sizes.desktop} {
     font-size: 100px;
     line-height: 1;
   }
 `;
 
 export const Text = styled.p`
-  color: ${(h1) => h1.theme.colors.mainText};
+  color: ${(p) => p.theme.colors.mainText};
   max-width: 248px;
   margin: 14px auto 0 auto;
   font-weight: 400;
-  font-size: ${(h1) => h1.theme.fontSizes.xs};
+  font-size: ${(p) => p.theme.fontSizes.xs};
   line-height: 1.28;
   text-align: center;
   letter-spacing: -0.02em;
@@ -84,18 +84,18 @@ export const Text = styled.p`
 `;
 
 export const Flex = styled.div`
-  ${(div) => div.theme.sizes.tablet} {
+  ${(p) => p.theme.sizes.tablet} {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
   }
-  ${(div) => div.theme.sizes.desktop} {
+  ${(p) => p.theme.sizes.desktop} {
     margin-right: 73px;
   }
 `;
 
 export const FlexContainer = styled.div`
-  ${(div) => div.theme.sizes.tablet} {
+  ${(p) => p.theme.sizes.tablet} {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,7 +118,7 @@ export const BgLeafLeft = styled.div`
     background-image: url(${bgLeafLeftMobile2x});
   }
 
-  ${(div) => div.theme.sizes.tablet} {
+  ${(p) => p.theme.sizes.tablet} {
     background-image: url(${bgLeafLeftTablet});
     top: 0;
     width: 67px;
@@ -130,7 +130,7 @@ export const BgLeafLeft = styled.div`
     }
   }
 
-  ${(div) => div.theme.sizes.desktop} {
+  ${(p) => p.theme.sizes.desktop} {
     height: 398px;
     width: 116px;
     background-image: url(${bgLeafLeftDesktop});
@@ -158,7 +158,7 @@ export const BgLeafRightMobile = styled.div`
     background-image: url(${bgLeafRightMobile2x});
   }
 
-  ${(div) => div.theme.sizes.tablet} {
+  ${(p) => p.theme.sizes.tablet} {
     background-image: url(${bgLeafRightTablet});
     width: 583px;
     height: 640px;
@@ -169,7 +169,7 @@ export const BgLeafRightMobile = styled.div`
       background-image: url(${bgLeafRightTablet2x});
     }
   }
-  ${(div) => div.theme.sizes.desktop} {
+  ${(p) => p.theme.sizes.desktop} {
     background-image: url(${bgLeafRightDesktop});
     width: 913px;
     height: 800px;
@@ -197,7 +197,7 @@ export const Background = styled.div`
     background-image: url(${bgMobile2x});
   }
 
-  ${(div) => div.theme.sizes.tablet} {
+  ${(p) => p.theme.sizes.tablet} {
     background-image: url(${bgTablet});
     width: 332px;
     height: 640px;
@@ -208,7 +208,7 @@ export const Background = styled.div`
       background-image: url(${bgTablet2x});
     }
   }
-  ${(div) => div.theme.sizes.desktop} {
+  ${(p) => p.theme.sizes.desktop} {
     background-image: url(${bgDesktop});
     width: 725px;
     height: 689px;
@@ -237,7 +237,7 @@ export const WrapperBackground = styled.div`
     background-image: url(${bgMainPageMobile2x});
   }
 
-  ${(div) => div.theme.sizes.tablet} {
+  ${(p) => p.theme.sizes.tablet} {
     background-image: url(${bgMainPageTablet});
     max-width: 341px;
     height: 335px;
@@ -253,7 +253,7 @@ export const WrapperBackground = styled.div`
       background-image: url(${bgMainPageTablet2x});
     }
   }
-  ${(div) => div.theme.sizes.desktop} {
+  ${(p) => p.theme.sizes.desktop} {
     background-image: url(${bgMainPageDesktop});
     width: 578px;
     height: 539px;
@@ -270,16 +270,16 @@ export const WrapperBackground = styled.div`
 export const WrapperText = styled.div`
   border-radius: 10px;
   padding: 8px 8px 30px 8px;
-  background-color: ${(div) => div.theme.colors.elementsBackground};
+  background-color: ${(p) => p.theme.colors.elementsBackground};
   width: 225px;
   height: 92px;
 
-  ${(div) => div.theme.sizes.tablet} {
+  ${(p) => p.theme.sizes.tablet} {
     width: 260px;
     height: 100px;
     padding: 12px 12px 34px 12px;
   }
-  ${(div) => div.theme.sizes.desktop} {
+  ${(p) => p.theme.sizes.desktop} {
     width: 298px;
     height: 114px;
     padding: 16px 16px 38px 16px;
@@ -292,9 +292,9 @@ export const RecipeText = styled.p`
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: -0.24px;
-  color: ${(span) => span.theme.colors.cardsText};
+  color: ${(p) => p.theme.colors.cardsText};
   span {
-    color: ${(span) => span.theme.colors.accentColor};
+    color: ${(p) => p.theme.colors.accentColor};
   }
 
   ${(p) => p.theme.sizes.tablet} {
@@ -311,9 +311,9 @@ export const NavLink = styled(Link)`
   margin-top: 7px;
   display: flex;
   align-items: center;
-  font-weight: ${(Link) => Link.theme.fontWeights.regular};
-  font-size: ${(Link) => Link.theme.fontSizes.xxxs};
-  color: ${(Link) => Link.theme.colors.cardsText};
+  font-weight: ${(p) => p.theme.fontWeights.regular};
+  font-size: ${(p) => p.theme.fontSizes.xxxs};
+  color: ${(p) => p.theme.colors.cardsText};
   line-height: 1.2;
   text-align: center;
   letter-spacing: 0.2px;
@@ -326,7 +326,7 @@ export const ArrowSvg = styled(ArrowMainPage)`
 
 export const Arrow = styled(ArrowMain)`
   display: none;
-  ${(ArrowMain) => ArrowMain.theme.sizes.tablet} {
+  ${(p) => p.theme.sizes.tablet} {
     display: block;
     position: absolute;
     bottom: 5px;
@@ -335,7 +335,7 @@ export const Arrow = styled(ArrowMain)`
     height: 56px;
     fill: none;
   }
-  ${(ArrowMain) => ArrowMain.theme.sizes.desktop} {
+  ${(p) => p.theme.sizes.desktop} {
     display: block;
     position: absolute;
     bottom: 0;
