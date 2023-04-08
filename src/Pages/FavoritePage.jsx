@@ -14,7 +14,7 @@ const FavoritePage = () => {
   const dispatch = useDispatch();
   const userFavoriteList = useSelector(selectUserFavouritesRecipes);
   const isLoading = useSelector(selectUserFavoritesIsLoading);
-  const { currentPage } = useSelector(selectPagination);
+  const { currentPage, totalPages } = useSelector(selectPagination);
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
@@ -27,7 +27,11 @@ const FavoritePage = () => {
   return (
     <Box>
       <MainPageTitle title="Favorites" />
-      <ListWithPagination list={userFavoriteList} isLoading={isLoading} />
+      <ListWithPagination
+        list={userFavoriteList}
+        isLoading={isLoading}
+        totalPages={totalPages}
+      />
     </Box>
   );
 };

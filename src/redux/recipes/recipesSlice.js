@@ -18,10 +18,7 @@ const initialState = {
   userFavoritesIsLoading: false,
   popularIsLoading: false,
   error: null,
-  pagination: {
-    currentPage: 1,
-    totalPages: 1,
-  },
+  pagination: {},
 };
 
 const recipeSlice = createSlice({
@@ -89,10 +86,10 @@ const recipeSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(deleteFavoriteRecipe.pending, (state, action) => {
-        state.isLoading = true;
+        state.userFavoritesIsLoading = true;
       })
       .addCase(deleteFavoriteRecipe.fulfilled, (state, action) => {
-        state.isLoading = false;
+        state.userFavoritesIsLoading = false;
         state.error = null;
         const idx = state.userFavouritesRecipes.findIndex(
           ({ _id }) => _id === action.payload.id
@@ -100,7 +97,7 @@ const recipeSlice = createSlice({
         state.userFavouritesRecipes.splice(idx, 1);
       })
       .addCase(deleteFavoriteRecipe.rejected, (state, action) => {
-        state.isLoading = false;
+        state.userFavoritesIsLoading = false;
         state.error = action.payload;
       })
       .addCase(getPopularRecipes.pending, (state, action) => {
