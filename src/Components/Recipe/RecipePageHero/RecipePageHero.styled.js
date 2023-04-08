@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ReactComponent as ClockIcon } from "../../../assets/svg/clock/clock.svg";
 import backgroundDesktop from "../../../assets/images/recipePage/flat-lay-assortment-vegetables-with-copy-space-DESKTOP.jpg";
 import backgroundMobile from "../../../assets/images/recipePage/flat-lay-assortment-vegetables-with-copy-space-MOBILE.jpg";
@@ -52,6 +52,12 @@ export const MainPageTitle = styled.h1`
   ${(p) => p.theme.sizes.desktop} {
     padding-top: 0;
     font-size: ${(p) => p.theme.fontSizes.xl};
+
+    ${(p) =>
+      p.$isBig &&
+      css`
+        font-size: ${(p) => p.theme.fontSizes.l};
+      `}
   }
 `;
 
@@ -72,6 +78,12 @@ export const Text = styled.p`
   ${(p) => p.theme.sizes.tablet} {
     font-size: ${(p) => p.theme.fontSizes.sm};
     margin-top: 24px;
+
+    ${(p) =>
+      p.$isBig &&
+      css`
+        font-size: ${(p) => p.theme.fontSizes.s};
+      `}
   }
 `;
 
