@@ -4,7 +4,7 @@ import { getUserFavouritesPaginationRecipes } from "redux/recipes/operations";
 import { selectPagination } from "redux/recipes/selectors";
 import { useTheme } from "styled-components";
 
-const Paginator = ({ list }) => {
+const Paginator = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const { totalPages, currentPage } = useSelector(selectPagination);

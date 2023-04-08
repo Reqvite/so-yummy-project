@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserFavouritesPaginationRecipes } from "redux/recipes/operations";
 import {
+  selectIsLoading,
   selectPagination,
-  selectUserFavoritesIsLoading,
   selectUserFavouritesRecipes,
 } from "redux/recipes/selectors";
 import styled from "styled-components";
@@ -13,7 +13,7 @@ import styled from "styled-components";
 const FavoritePage = () => {
   const dispatch = useDispatch();
   const userFavoriteList = useSelector(selectUserFavouritesRecipes);
-  const isLoading = useSelector(selectUserFavoritesIsLoading);
+  const isLoading = useSelector(selectIsLoading);
   const { currentPage, totalPages } = useSelector(selectPagination);
   const [isReady, setIsReady] = useState(false);
 
