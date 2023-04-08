@@ -4,6 +4,7 @@ import {
   deleteFavoriteRecipe,
   getPopularRecipes,
   getRecipe,
+  getUserFavouritesPaginationRecipes,
   getUserFavouritesRecipes,
 } from "./operations";
 
@@ -49,6 +50,25 @@ const recipeSlice = createSlice({
           totalPages: action.payload.totalPages,
         };
       })
+      .addCase(getUserFavouritesPaginationRecipes.rejected, (state, action) => {
+        state.userFavoritesIsLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(getUserFavouritesPaginationRecipes.pending, (state, action) => {
+        state.userFavoritesIsLoading = true;
+      })
+      .addCase(
+        getUserFavouritesPaginationRecipes.fulfilled,
+        (state, action) => {
+          state.userFavoritesIsLoading = false;
+          state.error = null;
+          state.userFavouritesRecipes = action.payload.favorites;
+          state.pagination = {
+            currentPage: action.payload.currentPage,
+            totalPages: action.payload.totalPages,
+          };
+        }
+      )
       .addCase(getUserFavouritesRecipes.rejected, (state, action) => {
         state.userFavoritesIsLoading = false;
         state.error = action.payload;
@@ -66,10 +86,10 @@ const recipeSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(deleteFavoriteRecipe.pending, (state, action) => {
-        state.isLoading = true;
+        state.userFavoritesIsLoading = true;
       })
       .addCase(deleteFavoriteRecipe.fulfilled, (state, action) => {
-        state.isLoading = false;
+        state.userFavoritesIsLoading = false;
         state.error = null;
         const idx = state.userFavouritesRecipes.findIndex(
           ({ _id }) => _id === action.payload.id
@@ -77,7 +97,7 @@ const recipeSlice = createSlice({
         state.userFavouritesRecipes.splice(idx, 1);
       })
       .addCase(deleteFavoriteRecipe.rejected, (state, action) => {
-        state.isLoading = false;
+        state.userFavoritesIsLoading = false;
         state.error = action.payload;
       })
       .addCase(getPopularRecipes.pending, (state, action) => {

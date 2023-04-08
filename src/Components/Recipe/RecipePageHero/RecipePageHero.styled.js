@@ -13,6 +13,7 @@ export const ImgBox = styled.div`
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center center;
+
   width: 100%;
   height: 455px;
 
@@ -28,6 +29,7 @@ export const ImgBox = styled.div`
   ${(p) => p.theme.sizes.desktop} {
     height: 493px;
     background-image: url(${backgroundDesktop});
+    background-size: cover;
   }
 `;
 
@@ -124,10 +126,9 @@ export const ClockSvg = styled(ClockIcon)`
 `;
 export const Time = styled.span`
   margin-left: 5px;
-    color: ${(p) => p.theme.colors.recipeDescriptionText};
-  font-weight:  ${(p) => p.theme.fontWeights.medium};
- font-size: ${(p) => p.theme.fontSizes.xs};
-  line-height: 1.43
+  color: ${(p) => p.theme.colors.recipeDescriptionText};
+  font-weight: ${(p) => p.theme.fontWeights.medium};
+  font-size: ${(p) => p.theme.fontSizes.xs};
+  line-height: 1.43;
   letter-spacing: -0.24px;
-
 `;

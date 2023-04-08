@@ -31,7 +31,6 @@ const RecipePageHero = ({ title, description, time, id }) => {
 
   useEffect(() => {
     if (!first) {
-      console.log(userFavouritesRecipes);
       setIsFavorite(userFavouritesRecipes.some((recipe) => recipe._id === id));
       setFirst(true);
     }

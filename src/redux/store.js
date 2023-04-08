@@ -21,10 +21,16 @@ const themePersistConfig = {
   storage,
 };
 
+const recipePaginationConfig = {
+  key: "pagination",
+  storage,
+  whitelist: ["pagination"],
+};
+
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   shopping: shoppingReducer,
-  recipes: recipeReducer,
+  recipes: persistReducer(recipePaginationConfig, recipeReducer),
   categories: categoriesReducer,
   ingredients: ingredientsReducer,
   theme: persistReducer(themePersistConfig, themeReducer),
