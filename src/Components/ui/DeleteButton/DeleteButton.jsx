@@ -16,8 +16,8 @@ const DeleteButton = ({ bgColor, id }) => {
   const { currentPage } = useSelector(selectPagination);
   const list = useSelector(selectUserFavouritesRecipes);
 
-  const page = list.length === 1 ? currentPage - 1 : currentPage;
   const handleDelete = async () => {
+    const page = list.length === 1 ? currentPage - 1 : currentPage;
     await dispatch(deleteFavoriteRecipe(id));
     await dispatch(getUserFavouritesPaginationRecipes(page));
   };
