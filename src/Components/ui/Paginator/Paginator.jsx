@@ -4,7 +4,7 @@ import { getUserFavouritesPaginationRecipes } from "redux/recipes/operations";
 import { selectPagination } from "redux/recipes/selectors";
 import { useTheme } from "styled-components";
 
-const Paginator = () => {
+const Paginator = ({ list }) => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const { totalPages, currentPage } = useSelector(selectPagination);
@@ -14,7 +14,6 @@ const Paginator = () => {
     window.scrollTo(0, 0);
   };
 
-  console.log(currentPage);
   return (
     <Pagination
       page={currentPage}
@@ -36,7 +35,7 @@ const Paginator = () => {
           background: theme.colors.paginationActive,
 
           "&:hover": {
-            background: theme.colors.inputSuccessColor,
+            background: theme.colors.hoverPaginator,
           },
         },
         "ul>li .MuiPaginationItem-text": {

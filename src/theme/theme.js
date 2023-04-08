@@ -43,6 +43,7 @@ export const lightTheme = {
     socialIconColor: "#8BAA36",
     containerBlockIcon: "#22252A",
     hoverButtondarkTheme: "#81B733",
+    hoverPaginator: "#8BAA36",
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input
@@ -131,6 +132,7 @@ export const darkTheme = {
     socialIconColor: "#FAFAFA",
     containerBlockIcon: "#FAFAFA",
     hoverButtondarkTheme: "#81B733",
+    hoverPaginator: "rgba(250, 250, 250, 0.6)",
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input

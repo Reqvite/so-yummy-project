@@ -18,7 +18,10 @@ const initialState = {
   userFavoritesIsLoading: false,
   popularIsLoading: false,
   error: null,
-  pagination: {},
+  pagination: {
+    currentPage: 1,
+    totalPages: 1,
+  },
 };
 
 const recipeSlice = createSlice({
