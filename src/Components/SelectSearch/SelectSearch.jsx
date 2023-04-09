@@ -3,8 +3,10 @@ import { useSearchParams } from "react-router-dom";
 
 import { FormContainer, TextStyled } from "./SelectSearch.styled";
 import { FormControl, Select, MenuItem, useMediaQuery } from "@mui/material";
+import { useTheme } from "styled-components";
 
 const SelectSearch = () => {
+  const theme = useTheme();
   const isDesktop = useMediaQuery("(min-width: 1439.9px)");
   const isTablet = useMediaQuery(
     "(min-width: 768px) and (max-width: 1439.8px)"
@@ -47,11 +49,11 @@ const SelectSearch = () => {
             : isTablet
             ? "175px"
             : isDesktop && "198px",
-          backgroundColor: "grey.100",
+          backgroundColor: theme.colors.dropDownInput,
           borderRadius: "6px",
           "& div": {
-            backgroundColor: "grey.100",
-            color: "rgba(0,0,0,0.5)",
+            backgroundColor: theme.colors.dropDownInput,
+            color: theme.colors.dropDownText,
             fontSize: isMobile ? "12px" : "14px",
             borderRadius: "6px",
             fontFamily: "Poppins",
@@ -102,7 +104,7 @@ const SelectSearch = () => {
           MenuProps={{
             PaperProps: {
               sx: {
-                bgcolor: "#FFFFFF",
+                bgcolor: theme.colors.dropDownBg,
                 "& .MuiList-root": {
                   paddingTop: "0px",
                   paddingBottom: "0px",
