@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import {
   addFavoriteRecipe,
   deleteFavoriteRecipe,
@@ -6,6 +7,8 @@ import {
   getRecipe,
   getUserFavouritesPaginationRecipes,
   getUserFavouritesRecipes,
+  addRecipe,
+  getUserRecipesPagination,
 } from "./operations";
 
 const initialState = {
@@ -18,7 +21,10 @@ const initialState = {
   userFavoritesIsLoading: false,
   popularIsLoading: false,
   error: null,
+  userRecipes: [],
+  userRecipesIsLoading: false,
   pagination: {},
+  myRecipesPagination: {},
 };
 
 const recipeSlice = createSlice({
@@ -50,7 +56,7 @@ const recipeSlice = createSlice({
           totalPages: action.payload.totalPages,
         };
       })
-      .addCase(getUserFavouritesPaginationRecipes.rejected, (state, action) => {
+      .addCase(getUserFavouritesRecipes.rejected, (state, action) => {
         state.userFavoritesIsLoading = false;
         state.error = action.payload;
       })
@@ -69,7 +75,7 @@ const recipeSlice = createSlice({
           };
         }
       )
-      .addCase(getUserFavouritesRecipes.rejected, (state, action) => {
+      .addCase(getUserFavouritesPaginationRecipes.rejected, (state, action) => {
         state.userFavoritesIsLoading = false;
         state.error = action.payload;
       })
@@ -111,6 +117,34 @@ const recipeSlice = createSlice({
         state.popularIsLoading = false;
         state.error = action.payload;
       })
+      .addCase(getUserRecipesPagination.pending, (state, action) => {
+        state.userRecipesIsLoading = true;
+      })
+      .addCase(getUserRecipesPagination.fulfilled, (state, action) => {
+        state.userRecipesIsLoading = false;
+        state.error = null;
+        state.userRecipes = action.payload.recipes;
+        state.myRecipesPagination = {
+          currentPage: action.payload.currentPage,
+          totalPages: action.payload.totalPages,
+        };
+      })
+      .addCase(getUserRecipesPagination.rejected, (state, action) => {
+        state.userRecipesIsLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(addRecipe.pending, (state) => {
+        state.userRecipesIsLoading = true;
+      })
+      .addCase(addRecipe.fulfilled, (state, action) => {
+        state.userRecipes.push(action.payload);
+        state.userRecipesIsLoading = false;
+        toast.success("Added successfully");
+      })
+      .addCase(addRecipe.rejected, (state, action) => {
+        toast.error(action.payload);
+      })
+
       .addDefaultCase((state, action) => {
         if (action.type === "auth/logout/fulfilled") {
           state.userFavouritesRecipes = [];
