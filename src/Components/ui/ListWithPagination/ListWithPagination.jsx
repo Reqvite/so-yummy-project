@@ -1,17 +1,22 @@
-import { List, MainBox } from "./ListWithPagination.styled";
-import { useSelector } from "react-redux";
+import { List, MainBox, PaginatorBox } from "./ListWithPagination.styled";
 import EmptyErrorBox from "../EmptyErrorBox/EmptyErrorBox";
-import { selectUserFavoritesIsLoading } from "redux/recipes/selectors";
 import FavoriteRecipeSkeleton from "../Skeletons/FavoriteRecipeSkeleton";
 import RecipeItem from "../RecipeItem/RecipeItem";
+import Paginator from "../Paginator/Paginator";
 
-const ListWithPagination = ({ list }) => {
-  const isLoading = useSelector(selectUserFavoritesIsLoading);
+const ListWithPagination = ({
+  list,
+  isLoading,
+  totalPages,
+  isLoadingOperation,
+}) => {
+  const shouldRenderEmptyBox =
+    !isLoading && !isLoadingOperation && list.length === 0;
 
   return (
     <MainBox>
       <List>
-        {isLoading ? (
+        {isLoading || isLoadingOperation ? (
           <FavoriteRecipeSkeleton />
         ) : (
           <>
@@ -28,10 +33,14 @@ const ListWithPagination = ({ list }) => {
           </>
         )}
       </List>
-      {!isLoading && list.length === 0 && (
+      {shouldRenderEmptyBox && (
         <EmptyErrorBox text="You don't add any recipe yet." />
       )}
-      <div>Paginator</div>
+      {!isLoading && !isLoadingOperation && totalPages > 1 && (
+        <PaginatorBox>
+          <Paginator list={list} />
+        </PaginatorBox>
+      )}
     </MainBox>
   );
 };

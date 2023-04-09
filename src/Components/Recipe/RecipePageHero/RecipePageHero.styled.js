@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ReactComponent as ClockIcon } from "../../../assets/svg/clock/clock.svg";
 import backgroundDesktop from "../../../assets/images/recipePage/flat-lay-assortment-vegetables-with-copy-space-DESKTOP.jpg";
 import backgroundMobile from "../../../assets/images/recipePage/flat-lay-assortment-vegetables-with-copy-space-MOBILE.jpg";
@@ -13,6 +13,7 @@ export const ImgBox = styled.div`
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center center;
+
   width: 100%;
   height: 455px;
 
@@ -28,6 +29,7 @@ export const ImgBox = styled.div`
   ${(p) => p.theme.sizes.desktop} {
     height: 493px;
     background-image: url(${backgroundDesktop});
+    background-size: cover;
   }
 `;
 
@@ -50,6 +52,12 @@ export const MainPageTitle = styled.h1`
   ${(p) => p.theme.sizes.desktop} {
     padding-top: 0;
     font-size: ${(p) => p.theme.fontSizes.xl};
+
+    ${(p) =>
+      p.$isBig &&
+      css`
+        font-size: ${(p) => p.theme.fontSizes.l};
+      `}
   }
 `;
 
@@ -70,6 +78,12 @@ export const Text = styled.p`
   ${(p) => p.theme.sizes.tablet} {
     font-size: ${(p) => p.theme.fontSizes.sm};
     margin-top: 24px;
+
+    ${(p) =>
+      p.$isBig &&
+      css`
+        font-size: ${(p) => p.theme.fontSizes.s};
+      `}
   }
 `;
 
@@ -124,10 +138,9 @@ export const ClockSvg = styled(ClockIcon)`
 `;
 export const Time = styled.span`
   margin-left: 5px;
-    color: ${(p) => p.theme.colors.recipeDescriptionText};
-  font-weight:  ${(p) => p.theme.fontWeights.medium};
- font-size: ${(p) => p.theme.fontSizes.xs};
-  line-height: 1.43
+  color: ${(p) => p.theme.colors.recipeDescriptionText};
+  font-weight: ${(p) => p.theme.fontWeights.medium};
+  font-size: ${(p) => p.theme.fontSizes.xs};
+  line-height: 1.43;
   letter-spacing: -0.24px;
-
 `;

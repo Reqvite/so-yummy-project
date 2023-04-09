@@ -1,7 +1,6 @@
 import React from "react";
-import axios from "axios";
 import { useFormik } from "formik";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "redux/auth/selectors";
 
 import {
@@ -15,27 +14,19 @@ import {
   Input,
   Button,
 } from "./Subscribe.styled";
+import { subscribe } from "redux/auth/operations";
 
 const SubscribeForm = () => {
+  const dispatch = useDispatch();
   const user = useSelector(selectUser);
-
-  const postSubscribe = async (value) => {
-    try {
-      const { data } = await axios.post(`/subscribe`, value);
-      return data;
-    } catch (error) {
-      console.log(error.message);
-      return null;
-    }
-  };
 
   const formik = useFormik({
     initialValues: {
-      email: user.email || "",
+      email: user?.email || "",
     },
 
     onSubmit: (values) => {
-      postSubscribe({ email: values.email });
+      dispatch(subscribe({ email: values.email }));
     },
   });
 

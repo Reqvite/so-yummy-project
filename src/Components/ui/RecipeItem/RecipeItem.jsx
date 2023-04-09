@@ -11,17 +11,27 @@ import {
   Info,
   BottomBox,
 } from "./RecipeItem.styled";
-import DeleteButton from "../DeleteButton/DeleteButton";
+
 import { useTheme } from "styled-components";
 import { useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux";
 import { selectTheme } from "redux/theme/selectors";
+import DeleteButton from "../DeleteButton/DeleteButton";
 
 const RecipeItem = ({ _id, description, preview, time, title }) => {
   const theme = useTheme();
   const { pathname } = useLocation();
   const isMobile = useMediaQuery("(max-width:767px)");
   const themeSelect = useSelector(selectTheme);
+
+  const newTitle = isMobile ? title.substring(0, 20) + "..." : title;
+
+  // const editedDescripiton = description.split(/[.?!]/);
+
+  // if (editedDescripiton.length > 3) {
+  //   description = `\n\n${description}`;
+  // }
+  // console.log(description);
 
   return (
     <CardItem key={_id}>
@@ -30,7 +40,7 @@ const RecipeItem = ({ _id, description, preview, time, title }) => {
       </Link>
       <Info>
         <Box>
-          <Title>{title}</Title>
+          <Title>{newTitle}</Title>
           {!isMobile && (
             <DeleteButton
               id={_id}

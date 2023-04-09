@@ -7,6 +7,7 @@ import { shoppingReducer } from "./shopping/shoppingSlice";
 import { recipeReducer } from "./recipes/recipesSlice";
 import { categoriesReducer } from "./categories/categoriesSlice";
 import { ingredientsReducer } from "./ingredients/ingredientsSlice";
+import { recipesReducer } from "./mainRecipes/mainRecipesSlice";
 import { themeReducer } from "./theme/themeSlice";
 
 const authPersistConfig = {
@@ -20,13 +21,20 @@ const themePersistConfig = {
   storage,
 };
 
+const recipePaginationConfig = {
+  key: "pagination",
+  storage,
+  whitelist: ["pagination"],
+};
+
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   shopping: shoppingReducer,
-  recipes: recipeReducer,
+  recipes: persistReducer(recipePaginationConfig, recipeReducer),
   categories: categoriesReducer,
   ingredients: ingredientsReducer,
   theme: persistReducer(themePersistConfig, themeReducer),
+  mainRecipes: recipesReducer,
 });
 
 export const store = configureStore({

@@ -1,24 +1,10 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
-import { TextStyled } from "./SelectSearch.styled";
+import { FormContainer, TextStyled } from "./SelectSearch.styled";
+import { FormControl, Select, MenuItem, useMediaQuery } from "@mui/material";
 
-const {
-  FormControl,
-  Select,
-  MenuItem,
-  useMediaQuery,
-} = require("@mui/material");
-const { FormContainer } = require("Components/ui/SearchForm/SearchForm.styled");
-
-const SelectSearch = ({ param }) => {
-  const navigate = useNavigate();
-  const [query, setQuery] = useState(param ? param : "query");
-  const menuItems = [
-    { value: "query", label: "Title" },
-    { value: "ingredient", label: "Ingredient" },
-  ];
-
+const SelectSearch = () => {
   const isDesktop = useMediaQuery("(min-width: 1439.9px)");
   const isTablet = useMediaQuery(
     "(min-width: 768px) and (max-width: 1439.8px)"
@@ -26,14 +12,31 @@ const SelectSearch = ({ param }) => {
   const isMobile = useMediaQuery(
     "(min-width: 375px) and (max-width: 767.98px)"
   );
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const menuItems = [
+    { value: "query", label: "Title" },
+    { value: "ingredient", label: "Ingredient" },
+  ];
+
+  const [currentValue, setCurrentValue] = useState("query");
+
+  useEffect(() => {
+    if (searchParams.get("query") === null) {
+      setCurrentValue("ingredient");
+    }
+    if (searchParams.get("ingredient") === null) {
+      setCurrentValue("query");
+    }
+  }, [searchParams]);
 
   const handleChange = (e) => {
-    setQuery(e.target.value);
-    navigate(`/search?${e.target.value}`);
+    setCurrentValue(e.target.value);
+    setSearchParams(e.target.value);
   };
 
   return (
-    <FormContainer margTop="28px">
+    <FormContainer>
       <TextStyled>Search by:</TextStyled>
       <FormControl
         variant="filled"
@@ -86,7 +89,7 @@ const SelectSearch = ({ param }) => {
         }}
       >
         <Select
-          value={query}
+          value={currentValue}
           onChange={handleChange}
           displayEmpty
           inputProps={{
@@ -94,7 +97,18 @@ const SelectSearch = ({ param }) => {
           }}
         >
           {menuItems.map((item) => (
-            <MenuItem key={item.value} value={item.value}>
+            <MenuItem
+              key={item.value}
+              value={item.value}
+              sx={{
+                fontFamily: "Poppins",
+                fontSize: isMobile ? "12px" : "14px",
+                lineHeight: "21px",
+
+                letterSpacing: "-0.02em",
+                color: "rgba(0,0,0,0.5)",
+              }}
+            >
               {item.label}
             </MenuItem>
           ))}
