@@ -19,7 +19,6 @@ const Paginator = ({ currentPage, totalPages }) => {
     if (pathname.includes("my")) {
       dispatch(getUserRecipesPagination(value));
     }
-    window.scrollTo(0, 0);
   };
 
   return (
