@@ -60,3 +60,14 @@ export const getPopularRecipes = createAsyncThunk(
     }
   }
 );
+export const addRecipe = createAsyncThunk(
+  "own-recipes/add",
+  async (data, thunkAPI) => {
+    try {
+      const resp = await instance.post("api/own-recipes/add", data);
+      return resp;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.response.data.message);
+    }
+  }
+);
