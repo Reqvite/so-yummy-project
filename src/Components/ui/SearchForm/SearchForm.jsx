@@ -1,63 +1,62 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { Form, FormContainer, FormInput, SearchBtn } from "./SearchForm.styled";
-import {
-  getSearchResultByIngredient,
-  getSearchResultByTitle,
-} from "redux/categories/operations";
+import { useSearchParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Form, FormInput, SearchBtn } from "./SearchForm.styled";
 
-const SearchForm = ({ paramValue, param }) => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [value, setValue] = useState(paramValue ? paramValue : "");
-  const [type, setType] = useState("query");
-  let page = 1;
+const SearchForm = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [currentInputValue, setCurrentInputValue] = useState("");
 
   useEffect(() => {
-    if (param === "ingredient") {
-      setType(param);
+    if (
+      searchParams.get("ingredient") === null &&
+      searchParams.get("query") !== undefined
+    ) {
+      setCurrentInputValue(searchParams.get("query"));
     }
-    setType(param);
-  }, [param]);
+    if (
+      searchParams.get("ingredient") !== undefined &&
+      searchParams.get("query") === null
+    ) {
+      setCurrentInputValue(searchParams.get("ingredient"));
+    }
+  }, [searchParams]);
 
   const handleChange = (e) => {
-    const { value } = e.target;
-    setValue(value);
+    setCurrentInputValue(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (value === "") {
-      console.log("error");
-      return;
+    if (
+      searchParams.get("query") === null &&
+      searchParams.get("ingredient") !== undefined
+    ) {
+      setSearchParams({ ingredient: e.target[0].value.toLowerCase() });
     }
-    console.log(type);
-    console.log(value);
-
-    if (value !== "") {
-      if (param === "query") {
-        navigate(`/search?query=${value}`);
-        dispatch(getSearchResultByTitle({ type, value, page }));
-      } else {
-        navigate(`/search?ingredient=${value}`);
-        dispatch(getSearchResultByIngredient({ type, value, page }));
-      }
+    if (
+      searchParams.get("ingredient") === null &&
+      searchParams.get("query") !== undefined
+    ) {
+      setSearchParams({ query: e.target[0].value.toLowerCase() });
+    }
+    if (e.target[0].value === "") {
+      toast.warning("Please enter the value");
     }
   };
+
   return (
-    <FormContainer>
-      <Form onSubmit={handleSubmit}>
-        <FormInput
-          type="text"
-          name="searchValue"
-          value={value}
-          placeholder="Search query"
-          onChange={handleChange}
-        />
-        <SearchBtn>Search</SearchBtn>
-      </Form>
-    </FormContainer>
+    <Form onSubmit={handleSubmit}>
+      <FormInput
+        value={currentInputValue}
+        type="text"
+        name="searchValue"
+        placeholder="Search query"
+        onChange={handleChange}
+      />
+      <SearchBtn type="submit">Search</SearchBtn>
+    </Form>
   );
 };
 

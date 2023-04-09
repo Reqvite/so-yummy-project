@@ -44,11 +44,12 @@ export const Wrap = styled.div`
     border-radius: 30px;
   }
 
+  border: 2px solid #d9d9d9;
   ${(p) =>
     p.$isDark &&
     css`
-      outline: 2px solid #8baa36;
-    `}
+      border: 2px solid #8baa36;
+    `};
 `;
 
 export const Label = styled.div`

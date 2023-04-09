@@ -17,19 +17,6 @@ import { selectList } from "redux/shopping/selectors";
 const RecipeInngredientsList = ({ ingredients, recipeId }) => {
   const list = useSelector(selectList);
 
-  // useEffect(() => {
-  //   const getList = () => {
-  //     const updatedRecipeList = ingredients?.map(({ id, measure }) => {
-  //       const ingredient = listOfIngredients?.find((ingr) => ingr._id === id);
-  //       return { ...ingredient, measure };
-  //     });
-  //     if (updatedRecipeList) {
-  //       setRecipeList(updatedRecipeList);
-  //     }
-  //   };
-  //   getList();
-  // }, [ingredients, listOfIngredients, dispatch, isLoading]);
-
   return (
     <Box>
       <List>

@@ -3,7 +3,7 @@ import { ReactComponent as CheckIcon } from "../../../assets/svg/ckeckIcon/check
 
 export const Box = styled.div`
   display: flex;
-  justifycontent: center;
+  justify-content: center;
   align-items: center;
   width: 18px;
   height: 18px;

@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 import { ReactComponent as UserEdit } from "../../../../assets/svg/UserEditIcon/userEditIcon.svg";
 import { ReactComponent as UserButtonArrow } from "../../../../assets/svg/UserButtonArrow/userButtonArrow.svg";
+import { motion } from "framer-motion";
 
 export const slideDown = keyframes`
   0% {
@@ -18,29 +19,29 @@ export const Wrap = styled.div`
   right: 60px;
   width: 161px;
   height: 134px;
-  border: 1px solid ${(p) => p.theme.colors.accentColor};
-  border-radius: 8px;
   padding: 18px;
   animation-name: ${slideDown};
   animation-duration: 500ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
+  box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
 
   @media screen and (min-width: 768px) {
     top: 78px;
     right: 250px;
-    border: 0px;
   }
   @media screen and (min-width: 1440px) {
     top: 78px;
     right: 350px;
   }
 
+  border-radius: 8px;
+
   ${(p) =>
     p.$isDark &&
     css`
-      outline: 2px solid #8baa36;
-    `}
+      border: 2px solid #8baa36;
+    `};
 `;
 
 export const Button = styled.button`
@@ -60,7 +61,7 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 
-export const ButtonLogout = styled.button`
+export const ButtonLogout = styled(motion.button)`
   display: inline-flex;
   align-items: center;
   border: 0;

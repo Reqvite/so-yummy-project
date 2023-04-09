@@ -7,3 +7,4 @@ export const selectPopularRecipes = (state) => state.recipes.popularRecipes;
 export const selectUserFavoritesIsLoading = (state) =>
   state.recipes.userFavoritesIsLoading;
 export const selectPopularIsLoading = (state) => state.recipes.popularIsLoading;
+export const selectPagination = (state) => state.recipes.pagination;
