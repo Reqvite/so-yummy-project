@@ -8,6 +8,8 @@ import {
 
 const handlePending = (state) => {
   state.recipeCategories = [];
+  state.searchByTitle = [];
+  state.searchByIngredient = [];
   state.isLoading = true;
 };
 

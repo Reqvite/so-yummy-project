@@ -1,16 +1,11 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import { Form, FormInput, SearchBtn } from "./SearchForm.styled";
-import {
-  getSearchResultByIngredient,
-  getSearchResultByTitle,
-} from "redux/categories/operations";
 import { toast } from "react-toastify";
+import { Form, FormInput, SearchBtn } from "./SearchForm.styled";
 
 const SearchForm = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const dispatch = useDispatch();
+
   const [currentInputValue, setCurrentInputValue] = useState();
 
   useEffect(() => {
@@ -35,26 +30,19 @@ const SearchForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.dir(e.target[0].value);
-    console.log(searchParams.get("query"));
     if (
       searchParams.get("query") === null &&
       searchParams.get("ingredient") !== undefined
     ) {
-      // setCurrentInputValue(searchParams.get("ingredient"));
       setSearchParams({ ingredient: e.target[0].value.toLowerCase() });
     }
     if (
       searchParams.get("ingredient") === null &&
       searchParams.get("query") !== undefined
     ) {
-      // setCurrentInputValue(searchParams.get("query"));
       setSearchParams({ query: e.target[0].value.toLowerCase() });
     }
-    if (
-      searchParams.get("ingredient") === undefined &&
-      searchParams.get("query") === undefined
-    ) {
+    if (e.target[0].value === "") {
       toast.warning("Please enter the value");
     }
   };

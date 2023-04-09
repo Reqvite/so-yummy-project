@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import Alert from "Components/ui/Alert";
 import CategorySkeleton from "Components/ui/Skeletons/CategorySkeleton";
 
-import defaultImg from "../../assets/images/empty-img.png";
 import {
   RecipeImg,
   RecipeItem,
@@ -19,18 +18,21 @@ import {
   getSearchResultByTitle,
 } from "redux/categories/operations";
 import { selectCategories } from "redux/categories/selectors";
+import {
+  DefaultImg,
+  DefaultImgWrapper,
+  EmptyText,
+} from "./SearchedRecipesList.styled";
+import defaultImg from "../../assets/images/empty-img.png";
 
 const SearchedRecipesList = () => {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   const { searchByTitle, searchByIngredient, isLoading, error } =
     useSelector(selectCategories);
-  // console.log(searchParams);
+
   const valueQuery = searchParams.get("query");
   const valueIngredient = searchParams.get("ingredient");
-
-  // console.log(valueQuery);
-  // console.log(valueIngredient);
 
   const [result, setResult] = useState([]);
 
@@ -55,12 +57,7 @@ const SearchedRecipesList = () => {
     valueQuery,
   ]);
 
-  console.log(result);
-
   useEffect(() => {
-    if (result === []) {
-      return;
-    }
     if (
       valueQuery === null &&
       valueIngredient !== undefined &&
@@ -71,7 +68,6 @@ const SearchedRecipesList = () => {
       const page = 1;
 
       dispatch(getSearchResultByIngredient({ type, value, page }));
-      // setResult(searchByTitle);
     }
     if (
       valueIngredient === null &&
@@ -84,17 +80,16 @@ const SearchedRecipesList = () => {
 
       dispatch(getSearchResultByTitle({ type, value, page }));
     }
-    setResult([]);
-  }, [searchParams]);
+  }, [dispatch, setSearchParams, valueIngredient, valueQuery, searchParams]);
 
   return (
     <>
-      {result.length > 0 ? (
+      {error && <Alert />}
+      {isLoading ? (
+        <CategorySkeleton />
+      ) : (
         <>
-          {error && <Alert />}
-          {isLoading ? (
-            <CategorySkeleton />
-          ) : (
+          {result.length > 0 ? (
             <RecipesList>
               {result.map(({ _id, title, area, thumb }) => (
                 <RecipeItem key={_id}>
@@ -111,12 +106,13 @@ const SearchedRecipesList = () => {
                 </RecipeItem>
               ))}
             </RecipesList>
+          ) : (
+            <DefaultImgWrapper>
+              <DefaultImg src={defaultImg} alt="ingredients" />
+              <EmptyText>Try looking for something else...</EmptyText>
+            </DefaultImgWrapper>
           )}
         </>
-      ) : (
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <img src={defaultImg} width={300} height={260} />
-        </div>
       )}
     </>
   );

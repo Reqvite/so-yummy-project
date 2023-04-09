@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { FormContainer, TextStyled } from "./SelectSearch.styled";
-
 import { FormControl, Select, MenuItem, useMediaQuery } from "@mui/material";
 
 const SelectSearch = () => {
@@ -14,7 +13,6 @@ const SelectSearch = () => {
     "(min-width: 375px) and (max-width: 767.98px)"
   );
   const [searchParams, setSearchParams] = useSearchParams();
-  // console.log(searchParams.get("query"));
 
   const menuItems = [
     { value: "query", label: "Title" },
@@ -33,7 +31,6 @@ const SelectSearch = () => {
   }, [searchParams]);
 
   const handleChange = (e) => {
-    e.preventDefault();
     setCurrentValue(e.target.value);
     setSearchParams(e.target.value);
   };
@@ -100,7 +97,18 @@ const SelectSearch = () => {
           }}
         >
           {menuItems.map((item) => (
-            <MenuItem key={item.value} value={item.value}>
+            <MenuItem
+              key={item.value}
+              value={item.value}
+              sx={{
+                fontFamily: "Poppins",
+                fontSize: isMobile ? "12px" : "14px",
+                lineHeight: "21px",
+
+                letterSpacing: "-0.02em",
+                color: "rgba(0,0,0,0.5)",
+              }}
+            >
               {item.label}
             </MenuItem>
           ))}
