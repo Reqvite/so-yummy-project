@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Form, FormInput, SearchBtn } from "./Search.styled";
+import { FormWrapper, Form, FormInput, SearchBtn } from "./Search.styled";
 import { toast } from "react-toastify";
 
 const Search = () => {
@@ -14,7 +14,7 @@ const Search = () => {
       : toast.warning("Please enter the value");
   };
   return (
-    <div>
+    <FormWrapper>
       <Form onSubmit={handleSubmit}>
         <FormInput
           onChange={(e) => setSearchValue(e.target.value)}
@@ -24,7 +24,7 @@ const Search = () => {
         />
         <SearchBtn type="submit">Search</SearchBtn>
       </Form>
-    </div>
+    </FormWrapper>
   );
 };
 

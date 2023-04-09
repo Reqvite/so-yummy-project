@@ -29,9 +29,15 @@ import bgMainPageDesktop2x from "../../assets/images/mainPage/mainPageDesktop/bg
 import { ReactComponent as ArrowMainPage } from "../../assets/svg/mainPage/arrowMainPage.svg";
 import { ReactComponent as ArrowMain } from "../../assets/svg/mainPage/arrow.svg";
 
+export const Section = styled.section`
+  ${(p) => p.theme.sizes.tablet} {
+    padding-bottom: 150px;
+  }
+`;
+
 export const PositionWrapper = styled.div`
   position: relative;
-  ${(div) => div.theme.sizes.tablet} {
+  ${(p) => p.theme.sizes.tablet} {
     position: static;
   }
 `;
