@@ -8,7 +8,7 @@ export const getRecipe = createAsyncThunk(
       const resp = await instance.get(`api/recipes/recipe/${recipeId}`);
       return resp.data;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.response.data.message);
     }
   }
 );
@@ -20,7 +20,7 @@ export const addFavoriteRecipe = createAsyncThunk(
       const resp = await instance.post(`api/favorite/${id}`);
       return resp.data.recipe;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.response.data.message);
     }
   }
 );
@@ -32,7 +32,7 @@ export const getUserFavouritesRecipes = createAsyncThunk(
       const resp = await instance.get(`api/favorite`);
       return resp.data;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.response.data.message);
     }
   }
 );
@@ -44,7 +44,7 @@ export const getUserFavouritesPaginationRecipes = createAsyncThunk(
       const resp = await instance.get(`api/favorite/paginate?page=${page}`);
       return resp.data;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.response.data.message);
     }
   }
 );
@@ -56,7 +56,7 @@ export const deleteFavoriteRecipe = createAsyncThunk(
       const resp = await instance.delete(`api/favorite/${id}`);
       return resp.data;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.response.data.message);
     }
   }
 );
@@ -68,7 +68,7 @@ export const getPopularRecipes = createAsyncThunk(
       const resp = await instance.get(`/api/popular-recipes`);
       return resp.data;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.response.data.message);
     }
   }
 );
@@ -80,7 +80,7 @@ export const getUserRecipesPagination = createAsyncThunk(
       const resp = await instance.get(`/api/own-recipes/?page=${page}`);
       return resp.data;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.response.data.message);
     }
   }
 );
@@ -91,6 +91,18 @@ export const addRecipe = createAsyncThunk(
     try {
       const resp = await instance.post("api/own-recipes/add", data);
       return resp;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.response.data.message);
+    }
+  }
+);
+
+export const deleteUserRecipe = createAsyncThunk(
+  "recipes/deleteUserRecipe",
+  async (id, thunkAPI) => {
+    try {
+      const resp = await instance.delete(`api/own-recipes/${id}`);
+      return resp.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.response.data.message);
     }

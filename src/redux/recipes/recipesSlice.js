@@ -9,6 +9,7 @@ import {
   getUserFavouritesRecipes,
   addRecipe,
   getUserRecipesPagination,
+  deleteUserRecipe,
 } from "./operations";
 
 const initialState = {
@@ -144,7 +145,21 @@ const recipeSlice = createSlice({
       .addCase(addRecipe.rejected, (state, action) => {
         toast.error(action.payload);
       })
-
+      .addCase(deleteUserRecipe.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteUserRecipe.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        const idx = state.userRecipes.findIndex(
+          ({ _id }) => _id === action.payload.id
+        );
+        state.userRecipes.splice(idx, 1);
+      })
+      .addCase(deleteUserRecipe.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
       .addDefaultCase((state, action) => {
         if (action.type === "auth/logout/fulfilled") {
           state.userFavouritesRecipes = [];
