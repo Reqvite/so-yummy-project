@@ -59,7 +59,11 @@ const SearchedRecipesList = () => {
 
   useEffect(() => {
     try {
-      if (valueQuery === null && valueIngredient !== undefined) {
+      if (
+        valueQuery === null &&
+        valueIngredient !== undefined &&
+        valueIngredient !== ""
+      ) {
         const type = "ingredient";
         const value = searchParams.get("ingredient");
         const page = 1;
@@ -69,7 +73,11 @@ const SearchedRecipesList = () => {
 
         dispatch(getSearchResultByIngredient({ type, value, page }));
       }
-      if (valueIngredient === null && valueQuery !== undefined) {
+      if (
+        valueIngredient === null &&
+        valueQuery !== undefined &&
+        valueQuery !== ""
+      ) {
         const type = "query";
         const value = searchParams.get("query");
         const page = 1;
@@ -77,6 +85,7 @@ const SearchedRecipesList = () => {
 
         dispatch(getSearchResultByTitle({ type, value, page }));
       }
+      setResult([]);
     } catch (err) {
       console.lod(err);
       toast.warning(err);
