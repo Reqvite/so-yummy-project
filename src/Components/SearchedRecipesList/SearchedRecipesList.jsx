@@ -36,7 +36,6 @@ const SearchedRecipesList = () => {
 
   const [result, setResult] = useState([]);
 
-  console.log();
   useEffect(() => {
     if (result === []) {
       return;

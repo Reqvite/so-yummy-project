@@ -6,7 +6,7 @@ import { Form, FormInput, SearchBtn } from "./SearchForm.styled";
 const SearchForm = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const [currentInputValue, setCurrentInputValue] = useState();
+  const [currentInputValue, setCurrentInputValue] = useState("");
 
   useEffect(() => {
     if (
@@ -24,7 +24,6 @@ const SearchForm = () => {
   }, [searchParams]);
 
   const handleChange = (e) => {
-    console.log(e.target.value);
     setCurrentInputValue(e.target.value);
   };
 

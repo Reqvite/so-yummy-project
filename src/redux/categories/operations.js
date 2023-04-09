@@ -34,7 +34,7 @@ export const getSearchResultByTitle = createAsyncThunk(
       );
       return resp.data.results;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.response.data.message);
     }
   }
 );
@@ -48,7 +48,7 @@ export const getSearchResultByIngredient = createAsyncThunk(
       );
       return resp.data.recipes;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.response.data.message);
     }
   }
 );
