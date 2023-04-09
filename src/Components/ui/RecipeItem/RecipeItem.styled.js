@@ -44,23 +44,6 @@ export const CardItem = styled.li`
   }
 `;
 
-export const ImgBox = styled.div`
-  display: block;
-  height: 100%;
-  min-width: 152px;
-  background: ${(p) => p.theme.colors.mainBackground};
-  border-radius: 8px;
-  overflow: hidden;
-
-  @media ${(p) => p.theme.sizes.tablet} {
-    display: block;
-    min-width: 288px;
-  }
-  @media ${(p) => p.theme.sizes.desktop} {
-    min-width: 404px;
-  }
-`;
-
 export const Img = styled.img`
   height: 124px;
   width: 124px;
@@ -100,11 +83,11 @@ export const Title = styled.h2`
 
   ${(p) => p.theme.sizes.tablet} {
     font-size: ${(p) => p.theme.fontSizes.m};
-    font-weight: 500;
-    line-height: 1;
+    width: 400px;
   }
 
   ${(p) => p.theme.sizes.desktop} {
+    width: 800px;
   }
 `;
 

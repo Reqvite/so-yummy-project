@@ -49,8 +49,10 @@ const RecipePageHero = ({ title, description, time, id }) => {
   return (
     <>
       <ImgBox />
-      <MainPageTitle>{title}</MainPageTitle>
-      <Text>{description}</Text>
+      <MainPageTitle $isBig={title?.split(" ").length > 6}>
+        {title}
+      </MainPageTitle>
+      <Text $isBig={title?.split(" ").length > 6}>{description}</Text>
       <Button
         disabled={isLoading}
         whileHover={{

@@ -86,10 +86,10 @@ const recipeSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(deleteFavoriteRecipe.pending, (state, action) => {
-        state.userFavoritesIsLoading = true;
+        state.isLoading = true;
       })
       .addCase(deleteFavoriteRecipe.fulfilled, (state, action) => {
-        state.userFavoritesIsLoading = false;
+        state.isLoading = false;
         state.error = null;
         const idx = state.userFavouritesRecipes.findIndex(
           ({ _id }) => _id === action.payload.id
@@ -97,7 +97,7 @@ const recipeSlice = createSlice({
         state.userFavouritesRecipes.splice(idx, 1);
       })
       .addCase(deleteFavoriteRecipe.rejected, (state, action) => {
-        state.userFavoritesIsLoading = false;
+        state.isLoading = false;
         state.error = action.payload;
       })
       .addCase(getPopularRecipes.pending, (state, action) => {
