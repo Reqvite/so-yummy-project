@@ -8,6 +8,9 @@ import Paginator from "../Paginator/Paginator";
 
 const ListWithPagination = ({ list, isLoading, totalPages }) => {
   const isLoadingOperation = useSelector(selectIsLoading);
+
+  const shouldRenderEmptyBox =
+    !isLoading && !isLoadingOperation && list.length === 0;
   return (
     <MainBox>
       <List>
@@ -28,7 +31,7 @@ const ListWithPagination = ({ list, isLoading, totalPages }) => {
           </>
         )}
       </List>
-      {!isLoading && list.length === 0 && (
+      {shouldRenderEmptyBox && (
         <EmptyErrorBox text="You don't add any recipe yet." />
       )}
       {!isLoading && !isLoadingOperation && totalPages > 1 && (
