@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-export const FormContainer = styled.div`
+export const SearchBar = styled.div`
   ${(p) => p.theme.flexCentered};
+  flex-direction: column;
   margin-top: ${(p) => p.margTop || null};
 `;
 
@@ -26,6 +27,7 @@ export const FormInput = styled.input`
 
   color: ${(p) => p.theme.colors.cardsText};
   border-radius: 24px 44px;
+  outline: none;
   border: 1px solid #f0f0f0;
   background-color: ${(p) => p.theme.colors.footerText};
   ${(p) => p.theme.sizes.tablet} {
@@ -33,7 +35,7 @@ export const FormInput = styled.input`
   }
 
   &:focus {
-    outline: 1px solid ${(p) => p.theme.colors.accentColor};
+    border: 1px solid ${(p) => p.theme.colors.accentColor};
   }
 `;
 

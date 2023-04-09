@@ -1,15 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import { TextStyled } from "./SelectSearch.styled";
+import { FormContainer, TextStyled } from "./SelectSearch.styled";
 
-const {
-  FormControl,
-  Select,
-  MenuItem,
-  useMediaQuery,
-} = require("@mui/material");
-const { FormContainer } = require("Components/ui/SearchForm/SearchForm.styled");
+import { FormControl, Select, MenuItem, useMediaQuery } from "@mui/material";
 
 const SelectSearch = () => {
   const isDesktop = useMediaQuery("(min-width: 1439.9px)");
@@ -20,18 +14,20 @@ const SelectSearch = () => {
     "(min-width: 375px) and (max-width: 767.98px)"
   );
   const [searchParams, setSearchParams] = useSearchParams();
+  // console.log(searchParams.get("query"));
 
   const menuItems = [
     { value: "query", label: "Title" },
     { value: "ingredient", label: "Ingredient" },
   ];
 
-  const [currentValue, setCurrentValue] = useState("");
+  const [currentValue, setCurrentValue] = useState("query");
 
   useEffect(() => {
     if (searchParams.get("query") === null) {
       setCurrentValue("ingredient");
-    } else {
+    }
+    if (searchParams.get("ingredient") === null) {
       setCurrentValue("query");
     }
   }, [searchParams]);
@@ -42,7 +38,7 @@ const SelectSearch = () => {
   };
 
   return (
-    <FormContainer margTop="28px">
+    <FormContainer>
       <TextStyled>Search by:</TextStyled>
       <FormControl
         variant="filled"

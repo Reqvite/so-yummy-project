@@ -17,6 +17,7 @@ const Search = () => {
     <div>
       <Form onSubmit={handleSubmit}>
         <FormInput
+          value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
           type="text"
           name="name"
