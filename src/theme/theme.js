@@ -11,7 +11,7 @@ export const lightTheme = {
     titleText: "#001833", // заголовки h1
     footerText: "#FAFAFA", //білий
     cardsText: "#3E4462", //назви страв та надписи на картках
-    opacityText: "#000000", //чорний з опасіті 0,5(текст у селекторах, на 404page)
+    opacityText: "rgba(0,0,0,0.5)", //чорний з опасіті 0,5(текст у селекторах, на 404page)
     categoryText: "#BDBDBD", //світло-сірий(назви категорій)
 
     accentColor: "#8BAA36", //темно-зелений

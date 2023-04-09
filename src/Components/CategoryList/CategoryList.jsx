@@ -5,7 +5,7 @@ import {
   RecipeTitle,
   RecipeTitleWrapper,
   RecipesList,
-} from "./SearchRecipesList.styled";
+} from "./CategoryList.styled";
 import defaultImg from "../../assets/images/defaultDish.png";
 import Alert from "Components/ui/Alert";
 import CategorySkeleton from "Components/ui/Skeletons/CategorySkeleton";

@@ -1,5 +1,19 @@
 import styled from "styled-components";
 
+export const FormContainer = styled.div`
+  ${(p) => p.theme.flexCentered};
+  margin-top: 24px;
+  margin-bottom: 40px;
+
+  ${(p) => p.theme.sizes.tablet} {
+    margin-top: 28px;
+  }
+
+  ${(p) => p.theme.sizes.desktop} {
+    margin-bottom: 90px;
+  }
+`;
+
 export const TextStyled = styled.span`
   font-weight: 500;
   font-size: ${(p) => p.theme.fontSizes.xxs};

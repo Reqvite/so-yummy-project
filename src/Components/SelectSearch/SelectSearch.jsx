@@ -1,15 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import { TextStyled } from "./SelectSearch.styled";
-
-const {
-  FormControl,
-  Select,
-  MenuItem,
-  useMediaQuery,
-} = require("@mui/material");
-const { FormContainer } = require("Components/ui/SearchForm/SearchForm.styled");
+import { FormContainer, TextStyled } from "./SelectSearch.styled";
+import { FormControl, Select, MenuItem, useMediaQuery } from "@mui/material";
 
 const SelectSearch = () => {
   const isDesktop = useMediaQuery("(min-width: 1439.9px)");
@@ -26,12 +19,13 @@ const SelectSearch = () => {
     { value: "ingredient", label: "Ingredient" },
   ];
 
-  const [currentValue, setCurrentValue] = useState("");
+  const [currentValue, setCurrentValue] = useState("query");
 
   useEffect(() => {
     if (searchParams.get("query") === null) {
       setCurrentValue("ingredient");
-    } else {
+    }
+    if (searchParams.get("ingredient") === null) {
       setCurrentValue("query");
     }
   }, [searchParams]);
@@ -42,7 +36,7 @@ const SelectSearch = () => {
   };
 
   return (
-    <FormContainer margTop="28px">
+    <FormContainer>
       <TextStyled>Search by:</TextStyled>
       <FormControl
         variant="filled"
@@ -103,7 +97,18 @@ const SelectSearch = () => {
           }}
         >
           {menuItems.map((item) => (
-            <MenuItem key={item.value} value={item.value}>
+            <MenuItem
+              key={item.value}
+              value={item.value}
+              sx={{
+                fontFamily: "Poppins",
+                fontSize: isMobile ? "12px" : "14px",
+                lineHeight: "21px",
+
+                letterSpacing: "-0.02em",
+                color: "rgba(0,0,0,0.5)",
+              }}
+            >
               {item.label}
             </MenuItem>
           ))}
