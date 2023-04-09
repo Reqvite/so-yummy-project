@@ -11,11 +11,12 @@ import {
   Info,
   BottomBox,
 } from "./RecipeItem.styled";
-import DeleteButton from "../DeleteButton/DeleteButton";
+
 import { useTheme } from "styled-components";
 import { useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux";
 import { selectTheme } from "redux/theme/selectors";
+import DeleteButton from "../DeleteButton/DeleteButton";
 
 const RecipeItem = ({ _id, description, preview, time, title }) => {
   const theme = useTheme();
