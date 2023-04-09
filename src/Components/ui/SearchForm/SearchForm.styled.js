@@ -29,13 +29,16 @@ export const FormInput = styled.input`
   border-radius: 24px 44px;
   outline: none;
   border: 1px solid #f0f0f0;
-  background-color: ${(p) => p.theme.colors.footerText};
+  background-color: ${(p) => p.theme.colors.mainBackground};
   ${(p) => p.theme.sizes.tablet} {
     height: 64px;
   }
 
   &:focus {
     border: 1px solid ${(p) => p.theme.colors.accentColor};
+    &::placeholder {
+      opacity: 0;
+    }
   }
 `;
 

@@ -44,6 +44,9 @@ export const lightTheme = {
     containerBlockIcon: "#22252A",
     hoverButtondarkTheme: "#81B733",
     hoverPaginator: "#8BAA36",
+    dropDownInput: "#ECECEC",
+    dropDownBg: "#FFFFFF",
+    dropDownText: "rgba(0,0,0,0.5)",
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input
@@ -133,6 +136,9 @@ export const darkTheme = {
     containerBlockIcon: "#FAFAFA",
     hoverButtondarkTheme: "#81B733",
     hoverPaginator: "rgba(250, 250, 250, 0.6)",
+    dropDownInput: "#2A2C36",
+    dropDownBg: "#8BAA36",
+    dropDownText: "#8BAA36",
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input

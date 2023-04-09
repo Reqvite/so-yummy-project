@@ -24,11 +24,11 @@ export const DefaultImg = styled.img`
 `;
 
 export const EmptyText = styled.p`
+  color: ${(p) => p.theme.colors.mainText};
   font-weight: ${(p) => p.theme.fontWeights.medium};
   font-size: ${(p) => p.theme.fontSizes.xs};
   line-height: 1;
   letter-spacing: ${(p) => p.theme.letterSpacings.base};
-  color: ${(p) => p.theme.colors.opacityText};
 
   ${(p) => p.theme.sizes.tablet} {
     font-size: ${(p) => p.theme.fontSizes.m};

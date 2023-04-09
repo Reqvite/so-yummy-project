@@ -36,7 +36,7 @@ export const Title = styled.p`
 `;
 
 export const Text = styled.span`
- color: ${(p) => p.theme.colors.notFoundText}
+ color: ${(p) => p.theme.colors.notFoundText};
   margin-top: 8px;
   text-align: center;
 

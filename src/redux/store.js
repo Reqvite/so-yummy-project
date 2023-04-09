@@ -24,7 +24,7 @@ const themePersistConfig = {
 const recipePaginationConfig = {
   key: "pagination",
   storage,
-  whitelist: ["pagination"],
+  whitelist: ["pagination", "myRecipesPagination"],
 };
 
 const rootReducer = combineReducers({
