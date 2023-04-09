@@ -1,34 +1,29 @@
 import styled from "styled-components";
 
 export const Option = styled.div`
-  position: absolute;
   display: flex;
-  top: 0;
-  right: 0;
-  padding-top: 3px;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
-  justify-content: right;
-  gap: 13px;
-  font-size: 12px;
-  line-height: 1;
-  font-size: 14px;
+  gap: 4px;
+  padding-left: 2px;
+  padding-right: 10px;
 `;
 
 export const Title = styled.p`
-  display: inline-flex;
-  align-items: center;
-  height: 19px;
+  display: block;
+  text-align: center;
+  width: 100%;
+  ${(p) => p.theme.colors.mainText}
 `;
 
 export const List = styled.ul`
   position: absolute;
-  top: 27px;
+  width: 100%;
+  top: 100%;
   right: 0;
-  z-index: 7;
-  height: 144px;
-  width: 123px;
-  padding: 8px 14px;
+  z-index: 20;
   overflow-y: auto;
   border-radius: 6px;
   font-weight: 400;
@@ -36,11 +31,14 @@ export const List = styled.ul`
   line-height: 1.5;
   letter-spacing: -0.02em;
   color: ${(p) => p.theme.colors.notFoundTitle};
-  background-color: ${(p) => p.theme.colors.elementsBackground};
+  background: ${(p) => p.theme.colors.elementsBackground};
+  height: 112px;
+  padding-top: 16px;
+  padding-bottom: 12px;
 
   @media screen and (min-width: 767px) {
-    width: 132px;
-    height: 162px;
+    height: 128px;
+    padding: 12px 10px;
     font-size: 14px;
   }
 
@@ -70,7 +68,8 @@ export const Item = styled.li`
   letter-spacing: -0.02em;
   color: ${(p) => p.theme.colors.opacityText};
   opacity: 0.5;
-
+  /* width: 100%; */
+  text-align: center;
   :not(:last-child) {
     margin-bottom: 4px;
   }

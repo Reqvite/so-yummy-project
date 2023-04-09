@@ -4,20 +4,18 @@ import { Wrap, Input, PreviewImage, IconOnImage } from "./Image.styled";
 const ImgWithPreview = ({ imgAdd, setImgAdd }) => {
   const input = useRef(null);
 
-  function handleImageChange(event) {
+  function handleImageChange() {
     const preview = input.current;
     const file = document.querySelector("input[type=file]").files[0];
     const reader = new FileReader();
 
-    reader.onloadend = function () {
-      preview.src = reader.result;
-    };
-
     preview.style.opacity = 1;
-
     reader.readAsDataURL(file);
 
-    setImgAdd(event.target.files[0]);
+    reader.onload = () => {
+      setImgAdd(reader.result);
+      preview.src = reader.result;
+    };
   }
 
   useEffect(() => {
@@ -29,16 +27,11 @@ const ImgWithPreview = ({ imgAdd, setImgAdd }) => {
 
   return (
     <Wrap>
-      <Input
-        type="file"
-        onChange={(e) => {
-          handleImageChange(e);
-        }}
-      />
+      <Input type="file" onChange={handleImageChange} />
 
       <IconOnImage width="64" height="64" />
 
-      <PreviewImage src="" alt="" ref={input} />
+      <PreviewImage src="" alt="Preview image" ref={input} />
     </Wrap>
   );
 };

@@ -3,12 +3,17 @@ import { ReactComponent as Icon } from "../../../../assets/svg/InputFotoRecipe/i
 
 export const Wrap = styled.div`
   position: relative;
-  background: #8baa36;
+  background: ${(p) => p.theme.colors.accentColor};
   border: transparent;
   border-radius: 8px;
   overflow: hidden;
-  width: 268px;
-  height: 279px;
+  width: 279px;
+  height: 268px;
+
+  @media screen and (min-width: 1440px) {
+    width: 357px;
+    height: 344px;
+  }
 `;
 
 export const Input = styled.input`
@@ -27,7 +32,7 @@ export const IconOnImage = styled(Icon)`
 `;
 
 export const PreviewImage = styled.img`
-  opacity: 0;
+  opacity: 1;
   position: absolute;
   top: 0;
   left: 0;

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import {
   addFavoriteRecipe,
   deleteFavoriteRecipe,
@@ -6,6 +7,7 @@ import {
   getRecipe,
   getUserFavouritesPaginationRecipes,
   getUserFavouritesRecipes,
+  addRecipe,
 } from "./operations";
 
 const initialState = {
@@ -18,6 +20,9 @@ const initialState = {
   userFavoritesIsLoading: false,
   popularIsLoading: false,
   error: null,
+  userRecipes: [],
+  userRecipesIsLoading: false,
+
   pagination: {},
 };
 
@@ -111,6 +116,18 @@ const recipeSlice = createSlice({
         state.popularIsLoading = false;
         state.error = action.payload;
       })
+      .addCase(addRecipe.pending, (state) => {
+        state.userRecipesIsLoading = true;
+      })
+      .addCase(addRecipe.fulfilled, (state, action) => {
+        state.userRecipes.push(action.payload);
+        state.userRecipesIsLoading = false;
+        toast.success("Added successfully");
+      })
+      .addCase(addRecipe.rejected, (state, action) => {
+        toast.error(action.payload);
+      })
+
       .addDefaultCase((state, action) => {
         if (action.type === "auth/logout/fulfilled") {
           state.userFavouritesRecipes = [];

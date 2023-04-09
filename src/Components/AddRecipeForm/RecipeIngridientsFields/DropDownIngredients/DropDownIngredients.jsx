@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
-import { ReactComponent as ArrowIconList } from "../../../assets/svg/ArrowIconList/ArrowIconList.svg";
+import { ReactComponent as ArrowIconList } from "../../../../assets/svg/ArrowIconList/ArrowIconList.svg";
 import { nanoid } from "nanoid";
 
-import { Option, Title, List, Item } from "./DropDownList.styled";
+import { Option, Title, List, Item } from "./DropDownIngreduents.styled";
+import { useTheme } from "styled-components";
 
-const DropDownList = ({ list = [], option = "", setOption }) => {
+const DropDownIngredientsList = ({ list = [], option = "", setOption }) => {
   const [isActive, setIsActive] = useState(false);
   const input = useRef(null);
 
@@ -20,7 +21,8 @@ const DropDownList = ({ list = [], option = "", setOption }) => {
       document.removeEventListener("click", onClick);
     };
   }, [isActive]);
-
+  const theme = useTheme();
+  const activeColor = theme.colors.accentColor;
   return (
     <>
       <Option ref={input} onClick={() => setIsActive(!isActive)}>
@@ -34,6 +36,9 @@ const DropDownList = ({ list = [], option = "", setOption }) => {
           {list.map((value) => (
             <Item
               key={nanoid()}
+              style={{
+                color: value === option ? activeColor : null,
+              }}
               onClick={(e) => {
                 setOption(value);
                 setIsActive(false);
@@ -48,4 +53,4 @@ const DropDownList = ({ list = [], option = "", setOption }) => {
   );
 };
 
-export default DropDownList;
+export default DropDownIngredientsList;
