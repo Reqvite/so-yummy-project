@@ -43,7 +43,8 @@ export const Link = styled(NavLink)`
   font-size: 18px;
   line-height: 1;
   stroke: ${(p) => p.theme.colors.footerBackground};
-  :hover {
+  :hover,
+  :focus {
     color: ${(p) => p.theme.colors.accentColor};
     stroke: ${(p) => p.theme.colors.accentColor};
   }

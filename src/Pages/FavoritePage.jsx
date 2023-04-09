@@ -2,10 +2,11 @@ import ListWithPagination from "Components/ui/ListWithPagination/ListWithPaginat
 import MainPageTitle from "Components/ui/MainPageTitle/MainPageTitle";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { selectIsLoading } from "redux/auth/selectors";
 import { getUserFavouritesPaginationRecipes } from "redux/recipes/operations";
 import {
-  selectIsLoading,
   selectPagination,
+  selectUserFavoritesIsLoading,
   selectUserFavouritesRecipes,
 } from "redux/recipes/selectors";
 import styled from "styled-components";
@@ -13,7 +14,8 @@ import styled from "styled-components";
 const FavoritePage = () => {
   const dispatch = useDispatch();
   const userFavoriteList = useSelector(selectUserFavouritesRecipes);
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectUserFavoritesIsLoading);
+  const isLoadingOperation = useSelector(selectIsLoading);
   const { currentPage, totalPages } = useSelector(selectPagination);
   const [isReady, setIsReady] = useState(false);
 
@@ -30,6 +32,7 @@ const FavoritePage = () => {
       <ListWithPagination
         list={userFavoriteList}
         isLoading={isLoading}
+        isLoadingOperation={isLoadingOperation}
         totalPages={totalPages}
       />
     </Box>

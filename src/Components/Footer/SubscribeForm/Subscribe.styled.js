@@ -134,7 +134,8 @@ export const Button = styled.button`
   cursor: pointer;
   transition: color 0.5s;
 
-  :hover {
+  :hover,
+  :focus {
     color: ${(p) => p.theme.colors.footerButtonHover};
   }
   @media screen and (min-width: 768px) {
