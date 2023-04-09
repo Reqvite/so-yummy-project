@@ -4,7 +4,7 @@ import RecipeDescriptionFields from "../AddRecipeForm/RecipeDescriptionFields/Re
 import { Button, Form } from "./AddrecipeForm.styled";
 import { addRecipe } from "../../redux/recipes/operations";
 
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { addRecipeSchema } from "../../helpers/validations";
 import { useNavigate } from "react-router-dom";
@@ -159,7 +159,7 @@ const AddRecipeForm = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
-    const isValid = addRecipeSchema.isValidSync(formData);
+    // const isValid = addRecipeSchema.isValidSync(formData);
 
     // if (!isValid) {
     //   toast.error("Please check the data");
