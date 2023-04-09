@@ -53,7 +53,7 @@ export const deleteFavoriteRecipe = createAsyncThunk(
   "recipes/deleteFavoriteRecipe",
   async (id, thunkAPI) => {
     try {
-      const resp = await instance.delete(`api/favorite//${id}`);
+      const resp = await instance.delete(`api/favorite/${id}`);
       return resp.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
@@ -72,6 +72,19 @@ export const getPopularRecipes = createAsyncThunk(
     }
   }
 );
+
+export const getUserRecipesPagination = createAsyncThunk(
+  "recipes/getUserRecipesPagination",
+  async (page, thunkAPI) => {
+    try {
+      const resp = await instance.get(`/api/own-recipes/?page=${page}`);
+      return resp.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);
+
 export const addRecipe = createAsyncThunk(
   "own-recipes/add",
   async (data, thunkAPI) => {

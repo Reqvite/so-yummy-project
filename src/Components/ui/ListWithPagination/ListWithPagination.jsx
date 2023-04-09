@@ -7,6 +7,7 @@ import Paginator from "../Paginator/Paginator";
 const ListWithPagination = ({
   list,
   isLoading,
+  currentPage,
   totalPages,
   isLoadingOperation,
 }) => {
@@ -38,7 +39,11 @@ const ListWithPagination = ({
       )}
       {!isLoading && !isLoadingOperation && totalPages > 1 && (
         <PaginatorBox>
-          <Paginator list={list} />
+          <Paginator
+            list={list}
+            currentPage={currentPage}
+            totalPages={totalPages}
+          />
         </PaginatorBox>
       )}
     </MainBox>

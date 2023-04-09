@@ -17,7 +17,7 @@ import { getIngredients } from "../../redux/ingredients/operations";
 
 const AddRecipeForm = () => {
   const [formErrors, setFormErrors] = useState({});
-  const [isShowErrors, setIsShowErrors] = useState(false);
+  const [isShowErrors] = useState(false);
 
   const [fullImage, setFullImage] = useState(null);
   const [title, setTitle] = useState(
