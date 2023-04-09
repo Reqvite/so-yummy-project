@@ -33,6 +33,7 @@ const SelectSearch = () => {
   }, [searchParams]);
 
   const handleChange = (e) => {
+    e.preventDefault();
     setCurrentValue(e.target.value);
     setSearchParams(e.target.value);
   };
