@@ -58,62 +58,65 @@ const SearchedRecipesList = () => {
   console.log(result);
 
   useEffect(() => {
-    try {
-      if (
-        valueQuery === null &&
-        valueIngredient !== undefined &&
-        valueIngredient !== ""
-      ) {
-        const type = "ingredient";
-        const value = searchParams.get("ingredient");
-        const page = 1;
-        console.log(type);
-        console.log(value);
-        console.log(page);
-
-        dispatch(getSearchResultByIngredient({ type, value, page }));
-      }
-      if (
-        valueIngredient === null &&
-        valueQuery !== undefined &&
-        valueQuery !== ""
-      ) {
-        const type = "query";
-        const value = searchParams.get("query");
-        const page = 1;
-        console.log(value);
-
-        dispatch(getSearchResultByTitle({ type, value, page }));
-      }
-      setResult([]);
-    } catch (err) {
-      console.lod(err);
-      toast.warning(err);
+    if (result === []) {
+      return;
     }
+    if (
+      valueQuery === null &&
+      valueIngredient !== undefined &&
+      valueIngredient !== ""
+    ) {
+      const type = "ingredient";
+      const value = searchParams.get("ingredient");
+      const page = 1;
+
+      dispatch(getSearchResultByIngredient({ type, value, page }));
+      // setResult(searchByTitle);
+    }
+    if (
+      valueIngredient === null &&
+      valueQuery !== undefined &&
+      valueQuery !== ""
+    ) {
+      const type = "query";
+      const value = searchParams.get("query");
+      const page = 1;
+
+      dispatch(getSearchResultByTitle({ type, value, page }));
+    }
+    setResult([]);
   }, [searchParams]);
 
   return (
     <>
-      {error && <Alert />}
-      {isLoading ? (
-        <CategorySkeleton />
+      {result.length > 0 ? (
+        <>
+          {error && <Alert />}
+          {isLoading ? (
+            <CategorySkeleton />
+          ) : (
+            <RecipesList>
+              {result.map(({ _id, title, area, thumb }) => (
+                <RecipeItem key={_id}>
+                  <Link to={`/recipe/${_id}`}>
+                    <RecipeImg
+                      src={thumb ? thumb : defaultImg}
+                      alt={area}
+                      loading="lazy"
+                    />
+                    <RecipeTitleWrapper>
+                      <RecipeTitle>{title}</RecipeTitle>
+                    </RecipeTitleWrapper>
+                  </Link>
+                </RecipeItem>
+              ))}
+            </RecipesList>
+          )}
+        </>
       ) : (
-        <RecipesList>
-          {result.map(({ _id, title, area, thumb }) => (
-            <RecipeItem key={_id}>
-              <Link to={`/recipe/${_id}`}>
-                <RecipeImg
-                  src={thumb ? thumb : defaultImg}
-                  alt={area}
-                  loading="lazy"
-                />
-                <RecipeTitleWrapper>
-                  <RecipeTitle>{title}</RecipeTitle>
-                </RecipeTitleWrapper>
-              </Link>
-            </RecipeItem>
-          ))}
-        </RecipesList>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <img src={defaultImg} width={300} height={260} />
+        </div>
       )}
     </>
   );
