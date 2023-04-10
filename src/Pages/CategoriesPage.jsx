@@ -4,10 +4,10 @@ import { useParams } from "react-router-dom";
 
 import { getCategories, getCategoryRecipes } from "redux/categories/operations";
 import { selectCategories } from "redux/categories/selectors";
-import { PageWrapper } from "Components/CategoriesList/CategoriesList.styled";
+import { PageWrapper } from "Components/Categories/CategoriesList/CategoriesList.styled";
 import { Title } from "Components/ui/MainPageTitle/MainPageTitle.styled";
-import CategoriesList from "Components/CategoriesList/CategoriesList";
-import SearchRecipesList from "Components/CategoryList/CategoryList";
+import CategoriesList from "Components/Categories/CategoriesList/CategoriesList";
+import SearchRecipesList from "Components/Categories/CategoryList/CategoryList";
 
 const CategoriesPage = () => {
   const dispatch = useDispatch();

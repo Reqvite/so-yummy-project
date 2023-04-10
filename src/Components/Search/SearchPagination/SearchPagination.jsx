@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useSearchParams } from "react-router-dom";
 import { useTheme } from "styled-components";
 
 import Pagination from "@mui/material/Pagination";
@@ -12,9 +11,8 @@ import {
 } from "redux/categories/operations";
 import { Container } from "./SearchPagination.styled";
 
-const SearchPagination = () => {
+const SearchPagination = ({ query, ingredient }) => {
   const dispatch = useDispatch();
-  const [searchParams, setSearchParams] = useSearchParams();
   const theme = useTheme();
   const {
     searchByTitleTotalRes,
@@ -50,19 +48,17 @@ const SearchPagination = () => {
   ]);
 
   const handleChange = (_, num) => {
-    const pageNumber = Number(num);
-    if (searchParams.get("query")) {
+    const pageNumber = num;
+    if (query) {
       const type = "query";
-      const value = searchParams.get("query");
+      const value = query;
       dispatch(getSearchResultByTitle({ type, value, page: pageNumber }));
-      setSearchParams({ query: searchParams.get("query") });
       window.scrollTo(0, 0);
     }
-    if (searchParams.get("ingredient")) {
+    if (ingredient) {
       const type = "ingredient";
-      const value = searchParams.get("ingredient");
+      const value = ingredient;
       dispatch(getSearchResultByIngredient({ type, value, page: pageNumber }));
-      setSearchParams({ ingredient: searchParams.get("ingredient") });
       window.scrollTo(0, 0);
     }
   };
