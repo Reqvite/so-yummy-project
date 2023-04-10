@@ -114,7 +114,7 @@ export const Link = styled(NavLink)`
   display: inline-block;
   padding: 10px 24px 10px 24px;
   background-color: #8aa936;
-  color: ${(p) => p.theme.colors.mainBackground};
+  color: #fafafa;
   font-weight: ${(p) => p.theme.fontWeights.regular};
   border-radius: 5px;
   font-size: ${(p) => p.theme.fontSizes.xs};
@@ -130,7 +130,7 @@ export const Nav = styled(NavLink)`
   color: ${(p) => p.theme.colors.darkText};
   background-color: transparent;
   border-radius: 24px 44px;
-  border: 1px solid green;
+  border: 1px solid #8baa36;
   padding: 14px 32px 14px 32px;
   width: 195px;
   margin: 8px auto 0 auto;

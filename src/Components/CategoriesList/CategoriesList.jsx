@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Tab, useMediaQuery } from "@mui/material";
@@ -37,10 +37,17 @@ const CategoriesList = () => {
     "(min-width: 375px) and (max-width: 767.98px)"
   );
 
+  const topRef = useRef();
+
+  useEffect(() => {
+    topRef.current.scrollIntoView({ behavior: "smooth" });
+  });
+
   return (
     <StyledCategoryList>
       {error && <Alert />}
       <StyledCategory
+        ref={topRef}
         value={value}
         onChange={handleChange}
         variant="scrollable"
