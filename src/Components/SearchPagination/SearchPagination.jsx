@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import styled from "styled-components";
+import { useTheme } from "styled-components";
+
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { selectCategories } from "redux/categories/selectors";
@@ -9,23 +10,12 @@ import {
   getSearchResultByIngredient,
   getSearchResultByTitle,
 } from "redux/categories/operations";
-
-const Container = styled.div`
-  ${(p) => p.theme.flexCentered};
-  margin-top: 40px;
-
-  ${(p) => p.theme.sizes.tablet} {
-    margin-top: 50px;
-  }
-
-  ${(p) => p.theme.sizes.desktop} {
-    display: none;
-  }
-`;
+import { Container } from "./SearchPagination.styled";
 
 const SearchPagination = () => {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
+  const theme = useTheme();
   const {
     searchByTitleTotalRes,
     searchByIngredientTotalRes,
@@ -66,6 +56,7 @@ const SearchPagination = () => {
       const page = Number(num);
       dispatch(getSearchResultByTitle({ type, value, page }));
       setSearchParams({ query: searchParams.get("query") });
+      window.scrollTo(0, 0);
     }
     if (searchParams.get("ingredient")) {
       const type = "ingredient";
@@ -73,6 +64,7 @@ const SearchPagination = () => {
       const page = Number(num);
       dispatch(getSearchResultByIngredient({ type, value, page }));
       setSearchParams({ ingredient: searchParams.get("ingredient") });
+      window.scrollTo(0, 0);
     }
   };
 
@@ -84,6 +76,28 @@ const SearchPagination = () => {
             count={pagesQuantity}
             page={page}
             onChange={handleChange}
+            sx={{
+              ul: {
+                background: theme.colors.elementsBackground,
+                boxShadow: theme.shadows.paginationShadow,
+                borderRadius: "26px",
+                width: "275px",
+                height: "51px",
+                display: "flex",
+                justifyContent: "center",
+                justifyItems: "center",
+              },
+              "ul>li .Mui-selected": {
+                background: theme.colors.paginationActive,
+
+                "&:hover": {
+                  background: theme.colors.hoverPaginator,
+                },
+              },
+              "ul>li .MuiPaginationItem-text": {
+                color: theme.colors.mainText,
+              },
+            }}
           />
         </Stack>
       )}
