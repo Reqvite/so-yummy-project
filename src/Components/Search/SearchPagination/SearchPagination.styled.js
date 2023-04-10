@@ -7,4 +7,8 @@ export const Container = styled.div`
   ${(p) => p.theme.sizes.tablet} {
     margin-top: 50px;
   }
+
+  ${(p) => p.theme.sizes.desktop} {
+    display: none;
+  }
 `;

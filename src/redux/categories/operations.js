@@ -27,9 +27,8 @@ export const getCategoryRecipes = createAsyncThunk(
 
 export const getSearchResultByTitle = createAsyncThunk(
   "search/getSearchQuery",
-  async ({ type, value, page }, thunkAPI) => {
+  async ({ type, value, page, limit }, thunkAPI) => {
     try {
-      const limit = 6;
       const offset = 0;
       const resp = await instance.get(
         `/api/recipes/search?${type}=${value}&page=${page}&limit=${limit}&offset=${offset}`
@@ -43,9 +42,8 @@ export const getSearchResultByTitle = createAsyncThunk(
 
 export const getSearchResultByIngredient = createAsyncThunk(
   "search/getSearchByIngredient",
-  async ({ type, value, page }, thunkAPI) => {
+  async ({ type, value, page, limit }, thunkAPI) => {
     try {
-      const limit = 6;
       const offset = 0;
       const resp = await instance.get(
         `/api/recipes/search/ingredient?${type}=${value}&page=${page}&limit=${limit}&offset=${offset}`

@@ -10,7 +10,7 @@ import {
 } from "redux/categories/operations";
 import { Container } from "./SearchPagination.styled";
 
-const SearchPagination = ({ query, ingredient }) => {
+const SearchPagination = ({ query, ingredient, limit }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
   const {
@@ -48,16 +48,31 @@ const SearchPagination = ({ query, ingredient }) => {
 
   const handleChange = (_, num) => {
     const pageNumber = num;
+    const limitItems = limit;
     if (query) {
       const type = "query";
       const value = query;
-      dispatch(getSearchResultByTitle({ type, value, page: pageNumber }));
+      dispatch(
+        getSearchResultByTitle({
+          type,
+          value,
+          page: pageNumber,
+          limit: limitItems,
+        })
+      );
       window.scrollTo(0, 0);
     }
     if (ingredient) {
       const type = "ingredient";
       const value = ingredient;
-      dispatch(getSearchResultByIngredient({ type, value, page: pageNumber }));
+      dispatch(
+        getSearchResultByIngredient({
+          type,
+          value,
+          page: pageNumber,
+          limit: limitItems,
+        })
+      );
       window.scrollTo(0, 0);
     }
   };
