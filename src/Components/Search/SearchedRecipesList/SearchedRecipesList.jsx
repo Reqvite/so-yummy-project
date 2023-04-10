@@ -2,30 +2,23 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
-import { Link } from "react-router-dom";
 import Alert from "Components/ui/Alert";
 import CategorySkeleton from "Components/ui/Skeletons/CategorySkeleton";
-
-import {
-  RecipeImg,
-  RecipeItem,
-  RecipeTitle,
-  RecipeTitleWrapper,
-  RecipesList,
-} from "Components/Categories/CategoryList/CategoryList.styled";
 
 import {
   getSearchResultByIngredient,
   getSearchResultByTitle,
 } from "redux/categories/operations";
 import { selectCategories } from "redux/categories/selectors";
+
+import RecipesList from "Components/ui/RecipesList/RecipesList";
+import SearchPagination from "Components/Search/SearchPagination/SearchPagination";
 import {
   DefaultImg,
   DefaultImgWrapper,
   EmptyText,
 } from "./SearchedRecipesList.styled";
 import defaultImg from "../../../assets/images/empty-img.png";
-import SearchPagination from "Components/Search/SearchPagination/SearchPagination";
 
 const SearchedRecipesList = () => {
   const dispatch = useDispatch();
@@ -108,22 +101,7 @@ const SearchedRecipesList = () => {
         <>
           {result.length > 0 ? (
             <>
-              <RecipesList>
-                {result.map(({ _id, title, thumb }) => (
-                  <RecipeItem key={_id}>
-                    <Link to={`/recipe/${_id}`}>
-                      <RecipeImg
-                        src={thumb ? thumb : defaultImg}
-                        alt={title}
-                        loading="lazy"
-                      />
-                      <RecipeTitleWrapper>
-                        <RecipeTitle>{title}</RecipeTitle>
-                      </RecipeTitleWrapper>
-                    </Link>
-                  </RecipeItem>
-                ))}
-              </RecipesList>
+              <RecipesList array={result} />
               {!isDesktop && (
                 <SearchPagination
                   query={valueQuery}

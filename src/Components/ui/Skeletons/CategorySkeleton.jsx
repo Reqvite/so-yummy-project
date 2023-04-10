@@ -3,14 +3,14 @@ import { ReactComponent as ProductSvg } from "../../../assets/svg/skeletonProduc
 import styled from "styled-components";
 import {
   RecipeItem,
-  RecipesList,
-} from "Components/Categories/CategoryList/CategoryList.styled";
+  RecipesListWrapper,
+} from "Components/ui/RecipesList/RecipesList.styled";
 import { motion } from "framer-motion";
 
 const CategorySkeleton = () => {
   return (
     <>
-      <RecipesList>
+      <RecipesListWrapper>
         <RecipeItem>
           <AnimatedSkeleton />
         </RecipeItem>
@@ -23,7 +23,7 @@ const CategorySkeleton = () => {
         <RecipeItem>
           <AnimatedSkeleton />
         </RecipeItem>
-      </RecipesList>
+      </RecipesListWrapper>
     </>
   );
 };
