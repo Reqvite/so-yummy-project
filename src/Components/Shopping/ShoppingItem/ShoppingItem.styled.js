@@ -91,10 +91,12 @@ export const ButtonWrapper = styled.div`
   align-items: center;
 `;
 
-export const Button = styled.button`
+export const Button = styled.div`
   background-color: transparent;
   border: none;
   margin-left: 46px;
+  width: 25px;
+  height: 25px;
 
   cursor: pointer;
 

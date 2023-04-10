@@ -8,7 +8,7 @@ export const getShoppingIngredients = createAsyncThunk(
       const resp = await instance.get("api/shopping-list");
       return resp.data;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.response.data.message);
     }
   }
 );
@@ -20,7 +20,7 @@ export const updateShoppinList = createAsyncThunk(
       const resp = await instance.patch("api/shopping-list/add", data);
       return resp.data;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.response.data.message);
     }
   }
 );

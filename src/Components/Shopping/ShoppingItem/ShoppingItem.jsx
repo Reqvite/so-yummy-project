@@ -40,7 +40,10 @@ const ShoppingItem = ({ id, ttl, thb, measure, recipeId }) => {
             disabled={updateShoppingListIsLoading}
             onClick={() => dispatch(deleteIngredient({ id, recipeId }))}
           >
-            <CloseIcon whileHover={{ stroke: theme.colors.accentColor }} />
+            <CloseIcon
+              whileHover={{ stroke: theme.colors.accentColor }}
+              whileFocus={{ stroke: theme.colors.accentColor }}
+            />
           </Button>
         )}
       </ButtonWrapper>
