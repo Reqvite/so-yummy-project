@@ -41,7 +41,7 @@ const RecipeItem = ({ _id, description, preview, time, title }) => {
       <Info>
         <Box>
           <Title>{newTitle}</Title>
-          {!isMobile && (
+          {(!isMobile || pathname.includes("my")) && (
             <DeleteButton
               id={_id}
               bgColor={

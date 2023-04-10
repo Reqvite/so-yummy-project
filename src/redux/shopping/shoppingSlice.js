@@ -45,10 +45,28 @@ const shoppingSlice = createSlice({
       })
       .addCase(deleteIngredient.fulfilled, (state, action) => {
         state.shoppingListUpateIsLoading = false;
-        const idx = state.list.findIndex(
-          (ingredient) => ingredient._id === action.payload.ingredientId
+
+        const recipeIndex = state.list.findIndex(
+          (recipe) => recipe.recipeId === action.payload.data.recipeId
         );
-        state.list.splice(idx, 1);
+
+        if (recipeIndex === -1) {
+          return;
+        }
+
+        const ingredientIndex = state.list[recipeIndex].ingredients.findIndex(
+          (ingredient) => ingredient.id === action.payload.data.ingredientId
+        );
+
+        if (ingredientIndex === -1) {
+          return;
+        }
+
+        state.list[recipeIndex].ingredients.splice(ingredientIndex, 1);
+
+        if (state.list[recipeIndex].ingredients.length === 0) {
+          state.list.splice(recipeIndex, 1);
+        }
       })
       .addCase(deleteIngredient.rejected, (state, action) => {
         state.shoppingListUpateIsLoading = false;
