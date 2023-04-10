@@ -24,7 +24,11 @@ const categoriesSlice = createSlice({
     items: [],
     recipeCategories: [],
     searchByTitle: [],
+    searchByTitleTotalRes: 0,
+    currentPageTitle: 1,
     searchByIngredient: [],
+    searchByIngredientTotalRes: 0,
+    currentPageIngredient: 1,
     isLoading: false,
     recipeCategoriesIsLoading: false,
     error: null,
@@ -54,20 +58,29 @@ const categoriesSlice = createSlice({
       .addCase(getSearchResultByTitle.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.searchByTitle = action.payload;
+        state.searchByTitle = action.payload.results;
+        state.searchByTitleTotalRes = action.payload.totalResults;
+        state.currentPageTitle = action.payload.currentPage;
       })
       .addCase(getSearchResultByIngredient.pending, handlePending)
       .addCase(getSearchResultByIngredient.rejected, handleRejected)
       .addCase(getSearchResultByIngredient.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.searchByIngredient = action.payload;
+        state.searchByIngredient = action.payload.recipes;
+        state.searchByIngredientTotalRes = action.payload.totalResults;
+        state.currentPageIngredient = action.payload.currentPage;
       })
       .addDefaultCase((state, action) => {
         if (action.type === "auth/logout/fulfilled") {
           state.items = [];
           state.recipeCategories = [];
           state.searchByTitle = [];
+          state.searchByTitleTotalRes = 0;
+          state.currentPageTitle = 1;
+          state.searchByIngredient = [];
+          state.searchByIngredientTotalRes = 0;
+          state.currentPageIngredient = 1;
         }
       }),
 });

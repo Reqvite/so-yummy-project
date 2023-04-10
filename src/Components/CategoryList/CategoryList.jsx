@@ -23,7 +23,7 @@ const SearchRecipesList = ({ array, isLoading, error }) => {
               <NavLink to={`/recipe/${_id}`}>
                 <RecipeImg
                   src={thumb ? thumb : defaultImg}
-                  alt={area}
+                  alt={title}
                   loading="lazy"
                 />
                 <RecipeTitleWrapper>

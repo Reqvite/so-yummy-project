@@ -28,23 +28,33 @@ import defaultImg from "../../assets/images/empty-img.png";
 const SearchedRecipesList = () => {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
-  const { searchByTitle, searchByIngredient, isLoading, error } =
-    useSelector(selectCategories);
+  const {
+    searchByTitle,
+    searchByIngredient,
+    currentPageTitle,
+    currentPageIngredient,
+    isLoading,
+    error,
+  } = useSelector(selectCategories);
 
   const valueQuery = searchParams.get("query");
   const valueIngredient = searchParams.get("ingredient");
 
   const [result, setResult] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     if (result === []) {
+      setPage(1);
       return;
     } else {
       if (valueQuery !== null && valueQuery !== undefined) {
         setResult(searchByTitle);
+        setPage(currentPageTitle);
       }
       if (valueIngredient !== null && valueIngredient !== undefined) {
         setResult(searchByIngredient);
+        setPage(currentPageIngredient);
       }
     }
   }, [
@@ -54,6 +64,8 @@ const SearchedRecipesList = () => {
     searchByTitle,
     valueIngredient,
     valueQuery,
+    currentPageIngredient,
+    currentPageTitle,
   ]);
 
   useEffect(() => {
@@ -64,8 +76,6 @@ const SearchedRecipesList = () => {
     ) {
       const type = "ingredient";
       const value = searchParams.get("ingredient");
-      const page = 1;
-
       dispatch(getSearchResultByIngredient({ type, value, page }));
     }
     if (
@@ -75,11 +85,17 @@ const SearchedRecipesList = () => {
     ) {
       const type = "query";
       const value = searchParams.get("query");
-      const page = 1;
 
       dispatch(getSearchResultByTitle({ type, value, page }));
     }
-  }, [dispatch, setSearchParams, valueIngredient, valueQuery, searchParams]);
+  }, [
+    dispatch,
+    setSearchParams,
+    valueIngredient,
+    valueQuery,
+    searchParams,
+    page,
+  ]);
 
   return (
     <>
@@ -95,7 +111,7 @@ const SearchedRecipesList = () => {
                   <Link to={`/recipe/${_id}`}>
                     <RecipeImg
                       src={thumb ? thumb : defaultImg}
-                      alt={area}
+                      alt={title}
                       loading="lazy"
                     />
                     <RecipeTitleWrapper>
