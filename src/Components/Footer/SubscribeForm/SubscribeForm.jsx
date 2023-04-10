@@ -1,8 +1,6 @@
-import React from "react";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "redux/auth/selectors";
-
 import {
   SubscribeWrap,
   Title,
@@ -29,8 +27,6 @@ const SubscribeForm = () => {
       dispatch(subscribe({ email: values.email }));
     },
   });
-
-  //   console.log(formik.errors.email);
 
   return (
     <SubscribeWrap>

@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Tab, useMediaQuery } from "@mui/material";
-
+import { useSelector } from "react-redux";
 import { selectCategories } from "redux/categories/selectors";
 import { StyledCategory, StyledCategoryList } from "./CategoriesList.styled";
 import Alert from "Components/ui/Alert";

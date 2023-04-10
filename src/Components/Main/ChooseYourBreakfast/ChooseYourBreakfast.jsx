@@ -14,8 +14,8 @@ import {
   Flex,
   FlexContainer,
   Arrow,
-} from "./ChooseYourBreakfast.styled.jsx";
-import Search from "Components/Search/Search";
+} from "./ChooseYourBreakfast.styled.js";
+import Search from "Components/Main/Search/Search.jsx";
 
 const ChooseYourBreakfast = () => {
   const matches = useMediaQuery("(min-width:768px)");
