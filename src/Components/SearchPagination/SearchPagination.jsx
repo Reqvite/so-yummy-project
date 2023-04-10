@@ -65,12 +65,14 @@ const SearchPagination = () => {
       const value = searchParams.get("query");
       const page = Number(num);
       dispatch(getSearchResultByTitle({ type, value, page }));
+      setSearchParams({ query: searchParams.get("query") });
     }
     if (searchParams.get("ingredient")) {
       const type = "ingredient";
       const value = searchParams.get("ingredient");
       const page = Number(num);
       dispatch(getSearchResultByIngredient({ type, value, page }));
+      setSearchParams({ ingredient: searchParams.get("ingredient") });
     }
   };
 

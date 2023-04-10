@@ -16,7 +16,6 @@ const SearchPage = () => {
           <SelectSearch />
         </SearchBar>
         <SearchedRecipesList />
-        <SearchPagination />
       </PageWrapper>
     </>
   );

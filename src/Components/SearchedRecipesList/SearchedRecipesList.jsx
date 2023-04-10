@@ -24,6 +24,7 @@ import {
   EmptyText,
 } from "./SearchedRecipesList.styled";
 import defaultImg from "../../assets/images/empty-img.png";
+import SearchPagination from "Components/SearchPagination/SearchPagination";
 
 const SearchedRecipesList = () => {
   const dispatch = useDispatch();
@@ -105,22 +106,25 @@ const SearchedRecipesList = () => {
       ) : (
         <>
           {result.length > 0 ? (
-            <RecipesList>
-              {result.map(({ _id, title, area, thumb }) => (
-                <RecipeItem key={_id}>
-                  <Link to={`/recipe/${_id}`}>
-                    <RecipeImg
-                      src={thumb ? thumb : defaultImg}
-                      alt={title}
-                      loading="lazy"
-                    />
-                    <RecipeTitleWrapper>
-                      <RecipeTitle>{title}</RecipeTitle>
-                    </RecipeTitleWrapper>
-                  </Link>
-                </RecipeItem>
-              ))}
-            </RecipesList>
+            <>
+              <RecipesList>
+                {result.map(({ _id, title, area, thumb }) => (
+                  <RecipeItem key={_id}>
+                    <Link to={`/recipe/${_id}`}>
+                      <RecipeImg
+                        src={thumb ? thumb : defaultImg}
+                        alt={title}
+                        loading="lazy"
+                      />
+                      <RecipeTitleWrapper>
+                        <RecipeTitle>{title}</RecipeTitle>
+                      </RecipeTitleWrapper>
+                    </Link>
+                  </RecipeItem>
+                ))}
+              </RecipesList>
+              <SearchPagination />
+            </>
           ) : (
             <DefaultImgWrapper>
               <DefaultImg src={defaultImg} alt="ingredients" />

@@ -68,7 +68,7 @@ const categoriesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.searchByIngredient = action.payload.recipes;
-        state.searchByIngredientTotalRes = action.payload.totalResults;
+        state.searchByIngredientTotalRes = action.payload.totalPages;
         state.currentPageIngredient = action.payload.currentPage;
       })
       .addDefaultCase((state, action) => {
