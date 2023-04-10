@@ -49,6 +49,10 @@ export const lightTheme = {
     dropDownInput: "#ECECEC",
     dropDownBg: "#FFFFFF",
     dropDownText: "rgba(0,0,0,0.5)",
+
+    addRecipeDropDownColor: "#FFFFFF",
+    addRecipeMinusIcon: "#333333",
+    ingredientInputBg: "#d9d9d9",
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input
@@ -80,6 +84,7 @@ export const lightTheme = {
   borders: {
     secondaryButtonBorder: "2px solid #FAFAFA",
     shoppingListBorder: "1px solid #e0e0e0",
+    addRecipeBorder: "1px solid rgba(51, 51, 51, 0.3)",
   },
   shadows: {
     paginationShadow: "0px 4px 4px rgba(135, 135, 135, 0.2)",
@@ -143,6 +148,10 @@ export const darkTheme = {
     dropDownInput: "#2A2C36",
     dropDownBg: "#8BAA36",
     dropDownText: "#8BAA36",
+
+    addRecipeDropDownColor: "#8BAA36",
+    addRecipeMinusIcon: "#ffffff",
+    ingredientInputBg: "transparent",
   },
   fontSizes: {
     xxxs: "10px",
@@ -174,6 +183,7 @@ export const darkTheme = {
   borders: {
     secondaryButtonBorder: "2px solid #FAFAFA",
     shoppingListBorder: "1px solid rgba(250, 250, 250, 0.3)",
+    addRecipeBorder: "1px solid #FAFAFA",
   },
   shadows: {
     paginationShadow: "0px 4px 4px rgba(31, 30, 30, 0.2)",

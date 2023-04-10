@@ -36,7 +36,7 @@ export const List = styled.ul`
   line-height: 1.5;
   letter-spacing: -0.02em;
   color: ${(p) => p.theme.colors.notFoundTitle};
-  background-color: ${(p) => p.theme.colors.elementsBackground};
+  background-color: ${(p) => p.theme.colors.addRecipeDropDownColor};
 
   @media screen and (min-width: 767px) {
     width: 132px;
@@ -56,9 +56,9 @@ export const List = styled.ul`
     background-color: #e7e5e5;
   }
 
-  /* не принимается стиль цвета фона скрола... нужно решить... */
   ::-webkit-scrollbar-track {
-    background-color: ${(p) => p.theme.colors.elementsBackground};
+    box-shadow: none;
+    background-color: transparent;
     border-radius: 12px;
   }
 `;
@@ -68,7 +68,7 @@ export const Item = styled.li`
   font-size: 12px;
   line-height: 18px;
   letter-spacing: -0.02em;
-  color: ${(p) => p.theme.colors.opacityText};
+  color: ${(p) => p.theme.colors.mainText};
   opacity: 0.5;
 
   :not(:last-child) {

@@ -27,6 +27,7 @@ export const InputsContainer = styled.div`
   @media screen and (min-width: 768px) {
     width: 393px;
   }
+  color: ${(p) => p.theme.colors.mainText};
 `;
 
 export const TitleInput = styled.input`
@@ -41,12 +42,13 @@ export const TitleInput = styled.input`
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: -0.02em;
-  color: ${(p) => p.theme.colors.opacityText};
+  color: ${(p) => p.theme.colors.mainText};
 
   ::placeholder {
     font-size: 14px;
     line-height: 1.5;
     letter-spacing: -0.02em;
+    color: ${(p) => p.theme.colors.maintext};
   }
 `;
 
@@ -82,12 +84,13 @@ export const DescriptionInput = styled.input`
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: -0.02em;
-  color: ${(p) => p.theme.colors.opacityText};
+  color: ${(p) => p.theme.colors.mainText};
 
   ::placeholder {
     font-size: 14px;
     line-height: 1.5;
     letter-spacing: -0.02em;
+    color: ${(p) => p.theme.colors.maintext};
   }
 `;
 
@@ -129,13 +132,14 @@ export const CategoryInput = styled.input`
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: -0.02em;
-  color: ${(p) => p.theme.colors.opacityText};
+  color: ${(p) => p.theme.colors.mainText};
   cursor: pointer;
 
   ::placeholder {
     font-size: 14px;
     line-height: 1.5;
     letter-spacing: -0.02em;
+    color: ${(p) => p.theme.colors.maintext};
   }
 `;
 
