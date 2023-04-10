@@ -1,7 +1,6 @@
-import { Formik } from "formik";
-import { useAuth } from "hooks";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { Formik } from "formik";
 import { register, login } from "redux/auth/operations";
 import { useTheme } from "styled-components";
 import {
@@ -25,6 +24,7 @@ import {
 } from "./AuthForm.styled";
 import AuthSvg from "./AuthSvg";
 import ButtonLoader from "Components/ui/ButtonLoader/ButtonLoader";
+import { useAuth } from "hooks";
 
 const AuthForm = ({ page, redirect, title, schema }) => {
   const dispatch = useDispatch();

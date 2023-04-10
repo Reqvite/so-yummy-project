@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipes } from "redux/mainRecipes/operations";
 import { selectItems, selectIsLoadind } from "redux/mainRecipes/selectors";
-import ChooseYourBreakfast from "../Components/ChooseYourBreakfast/ChooseYourBreakfast";
+import ChooseYourBreakfast from "../Components/Main/ChooseYourBreakfast/ChooseYourBreakfast";
 import { useMediaQuery } from "@mui/material";
-import Search from "Components/Search/Search";
-import PreviewCategories from "Components/PreviewCategories/PreviewCategories";
+import Search from "Components/Main/Search/Search";
+import PreviewCategories from "Components/Main/PreviewCategories/PreviewCategories";
 import PreviewCategoriesSkeleton from "../Components/ui/Skeletons/PreviewCategoriesSkeleton";
 
 const MainPage = () => {

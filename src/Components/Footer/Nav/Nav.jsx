@@ -1,4 +1,3 @@
-import React from "react";
 import { NavWrap, Link } from "./Nav.styled";
 
 const Navigation = () => {

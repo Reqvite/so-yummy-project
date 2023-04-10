@@ -1,4 +1,3 @@
-import * as React from "react";
 import { ReactComponent as ProductSvg } from "../../../assets/svg/skeletonProductImage/skeletonImg.svg";
 
 import styled from "styled-components";
@@ -6,7 +5,7 @@ import {
   CategoriesWrapper,
   RecipeItem,
   RecipesList,
-} from "Components/PreviewCategories/PreviewCategories.styled";
+} from "Components/Main/PreviewCategories/PreviewCategories.styled";
 import { motion } from "framer-motion";
 
 const PreviewCategoriesSkeleton = () => {
@@ -31,7 +30,6 @@ const PreviewCategoriesSkeleton = () => {
 };
 
 const SkeletonSvg = styled(motion(ProductSvg))`
-  /* width: 100%; */
   height: 323px;
   border-radius: 8px;
 
