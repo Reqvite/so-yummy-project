@@ -120,6 +120,10 @@ export const Link = styled(NavLink)`
   border-radius: 5px;
   font-size: ${(p) => p.theme.fontSizes.xs};
   line-height: 1.28;
+
+  :hover {
+    color: #000000;
+  }
 `;
 
 export const Nav = styled(NavLink)`

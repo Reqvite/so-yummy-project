@@ -13,6 +13,7 @@ export const ImgBox = styled.div`
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center center;
+  background-color: #ffffff;
 
   width: 100%;
   height: 455px;
