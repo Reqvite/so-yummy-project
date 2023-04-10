@@ -35,6 +35,7 @@ export const lightTheme = {
     buttonBg: "#22252A",
     mainPageButton: "#22252A",
     paginationActive: "#EBF3D4",
+    otherCategoriesButton: "#FAFAFA",
 
     userNameColor: "#22252A",
     mainIconColor: "#22252A",
@@ -44,6 +45,7 @@ export const lightTheme = {
     containerBlockIcon: "#22252A",
     hoverButtondarkTheme: "#81B733",
     hoverPaginator: "#8BAA36",
+    otherCategoriesHover: "#8BAA36",
     dropDownInput: "#ECECEC",
     dropDownBg: "#FFFFFF",
     dropDownText: "rgba(0,0,0,0.5)",
@@ -127,6 +129,7 @@ export const darkTheme = {
     buttonBg: "#22252A",
     mainPageButton: "#8BAA36",
     paginationActive: "#8BAA36",
+    otherCategoriesButton: "#FAFAFA",
 
     userNameColor: "#8BAA36",
     mainIconColor: "#FAFAFA",
@@ -136,19 +139,20 @@ export const darkTheme = {
     containerBlockIcon: "#FAFAFA",
     hoverButtondarkTheme: "#81B733",
     hoverPaginator: "rgba(250, 250, 250, 0.6)",
+    otherCategoriesHover: "#8BAA36",
     dropDownInput: "#2A2C36",
     dropDownBg: "#8BAA36",
     dropDownText: "#8BAA36",
   },
   fontSizes: {
-    xxxs: "10px", //footer-mobile-input
-    xxs: "12px", //mobile-selectors
-    xs: "14px", //footer
-    s: "16px", //footer
-    sm: "18px", //footer
-    m: "24px", // mobile-header
-    l: "28px", //footer, h1-tablet
-    xl: "44px", //h1-desktop,
+    xxxs: "10px",
+    xxs: "12px",
+    xs: "14px",
+    s: "16px",
+    sm: "18px",
+    m: "24px",
+    l: "28px",
+    xl: "44px",
   },
   space: {},
   sizes: {
