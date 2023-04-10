@@ -35,7 +35,7 @@ export const ControlButtonsWrap = styled.div`
   align-items: center;
   justify-content: center;
   height: 28px;
-  border: 1px solid rgba(51, 51, 51, 0.3);
+  border: ${(p) => p.theme.borders.addRecipeBorder};
   border-radius: 18px;
   overflow: hidden;
 
@@ -52,10 +52,10 @@ export const DecreaseButton = styled.button`
   padding: 7px 10px 7px 14px;
 `;
 export const MinusIcon = styled(Minus)`
-  stroke: rgba(51, 51, 51, 0.3);
-  stroke-opacity: 1;
+  stroke: ${(p) => p.theme.colors.addRecipeMinusIcon};
   width: 14px;
   height: 14px;
+  cursor: pointer;
 `;
 
 export const IncreaseButton = styled.button`
@@ -71,6 +71,7 @@ export const PlusIcon = styled(Plus)`
   stroke-opacity: 1;
   width: 14px;
   height: 14px;
+  cursor: pointer;
 `;
 
 export const AmountIngredientrs = styled.div`

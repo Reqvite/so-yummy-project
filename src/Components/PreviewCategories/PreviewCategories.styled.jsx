@@ -141,7 +141,7 @@ export const Nav = styled(NavLink)`
   }
 
   :hover {
-    color: ${(p) => p.theme.colors.mainBackground};
-    background-color: ${(p) => p.theme.colors.footerHoverColor};
+    color: ${(p) => p.theme.colors.otherCategoriesButton};
+    background-color: ${(p) => p.theme.colors.otherCategoriesHover};
   }
 `;

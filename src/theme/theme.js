@@ -35,6 +35,7 @@ export const lightTheme = {
     buttonBg: "#22252A",
     mainPageButton: "#22252A",
     paginationActive: "#EBF3D4",
+    otherCategoriesButton: "#FAFAFA",
 
     userNameColor: "#22252A",
     mainIconColor: "#22252A",
@@ -44,9 +45,14 @@ export const lightTheme = {
     containerBlockIcon: "#22252A",
     hoverButtondarkTheme: "#81B733",
     hoverPaginator: "#8BAA36",
+    otherCategoriesHover: "#8BAA36",
     dropDownInput: "#ECECEC",
     dropDownBg: "#FFFFFF",
     dropDownText: "rgba(0,0,0,0.5)",
+
+    addRecipeDropDownColor: "#FFFFFF",
+    addRecipeMinusIcon: "#333333",
+    ingredientInputBg: "#d9d9d9",
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input
@@ -78,6 +84,7 @@ export const lightTheme = {
   borders: {
     secondaryButtonBorder: "2px solid #FAFAFA",
     shoppingListBorder: "1px solid #e0e0e0",
+    addRecipeBorder: "1px solid rgba(51, 51, 51, 0.3)",
   },
   shadows: {
     paginationShadow: "0px 4px 4px rgba(135, 135, 135, 0.2)",
@@ -127,6 +134,7 @@ export const darkTheme = {
     buttonBg: "#22252A",
     mainPageButton: "#8BAA36",
     paginationActive: "#8BAA36",
+    otherCategoriesButton: "#FAFAFA",
 
     userNameColor: "#8BAA36",
     mainIconColor: "#FAFAFA",
@@ -136,19 +144,24 @@ export const darkTheme = {
     containerBlockIcon: "#FAFAFA",
     hoverButtondarkTheme: "#81B733",
     hoverPaginator: "rgba(250, 250, 250, 0.6)",
+    otherCategoriesHover: "#8BAA36",
     dropDownInput: "#2A2C36",
     dropDownBg: "#8BAA36",
     dropDownText: "#8BAA36",
+
+    addRecipeDropDownColor: "#8BAA36",
+    addRecipeMinusIcon: "#ffffff",
+    ingredientInputBg: "transparent",
   },
   fontSizes: {
-    xxxs: "10px", //footer-mobile-input
-    xxs: "12px", //mobile-selectors
-    xs: "14px", //footer
-    s: "16px", //footer
-    sm: "18px", //footer
-    m: "24px", // mobile-header
-    l: "28px", //footer, h1-tablet
-    xl: "44px", //h1-desktop,
+    xxxs: "10px",
+    xxs: "12px",
+    xs: "14px",
+    s: "16px",
+    sm: "18px",
+    m: "24px",
+    l: "28px",
+    xl: "44px",
   },
   space: {},
   sizes: {
@@ -170,6 +183,7 @@ export const darkTheme = {
   borders: {
     secondaryButtonBorder: "2px solid #FAFAFA",
     shoppingListBorder: "1px solid rgba(250, 250, 250, 0.3)",
+    addRecipeBorder: "1px solid #FAFAFA",
   },
   shadows: {
     paginationShadow: "0px 4px 4px rgba(31, 30, 30, 0.2)",
