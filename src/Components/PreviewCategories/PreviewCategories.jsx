@@ -1,7 +1,18 @@
 import defaultImg from "../../assets/images/defaultDish.png";
 import { NavLink } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
-// import { RecipesList } from "./PreviewCategories.styled";
+import {
+  RecipesList,
+  RecipeItem,
+  RecipeImg,
+  RecipeTitleWrapper,
+  RecipeTitle,
+  Title,
+  Link,
+  WrapperLink,
+  Nav,
+  CategoriesWrapper,
+} from "./PreviewCategories.styled";
 
 const PreviewCategories = ({ items }) => {
   const matchesMobile = useMediaQuery("(max-width:767.98px)");
@@ -10,7 +21,7 @@ const PreviewCategories = ({ items }) => {
   );
 
   return (
-    <div>
+    <section>
       {(() => {
         let filterItems = [];
         for (let key in items) {
@@ -22,22 +33,30 @@ const PreviewCategories = ({ items }) => {
           }
 
           filterItems.push(
-            <ul key={key}>
-              <h2>{key}</h2>
-              {itemsToRender.map(({ _id, title, preview }) => (
-                <li key={_id}>
-                  <img src={preview ? preview : defaultImg} alt="" />
-                  <p> {title}</p>
-                </li>
-              ))}
-              <NavLink to={`/categories/${key}`.toLowerCase()}>See all</NavLink>
-            </ul>
+            <CategoriesWrapper key={key}>
+              <Title>{key}</Title>
+              <RecipesList>
+                {itemsToRender.map(({ _id, title, preview }) => (
+                  <RecipeItem key={_id}>
+                    <NavLink to={`/recipe/${_id}`}>
+                      <RecipeImg src={preview ? preview : defaultImg} alt="" />
+                      <RecipeTitleWrapper>
+                        <RecipeTitle>{title}</RecipeTitle>
+                      </RecipeTitleWrapper>
+                    </NavLink>
+                  </RecipeItem>
+                ))}
+              </RecipesList>
+              <WrapperLink>
+                <Link to={`/categories/${key}`.toLowerCase()}>See all</Link>
+              </WrapperLink>
+            </CategoriesWrapper>
           );
         }
         return filterItems;
       })()}
-      <NavLink to={"/categories/beef"}>Other categories</NavLink>
-    </div>
+      <Nav to={"/categories/beef"}>Other categories</Nav>
+    </section>
   );
 };
 

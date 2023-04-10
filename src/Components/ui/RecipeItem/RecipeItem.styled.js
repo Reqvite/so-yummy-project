@@ -48,6 +48,7 @@ export const Img = styled.img`
   height: 124px;
   width: 124px;
   border-radius: 8px;
+  object-fit: contain;
 
   ${(p) => p.theme.sizes.tablet} {
     height: 232px;
@@ -150,8 +151,7 @@ export const BottomBox = styled.div`
 
 export const MainButton = styled(motion(Link))`
   color: #ffffff;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 10px;
   display: flex;
   align-items: center;
   justify-content: center;

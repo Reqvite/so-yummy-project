@@ -3,7 +3,9 @@ import { Button, TrashSvg } from "./DeleteButton.styled";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteFavoriteRecipe,
+  deleteUserRecipe,
   getUserFavouritesPaginationRecipes,
+  getUserRecipesPagination,
 } from "redux/recipes/operations";
 import {
   selectPagination,
@@ -18,8 +20,15 @@ const DeleteButton = ({ bgColor, id }) => {
 
   const handleDelete = async () => {
     const page = list.length === 1 ? currentPage - 1 : currentPage;
-    await dispatch(deleteFavoriteRecipe(id));
-    await dispatch(getUserFavouritesPaginationRecipes(page));
+    if (pathname.includes("favorite")) {
+      await dispatch(deleteFavoriteRecipe(id));
+      await dispatch(getUserFavouritesPaginationRecipes(page));
+    }
+
+    if (pathname.includes("my")) {
+      await dispatch(deleteUserRecipe(id));
+      await dispatch(getUserRecipesPagination(page));
+    }
   };
   return (
     <Button $bgColor={bgColor} onClick={() => handleDelete()}>

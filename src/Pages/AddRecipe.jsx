@@ -1,10 +1,29 @@
-import styled from "styled-components";
+import MainPageTitle from "../Components/ui/MainPageTitle/MainPageTitle";
+import AddRecipeForm from "../Components/AddRecipeForm/AddRecipeForm";
+import FollowUs from "Components/Footer/FollowUs/FollowUs";
+import Container from "../Components/ui/Container/ContainerStyled";
 
-const addRecipe = () => {
-  return <Title>Add recipe</Title>;
+import { useMediaQuery } from "@mui/material";
+import PopularList from "Components/ui/PopularList/PopularList";
+
+const AddRecipe = () => {
+  const isMobile = useMediaQuery("(max-width: 1440px)");
+
+  return (
+    <Container>
+      <MainPageTitle title={"Add recipe"} />
+
+      <AddRecipeForm />
+
+      {!isMobile && (
+        <>
+          <p>Follow Us</p>
+          <FollowUs />
+          <PopularList />
+        </>
+      )}
+    </Container>
+  );
 };
-export default addRecipe;
 
-const Title = styled.h2`
-  padding-top: 114px;
-`;
+export default AddRecipe;

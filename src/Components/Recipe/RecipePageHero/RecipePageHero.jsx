@@ -17,7 +17,7 @@ import {
   selectIsLoading,
   selectUserFavouritesRecipes,
 } from "redux/recipes/selectors";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ButtonLoader from "Components/ui/ButtonLoader/ButtonLoader";
 
 const RecipePageHero = ({ title, description, time, id }) => {
@@ -29,10 +29,13 @@ const RecipePageHero = ({ title, description, time, id }) => {
 
   const isLoading = useSelector(selectIsLoading);
 
+  const topRef = useRef();
+
   useEffect(() => {
     if (!first) {
       setIsFavorite(userFavouritesRecipes.some((recipe) => recipe._id === id));
       setFirst(true);
+      topRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [userFavouritesRecipes, id, first]);
 
@@ -49,7 +52,7 @@ const RecipePageHero = ({ title, description, time, id }) => {
   return (
     <>
       <ImgBox />
-      <MainPageTitle $isBig={title?.split(" ").length > 6}>
+      <MainPageTitle $isBig={title?.split(" ").length > 6} ref={topRef}>
         {title}
       </MainPageTitle>
       <Text $isBig={title?.split(" ").length > 6}>{description}</Text>
