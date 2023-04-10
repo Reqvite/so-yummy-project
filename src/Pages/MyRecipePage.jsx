@@ -1,44 +1,41 @@
 import ListWithPagination from "Components/ui/ListWithPagination/ListWithPagination";
 import MainPageTitle from "Components/ui/MainPageTitle/MainPageTitle";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { selectIsLoading } from "redux/auth/selectors";
+import { getUserRecipesPagination } from "redux/recipes/operations";
+import {
+  selectUserRecipes,
+  selectUserRecipesIsLoading,
+  selectUserRecipesPagination,
+} from "redux/recipes/selectors";
 import styled from "styled-components";
 
-const list = [
-  {
-    _id: "640cd5ac2dx9fecf12e8897fc",
-
-    title: "Spaghetti Bolognese",
-    description:
-      "An Italian pasta dish made with spaghetti and a meat-based sauce, typically containing beef, tomatoes, onions, garlic, and herbs.",
-    preview:
-      "https://res.cloudinary.com/ddbvbv5sp/image/upload/v1678560401/huqdxgwkvbhsfjqtexsm.jpg",
-    time: "45",
-  },
-  {
-    _id: "640cd5ac2dd9fecf123e8897fc",
-
-    title: "Spaghetti Bolognese",
-    description:
-      "An Italian pasta dish made with spaghetti and a meat-based sauce, typically containing beef, tomatoes, onions, garlic, and herbs.",
-    preview:
-      "https://res.cloudinary.com/ddbvbv5sp/image/upload/v1678560401/huqdxgwkvbhsfjqtexsm.jpg",
-    time: "45",
-  },
-  {
-    _id: "640cd5ac2ds9fecf12e8c897fc",
-
-    title: "Spaghetti Bolognese",
-    description:
-      "An Italian pasta dish made with spaghetti and a meat-based sauce, typically containing beef, tomatoes, onions, garlic, and herbs.",
-    preview:
-      "https://res.cloudinary.com/ddbvbv5sp/image/upload/v1678560401/huqdxgwkvbhsfjqtexsm.jpg",
-    time: "45",
-  },
-];
 const MyRecipePage = () => {
+  const dispatch = useDispatch();
+  const userList = useSelector(selectUserRecipes);
+  const isLoading = useSelector(selectUserRecipesIsLoading);
+  const isLoadingOperation = useSelector(selectIsLoading);
+  const { currentPage, totalPages } = useSelector(selectUserRecipesPagination);
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    if (!isReady) {
+      dispatch(getUserRecipesPagination(currentPage));
+      setIsReady(true);
+    }
+  }, [dispatch, currentPage, isReady]);
+
   return (
     <Box>
       <MainPageTitle title="My recipes" />
-      <ListWithPagination list={list} />
+      <ListWithPagination
+        list={userList}
+        isLoading={isLoading}
+        isLoadingOperation={isLoadingOperation}
+        totalPages={totalPages}
+        currentPage={currentPage}
+      />
     </Box>
   );
 };

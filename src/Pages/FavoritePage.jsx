@@ -34,6 +34,7 @@ const FavoritePage = () => {
         isLoading={isLoading}
         isLoadingOperation={isLoadingOperation}
         totalPages={totalPages}
+        currentPage={currentPage}
       />
     </Box>
   );

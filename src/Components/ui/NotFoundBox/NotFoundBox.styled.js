@@ -21,7 +21,7 @@ export const ErrorIcon = styled(ErrorSvg)`
 `;
 
 export const Title = styled.p`
-  color: ${(p) => p.theme.colors.notFoundTitle}
+  color: ${(p) => p.theme.colors.notFoundTitle};
   margin-top: 14px;
   font-weight: ${(p) => p.theme.fontWeights.semiBold};
   font-size: ${(p) => p.theme.fontSizes.sm};
@@ -36,19 +36,17 @@ export const Title = styled.p`
 `;
 
 export const Text = styled.span`
- color: ${(p) => p.theme.colors.notFoundText}
+  color: ${(p) => p.theme.colors.notFoundText};
   margin-top: 8px;
   text-align: center;
 
   font-size: ${(p) => p.theme.fontSizes.xs};
-  line-height: 1.29
+  line-height: 1.29;
 
-    letter-spacing: ${(p) => p.theme.lineHeights.base};
+  letter-spacing: ${(p) => p.theme.lineHeights.base};
   ${(p) => p.theme.sizes.tablet} {
     margin-top: 14px;
     font-size: ${(p) => p.theme.fontSizes.sm};
   }
- 
-
   opacity: 0.5;
 `;

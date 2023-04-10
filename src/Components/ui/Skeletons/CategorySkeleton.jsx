@@ -5,7 +5,7 @@ import styled from "styled-components";
 import {
   RecipeItem,
   RecipesList,
-} from "Components/SearchRecipesList/SearchRecipesList.styled";
+} from "Components/CategoryList/CategoryList.styled";
 import { motion } from "framer-motion";
 
 const CategorySkeleton = () => {
