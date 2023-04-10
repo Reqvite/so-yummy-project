@@ -6,20 +6,19 @@ import { ReactComponent as Close } from "../../../../assets/svg/CloseMenuIcon/cl
 export const Wrap = styled.div``;
 
 export const IngredientSelectionItem = styled.div`
-position: relative;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-
   :not(:last-child) {
     margin-bottom: 18px;
   }
-@media screen and (min-width: 768px) {    
-  :not(:last-child) 
-    margin-bottom: 24px;
+  @media screen and (min-width: 768px) {
+    :not(:last-child) {
+      margin-bottom: 24px;
+    }
   }
-
 `;
 
 export const IngredientWrap = styled.div`
@@ -57,7 +56,7 @@ export const ArrowWrap = styled.div`
 
 export const SearchIngredientInput = styled.input`
   display: block;
-  background-color: #d9d9d9;
+  background-color: ${(p) => p.theme.colors.ingredientInputBg};
   border: none;
   outline: transparent;
   height: 53px;
@@ -87,6 +86,7 @@ export const SearchIngredientInput = styled.input`
       font-size: 16px;
     }
   }
+  border: 1px solid rgba(250, 250, 250, 0.2);
 `;
 
 export const AllIngredientsSelectionList = styled.ul`
@@ -106,8 +106,8 @@ export const AllIngredientsSelectionList = styled.ul`
   padding: 8px 18px;
   pointer-events: all;
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.5);
-  background: ${(p) => p.theme.colors.elementsBackground};
+  color: ${(p) => p.theme.colors.notFoundTitle};
+  background-color: ${(p) => p.theme.colors.addRecipeDropDownColor};
 
   @media screen and (min-width: 768px) {
     max-height: 172px;
@@ -117,20 +117,23 @@ export const AllIngredientsSelectionList = styled.ul`
   ::-webkit-scrollbar {
     width: 12px;
   }
-  ::-webkit-scrollbar-track {
-    background-color: ${(p) => p.theme.colors.elementsBackground};
-    border-radius: 12px;
-  }
+
   ::-webkit-scrollbar-thumb {
-    height: 93px;
-    border-radius: 12px;
-    border: 4px solid transparent;
     background-clip: content-box;
+    border: 4px solid transparent;
+    border-radius: 12px;
+    height: 93px;
     background-color: #e7e5e5;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: none;
+    background-color: transparent;
+    border-radius: 12px;
   }
 `;
 export const AllIngredientsSelectionItem = styled.li`
-  color: rgba(0, 0, 0, 0.5);
+  color: ${(p) => p.theme.colors.mainText};
 
   :not(:last-child) {
     margin-bottom: 6px;
@@ -146,12 +149,13 @@ export const AmountWrap = styled.div`
   height: 53px;
   border: 1px solid transparent;
   border-radius: 5px;
-  background-color: #d9d9d9;
+  background-color: ${(p) => p.theme.colors.ingredientInputBg};
+  border: 1px solid rgba(250, 250, 250, 0.2);
 `;
 
 export const AmountInput = styled.input`
   display: block;
-  background-color: #d9d9d9;
+  background-color: ${(p) => p.theme.colors.ingredientInputBg};
   border: none;
   outline: transparent;
   height: 53px;
@@ -187,7 +191,7 @@ export const UnitsWrap = styled.div`
   height: 53px;
   width: 84px;
   cursor: pointer;
-  background-color: rgb(217, 217, 217);
+  background-color: ${(p) => p.theme.colors.ingredientInputBg};
 
   @media screen and (min-width: 768px) {
     height: 59px;
@@ -212,9 +216,11 @@ export const DeleteButton = styled.button`
   @media screen and (min-width: 1440px) {
     margin-left: 60px;
   }
+  cursor: pointer;
 `;
 
 export const CloseIcon = styled(Close)`
+  stroke: ${(p) => p.theme.colors.mainIconColor};
   width: 18px;
   height: 18px;
 `;
