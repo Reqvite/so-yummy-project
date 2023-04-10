@@ -1,6 +1,6 @@
 import { useMediaQuery } from "@mui/material";
 import {
-  // PositionWrapper,
+  Section,
   Title,
   Text,
   BgLeafLeft,
@@ -20,7 +20,7 @@ import Search from "Components/Search/Search";
 const ChooseYourBreakfast = () => {
   const matches = useMediaQuery("(min-width:768px)");
   return (
-    <section>
+    <Section>
       <BgLeafLeft />
       <FlexContainer>
         <Flex>
@@ -56,7 +56,7 @@ const ChooseYourBreakfast = () => {
       </FlexContainer>
       <Background />
       <BgLeafRightMobile />
-    </section>
+    </Section>
   );
 };
 
