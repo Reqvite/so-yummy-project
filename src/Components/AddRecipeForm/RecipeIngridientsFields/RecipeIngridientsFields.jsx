@@ -62,8 +62,8 @@ const RecipeIngridientsFields = ({
           <AddRecipeText>Add the ingredients</AddRecipeText>
         )}
 
-        {ingredients.length === 0 && formErrors?.ingredients && (
-          <ErrorText>{formErrors.ingredients}</ErrorText>
+        {ingredients.length === 0 && formErrors?.selectedIngredients && (
+          <ErrorText>{formErrors.selectedIngredients}</ErrorText>
         )}
       </ErrorWrap>
 
@@ -79,7 +79,9 @@ const RecipeIngridientsFields = ({
               onUpdate={onUpdate}
               onRemove={onRemove}
               errorMessage={
-                formErrors?.ingredients ? formErrors.ingredients[index] : ""
+                formErrors?.selectedIngredients
+                  ? formErrors.selectedIngredients[index]
+                  : ""
               }
             />
           ))}
