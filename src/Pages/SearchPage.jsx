@@ -1,13 +1,9 @@
-// import { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useSearchParams } from "react-router-dom";
-import SelectSearch from "Components/SelectSearch/SelectSearch";
-import SearchForm from "Components/ui/SearchForm/SearchForm";
-import { PageWrapper } from "Components/CategoriesList/CategoriesList.styled";
+import SelectSearch from "Components/Search/SelectSearch/SelectSearch";
+import SearchForm from "Components/Search/SearchForm/SearchForm";
+import SearchedRecipesList from "Components/Search/SearchedRecipesList/SearchedRecipesList";
+import { PageWrapper } from "Components/Categories/CategoriesList/CategoriesList.styled";
 import { Title } from "Components/ui/MainPageTitle/MainPageTitle.styled";
-import SearchedRecipesList from "Components/SearchedRecipesList/SearchedRecipesList";
-
-import { SearchBar } from "Components/ui/SearchForm/SearchForm.styled";
+import { SearchBar } from "Components/Search/SearchForm/SearchForm.styled";
 
 const SearchPage = () => {
   return (
@@ -18,13 +14,7 @@ const SearchPage = () => {
           <SearchForm />
           <SelectSearch />
         </SearchBar>
-        {/* {result.length > 0 && ( */}
-        <SearchedRecipesList
-        // result={result}
-        // isLoading={isLoading}
-        // error={error}
-        />
-        {/* )} */}
+        <SearchedRecipesList />
       </PageWrapper>
     </>
   );

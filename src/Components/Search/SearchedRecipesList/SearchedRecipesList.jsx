@@ -11,7 +11,7 @@ import {
   RecipeTitle,
   RecipeTitleWrapper,
   RecipesList,
-} from "Components/CategoryList/CategoryList.styled";
+} from "Components/Categories/CategoryList/CategoryList.styled";
 
 import {
   getSearchResultByIngredient,
@@ -23,13 +23,20 @@ import {
   DefaultImgWrapper,
   EmptyText,
 } from "./SearchedRecipesList.styled";
-import defaultImg from "../../assets/images/empty-img.png";
+import defaultImg from "../../../assets/images/empty-img.png";
+import SearchPagination from "Components/Search/SearchPagination/SearchPagination";
 
 const SearchedRecipesList = () => {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
-  const { searchByTitle, searchByIngredient, isLoading, error } =
-    useSelector(selectCategories);
+  const {
+    searchByTitle,
+    searchByIngredient,
+    currentPageTitle,
+    currentPageIngredient,
+    isLoading,
+    error,
+  } = useSelector(selectCategories);
 
   const valueQuery = searchParams.get("query");
   const valueIngredient = searchParams.get("ingredient");
@@ -48,12 +55,13 @@ const SearchedRecipesList = () => {
       }
     }
   }, [
-    searchParams,
     result,
     searchByIngredient,
     searchByTitle,
     valueIngredient,
     valueQuery,
+    currentPageIngredient,
+    currentPageTitle,
   ]);
 
   useEffect(() => {
@@ -65,7 +73,6 @@ const SearchedRecipesList = () => {
       const type = "ingredient";
       const value = searchParams.get("ingredient");
       const page = 1;
-
       dispatch(getSearchResultByIngredient({ type, value, page }));
     }
     if (
@@ -76,7 +83,6 @@ const SearchedRecipesList = () => {
       const type = "query";
       const value = searchParams.get("query");
       const page = 1;
-
       dispatch(getSearchResultByTitle({ type, value, page }));
     }
   }, [dispatch, setSearchParams, valueIngredient, valueQuery, searchParams]);
@@ -89,22 +95,28 @@ const SearchedRecipesList = () => {
       ) : (
         <>
           {result.length > 0 ? (
-            <RecipesList>
-              {result.map(({ _id, title, area, thumb }) => (
-                <RecipeItem key={_id}>
-                  <Link to={`/recipe/${_id}`}>
-                    <RecipeImg
-                      src={thumb ? thumb : defaultImg}
-                      alt={area}
-                      loading="lazy"
-                    />
-                    <RecipeTitleWrapper>
-                      <RecipeTitle>{title}</RecipeTitle>
-                    </RecipeTitleWrapper>
-                  </Link>
-                </RecipeItem>
-              ))}
-            </RecipesList>
+            <>
+              <RecipesList>
+                {result.map(({ _id, title, thumb }) => (
+                  <RecipeItem key={_id}>
+                    <Link to={`/recipe/${_id}`}>
+                      <RecipeImg
+                        src={thumb ? thumb : defaultImg}
+                        alt={title}
+                        loading="lazy"
+                      />
+                      <RecipeTitleWrapper>
+                        <RecipeTitle>{title}</RecipeTitle>
+                      </RecipeTitleWrapper>
+                    </Link>
+                  </RecipeItem>
+                ))}
+              </RecipesList>
+              <SearchPagination
+                query={valueQuery}
+                ingredient={valueIngredient}
+              />
+            </>
           ) : (
             <DefaultImgWrapper>
               <DefaultImg src={defaultImg} alt="ingredients" />

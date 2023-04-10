@@ -6,7 +6,7 @@ import {
   RecipeTitleWrapper,
   RecipesList,
 } from "./CategoryList.styled";
-import defaultImg from "../../assets/images/defaultDish.png";
+import defaultImg from "../../../assets/images/defaultDish.png";
 import Alert from "Components/ui/Alert";
 import CategorySkeleton from "Components/ui/Skeletons/CategorySkeleton";
 
@@ -18,12 +18,12 @@ const SearchRecipesList = ({ array, isLoading, error }) => {
         <CategorySkeleton />
       ) : (
         <RecipesList>
-          {array.map(({ _id, title, area, thumb }) => (
+          {array.map(({ _id, title, thumb }) => (
             <RecipeItem key={_id}>
               <NavLink to={`/recipe/${_id}`}>
                 <RecipeImg
                   src={thumb ? thumb : defaultImg}
-                  alt={area}
+                  alt={title}
                   loading="lazy"
                 />
                 <RecipeTitleWrapper>
