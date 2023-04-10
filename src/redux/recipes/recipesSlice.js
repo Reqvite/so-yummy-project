@@ -15,7 +15,6 @@ import {
 const initialState = {
   userFavouritesRecipes: [],
   popularRecipes: [],
-  recipes: [],
   recipe: [],
   recipeIsLoading: false,
   isLoading: false,

@@ -8,7 +8,11 @@ export const SignupSchema = Yup.object().shape({
     .max(12, "Username cannot be longer than 12 characters"),
   email: Yup.string()
     .email("Invalid email")
-    .required("Please enter your email"),
+    .required("Please enter your email")
+    .matches(
+      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+      "Invalid email format"
+    ),
   password: Yup.string()
     .trim()
     .required("Please enter your password")

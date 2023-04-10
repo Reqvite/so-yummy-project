@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
+export const FormWrapper = styled.div`
+  padding-bottom: 147px;
+`;
 export const Form = styled.form`
   position: relative;
   width: 100%;
-  margin: 24px auto 147px auto;
+  margin: 24px auto 0px auto;
   max-width: 295px;
   ${(p) => p.theme.sizes.tablet} {
     min-width: 362px;
@@ -52,6 +55,7 @@ export const SearchBtn = styled.button`
   font-weight: ${(p) => p.theme.fontWeights.regular};
   font-size: ${(p) => p.theme.fontSizes.xs};
   line-height: 1.5;
+  cursor: pointer;
 
   ${(p) => p.theme.sizes.tablet} {
     height: 59px;
