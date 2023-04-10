@@ -21,6 +21,7 @@ import {
   ListItem,
   ListItemHeader,
   Measure,
+  RecipeTitle,
   Title,
   Wrapper,
 } from "./IngredientsShoppingList.styled";
@@ -44,59 +45,63 @@ const IngredientsShoppingList = () => {
 
   return (
     <Box>
-      <List>
-        <ListItemHeader>
-          <ListHeaderText>Product</ListHeaderText>
-          <div>
-            <ListHeaderText>Number</ListHeaderText>
-            <ListHeaderText>Remove</ListHeaderText>
+      {isLoading ? (
+        <ShoppingListSkeleton />
+      ) : (
+        list.map(({ recipeId, recipeTitle, ingredients }) => (
+          <div key={recipeId}>
+            <RecipeTitle>{recipeTitle}</RecipeTitle>
+            <List>
+              <ListItemHeader>
+                <ListHeaderText>Product</ListHeaderText>
+                <div>
+                  <ListHeaderText>Number</ListHeaderText>
+                  <ListHeaderText>Remove</ListHeaderText>
+                </div>
+              </ListItemHeader>
+              <>
+                {ingredients.map(({ id, measure, ttl, thb }) => {
+                  return (
+                    <ListItem key={id}>
+                      <Wrapper>
+                        <ImgBox>
+                          <Img alt={ttl} src={thb} width={48} height={48} />
+                        </ImgBox>
+                        <Title>{ttl}</Title>
+                      </Wrapper>
+                      <ButtonWrapper>
+                        <Measure>{measure}</Measure>
+                        {updateShoppingListIsLoading ? (
+                          <Button>
+                            <ButtonLoader
+                              width={25}
+                              color={theme.colors.accentColor}
+                            />
+                          </Button>
+                        ) : (
+                          <Button
+                            disabled={updateShoppingListIsLoading}
+                            onClick={() =>
+                              dispatch(deleteIngredient({ id, recipeId }))
+                            }
+                          >
+                            <CloseIcon
+                              whileHover={{ stroke: theme.colors.accentColor }}
+                            />
+                          </Button>
+                        )}
+                      </ButtonWrapper>
+                    </ListItem>
+                  );
+                })}
+              </>
+            </List>
           </div>
-        </ListItemHeader>
-        <>
-          {isLoading ? (
-            <ShoppingListSkeleton />
-          ) : (
-            list?.map(({ _id, ttl, desc, thb, measure }) => {
-              if (!_id) {
-                return null;
-              }
-              return (
-                <ListItem key={_id}>
-                  <Wrapper>
-                    <ImgBox>
-                      <Img alt={ttl} src={thb} width={48} height={48} />
-                    </ImgBox>
-                    <Title>{ttl}</Title>
-                  </Wrapper>
-                  <ButtonWrapper>
-                    <Measure>{measure}</Measure>
-                    {updateShoppingListIsLoading ? (
-                      <Button>
-                        <ButtonLoader
-                          width={25}
-                          color={theme.colors.accentColor}
-                        />
-                      </Button>
-                    ) : (
-                      <Button
-                        disabled={updateShoppingListIsLoading}
-                        onClick={() => dispatch(deleteIngredient(_id))}
-                      >
-                        <CloseIcon
-                          whileHover={{ stroke: theme.colors.accentColor }}
-                        />
-                      </Button>
-                    )}
-                  </ButtonWrapper>
-                </ListItem>
-              );
-            })
-          )}
-        </>
-        {!isLoading && list.length === 0 && (
-          <EmptyErrorBox text="Your shopping list is empty." />
-        )}
-      </List>
+        ))
+      )}
+      {!isLoading && list.length === 0 && (
+        <EmptyErrorBox text="This recipe has no ingredients." />
+      )}
     </Box>
   );
 };
