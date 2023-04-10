@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTheme } from "styled-components";
 
 import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
 import { selectCategories } from "redux/categories/selectors";
 import {
   getSearchResultByIngredient,
