@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const FormWrapper = styled.div`
@@ -42,9 +43,9 @@ export const FormInput = styled.input`
   }
 `;
 
-export const SearchBtn = styled.button`
+export const SearchBtn = styled(motion.button)`
   position: absolute;
-  right: 0;
+  right: -2px;
   bottom: 0;
   width: 113px;
   height: 52px;
@@ -65,5 +66,10 @@ export const SearchBtn = styled.button`
   }
   ${(p) => p.theme.sizes.desktop} {
     height: 70px;
+  }
+
+  :hover,
+  :focus {
+    background-color: ${(p) => p.theme.colors.mainSearchBtnHover};
   }
 `;

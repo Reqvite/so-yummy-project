@@ -1,11 +1,11 @@
-import * as React from "react";
 import { ReactComponent as ProductSvg } from "../../../assets/svg/skeletonProductImage/skeletonImg.svg";
 import styled from "styled-components";
+
+import { motion } from "framer-motion";
 import {
   ImgBox,
   ListItem,
-} from "Components/IngredientsShoppingList/IngredientsShoppingList.styled";
-import { motion } from "framer-motion";
+} from "Components/Shopping/ShoppingItem/ShoppingItem.styled";
 
 const ShoppingListSkeleton = () => {
   return (
