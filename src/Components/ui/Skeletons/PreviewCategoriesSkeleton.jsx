@@ -1,12 +1,13 @@
 import { ReactComponent as ProductSvg } from "../../../assets/svg/skeletonProductImage/skeletonImg.svg";
 
 import styled from "styled-components";
+
+import { motion } from "framer-motion";
 import {
   CategoriesWrapper,
   RecipeItem,
   RecipesList,
 } from "Components/Main/PreviewCategories/PreviewCategories.styled";
-import { motion } from "framer-motion";
 
 const PreviewCategoriesSkeleton = () => {
   return (

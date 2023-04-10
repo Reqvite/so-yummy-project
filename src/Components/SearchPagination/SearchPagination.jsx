@@ -50,19 +50,18 @@ const SearchPagination = () => {
   ]);
 
   const handleChange = (_, num) => {
+    const pageNumber = Number(num);
     if (searchParams.get("query")) {
       const type = "query";
       const value = searchParams.get("query");
-      const page = Number(num);
-      dispatch(getSearchResultByTitle({ type, value, page }));
+      dispatch(getSearchResultByTitle({ type, value, page: pageNumber }));
       setSearchParams({ query: searchParams.get("query") });
       window.scrollTo(0, 0);
     }
     if (searchParams.get("ingredient")) {
       const type = "ingredient";
       const value = searchParams.get("ingredient");
-      const page = Number(num);
-      dispatch(getSearchResultByIngredient({ type, value, page }));
+      dispatch(getSearchResultByIngredient({ type, value, page: pageNumber }));
       setSearchParams({ ingredient: searchParams.get("ingredient") });
       window.scrollTo(0, 0);
     }
@@ -74,7 +73,7 @@ const SearchPagination = () => {
         <Stack spacing={2}>
           <Pagination
             count={pagesQuantity}
-            page={page}
+            page={parseInt(page)}
             onChange={handleChange}
             sx={{
               ul: {
