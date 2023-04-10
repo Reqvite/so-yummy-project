@@ -66,35 +66,33 @@ const SearchPagination = ({ query, ingredient }) => {
   return (
     <Container>
       {pagesQuantity > 0 && (
-        <Stack spacing={2}>
-          <Pagination
-            count={pagesQuantity}
-            page={parseInt(page)}
-            onChange={handleChange}
-            sx={{
-              ul: {
-                background: theme.colors.elementsBackground,
-                boxShadow: theme.shadows.paginationShadow,
-                borderRadius: "26px",
-                width: "275px",
-                height: "51px",
-                display: "flex",
-                justifyContent: "center",
-                justifyItems: "center",
-              },
-              "ul>li .Mui-selected": {
-                background: theme.colors.paginationActive,
+        <Pagination
+          count={pagesQuantity}
+          page={parseInt(page)}
+          onChange={handleChange}
+          sx={{
+            ul: {
+              background: theme.colors.elementsBackground,
+              boxShadow: theme.shadows.paginationShadow,
+              borderRadius: "26px",
+              width: "275px",
+              height: "51px",
+              display: "flex",
+              justifyContent: "center",
+              justifyItems: "center",
+            },
+            "ul>li .Mui-selected": {
+              background: theme.colors.paginationActive,
 
-                "&:hover": {
-                  background: theme.colors.hoverPaginator,
-                },
+              "&:hover": {
+                background: theme.colors.hoverPaginator,
               },
-              "ul>li .MuiPaginationItem-text": {
-                color: theme.colors.mainText,
-              },
-            }}
-          />
-        </Stack>
+            },
+            "ul>li .MuiPaginationItem-text": {
+              color: theme.colors.mainText,
+            },
+          }}
+        />
       )}
     </Container>
   );
