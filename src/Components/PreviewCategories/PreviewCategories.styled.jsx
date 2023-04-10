@@ -9,6 +9,7 @@ export const RecipesList = styled.ul`
     display: flex;
     justify-content: space-between;
     width: 100%;
+    flex-wrap: wrap;
   }
 `;
 
