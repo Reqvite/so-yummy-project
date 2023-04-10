@@ -27,9 +27,11 @@ export const updateShoppinList = createAsyncThunk(
 
 export const deleteIngredient = createAsyncThunk(
   "shopping/deleteIngredient",
-  async (ingredientId, thunkAPI) => {
+  async ({ id, recipeId }, thunkAPI) => {
     try {
-      const resp = await instance.delete(`/api/shopping-list/${ingredientId}`);
+      const resp = await instance.delete(
+        `/api/shopping-list/${id}/${recipeId}`
+      );
       return resp.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.response.data.message);

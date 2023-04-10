@@ -151,8 +151,7 @@ export const BottomBox = styled.div`
 
 export const MainButton = styled(motion(Link))`
   color: #ffffff;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 10px;
   display: flex;
   align-items: center;
   justify-content: center;

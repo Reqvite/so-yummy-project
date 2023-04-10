@@ -12,6 +12,13 @@ export const Box = styled.div`
 
 export const List = styled.ul``;
 
+export const RecipeTitle = styled.h2`
+  :not(:first-of-type) {
+  }
+
+  margin-bottom: 10px;
+`;
+
 export const ListItemHeader = styled.li`
   display: flex;
   align-items: center;
@@ -74,6 +81,9 @@ export const ListItem = styled.li`
   ${(p) => p.theme.sizes.tablet} {
     padding-bottom: 42px;
     margin-top: 45px;
+  }
+  :last-child {
+    border-bottom: none;
   }
 `;
 
