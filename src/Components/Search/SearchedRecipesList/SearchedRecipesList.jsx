@@ -11,7 +11,7 @@ import {
   RecipeTitle,
   RecipeTitleWrapper,
   RecipesList,
-} from "Components/CategoryList/CategoryList.styled";
+} from "Components/Categories/CategoryList/CategoryList.styled";
 
 import {
   getSearchResultByIngredient,
@@ -23,8 +23,8 @@ import {
   DefaultImgWrapper,
   EmptyText,
 } from "./SearchedRecipesList.styled";
-import defaultImg from "../../assets/images/empty-img.png";
-import SearchPagination from "Components/SearchPagination/SearchPagination";
+import defaultImg from "../../../assets/images/empty-img.png";
+import SearchPagination from "Components/Search/SearchPagination/SearchPagination";
 
 const SearchedRecipesList = () => {
   const dispatch = useDispatch();
@@ -42,24 +42,19 @@ const SearchedRecipesList = () => {
   const valueIngredient = searchParams.get("ingredient");
 
   const [result, setResult] = useState([]);
-  const [page, setPage] = useState(1);
 
   useEffect(() => {
     if (result === []) {
-      setPage(1);
       return;
     } else {
       if (valueQuery !== null && valueQuery !== undefined) {
         setResult(searchByTitle);
-        setPage(currentPageTitle);
       }
       if (valueIngredient !== null && valueIngredient !== undefined) {
         setResult(searchByIngredient);
-        setPage(currentPageIngredient);
       }
     }
   }, [
-    searchParams,
     result,
     searchByIngredient,
     searchByTitle,
@@ -77,6 +72,7 @@ const SearchedRecipesList = () => {
     ) {
       const type = "ingredient";
       const value = searchParams.get("ingredient");
+      const page = 1;
       dispatch(getSearchResultByIngredient({ type, value, page }));
     }
     if (
@@ -86,17 +82,10 @@ const SearchedRecipesList = () => {
     ) {
       const type = "query";
       const value = searchParams.get("query");
-
+      const page = 1;
       dispatch(getSearchResultByTitle({ type, value, page }));
     }
-  }, [
-    dispatch,
-    setSearchParams,
-    valueIngredient,
-    valueQuery,
-    searchParams,
-    page,
-  ]);
+  }, [dispatch, setSearchParams, valueIngredient, valueQuery, searchParams]);
 
   return (
     <>
@@ -108,7 +97,7 @@ const SearchedRecipesList = () => {
           {result.length > 0 ? (
             <>
               <RecipesList>
-                {result.map(({ _id, title, area, thumb }) => (
+                {result.map(({ _id, title, thumb }) => (
                   <RecipeItem key={_id}>
                     <Link to={`/recipe/${_id}`}>
                       <RecipeImg
@@ -123,7 +112,10 @@ const SearchedRecipesList = () => {
                   </RecipeItem>
                 ))}
               </RecipesList>
-              <SearchPagination />
+              <SearchPagination
+                query={valueQuery}
+                ingredient={valueIngredient}
+              />
             </>
           ) : (
             <DefaultImgWrapper>
