@@ -16,6 +16,7 @@ const initialState = {
   isLoggedIn: false,
   isRefreshing: true,
   isLoading: false,
+  isLoadingGoogle: false,
   status: false,
 };
 
@@ -62,18 +63,18 @@ export const authSlice = createSlice({
         state.isRefreshing = false;
       })
       .addCase(loginGoogle.pending, (state) => {
-        state.isLoading = true;
+        state.isLoadingGoogle = true;
       })
       .addCase(loginGoogle.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
-        state.isLoading = false;
+        state.isLoadingGoogle = false;
         state.status = false;
       })
       .addCase(loginGoogle.rejected, (state, action) => {
         toast.error(action.payload);
-        state.isLoading = false;
+        state.isLoadingGoogle = false;
       })
       .addCase(logOut.pending, (state) => {
         state.isLoading = true;

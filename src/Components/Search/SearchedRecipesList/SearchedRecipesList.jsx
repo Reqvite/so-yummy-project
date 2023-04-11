@@ -102,13 +102,12 @@ const SearchedRecipesList = () => {
           {result.length > 0 ? (
             <>
               <RecipesList array={result} />
-              {!isDesktop && (
-                <SearchPagination
-                  query={valueQuery}
-                  ingredient={valueIngredient}
-                  limit={limit}
-                />
-              )}
+
+              <SearchPagination
+                query={valueQuery}
+                ingredient={valueIngredient}
+                limit={limit}
+              />
             </>
           ) : (
             <DefaultImgWrapper>
