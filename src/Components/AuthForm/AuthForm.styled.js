@@ -65,6 +65,12 @@ export const Box = styled.div`
   }
 `;
 
+export const BoxTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`;
+
 export const Heading = styled.h1`
   margin-bottom: 18px;
   font-size: ${(p) => p.theme.fontSizes.m};

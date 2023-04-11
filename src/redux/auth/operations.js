@@ -5,7 +5,7 @@ import axios from "axios";
 //https://so-yummy-api-x9xv.onrender.com
 
 export const instance = axios.create({
-  baseURL: "https://so-yummy-api-x9xv.onrender.com",
+  baseURL: "http://localhost:3000",
 });
 
 const setToken = (token) => {
@@ -83,6 +83,19 @@ export const subscribe = createAsyncThunk(
   async (email, thunkAPI) => {
     try {
       const resp = await instance.post("api/subscribe", email);
+      return resp.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.response.data.message);
+    }
+  }
+);
+
+export const loginGoogle = createAsyncThunk(
+  "auth/google/login",
+  async (token, thunkAPI) => {
+    try {
+      const resp = await instance.get(`api/users/${token}`);
+      setToken(resp.data.token);
       return resp.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.response.data.message);
