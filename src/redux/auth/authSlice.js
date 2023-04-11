@@ -6,6 +6,7 @@ import {
   register,
   updateUser,
   subscribe,
+  loginGoogle,
 } from "./operations";
 import { toast } from "react-toastify";
 
@@ -59,6 +60,20 @@ export const authSlice = createSlice({
       })
       .addCase(refreshUser.rejected, (state) => {
         state.isRefreshing = false;
+      })
+      .addCase(loginGoogle.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(loginGoogle.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
+        state.isLoading = false;
+        state.status = false;
+      })
+      .addCase(loginGoogle.rejected, (state, action) => {
+        toast.error(action.payload);
+        state.isLoading = false;
       })
       .addCase(logOut.pending, (state) => {
         state.isLoading = true;
