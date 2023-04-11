@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Wrap = styled.div`
   margin-bottom: 32px;
   position: relative;
+
+  @media screen and (min-width: 768px) {
+    width: 505px;
+  }
 `;
 export const Title = styled.h3`
   font-weight: 600;
@@ -11,6 +15,7 @@ export const Title = styled.h3`
   letter-spacing: -0.02em;
   color: ${(p) => p.theme.colors.cardsText};
   margin-bottom: 28px;
+
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;
   }

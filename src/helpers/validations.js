@@ -51,31 +51,27 @@ export const addRecipeSchema = Yup.object().shape({
   description: Yup.string().required("Description recipe is required"),
   category: Yup.string().required("Category recipe is required"),
   time: Yup.string().required("Time recipe is required"),
-  ingredients: Yup.object().shape({
-    id: Yup.string(),
-    title: Yup.object()
-      .shape({
-        _id: Yup.string(),
-        ttl: Yup.string().required(
-          "You need choose name from the drop down list"
-        ),
+  selectedIngredients: Yup.array()
+    .min(1, "You need and minimun one ingregient")
+    .of(
+      Yup.object().shape({
+        id: Yup.string(),
+        title: Yup.object()
+          .shape({
+            _id: Yup.string(),
+            ttl: Yup.string()
+              .max(200, "Maximum 200 characters")
+              .required("You need choose name from the list"),
+          })
+          .required("You need choose name from the list"),
+        amount: Yup.string("Amount must be a number")
+          .min(1, "You need to add weight")
+          .required("Amount ingredient is required"),
+        unit: Yup.string().required(),
       })
-      .required("You need choose name from the drop down list"),
-    amount: Yup.string("Amount must be a number").required(
-      "Amount ingredient is required"
-    ),
-    unit: Yup.string().required(),
-  }),
-
+    )
+    .required("At least one ingredient is required"),
   instructions: Yup.string()
     .max(2000, "Maximum 2000 characters")
     .required("Recipe instruction is required"),
 });
-
-//  Yup.array()
-//     .of(
-//       Yup.object().shape({
-//         id: Yup.string(),
-//       })
-//     )
-//     .required("At least one ingredient is required"),

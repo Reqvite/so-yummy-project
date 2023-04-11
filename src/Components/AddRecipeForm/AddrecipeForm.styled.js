@@ -1,5 +1,30 @@
 import styled from "styled-components";
 
+export const AddRecipeWrap = styled.div`
+  max-width: 343px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 767px) {
+    max-width: 704px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1240px;
+  }
+`;
+
+export const FollowUsAndPopularWrap = styled.div`
+  width: 319px;
+`;
+
+export const GeneralWrap = styled.div`
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
 export const Form = styled.form`
   position: relative;
   margin-top: 72px;

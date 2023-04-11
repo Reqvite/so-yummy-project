@@ -4,7 +4,7 @@ import RecipeDescriptionFields from "../AddRecipeForm/RecipeDescriptionFields/Re
 import { Button, Form } from "./AddrecipeForm.styled";
 import { addRecipe } from "../../redux/recipes/operations";
 
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { addRecipeSchema } from "../../helpers/validations";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +17,7 @@ import { getIngredients } from "../../redux/ingredients/operations";
 
 const AddRecipeForm = () => {
   const [formErrors, setFormErrors] = useState({});
-  const [isShowErrors] = useState(false);
+  const [isShowErrors, setIsShowErrors] = useState(false);
 
   const [fullImage, setFullImage] = useState(null);
   const [title, setTitle] = useState(
@@ -69,19 +69,25 @@ const AddRecipeForm = () => {
   );
 
   useEffect(() => {
-    localStorage.setItem(
-      "addRecipes",
-      JSON.stringify({
-        category,
-        description,
-        fullImage,
-        selectedIngredients,
-        instructions,
-        time,
-        title,
-      })
-    );
-    return () => {};
+    const dataToSave = {
+      category,
+      description,
+      fullImage,
+      selectedIngredients,
+      instructions,
+      time,
+      title,
+    };
+    const serializedData = JSON.stringify(dataToSave);
+
+    try {
+      const storedData = localStorage.getItem("addRecipes");
+      if (storedData !== serializedData) {
+        localStorage.setItem("addRecipes", serializedData);
+      }
+    } catch (error) {
+      console.error("Error saving data to local storage:", error);
+    }
   }, [
     category,
     description,
@@ -159,15 +165,14 @@ const AddRecipeForm = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
-    // const isValid = addRecipeSchema.isValidSync(formData);
+    const isValid = addRecipeSchema.isValidSync(formData);
+    if (!isValid) {
+      toast.error("Please check the data");
+      setIsShowErrors(true);
+      return;
+    }
 
-    // if (!isValid) {
-    //   toast.error("Please check the data");
-    //   setIsShowErrors(true);
-    //   return;
-    // }
-
-    const dataForSend = {
+    const data = {
       image: fullImage,
       title: title.trim(),
       description: description.trim(),
@@ -180,10 +185,12 @@ const AddRecipeForm = () => {
       instructions,
     };
 
-    dispatch(addRecipe(dataForSend));
+    dispatch(addRecipe(data));
 
-    console.log(dataForSend);
-    // console.log(selectedIngredients);
+    console.log(data);
+    console.log(selectedIngredients);
+    console.log(formData);
+    console.log(formErrors);
 
     resetDataForm();
     navigate("/my");
@@ -202,10 +209,10 @@ const AddRecipeForm = () => {
       />
 
       <RecipeIngridientsFields
-        ingredients={selectedIngredients}
-        setIngredients={setSelectedIngredients}
         onRemove={onDeleteIngredient}
         onUpdate={onUpdateData}
+        ingredients={selectedIngredients}
+        setIngredients={setSelectedIngredients}
         allIngredients={ingredients}
         formErrors={formErrors}
       />
