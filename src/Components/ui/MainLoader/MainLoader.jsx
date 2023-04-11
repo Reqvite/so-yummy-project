@@ -4,14 +4,14 @@ const MainLoader = () => {
   return (
     <Box
       sx={{
-        width: "100vw",
-        height: "100vh",
+        width: "100%",
+        height: "500px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
       }}
     >
-      <CircularProgress />
+      <CircularProgress color="inherit" />
     </Box>
   );
 };
