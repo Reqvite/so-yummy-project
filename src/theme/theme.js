@@ -53,6 +53,7 @@ export const lightTheme = {
     addRecipeDropDownColor: "#FFFFFF",
     addRecipeMinusIcon: "#333333",
     ingredientInputBg: "#d9d9d9",
+    mainSearchBtnHover: "#8BAA36",
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input
@@ -152,6 +153,7 @@ export const darkTheme = {
     addRecipeDropDownColor: "#8BAA36",
     addRecipeMinusIcon: "#ffffff",
     ingredientInputBg: "transparent",
+    mainSearchBtnHover: "#22252A",
   },
   fontSizes: {
     xxxs: "10px",

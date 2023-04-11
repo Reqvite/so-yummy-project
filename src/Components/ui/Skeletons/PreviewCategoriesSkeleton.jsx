@@ -1,16 +1,18 @@
 import { ReactComponent as ProductSvg } from "../../../assets/svg/skeletonProductImage/skeletonImg.svg";
 
 import styled from "styled-components";
-import {
-  RecipeItem,
-  RecipesListWrapper,
-} from "Components/ui/RecipesList/RecipesList.styled";
-import { motion } from "framer-motion";
 
-const CategorySkeleton = () => {
+import { motion } from "framer-motion";
+import {
+  CategoriesWrapper,
+  RecipeItem,
+  RecipesList,
+} from "Components/Main/PreviewCategories/PreviewCategories.styled";
+
+const PreviewCategoriesSkeleton = () => {
   return (
-    <>
-      <RecipesListWrapper>
+    <CategoriesWrapper>
+      <RecipesList>
         <RecipeItem>
           <AnimatedSkeleton />
         </RecipeItem>
@@ -23,13 +25,12 @@ const CategorySkeleton = () => {
         <RecipeItem>
           <AnimatedSkeleton />
         </RecipeItem>
-      </RecipesListWrapper>
-    </>
+      </RecipesList>
+    </CategoriesWrapper>
   );
 };
 
 const SkeletonSvg = styled(motion(ProductSvg))`
-  width: 100%;
   height: 323px;
   border-radius: 8px;
 
@@ -59,4 +60,4 @@ const AnimatedSkeleton = () => (
     }}
   />
 );
-export default CategorySkeleton;
+export default PreviewCategoriesSkeleton;

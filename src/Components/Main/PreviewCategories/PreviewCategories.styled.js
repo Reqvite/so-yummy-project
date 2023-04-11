@@ -9,6 +9,7 @@ export const RecipesList = styled.ul`
     display: flex;
     justify-content: space-between;
     width: 100%;
+    flex-wrap: wrap;
   }
 `;
 
@@ -119,6 +120,10 @@ export const Link = styled(NavLink)`
   border-radius: 5px;
   font-size: ${(p) => p.theme.fontSizes.xs};
   line-height: 1.28;
+
+  :hover {
+    color: #000000;
+  }
 `;
 
 export const Nav = styled(NavLink)`

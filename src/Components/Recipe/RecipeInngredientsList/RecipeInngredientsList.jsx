@@ -27,8 +27,11 @@ const RecipeInngredientsList = ({ ingredients, recipeId }) => {
             <ListHeaderText>Add to list</ListHeaderText>
           </div>
         </ListItemHeader>
-        {ingredients?.map(({ _id, ttl, desc, thb, measure }) => {
-          const isChecked = list?.some((item) => item._id === _id);
+        {ingredients?.map(({ _id, ttl, thb, measure }) => {
+          const recipe = list.find((recipe) => recipe.recipeId === recipeId);
+          const isChecked = recipe?.ingredients?.some(
+            (item) => item.id === _id
+          );
           if (!_id) {
             return null;
           }

@@ -1,4 +1,3 @@
-import * as React from "react";
 import { ReactComponent as ProductSvg } from "../../../assets/svg/skeletonProductImage/skeletonImg.svg";
 import { ListItem } from "Components/Recipe/RecipeInngredientsList/RecipeInngredientsList.styled";
 import styled from "styled-components";

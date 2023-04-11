@@ -11,7 +11,8 @@ const CustomCheckbox = ({ recipeId, ingredientId, isChecked }) => {
     if (!checked) {
       dispatch(updateShoppinList({ recipeId, ingredientId }));
     } else {
-      dispatch(deleteIngredient(ingredientId));
+      const id = ingredientId;
+      dispatch(deleteIngredient({ id, recipeId }));
     }
     setChecked(!checked);
   };

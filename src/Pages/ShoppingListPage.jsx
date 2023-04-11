@@ -1,4 +1,4 @@
-import IngredientsShoppingList from "Components/IngredientsShoppingList/IngredientsShoppingList";
+import IngredientsShoppingList from "Components/Shopping/IngredientsShoppingList/IngredientsShoppingList";
 import MainPageTitle from "Components/ui/MainPageTitle/MainPageTitle";
 
 const ShoppingListPage = () => {

@@ -17,25 +17,8 @@ import { selectIsLoading } from "redux/shopping/selectors";
 const RecipePage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const {
-    // area,
-    // category,
-    // createdAt,
-    description,
-    // favorites,
-    ingredients,
-    instructions,
-    // likes,
-    // popularity,
-    preview,
-    // tags,
-    // thumb,
-    time,
-    title,
-    // updatedAt,
-    // youtube,
-    _id,
-  } = useSelector(selectRecipe);
+  const { description, ingredients, instructions, preview, time, title, _id } =
+    useSelector(selectRecipe);
 
   useEffect(() => {
     dispatch(getShoppingIngredients());

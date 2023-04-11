@@ -1,4 +1,4 @@
-import defaultImg from "../../assets/images/defaultDish.png";
+import defaultImg from "../../../assets/images/defaultDish.png";
 import { NavLink } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
 import {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const RecipesList = styled.div`
+export const RecipesListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 32px;

@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "styled-components";
 import {
   Box,
@@ -17,7 +18,6 @@ import {
   selectIsLoading,
   selectUserFavouritesRecipes,
 } from "redux/recipes/selectors";
-import { useEffect, useRef, useState } from "react";
 import ButtonLoader from "Components/ui/ButtonLoader/ButtonLoader";
 
 const RecipePageHero = ({ title, description, time, id }) => {

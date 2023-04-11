@@ -1,33 +1,33 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import bgLeafLeftMobile from "../../assets/images/mainPage/mainPageMobile/bgLeafLeftMobile.png";
-import bgLeafLeftMobile2x from "../../assets/images/mainPage/mainPageMobile/bgLeafLeftMobile2x.png";
-import bgLeafRightMobile from "../../assets/images/mainPage/mainPageMobile/bgLeafRightMobile2x.png";
-import bgLeafRightMobile2x from "../../assets/images/mainPage/mainPageMobile/bgLeafRightMobile2x.png";
-import bgMainPageMobile from "../../assets/images/mainPage/mainPageMobile/bgMainPageMobile.png";
-import bgMainPageMobile2x from "../../assets/images/mainPage/mainPageMobile/bgMainPageMobile2x.png";
-import bgMobile from "../../assets/images/mainPage/mainPageMobile/bgMobile.png";
-import bgMobile2x from "../../assets/images/mainPage/mainPageMobile/bgMobile2x.png";
+import bgLeafLeftMobile from "../../../assets/images/mainPage/mainPageMobile/bgLeafLeftMobile.png";
+import bgLeafLeftMobile2x from "../../../assets/images/mainPage/mainPageMobile/bgLeafLeftMobile2x.png";
+import bgLeafRightMobile from "../../../assets/images/mainPage/mainPageMobile/bgLeafRightMobile2x.png";
+import bgLeafRightMobile2x from "../../../assets/images/mainPage/mainPageMobile/bgLeafRightMobile2x.png";
+import bgMainPageMobile from "../../../assets/images/mainPage/mainPageMobile/bgMainPageMobile.png";
+import bgMainPageMobile2x from "../../../assets/images/mainPage/mainPageMobile/bgMainPageMobile2x.png";
+import bgMobile from "../../../assets/images/mainPage/mainPageMobile/bgMobile.png";
+import bgMobile2x from "../../../assets/images/mainPage/mainPageMobile/bgMobile2x.png";
 
-import bgLeafLeftTablet from "../../assets/images/mainPage/mainPageTablet/bgLeafLeftTablet.png";
-import bgLeafLeftTablet2x from "../../assets/images/mainPage/mainPageTablet/bgLeafLeftTablet2x.png";
-import bgLeafRightTablet from "../../assets/images/mainPage/mainPageTablet/bgLeafRightTablet.png";
-import bgLeafRightTablet2x from "../../assets/images/mainPage/mainPageTablet/bgLeafRightTablet2x.png";
-import bgMainPageTablet from "../../assets/images/mainPage/mainPageTablet/bgMainPageTablet.png";
-import bgMainPageTablet2x from "../../assets/images/mainPage/mainPageTablet/bgMainPageTablet2x.png";
-import bgTablet from "../../assets/images/mainPage/mainPageTablet/bgTablet.png";
-import bgTablet2x from "../../assets/images/mainPage/mainPageTablet/bgTablet2x.png";
-import bgDesktop from "../../assets/images/mainPage/mainPageDesktop/bgDesktop.png";
-import bgDesktop2x from "../../assets/images/mainPage/mainPageDesktop/bgDesktop2x.png";
-import bgLeafLeftDesktop from "../../assets/images/mainPage/mainPageDesktop/bgLeafLeftDesktop.png";
-import bgLeafLeftDesktop2x from "../../assets/images/mainPage/mainPageDesktop/bgLeafLeftDesktop2x.png";
-import bgLeafRightDesktop from "../../assets/images/mainPage/mainPageDesktop/bgLeafRightDesktop.png";
-import bgLeafRightDesktop2x from "../../assets/images/mainPage/mainPageDesktop/bgLeafRightDesktop2x.png";
-import bgMainPageDesktop from "../../assets/images/mainPage/mainPageDesktop/bgMainPageDesktop.png";
-import bgMainPageDesktop2x from "../../assets/images/mainPage/mainPageDesktop/bgMainPageDesktop2x.png";
+import bgLeafLeftTablet from "../../../assets/images/mainPage/mainPageTablet/bgLeafLeftTablet.png";
+import bgLeafLeftTablet2x from "../../../assets/images/mainPage/mainPageTablet/bgLeafLeftTablet2x.png";
+import bgLeafRightTablet from "../../../assets/images/mainPage/mainPageTablet/bgLeafRightTablet.png";
+import bgLeafRightTablet2x from "../../../assets/images/mainPage/mainPageTablet/bgLeafRightTablet2x.png";
+import bgMainPageTablet from "../../../assets/images/mainPage/mainPageTablet/bgMainPageTablet.png";
+import bgMainPageTablet2x from "../../../assets/images/mainPage/mainPageTablet/bgMainPageTablet2x.png";
+import bgTablet from "../../../assets/images/mainPage/mainPageTablet/bgTablet.png";
+import bgTablet2x from "../../../assets/images/mainPage/mainPageTablet/bgTablet2x.png";
+import bgDesktop from "../../../assets/images/mainPage/mainPageDesktop/bgDesktop.png";
+import bgDesktop2x from "../../../assets/images/mainPage/mainPageDesktop/bgDesktop2x.png";
+import bgLeafLeftDesktop from "../../../assets/images/mainPage/mainPageDesktop/bgLeafLeftDesktop.png";
+import bgLeafLeftDesktop2x from "../../../assets/images/mainPage/mainPageDesktop/bgLeafLeftDesktop2x.png";
+import bgLeafRightDesktop from "../../../assets/images/mainPage/mainPageDesktop/bgLeafRightDesktop.png";
+import bgLeafRightDesktop2x from "../../../assets/images/mainPage/mainPageDesktop/bgLeafRightDesktop2x.png";
+import bgMainPageDesktop from "../../../assets/images/mainPage/mainPageDesktop/bgMainPageDesktop.png";
+import bgMainPageDesktop2x from "../../../assets/images/mainPage/mainPageDesktop/bgMainPageDesktop2x.png";
 
-import { ReactComponent as ArrowMainPage } from "../../assets/svg/mainPage/arrowMainPage.svg";
-import { ReactComponent as ArrowMain } from "../../assets/svg/mainPage/arrow.svg";
+import { ReactComponent as ArrowMainPage } from "../../../assets/svg/mainPage/arrowMainPage.svg";
+import { ReactComponent as ArrowMain } from "../../../assets/svg/mainPage/arrow.svg";
 
 export const Section = styled.section`
   ${(p) => p.theme.sizes.tablet} {

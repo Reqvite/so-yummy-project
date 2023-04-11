@@ -1,7 +1,7 @@
 import Footer from "Components/Footer/Footer";
 import Header from "Components/Header/Header";
-import PageContainer from "Components/common/PageContainer/PageContainer";
-import Loader from "Components/ui/Loader/Loader";
+import MainLoader from "Components/ui/MainLoader/MainLoader";
+import PageContainer from "Components/ui/PageContainer/PageContainer";
 
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
@@ -12,7 +12,7 @@ const SharedLayout = () => {
     <Wrapper>
       <Header />
       <PageContainer>
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<MainLoader />}>
           <Outlet />
         </Suspense>
       </PageContainer>
