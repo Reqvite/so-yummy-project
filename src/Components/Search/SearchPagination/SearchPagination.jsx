@@ -79,7 +79,7 @@ const SearchPagination = ({ query, ingredient, limit }) => {
 
   return (
     <Container>
-      {pagesQuantity > 0 && (
+      {pagesQuantity > 1 && (
         <Pagination
           count={pagesQuantity}
           page={parseInt(page)}

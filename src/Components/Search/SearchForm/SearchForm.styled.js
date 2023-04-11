@@ -1,3 +1,4 @@
+import { List } from "Components/AddRecipeForm/DropDownList/DropDownList.styled";
 import styled from "styled-components";
 
 export const SearchBar = styled.div`
@@ -58,11 +59,17 @@ export const SearchBtn = styled.button`
     width: 161px;
     height: 65px;
   }
-  ${(p) => p.theme.sizes.desktop} {
-    height: 65px;
-  }
 
   &:hover {
     background-color: ${(p) => p.theme.colors.footerBackground};
+  }
+`;
+
+export const HintList = styled(List)`
+  position: absolute;
+  top: 53px;
+  left: 20px;
+  ${(p) => p.theme.sizes.tablet} {
+    top: 65px;
   }
 `;
