@@ -29,7 +29,7 @@ import GoogleButton from "Components/ui/GoogleButton/GoogleButton";
 
 const AuthForm = ({ page, redirect, title, schema }) => {
   const dispatch = useDispatch();
-  const { isLoading } = useAuth();
+  const { isLoading, status } = useAuth();
   const theme = useTheme();
 
   const initialValues =
@@ -43,7 +43,9 @@ const AuthForm = ({ page, redirect, title, schema }) => {
 
   const handleRegister = async (credentials) => {
     await dispatch(register(credentials));
-    await dispatch(login(credentials));
+    if (status) {
+      await dispatch(login(credentials));
+    }
   };
 
   return (
