@@ -6,6 +6,7 @@ import { useTheme } from "styled-components";
 import {
   BackgroundImg,
   Box,
+  BoxTitle,
   Button,
   Container,
   Error,
@@ -25,6 +26,7 @@ import {
 import AuthSvg from "./AuthSvg";
 import ButtonLoader from "Components/ui/ButtonLoader/ButtonLoader";
 import { useAuth } from "hooks";
+import GoogleButton from "Components/ui/GoogleButton/GoogleButton";
 
 const AuthForm = ({ page, redirect, title, schema }) => {
   const dispatch = useDispatch();
@@ -55,7 +57,10 @@ const AuthForm = ({ page, redirect, title, schema }) => {
       <div>
         <Box>
           <AuthSvg />
-          <Heading>{title}</Heading>
+          <BoxTitle>
+            <Heading>{title}</Heading>
+            <GoogleButton />
+          </BoxTitle>
           <Formik
             initialValues={initialValues}
             validationSchema={schema}
