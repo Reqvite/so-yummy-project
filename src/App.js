@@ -1,30 +1,21 @@
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { useAuth } from "hooks";
 import { ThemeProvider } from "styled-components";
 import { refreshUser } from "redux/auth/operations";
+import RegisterPage from "Pages/RegisterPage";
+import SigninPage from "Pages/SigninPage";
+import AuthNavPage from "Pages/AuthNavPage";
+import MainPage from "Pages/MainPage";
 import { GlobalStyle } from "Components/GlobalStyle/GlobalStyle";
 import PrivateRoute from "Components/routes/PrivateRoute";
 import RestrictedRoute from "Components/routes/RestrictedRoute";
 import SharedLayout from "Components/SharedLayout/SharedLayout";
 import Loader from "Components/ui/Loader/Loader";
-import MainPage from "Pages/MainPage";
-import RegisterPage from "Pages/RegisterPage";
-import SigninPage from "Pages/SigninPage";
-import AuthNavPage from "Pages/AuthNavPage";
-import AddRecipe from "Pages/AddRecipe";
-import ShoppingListPage from "Pages/ShoppingListPage";
-import CategoriesPage from "Pages/CategoriesPage";
-import RecipePage from "Pages/RecipePage";
-import SearchPage from "Pages/SearchPage";
-import NotFoundPage from "Pages/NotFoundPage";
 import Alert from "Components/ui/Alert";
-
 import { darkTheme, lightTheme } from "./theme/theme";
 import { selectTheme } from "redux/theme/selectors";
-import FavoritePage from "Pages/FavoritePage";
-import MyRecipePage from "Pages/MyRecipePage";
+import { useAuth } from "hooks";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -37,6 +28,15 @@ const App = () => {
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
+
+  const AddRecipe = lazy(() => import("Pages/AddRecipe"));
+  const CategoriesPage = lazy(() => import("Pages/CategoriesPage"));
+  const ShoppingListPage = lazy(() => import("Pages/ShoppingListPage"));
+  const RecipePage = lazy(() => import("Pages/RecipePage"));
+  const SearchPage = lazy(() => import("Pages/SearchPage"));
+  const MyRecipePage = lazy(() => import("Pages/MyRecipePage"));
+  const FavoritePage = lazy(() => import("Pages/FavoritePage"));
+  const NotFoundPage = lazy(() => import("Pages/NotFoundPage"));
 
   return isRefreshing ? (
     <Loader />
@@ -61,7 +61,6 @@ const App = () => {
             <RestrictedRoute component={<SigninPage />} redirectTo="/main" />
           }
         />
-
         <Route
           path="/"
           element={<PrivateRoute component={<SharedLayout />} redirectTo="/" />}
