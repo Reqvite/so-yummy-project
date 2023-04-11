@@ -24,7 +24,7 @@ const SearchForm = () => {
 
   useEffect(() => {
     const onClick = (e) => {
-      input.current.contains(e.target) || setIsActive(!isActive);
+      input?.current?.contains(e.target) || setIsActive(!isActive);
     };
 
     if (isActive) {
@@ -97,7 +97,7 @@ const SearchForm = () => {
       <SearchBtn type="submit">Search</SearchBtn>
       {isActive &&
         filteredMeals.length !== 0 &&
-        searchParams.get("ingredient") !== null && (
+        searchParams.get("ingredient") === "" && (
           <HintList>
             {filteredMeals.map(({ _id, ttl }) => (
               <Item

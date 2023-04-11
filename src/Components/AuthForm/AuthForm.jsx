@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import { register, login } from "redux/auth/operations";
@@ -6,6 +5,7 @@ import { useTheme } from "styled-components";
 import {
   BackgroundImg,
   Box,
+  BoxTitle,
   Button,
   Container,
   Error,
@@ -25,10 +25,10 @@ import {
 import AuthSvg from "./AuthSvg";
 import ButtonLoader from "Components/ui/ButtonLoader/ButtonLoader";
 import { useAuth } from "hooks";
+import GoogleButton from "Components/ui/GoogleButton/GoogleButton";
 
 const AuthForm = ({ page, redirect, title, schema }) => {
   const dispatch = useDispatch();
-  const [loginCredentials, setLoginCredentials] = useState(false);
   const { isLoading } = useAuth();
   const theme = useTheme();
 
@@ -41,13 +41,10 @@ const AuthForm = ({ page, redirect, title, schema }) => {
           password: "",
         };
 
-  const { status } = useAuth();
-
-  useEffect(() => {
-    if (status) {
-      dispatch(login(loginCredentials));
-    }
-  }, [dispatch, status, loginCredentials]);
+  const handleRegister = async (credentials) => {
+    await dispatch(register(credentials));
+    await dispatch(login(credentials));
+  };
 
   return (
     <Container>
@@ -55,16 +52,17 @@ const AuthForm = ({ page, redirect, title, schema }) => {
       <div>
         <Box>
           <AuthSvg />
-          <Heading>{title}</Heading>
+          <BoxTitle>
+            <Heading>{title}</Heading>
+            {page === "login" && <GoogleButton />}
+          </BoxTitle>
           <Formik
             initialValues={initialValues}
             validationSchema={schema}
             onSubmit={(credentials) => {
               page === "login"
                 ? dispatch(login(credentials))
-                : dispatch(register(credentials));
-
-              setLoginCredentials(credentials);
+                : handleRegister(credentials);
             }}
           >
             {({ errors, touched }) => {

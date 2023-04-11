@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrap = styled.div`
-  margin-bottom: 104px;
+  margin-bottom: 67px;
 
   @media screen and (min-width: 768px) {
     display: flex;

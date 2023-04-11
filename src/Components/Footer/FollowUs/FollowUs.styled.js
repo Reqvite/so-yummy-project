@@ -5,6 +5,14 @@ import { ReactComponent as Youtube } from "../../../assets/svg/FollowUsIcons/you
 import { ReactComponent as Twitter } from "../../../assets/svg/FollowUsIcons/twitter.svg";
 import { ReactComponent as Instagram } from "../../../assets/svg/FollowUsIcons/instagram.svg";
 
+export const FollowUsText = styled.h3`
+  color: #3e4462;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.24px;
+  line-height: 1;
+`;
+
 export const SocialList = styled.ul`
   display: flex;
   gap: 16px;
@@ -15,9 +23,13 @@ export const SocialList = styled.ul`
     padding-left: 100px;
     padding-right: 100px;
     margin-top: 36px;
+    gap: 23px;
   }
   @media screen and (min-width: 1440px) {
     margin-top: 40px;
+    gap: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 `;
 

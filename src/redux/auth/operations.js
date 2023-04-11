@@ -89,3 +89,16 @@ export const subscribe = createAsyncThunk(
     }
   }
 );
+
+export const loginGoogle = createAsyncThunk(
+  "auth/google/login",
+  async (token, thunkAPI) => {
+    try {
+      const resp = await instance.get(`api/users/${token}`);
+      setToken(resp.data.token);
+      return resp.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.response.data.message);
+    }
+  }
+);

@@ -9,6 +9,8 @@ export const Wrap = styled.div`
   overflow: hidden;
   width: 279px;
   height: 268px;
+  margin-left: auto;
+  margin-right: auto;
 
   @media screen and (min-width: 1440px) {
     width: 357px;
@@ -29,6 +31,8 @@ export const IconOnImage = styled(Icon)`
   top: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
+  width: 64;
+  height: 64;
 `;
 
 export const PreviewImage = styled.img`
