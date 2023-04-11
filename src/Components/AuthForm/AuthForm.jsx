@@ -59,7 +59,7 @@ const AuthForm = ({ page, redirect, title, schema }) => {
           <AuthSvg />
           <BoxTitle>
             <Heading>{title}</Heading>
-            <GoogleButton />
+            {page === "login" && <GoogleButton />}
           </BoxTitle>
           <Formik
             initialValues={initialValues}
