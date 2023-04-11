@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import { register, login } from "redux/auth/operations";
@@ -30,7 +29,6 @@ import GoogleButton from "Components/ui/GoogleButton/GoogleButton";
 
 const AuthForm = ({ page, redirect, title, schema }) => {
   const dispatch = useDispatch();
-  const [loginCredentials, setLoginCredentials] = useState(false);
   const { isLoading } = useAuth();
   const theme = useTheme();
 
@@ -43,13 +41,10 @@ const AuthForm = ({ page, redirect, title, schema }) => {
           password: "",
         };
 
-  const { status } = useAuth();
-
-  useEffect(() => {
-    if (status) {
-      dispatch(login(loginCredentials));
-    }
-  }, [dispatch, status, loginCredentials]);
+  const handleRegister = async (credentials) => {
+    await dispatch(register(credentials));
+    await dispatch(login(credentials));
+  };
 
   return (
     <Container>
@@ -67,9 +62,7 @@ const AuthForm = ({ page, redirect, title, schema }) => {
             onSubmit={(credentials) => {
               page === "login"
                 ? dispatch(login(credentials))
-                : dispatch(register(credentials));
-
-              setLoginCredentials(credentials);
+                : handleRegister(credentials);
             }}
           >
             {({ errors, touched }) => {
