@@ -61,9 +61,9 @@ export const addRecipeSchema = Yup.object().shape({
             _id: Yup.string(),
             ttl: Yup.string()
               .max(200, "Maximum 200 characters")
-              .required("You need choose name from the drop down list"),
+              .required("You need choose name from the list"),
           })
-          .required("You need choose name from the drop down list"),
+          .required("You need choose name from the list"),
         amount: Yup.string("Amount must be a number")
           .min(1, "You need to add weight")
           .required("Amount ingredient is required"),

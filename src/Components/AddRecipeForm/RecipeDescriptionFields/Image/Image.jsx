@@ -29,7 +29,7 @@ const ImgWithPreview = ({ imgAdd, setImgAdd }) => {
     <Wrap>
       <Input type="file" onChange={handleImageChange} />
 
-      <IconOnImage width="64" height="64" />
+      <IconOnImage />
 
       <PreviewImage src="" alt="Preview image" ref={input} />
     </Wrap>

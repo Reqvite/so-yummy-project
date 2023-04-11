@@ -172,7 +172,7 @@ const AddRecipeForm = () => {
       return;
     }
 
-    const dataForSend = {
+    const data = {
       image: fullImage,
       title: title.trim(),
       description: description.trim(),
@@ -185,9 +185,9 @@ const AddRecipeForm = () => {
       instructions,
     };
 
-    dispatch(addRecipe(dataForSend));
+    dispatch(addRecipe(data));
 
-    console.log(dataForSend);
+    console.log(data);
     console.log(selectedIngredients);
     console.log(formData);
     console.log(formErrors);
