@@ -3,7 +3,7 @@ import { GoogleSvg } from "./GoogleButton.styled";
 
 const GoogleButton = () => {
   return (
-    <NavLink to="http://localhost:3000/api/users/auth/google">
+    <NavLink to="https://so-yummy-api-x9xv.onrender.com/api/users/auth/google">
       <GoogleSvg />
     </NavLink>
   );
