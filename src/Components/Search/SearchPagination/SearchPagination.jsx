@@ -44,6 +44,7 @@ const SearchPagination = ({ query, ingredient, limit }) => {
       setPage(currentPageIngredient);
     }
   }, [
+    isDesktop,
     searchByTitle,
     searchByIngredient,
     currentPageIngredient,
