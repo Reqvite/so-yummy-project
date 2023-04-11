@@ -95,23 +95,21 @@ const SearchForm = () => {
         onClick={() => setIsActive(!isActive)}
       />
       <SearchBtn type="submit">Search</SearchBtn>
-      {isActive &&
-        filteredMeals.length !== 0 &&
-        searchParams.get("ingredient") !== "" && (
-          <HintList>
-            {filteredMeals.map(({ _id, ttl }) => (
-              <Item
-                key={_id}
-                onClick={(e) => {
-                  setFilter(ttl.toLowerCase());
-                  setIsActive(false);
-                }}
-              >
-                {ttl}
-              </Item>
-            ))}
-          </HintList>
-        )}
+      {isActive && searchParams.get("ingredient") === "" && (
+        <HintList>
+          {filteredMeals.map(({ _id, ttl }) => (
+            <Item
+              key={_id}
+              onClick={(e) => {
+                setFilter(ttl.toLowerCase());
+                setIsActive(false);
+              }}
+            >
+              {ttl}
+            </Item>
+          ))}
+        </HintList>
+      )}
     </Form>
   );
 };
