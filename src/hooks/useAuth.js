@@ -6,6 +6,7 @@ import {
   selectRefreshing,
   selectStatus,
   selectIsLoading,
+  selectIsLoadingGoogle,
 } from "redux/auth/selectors.js";
 
 export const useAuth = () => {
@@ -14,6 +15,7 @@ export const useAuth = () => {
   const user = useSelector(selectUser);
   const status = useSelector(selectStatus);
   const isLoading = useSelector(selectIsLoading);
+  const isLoadingGoogle = useSelector(selectIsLoadingGoogle);
 
   return {
     isLoggedIn,
@@ -21,5 +23,6 @@ export const useAuth = () => {
     user,
     status,
     isLoading,
+    isLoadingGoogle,
   };
 };

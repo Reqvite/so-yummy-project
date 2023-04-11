@@ -19,7 +19,7 @@ import { useAuth } from "hooks";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing, isLoading } = useAuth();
+  const { isRefreshing, isLoadingGoogle } = useAuth();
 
   const themeSelector = useSelector(selectTheme);
 
@@ -38,7 +38,7 @@ const App = () => {
   const FavoritePage = lazy(() => import("Pages/FavoritePage"));
   const NotFoundPage = lazy(() => import("Pages/NotFoundPage"));
 
-  return isRefreshing || isLoading ? (
+  return isRefreshing || isLoadingGoogle ? (
     <Loader />
   ) : (
     <ThemeProvider theme={theme}>
