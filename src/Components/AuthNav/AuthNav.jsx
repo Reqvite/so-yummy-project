@@ -12,11 +12,28 @@ import {
   Svg,
   Text,
 } from "./AuthNav.styled";
+import { useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { loginGoogle } from "redux/auth/operations";
 
 const AuthNav = () => {
+  const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
+  const [checkToken, setCheckToken] = useState(true);
   const theme = useTheme();
   const matches = useMediaQuery("(min-width:768px)");
   const mediaRule = matches ? 68 : 54;
+
+  const param = searchParams.get("auth");
+
+  useEffect(() => {
+    if (checkToken && param) {
+      setCheckToken(false);
+      dispatch(loginGoogle(param));
+    }
+  }, [dispatch, param, checkToken]);
+
   return (
     <Container>
       <Box>

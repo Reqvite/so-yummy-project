@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+export const PopularRecipesWrap = styled.div`
+  margin-top: 100px;
+`;
+
 export const BoxTitle = styled.h3`
   font-weight: 600;
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.24px;
   color: var(--mainTextColor);
-  margin-bottom: 32px; ;
+  margin-bottom: 32px;
 `;
 
 export const List = styled.ul`
@@ -19,7 +23,7 @@ export const List = styled.ul`
   }
   @media screen and (min-width: 768px) and (max-width: 1239.98px) {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     gap: 32px;
   }
   ${(p) => p.theme.sizes.desktop} {

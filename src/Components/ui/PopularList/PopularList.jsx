@@ -8,6 +8,7 @@ import {
   ItemTitle,
   List,
   TextBox,
+  PopularRecipesWrap,
 } from "./PopularList.styled";
 import { useEffect } from "react";
 import { getPopularRecipes } from "redux/recipes/operations";
@@ -27,7 +28,7 @@ const PopularList = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <PopularRecipesWrap>
       {isLoading ? (
         <PopularRecipesSkeleton />
       ) : (
@@ -52,7 +53,7 @@ const PopularList = () => {
           </List>
         </div>
       )}
-    </>
+    </PopularRecipesWrap>
   );
 };
 
