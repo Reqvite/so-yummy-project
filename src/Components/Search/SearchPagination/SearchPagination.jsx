@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useMediaQuery } from "@mui/material";
 import { useTheme } from "styled-components";
 
 import Pagination from "@mui/material/Pagination";
@@ -24,20 +25,26 @@ const SearchPagination = ({ query, ingredient, limit }) => {
 
   const [pagesQuantity, setPagesQuantity] = useState(0);
   const [page, setPage] = useState(1);
+  const isDesktop = useMediaQuery("(min-width: 1440px)");
 
   useEffect(() => {
     if (searchByTitle.length === 0 && searchByIngredient.length === 0) {
       return;
     }
     if (searchByTitle.length > 0) {
-      setPagesQuantity(Math.ceil(searchByTitleTotalRes / 6));
+      isDesktop
+        ? setPagesQuantity(Math.ceil(searchByTitleTotalRes / 12))
+        : setPagesQuantity(Math.ceil(searchByTitleTotalRes / 6));
       setPage(currentPageTitle);
     }
     if (searchByIngredient.length > 0) {
-      setPagesQuantity(Math.ceil(searchByIngredientTotalRes / 6));
+      isDesktop
+        ? setPagesQuantity(Math.ceil(searchByIngredientTotalRes / 12))
+        : setPagesQuantity(Math.ceil(searchByIngredientTotalRes / 6));
       setPage(currentPageIngredient);
     }
   }, [
+    isDesktop,
     searchByTitle,
     searchByIngredient,
     currentPageIngredient,
@@ -79,7 +86,7 @@ const SearchPagination = ({ query, ingredient, limit }) => {
 
   return (
     <Container>
-      {pagesQuantity > 0 && (
+      {pagesQuantity > 1 && (
         <Pagination
           count={pagesQuantity}
           page={parseInt(page)}
