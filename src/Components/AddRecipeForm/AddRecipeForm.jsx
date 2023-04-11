@@ -12,8 +12,12 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIngredients } from "redux/ingredients/selectors";
 import { selectCategories } from "redux/categories/selectors";
+import { selectUserRecipesIsLoading } from "redux/recipes/selectors";
+
 import { getCategories } from "../../redux/categories/operations";
 import { getIngredients } from "../../redux/ingredients/operations";
+
+import ButtonLoader from "Components/ui/ButtonLoader/ButtonLoader";
 
 const AddRecipeForm = () => {
   const [formErrors, setFormErrors] = useState({});
@@ -43,6 +47,8 @@ const AddRecipeForm = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const isLoading = useSelector(selectUserRecipesIsLoading);
 
   const { items: categories } = useSelector(selectCategories);
   const ingredients = useSelector(selectIngredients);
@@ -106,7 +112,7 @@ const AddRecipeForm = () => {
   useEffect(() => {
     if (!isShowErrors) return;
 
-    const createObjErrorResipeForm = (acc, curr) => {
+    const createErrorObject = (acc, curr) => {
       if (curr.path.includes("].")) {
         const el = curr.path;
         const currPath = el.slice(0, el.indexOf("["));
@@ -128,7 +134,7 @@ const AddRecipeForm = () => {
 
         return true;
       } catch (error) {
-        const errors = error.inner.reduce(createObjErrorResipeForm, {});
+        const errors = error.inner.reduce(createErrorObject, {});
 
         setFormErrors(errors);
 
@@ -167,7 +173,7 @@ const AddRecipeForm = () => {
 
     const isValid = addRecipeSchema.isValidSync(formData);
     if (!isValid) {
-      toast.error("Please check the data");
+      toast.error("Please check the fields");
       setIsShowErrors(true);
       return;
     }
@@ -182,18 +188,13 @@ const AddRecipeForm = () => {
         id: title._id,
         measure: `${amount}${unit === "-" ? "" : ` ${unit}`}`,
       })),
-      instructions,
+      instructions: instructions.trim().replace(/\.[^\n]/g, ".\n"),
     };
 
-    dispatch(addRecipe(data));
-
-    console.log(data);
-    console.log(selectedIngredients);
-    console.log(formData);
-    console.log(formErrors);
-
-    resetDataForm();
-    navigate("/my");
+    dispatch(addRecipe(data)).then(() => {
+      resetDataForm();
+      navigate("/my");
+    });
   };
 
   return (
@@ -223,7 +224,9 @@ const AddRecipeForm = () => {
         formErrors={formErrors}
       />
 
-      <Button type="submit">Add</Button>
+      <Button type="submit" disabled={isLoading}>
+        {isLoading ? <ButtonLoader color="white" width={25} /> : "Add"}
+      </Button>
     </Form>
   );
 };

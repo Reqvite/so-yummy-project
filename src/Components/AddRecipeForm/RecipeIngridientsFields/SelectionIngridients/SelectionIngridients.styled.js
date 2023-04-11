@@ -147,10 +147,9 @@ export const AmountWrap = styled.div`
   justify-content: baseline;
   min-width: 84px;
   height: 53px;
-  border: 1px solid transparent;
-  border-radius: 5px;
-  background-color: ${(p) => p.theme.colors.ingredientInputBg};
-  border: 1px solid rgba(250, 250, 250, 0.2);
+  border:${(p) => p.theme.borders.addRecipeBorder}
+  border-radius: 18px;
+ 
 `;
 
 export const AmountInput = styled.input`
@@ -158,14 +157,14 @@ export const AmountInput = styled.input`
   background-color: ${(p) => p.theme.colors.ingredientInputBg};
   border: none;
   outline: transparent;
-  height: 53px;
-  font-size: 14px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
   color: ${(p) => p.theme.colors.mainText};
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
   max-width: 40px;
+  height: 53px;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
   padding: 16px 2px 15px 2px;
   text-align: end;
 
@@ -209,7 +208,7 @@ export const DeleteButton = styled.button`
   margin-left: 33px;
   border: none;
   background-color: inherit;
-  stroke: #333333;
+  stroke: rgba(51, 51, 51, 0.3);
   @media screen and (min-width: 768px) {
     margin-left: 157px;
   }
@@ -233,5 +232,5 @@ export const ErrorMessage = styled.p`
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: #e74a3b;
+  color: ${(p) => p.theme.colors.inputErrorColor};
 `;
