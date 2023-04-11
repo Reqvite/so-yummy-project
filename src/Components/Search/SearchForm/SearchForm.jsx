@@ -97,7 +97,7 @@ const SearchForm = () => {
       <SearchBtn type="submit">Search</SearchBtn>
       {isActive &&
         filteredMeals.length !== 0 &&
-        searchParams.get("ingredient") === "" && (
+        searchParams.get("ingredient") !== null && (
           <HintList>
             {filteredMeals.map(({ _id, ttl }) => (
               <Item
