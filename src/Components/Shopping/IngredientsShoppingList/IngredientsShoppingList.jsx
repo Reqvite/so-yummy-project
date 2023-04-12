@@ -54,7 +54,7 @@ const IngredientsShoppingList = () => {
         ))
       )}
       {!isLoading && list.length === 0 && (
-        <EmptyErrorBox text="This recipe has no ingredients." />
+        <EmptyErrorBox text="Your shopping list is empty." />
       )}
     </Box>
   );

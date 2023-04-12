@@ -101,7 +101,11 @@ export const Button = styled.div`
   cursor: pointer;
 
   ${(p) => p.theme.sizes.tablet} {
-    margin-left: 110px;
+    margin-left: 160px;
+  }
+
+  ${(p) => p.theme.sizes.desktop} {
+    margin-left: 230px;
   }
 `;
 

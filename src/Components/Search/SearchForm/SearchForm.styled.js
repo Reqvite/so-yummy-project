@@ -63,6 +63,7 @@ export const SearchBtn = styled.button`
   &:hover {
     background-color: ${(p) => p.theme.colors.footerBackground};
   }
+  cursor: pointer;
 `;
 
 export const HintList = styled(List)`

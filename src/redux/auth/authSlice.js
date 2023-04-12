@@ -117,6 +117,10 @@ export const authSlice = createSlice({
       })
       .addDefaultCase((state, action) => {
         if (action.error) {
+          if (action.payload === "Not authorized") {
+            state.isLoggedIn = false;
+            state.token = null;
+          }
           state.error = action.payload;
           toast.error(action.payload);
         }
