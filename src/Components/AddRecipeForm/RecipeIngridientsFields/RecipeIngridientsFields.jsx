@@ -68,15 +68,15 @@ const RecipeIngridientsFields = ({
 
       {ingredients.length > 0 && (
         <IngredientsList>
-          {ingredients.map((el, index) => (
+          {ingredients.map((item, index) => (
             <SelectionIngridients
+              key={item.id}
               allIngredients={allIngredients}
-              units={units}
-              key={el.id}
-              id={el.id}
-              data={el}
               onUpdate={onUpdate}
               onRemove={onRemove}
+              units={units}
+              id={item.id}
+              data={item}
               errorMessage={
                 formErrors?.selectedIngredients
                   ? formErrors.selectedIngredients[index]

@@ -21,6 +21,7 @@ const DropDownIngredientsList = ({ list = [], option = "", setOption }) => {
       document.removeEventListener("click", onClick);
     };
   }, [isActive]);
+
   const theme = useTheme();
   const activeColor = theme.colors.accentColor;
   return (
