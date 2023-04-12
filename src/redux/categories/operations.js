@@ -20,7 +20,6 @@ export const getCategoryRecipes = createAsyncThunk(
       const resp = await instance.get(
         `/api/recipes/${categoryName}?page=${page}`
       );
-      console.log(resp.data);
       return resp.data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);

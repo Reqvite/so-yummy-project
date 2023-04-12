@@ -8,6 +8,7 @@ import { selectCategories } from "redux/categories/selectors";
 import Alert from "Components/ui/Alert";
 import RecipesList from "Components/ui/RecipesList/RecipesList";
 import CategorySkeleton from "Components/ui/Skeletons/CategorySkeleton";
+import CategoryPagination from "../Pagination/Pagination";
 
 const SearchRecipesList = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,12 @@ const SearchRecipesList = () => {
       {recipeCategoriesIsLoading ? (
         <CategorySkeleton />
       ) : (
-        <RecipesList array={recipeCategories} />
+        <>
+          {recipeCategories.length > 0 && (
+            <RecipesList array={recipeCategories} />
+          )}
+          {recipeCategories.length > 1 && <CategoryPagination />}
+        </>
       )}
     </div>
   );

@@ -91,16 +91,17 @@ const SearchPagination = ({ query, ingredient, limit }) => {
           count={pagesQuantity}
           page={parseInt(page)}
           onChange={handleChange}
+          size="small"
           sx={{
             ul: {
               background: theme.colors.elementsBackground,
               boxShadow: theme.shadows.paginationShadow,
               borderRadius: "26px",
-              width: "275px",
-              height: "51px",
               display: "flex",
               justifyContent: "center",
               justifyItems: "center",
+              paddingTop: "14px",
+              paddingBottom: "14px",
             },
             "ul>li .Mui-selected": {
               background: theme.colors.paginationActive,
