@@ -26,11 +26,19 @@ import AuthSvg from "./AuthSvg";
 import ButtonLoader from "Components/ui/ButtonLoader/ButtonLoader";
 import { useAuth } from "hooks";
 import GoogleButton from "Components/ui/GoogleButton/GoogleButton";
+import { useEffect, useState } from "react";
 
 const AuthForm = ({ page, redirect, title, schema }) => {
   const dispatch = useDispatch();
   const { isLoading, status } = useAuth();
   const theme = useTheme();
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    if (status) {
+      dispatch(login(data));
+    }
+  }, [status, dispatch, data]);
 
   const initialValues =
     page === "login"
@@ -43,9 +51,6 @@ const AuthForm = ({ page, redirect, title, schema }) => {
 
   const handleRegister = async (credentials) => {
     await dispatch(register(credentials));
-    if (status) {
-      await dispatch(login(credentials));
-    }
   };
 
   return (
@@ -65,6 +70,8 @@ const AuthForm = ({ page, redirect, title, schema }) => {
               page === "login"
                 ? dispatch(login(credentials))
                 : handleRegister(credentials);
+
+              setData(credentials);
             }}
           >
             {({ errors, touched }) => {

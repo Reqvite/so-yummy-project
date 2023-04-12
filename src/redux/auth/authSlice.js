@@ -39,6 +39,7 @@ export const authSlice = createSlice({
       })
       .addCase(login.pending, (state) => {
         state.isLoading = true;
+        state.status = false;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.user;
@@ -50,6 +51,7 @@ export const authSlice = createSlice({
       .addCase(login.rejected, (state, action) => {
         toast.error(action.payload);
         state.isLoading = false;
+        state.status = false;
       })
       .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;
