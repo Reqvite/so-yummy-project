@@ -42,5 +42,5 @@ export const ErrorText = styled.p`
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: -0.02em;
-  ${(p) => p.theme.colors.inputErrorColor};
+  color: ${(p) => p.theme.colors.inputErrorColor};
 `;
