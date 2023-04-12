@@ -57,7 +57,6 @@ export const ArrowWrap = styled.div`
 export const SearchIngredientInput = styled.input`
   display: block;
   background-color: ${(p) => p.theme.colors.ingredientInputBg};
-  border: none;
   outline: transparent;
   height: 53px;
   font-size: 14px;
@@ -147,9 +146,8 @@ export const AmountWrap = styled.div`
   justify-content: baseline;
   min-width: 84px;
   height: 53px;
-  border:${(p) => p.theme.borders.addRecipeBorder}
+  border: 1px solid rgba(250, 250, 250, 0.2);
   border-radius: 18px;
- 
 `;
 
 export const AmountInput = styled.input`

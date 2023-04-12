@@ -6,7 +6,7 @@ import { ReactComponent as Twitter } from "../../../assets/svg/FollowUsIcons/twi
 import { ReactComponent as Instagram } from "../../../assets/svg/FollowUsIcons/instagram.svg";
 
 export const FollowUsText = styled.h3`
-  color: #3e4462;
+  color: ${(p) => p.theme.colors.followUsTitle};
   font-size: 24px;
   font-weight: 600;
   letter-spacing: -0.24px;

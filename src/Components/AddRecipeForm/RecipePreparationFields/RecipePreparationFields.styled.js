@@ -30,7 +30,7 @@ export const Textarea = styled.textarea`
   padding: 10px 16px;
   outline: none;
   background-color: ${(p) => p.theme.colors.ingredientInputBg};
-  border: none;
+  border: 1px solid rgba(250, 250, 250, 0.2);
   color: ${(p) => p.theme.colors.mainText};
 `;
 
