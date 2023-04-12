@@ -15,7 +15,6 @@ import {
   ErrorMessage,
 } from "./SelectionIngridients.styled";
 import { useTheme } from "styled-components";
-import { nanoid } from "@reduxjs/toolkit";
 
 import DropDownIngredientsList from "../DropDownIngredients/DropDownIngredients";
 
@@ -101,7 +100,7 @@ const SelectionIngridients = ({
           <AllIngredientsSelectionList>
             {filteredMeals.map(({ _id, ttl, desc, t, thb }) => (
               <AllIngredientsSelectionItem
-                key={nanoid()}
+                key={_id}
                 onClick={() => {
                   allIngredientsSelectionHandler(_id, ttl, desc, t, thb);
                 }}
