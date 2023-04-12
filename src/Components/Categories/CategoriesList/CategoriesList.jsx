@@ -1,18 +1,25 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Tab, useMediaQuery } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectCategories } from "redux/categories/selectors";
 import { StyledCategory, StyledCategoryList } from "./CategoriesList.styled";
 import Alert from "Components/ui/Alert";
 import { useTheme } from "styled-components";
+import { getCategories } from "redux/categories/operations";
 
 const CategoriesList = () => {
   const { items, error } = useSelector(selectCategories);
   const [value, setValue] = useState(0);
   const { categoryName } = useParams();
-  const theme = useTheme();
+
+  const dispatch = useDispatch();
   let navigate = useNavigate();
+  const theme = useTheme();
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
 
   useEffect(() => {
     const categoryIndex = items.findIndex(

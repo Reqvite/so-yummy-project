@@ -23,6 +23,8 @@ const categoriesSlice = createSlice({
   initialState: {
     items: [],
     recipeCategories: [],
+    categoryRecipesTotalCount: 0,
+    categoryRecipesCurrentPage: 1,
     searchByTitle: [],
     searchByTitleTotalRes: 0,
     currentPageTitle: 1,
@@ -52,6 +54,8 @@ const categoriesSlice = createSlice({
         state.recipeCategoriesIsLoading = false;
         state.error = null;
         state.recipeCategories = action.payload.recipes;
+        state.categoryRecipesTotalCount = action.payload.totalCount;
+        state.categoryRecipesCurrentPage = action.payload.currentPage;
       })
       .addCase(getSearchResultByTitle.pending, handlePending)
       .addCase(getSearchResultByTitle.rejected, handleRejected)
