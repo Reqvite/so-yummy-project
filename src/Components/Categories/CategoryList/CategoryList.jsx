@@ -16,8 +16,10 @@ const SearchRecipesList = () => {
     useSelector(selectCategories);
 
   useEffect(() => {
-    dispatch(getCategoryRecipes(categoryName));
+    const page = 1;
+    dispatch(getCategoryRecipes({ categoryName, page }));
   }, [dispatch, categoryName]);
+
   return (
     <div>
       {error && <Alert />}
