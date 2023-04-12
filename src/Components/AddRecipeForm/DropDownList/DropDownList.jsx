@@ -1,12 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import { ReactComponent as ArrowIconList } from "../../../assets/svg/ArrowIconList/ArrowIconList.svg";
-import { nanoid } from "nanoid";
+
+import { nanoid } from "@reduxjs/toolkit";
+import { useTheme } from "styled-components";
 
 import { Option, Title, List, Item } from "./DropDownList.styled";
 
 const DropDownList = ({ list = [], option = "", setOption }) => {
   const [isActive, setIsActive] = useState(false);
   const input = useRef(null);
+  const theme = useTheme();
+  const activeColor = theme.colors.accentColor;
 
   useEffect(() => {
     const onClick = (e) => {
@@ -34,9 +38,12 @@ const DropDownList = ({ list = [], option = "", setOption }) => {
           {list.map((value) => (
             <Item
               key={nanoid()}
-              onClick={(e) => {
+              onClick={() => {
                 setOption(value);
                 setIsActive(false);
+              }}
+              style={{
+                color: value === option ? activeColor : null,
               }}
             >
               {value}

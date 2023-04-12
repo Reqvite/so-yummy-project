@@ -13,9 +13,8 @@ import {
   ErrorText,
   IngredientsList,
 } from "../RecipeIngridientsFields/RecipeIngridientsFields.styled";
-
 import SelectionIngridients from "./SelectionIngridients/SelectionIngridients";
-import { nanoid } from "nanoid";
+import { nanoid } from "@reduxjs/toolkit";
 import { units } from "../../../data/addRecipe";
 
 const RecipeIngridientsFields = ({

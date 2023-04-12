@@ -23,7 +23,7 @@ export const List = styled.ul`
   width: 100%;
   top: 100%;
   right: 0;
-  z-index: 20;
+  z-index: 15;
   overflow-y: auto;
   border-radius: 6px;
   font-weight: 400;

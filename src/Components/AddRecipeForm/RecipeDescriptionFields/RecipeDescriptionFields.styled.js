@@ -24,6 +24,7 @@ export const ImageErrorWrap = styled.div`
 
 export const InputsContainer = styled.div`
   width: 343px;
+
   @media screen and (min-width: 768px) {
     width: 393px;
   }
@@ -69,7 +70,7 @@ export const ErrorText = styled.p`
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: #e74a3b; ;
+  color: ${(p) => p.theme.colors.inputErrorColor};
 `;
 
 export const DescriptionInput = styled.input`

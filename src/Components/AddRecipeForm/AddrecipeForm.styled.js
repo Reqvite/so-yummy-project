@@ -53,6 +53,7 @@ export const Button = styled.button`
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
+
   @media screen and (max-width: 767px) {
     height: 52px;
     width: 161px;
