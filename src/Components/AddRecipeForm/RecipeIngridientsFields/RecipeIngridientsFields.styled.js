@@ -65,16 +65,15 @@ export const IncreaseButton = styled.button`
   background-color: inherit;
   padding: 7px 10px 7px 14px;
 `;
-
 export const PlusIcon = styled(Plus)`
-  stroke: rgba(51, 51, 51, 0.3);
+  stroke: ${(p) => p.theme.colors.accentColor};
   stroke-opacity: 1;
   width: 14px;
   height: 14px;
   cursor: pointer;
 `;
 
-export const AmountIngredientrs = styled.div`
+export const IngredientCount = styled.div`
   min-width: 16px;
   padding: 6px 3px;
   text-align: center;

@@ -52,7 +52,7 @@ export const addRecipeSchema = Yup.object().shape({
   category: Yup.string().required("Category recipe is required"),
   time: Yup.string().required("Time recipe is required"),
   selectedIngredients: Yup.array()
-    .min(1, "You need and minimun one ingregient")
+    .min(1, "You need minimun one ingregient")
     .of(
       Yup.object().shape({
         id: Yup.string(),

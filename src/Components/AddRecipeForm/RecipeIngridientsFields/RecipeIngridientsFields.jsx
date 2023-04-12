@@ -5,7 +5,7 @@ import {
   ControlButtonsWrap,
   DecreaseButton,
   MinusIcon,
-  AmountIngredientrs,
+  IngredientCount,
   IncreaseButton,
   PlusIcon,
   ErrorWrap,
@@ -26,9 +26,6 @@ const RecipeIngridientsFields = ({
   formErrors = {},
 }) => {
   const onDecreaseClickHandler = () => {
-    if (ingredients.length === 0) {
-      return;
-    }
     setIngredients(ingredients.slice(0, ingredients.length - 1));
   };
 
@@ -43,12 +40,13 @@ const RecipeIngridientsFields = ({
     <Wrap>
       <ControlWrap>
         <Title>Ingredients</Title>
+
         <ControlButtonsWrap>
           <DecreaseButton type="button" onClick={onDecreaseClickHandler}>
             <MinusIcon />
           </DecreaseButton>
 
-          <AmountIngredientrs>{ingredients.length}</AmountIngredientrs>
+          <IngredientCount>{ingredients.length}</IngredientCount>
 
           <IncreaseButton type="button" onClick={onIncreaseClickHandler}>
             <PlusIcon />
@@ -68,15 +66,15 @@ const RecipeIngridientsFields = ({
 
       {ingredients.length > 0 && (
         <IngredientsList>
-          {ingredients.map((el, index) => (
+          {ingredients.map((item, index) => (
             <SelectionIngridients
+              key={item.id}
               allIngredients={allIngredients}
-              units={units}
-              key={el.id}
-              id={el.id}
-              data={el}
               onUpdate={onUpdate}
               onRemove={onRemove}
+              units={units}
+              id={item.id}
+              data={item}
               errorMessage={
                 formErrors?.selectedIngredients
                   ? formErrors.selectedIngredients[index]
