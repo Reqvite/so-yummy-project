@@ -75,7 +75,7 @@ const AddRecipeForm = () => {
   );
 
   useEffect(() => {
-    const dataToSave = {
+    const dataInLocalStorage = {
       category,
       description,
       fullImage,
@@ -84,7 +84,7 @@ const AddRecipeForm = () => {
       time,
       title,
     };
-    const serializedData = JSON.stringify(dataToSave);
+    const serializedData = JSON.stringify(dataInLocalStorage);
 
     try {
       const storedData = localStorage.getItem("addRecipes");

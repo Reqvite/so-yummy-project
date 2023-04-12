@@ -5,7 +5,7 @@ import {
   ControlButtonsWrap,
   DecreaseButton,
   MinusIcon,
-  AmountIngredientrs,
+  IngredientCount,
   IncreaseButton,
   PlusIcon,
   ErrorWrap,
@@ -26,9 +26,6 @@ const RecipeIngridientsFields = ({
   formErrors = {},
 }) => {
   const onDecreaseClickHandler = () => {
-    if (ingredients.length === 0) {
-      return;
-    }
     setIngredients(ingredients.slice(0, ingredients.length - 1));
   };
 
@@ -43,12 +40,13 @@ const RecipeIngridientsFields = ({
     <Wrap>
       <ControlWrap>
         <Title>Ingredients</Title>
+
         <ControlButtonsWrap>
           <DecreaseButton type="button" onClick={onDecreaseClickHandler}>
             <MinusIcon />
           </DecreaseButton>
 
-          <AmountIngredientrs>{ingredients.length}</AmountIngredientrs>
+          <IngredientCount>{ingredients.length}</IngredientCount>
 
           <IncreaseButton type="button" onClick={onIncreaseClickHandler}>
             <PlusIcon />

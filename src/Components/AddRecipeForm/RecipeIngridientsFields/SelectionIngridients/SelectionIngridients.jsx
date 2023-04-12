@@ -121,6 +121,7 @@ const SelectionIngridients = ({
           name="amount"
           autoComplete="off"
           min="1"
+          max="1000"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
         />

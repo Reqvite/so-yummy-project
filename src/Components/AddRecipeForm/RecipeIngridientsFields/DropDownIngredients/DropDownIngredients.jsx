@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { ReactComponent as ArrowIconList } from "../../../../assets/svg/ArrowIconList/ArrowIconList.svg";
 import { nanoid } from "@reduxjs/toolkit";
 
@@ -24,9 +24,22 @@ const DropDownIngredientsList = ({ list = [], option = "", setOption }) => {
 
   const theme = useTheme();
   const activeColor = theme.colors.accentColor;
+
+  const handleOptionClick = useCallback(() => {
+    setIsActive(!isActive);
+  }, [isActive]);
+
+  const handleItemClick = useCallback(
+    (value) => {
+      setOption(value);
+      setIsActive(false);
+    },
+    [setOption]
+  );
+
   return (
     <>
-      <Option ref={input} onClick={() => setIsActive(!isActive)}>
+      <Option ref={input} onClick={handleOptionClick}>
         <Title>{option}</Title>
 
         <ArrowIconList width="20px" height="20px" />
@@ -40,10 +53,7 @@ const DropDownIngredientsList = ({ list = [], option = "", setOption }) => {
               style={{
                 color: value === option ? activeColor : null,
               }}
-              onClick={() => {
-                setOption(value);
-                setIsActive(false);
-              }}
+              onClick={() => handleItemClick(value)}
             >
               {value}
             </Item>
