@@ -21,7 +21,7 @@ export const lightTheme = {
 
     categoryTabTextColor: "#BDBDBD",
     notFoundTitle: "#000000",
-    notFoundText: "rgba(250, 250, 250, 0.6)",
+    notFoundText: "#7E7E7E",
     recipeDescriptionText: "#23262A",
     recipePreparationTextColor: "rgba(0, 0, 0, 0.8)",
     recipeHeaderTextColor: "#22252A",
@@ -54,6 +54,7 @@ export const lightTheme = {
     addRecipeMinusIcon: "#333333",
     ingredientInputBg: "#d9d9d9",
     mainSearchBtnHover: "#8BAA36",
+    followUsTitle: "#3e4462",
   },
   fontSizes: {
     xxxs: "10px", //footer-mobile-input
@@ -154,6 +155,7 @@ export const darkTheme = {
     addRecipeMinusIcon: "#ffffff",
     ingredientInputBg: "transparent",
     mainSearchBtnHover: "#22252A",
+    followUsTitle: "#ffffff",
   },
   fontSizes: {
     xxxs: "10px",
