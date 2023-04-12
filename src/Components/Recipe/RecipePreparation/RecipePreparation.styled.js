@@ -12,7 +12,7 @@ export const MainBox = styled.div`
 export const Title = styled.h2`
   margin-top: 50px;
 
-  font-size: ${(p) => p.theme.fontSizes.m}
+  font-size: ${(p) => p.theme.fontSizes.m};
   line-height: 1;
 
   letter-spacing: -0.24px;
@@ -23,11 +23,21 @@ export const Title = styled.h2`
 `;
 
 export const Text = styled.p`
-margin-left: 14px;
-  color: ${(p) => p.theme.colors.recipePreparationTextColor}
- font-size: ${(p) => p.theme.fontSizes.xxs}
+  word-wrap: break-word;
+  width: 100%;
+  max-width: 300px;
+  margin-left: 14px;
+  color: ${(p) => p.theme.colors.recipePreparationTextColor};
+  font-size: ${(p) => p.theme.fontSizes.xxs};
   line-height: 1.17;
   letter-spacing: -0.02em;
+
+  ${(p) => p.theme.sizes.tablet} {
+    max-width: 500px;
+  }
+  ${(p) => p.theme.sizes.desktop} {
+    max-width: 730px;
+  }
 `;
 
 export const List = styled.ul`
