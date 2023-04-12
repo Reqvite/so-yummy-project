@@ -13,9 +13,7 @@ import PopularList from "Components/ui/PopularList/PopularList";
 
 const AddRecipe = () => {
   const isMobileAndTablet = useMediaQuery("(max-width: 1440px)");
-  const isOnlyTablet = useMediaQuery(
-    "((min-width: 768px) and (max-width: 1239.98px))"
-  );
+
   return (
     <AddRecipeWrap>
       <MainPageTitle title={"Add recipe"} />
@@ -30,7 +28,7 @@ const AddRecipe = () => {
           </FollowUsAndPopularWrap>
         )}
 
-        {isOnlyTablet && <PopularList />}
+        {isMobileAndTablet && <PopularList />}
       </GeneralWrap>
     </AddRecipeWrap>
   );

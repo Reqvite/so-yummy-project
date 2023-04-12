@@ -103,11 +103,7 @@ export const ErrorText = styled.p`
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: #e74a3b;
+  color: ${(p) => p.theme.colors.inputErrorColor};
 `;
 
 export const IngredientsList = styled.ul``;
-
-export const Er3rorWrap = styled.div`
-  position: relative;
-`;

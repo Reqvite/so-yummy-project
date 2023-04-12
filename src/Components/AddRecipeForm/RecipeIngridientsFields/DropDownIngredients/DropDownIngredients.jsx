@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { ReactComponent as ArrowIconList } from "../../../../assets/svg/ArrowIconList/ArrowIconList.svg";
-import { nanoid } from "nanoid";
+import { nanoid } from "@reduxjs/toolkit";
 
 import { Option, Title, List, Item } from "./DropDownIngreduents.styled";
 import { useTheme } from "styled-components";
@@ -39,7 +39,7 @@ const DropDownIngredientsList = ({ list = [], option = "", setOption }) => {
               style={{
                 color: value === option ? activeColor : null,
               }}
-              onClick={(e) => {
+              onClick={() => {
                 setOption(value);
                 setIsActive(false);
               }}

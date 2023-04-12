@@ -13,11 +13,8 @@ import {
   ErrorText,
   IngredientsList,
 } from "../RecipeIngridientsFields/RecipeIngridientsFields.styled";
-
 import SelectionIngridients from "./SelectionIngridients/SelectionIngridients";
-// import { nanoid } from "nanoid";
 import { nanoid } from "@reduxjs/toolkit";
-
 import { units } from "../../../data/addRecipe";
 
 const RecipeIngridientsFields = ({
@@ -73,13 +70,13 @@ const RecipeIngridientsFields = ({
         <IngredientsList>
           {ingredients.map((el, index) => (
             <SelectionIngridients
+              key={nanoid()}
               allIngredients={allIngredients}
               units={units}
-              key={el.id}
-              id={el.id}
-              data={el}
               onUpdate={onUpdate}
               onRemove={onRemove}
+              id={el.id}
+              data={el}
               errorMessage={
                 formErrors?.selectedIngredients
                   ? formErrors.selectedIngredients[index]

@@ -21,10 +21,11 @@ export const List = styled.ul`
       margin-bottom: 24px;
     }
   }
-  @media screen and (min-width: 768px) and (max-width: 1239.98px) {
+  @media screen and (min-width: 768px) and (max-width: 1439.98px) {
     display: flex;
     align-items: baseline;
     gap: 32px;
+    width: 704px;
   }
   ${(p) => p.theme.sizes.desktop} {
     width: 319px;
@@ -51,7 +52,7 @@ export const Item = styled.li`
     border: 1px solid #707070;
   }
 
-  @media screen and (min-width: 767px) and (max-width: 1240px) {
+  @media screen and (min-width: 767px) and (max-width: 1439px) {
     :nth-last-child(-n + 2) {
       display: none;
     }
