@@ -215,7 +215,7 @@ export const Background = styled.div`
     }
   }
   ${(p) => p.theme.sizes.desktop} {
-    background-image: url(${bgDesktop});nav
+    background-image: url(${bgDesktop});
     width: 725px;
     height: 689px;
     @media (min-device-pixel-ratio: 2),
