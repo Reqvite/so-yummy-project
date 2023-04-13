@@ -15,8 +15,7 @@ Formik,
 Yup,
 Toastify,
 MUI,
-Styled Components,
-React-dom,
+Styled Components.
 
 ### About
 
