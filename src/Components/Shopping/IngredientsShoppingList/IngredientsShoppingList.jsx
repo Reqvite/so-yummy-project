@@ -27,7 +27,7 @@ const IngredientsShoppingList = () => {
       {isLoading ? (
         <ShoppingListSkeleton />
       ) : (
-        list.map(({ recipeId, recipeTitle, ingredients }) => (
+        list?.map(({ recipeId, recipeTitle, ingredients }) => (
           <div key={recipeId}>
             <RecipeTitle>{recipeTitle}</RecipeTitle>
             <List>
