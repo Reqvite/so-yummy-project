@@ -13,6 +13,7 @@ import {
   ErrorLast,
   FormBox,
   Heading,
+  IconBox,
   Input,
   Label,
   Link,
@@ -85,12 +86,7 @@ const AuthForm = ({ page, redirect, title, schema }) => {
                 <FormBox>
                   {page === "register" && (
                     <>
-                      <Label
-                        htmlFor="name"
-                        style={{
-                          marginBottom: userError && 0,
-                        }}
-                      >
+                      <Label htmlFor="name">
                         <User $error={userError} $success={userSuccess} />
                         {userSuccess && <SuccesIcon />}
                         {userError && <ErrorIcon />}
@@ -102,16 +98,13 @@ const AuthForm = ({ page, redirect, title, schema }) => {
                           $error={userError}
                           $success={userSuccess}
                         />
-                        {userError ? <Error>{errors.name}</Error> : null}
+                        <IconBox>
+                          {userError ? <Error>{errors.name}</Error> : null}
+                        </IconBox>
                       </Label>
                     </>
                   )}
-                  <Label
-                    htmlFor="email"
-                    style={{
-                      marginBottom: emailError && 0,
-                    }}
-                  >
+                  <Label htmlFor="email">
                     <Mail $error={emailError} $success={emailSucces} />
                     {emailSucces && <SuccesIcon />}
                     {emailError && <ErrorIcon />}
@@ -123,14 +116,11 @@ const AuthForm = ({ page, redirect, title, schema }) => {
                       $success={emailSucces}
                       $error={emailError}
                     />
-                    {emailError ? <Error>{errors.email}</Error> : null}
+                    <IconBox>
+                      {emailError ? <Error>{errors.email}</Error> : null}
+                    </IconBox>
                   </Label>
-                  <Label
-                    htmlFor="password"
-                    style={{
-                      marginBottom: passwordError && 0,
-                    }}
-                  >
+                  <Label htmlFor="password">
                     <Password
                       $error={passwordError}
                       $success={passwordSucces}
@@ -153,12 +143,17 @@ const AuthForm = ({ page, redirect, title, schema }) => {
                       $success={passwordSucces}
                       $notSecure={errors.password?.includes("secure")}
                     />
+                    <IconBox>
+                      {passwordError ? (
+                        <ErrorLast
+                          $notSecure={errors.password?.includes("secure")}
+                        >
+                          {errors.password}
+                        </ErrorLast>
+                      ) : null}
+                    </IconBox>
                   </Label>
-                  {passwordError ? (
-                    <ErrorLast $notSecure={errors.password?.includes("secure")}>
-                      {errors.password}
-                    </ErrorLast>
-                  ) : null}
+
                   <Button
                     disabled={isLoading}
                     type="submit"
