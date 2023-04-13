@@ -149,7 +149,7 @@ export const AmountWrap = styled.div`
   height: 53px;
   border: 1px solid rgba(250, 250, 250, 0.2);
   border-radius: 18px;
-  /* background: ${(p) => p.theme.colors.ingredientInputBg}; */
+  background: ${(p) => p.theme.colors.ingredientInputBg};
   @media screen and (min-width: 768px) {
     height: 59px;
     width: 97px;
