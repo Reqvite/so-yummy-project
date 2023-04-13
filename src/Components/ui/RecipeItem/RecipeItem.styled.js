@@ -48,7 +48,7 @@ export const Img = styled.img`
   height: 124px;
   width: 124px;
   border-radius: 8px;
-  object-fit: contain;
+  object-fit: cover;
 
   ${(p) => p.theme.sizes.tablet} {
     height: 232px;

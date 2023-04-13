@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
-  margin-top: 144px;
+  margin-top: 32px;
 
   ${(p) => p.theme.sizes.tablet} {
-    margin-top: 80px;
+    margin-top: 50px;
   }
 `;
 

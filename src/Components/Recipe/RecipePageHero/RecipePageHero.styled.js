@@ -5,6 +5,16 @@ import backgroundDesktop from "../../../assets/images/recipePage/flat-lay-assort
 import backgroundMobile from "../../../assets/images/recipePage/flat-lay-assortment-vegetables-with-copy-space-MOBILE.jpg";
 import backgroundTablet from "../../../assets/images/recipePage/flat-lay-assortment-vegetables-with-copy-space-TABLET.jpg";
 
+export const Wrapper = styled.div`
+  height: 341px;
+  ${(p) => p.theme.sizes.tablet} {
+    height: 361px;
+  }
+  ${(p) => p.theme.sizes.desktop} {
+    height: 330px;
+  }
+`;
+
 export const ImgBox = styled.div`
   position: absolute;
   top: 0;
