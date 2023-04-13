@@ -12,7 +12,7 @@ const BoxStyled = styled(Box)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
+  width: 250px;
   background-color: ${(p) => p.theme.colors.mainBackground};
   border: 2px solid #000;
   border-radius: 8px;
