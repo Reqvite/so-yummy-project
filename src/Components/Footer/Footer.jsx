@@ -11,6 +11,7 @@ import {
   FooterBottomWrap,
   BottomText,
 } from "./Footer.styled";
+import TeamModal from "./TeamModal/TeamModal";
 
 const Footer = () => {
   return (
@@ -31,8 +32,7 @@ const Footer = () => {
 
       <FooterBottomWrap>
         <BottomText>© 2023 All Rights Reserved.</BottomText>
-
-        <BottomText> Terms of Service</BottomText>
+        <TeamModal />
       </FooterBottomWrap>
     </FooterWrap>
   );
