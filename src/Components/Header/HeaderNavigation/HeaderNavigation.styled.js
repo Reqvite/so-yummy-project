@@ -39,7 +39,7 @@ export const Navigation = styled.nav`
 export const Link = styled(NavLink)`
   display: block;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: bolder;
   font-size: 18px;
   line-height: 1;
   stroke: ${(p) => p.theme.colors.footerBackground};

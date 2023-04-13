@@ -58,7 +58,7 @@ export const RecipeTitleWrapper = styled.div`
 `;
 
 export const RecipeTitle = styled.h2`
-  font-weight: ${(p) => p.theme.fontWeights.medium};
+  font-weight: bolder;
   font-size: ${(p) => p.theme.fontSizes.s};
   line-height: 1.25;
   letter-spacing: -0.24px;
