@@ -23,7 +23,7 @@ export const NavWrap = styled.nav`
 export const Link = styled(NavLink)`
   display: block;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: bolder;
   line-height: 1;
 
   :hover,

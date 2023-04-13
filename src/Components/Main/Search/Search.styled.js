@@ -30,7 +30,7 @@ export const FormInput = styled.input`
   color: ${(p) => p.theme.colors.categoryText};
   border-radius: 24px 44px;
   border: 1px solid #f0f0f0;
-  background-color: ${(p) => p.theme.colors.footerText};
+  background-color: ${(p) => p.theme.colors.mainBackground};
   ${(p) => p.theme.sizes.tablet} {
     height: 59px;
     font-size: 16px;

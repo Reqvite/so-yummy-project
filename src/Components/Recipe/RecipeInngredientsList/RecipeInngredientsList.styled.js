@@ -101,7 +101,7 @@ export const Title = styled.h2`
 
   font-size: ${(p) => p.theme.fontSizes.xxs};
   line-height: 1.2;
-  font-weight: ${(p) => p.theme.fontWeights.medium};
+  font-weight: bolder;
 
   color: ${(p) => p.theme.colors.cardsText};
 

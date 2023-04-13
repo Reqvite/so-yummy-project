@@ -1,8 +1,39 @@
-# Getting Started with Create React App and Redux
+## So Yummy (Front-end part)
+
+[So Yummy page](https://so-yummy.netlify.app/)
+
+Here you can discover a vast collection of culinary delights that will help you expand your cooking skills and impress your loved ones. Our site offers a wide range of recipes that are easy to follow, budget-friendly, and perfect for any occasion.
+
+### Used technologies:
+
+HTML/CSS,
+React,
+React-dom,
+Redux Toolkit,
+Axios,
+Formik,
+Yup,
+Toastify,
+MUI,
+Styled Components.
+
+### About
+
+Users can create their own account on the website and log in to access various features such as saving their favorite recipes or contributing new dishes to the site.
+
+The header of the site features the main menu with essential navigation items, such as "Recipes", "Categories", "Favorites", "Add a recipe", and "Shopping list".
+
+The main page of the website showcases the most popular dishes.
+
+The primary functionality of the website is to enable users to search and view recipes. The site also has the function to save favorite recipes and to allow users to add their own recipes to the site.
+
+There is also a shopping list on the site, where you can add the ingredients that you need for the recipe.
+
+The footer of the site contains additional links to social media networks.
+
+## Installation and launch of the project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
-
-## Available Scripts
 
 In the project directory, you can run:
 
@@ -29,18 +60,6 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Back-end part
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Back-end](https://github.com/Reqvite/so-yummy-backend)

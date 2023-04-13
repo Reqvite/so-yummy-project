@@ -1,9 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-//http://localhost:3000
-//https://so-yummy-api-x9xv.onrender.com
-
 export const instance = axios.create({
   baseURL: "https://so-yummy-api-x9xv.onrender.com",
 });

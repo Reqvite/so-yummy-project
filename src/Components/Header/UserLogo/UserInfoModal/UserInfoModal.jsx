@@ -20,12 +20,10 @@ import { updateUser } from "redux/auth/operations";
 import { useState } from "react";
 import { useAuth } from "hooks";
 import ButtonLoader from "Components/ui/ButtonLoader/ButtonLoader";
-import { useTheme } from "styled-components";
 import { UpdateUserSchema } from "helpers/validations";
 import { selectTheme } from "redux/theme/selectors";
 
 const UserInfoModal = ({ toggleInfoModal }) => {
-  const theme = useTheme();
   const {
     user: { avatarURL },
   } = useAuth();
@@ -95,13 +93,7 @@ const UserInfoModal = ({ toggleInfoModal }) => {
               {errors.nickname && touched.nickname && (
                 <Error>{errors.nickname}</Error>
               )}
-              <Button
-                type="submit"
-                disabled={isLoading}
-                whileHover={{
-                  color: theme.colors.mainText,
-                }}
-              >
+              <Button type="submit" disabled={isLoading}>
                 {isLoading ? (
                   <ButtonLoader color="white" width={25} />
                 ) : (

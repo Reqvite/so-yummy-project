@@ -4,7 +4,6 @@ import { ReactComponent as PlusIcon } from "../../../../assets/svg/userInfoModal
 import { ReactComponent as UserIcon } from "../../../../assets/svg/userInfoModal/user-01.svg";
 import { ReactComponent as UserIconBlack } from "../../../../assets/svg/userInfoModal/user-black.svg";
 import { Field } from "formik";
-import { motion } from "framer-motion";
 
 export const slideDown = keyframes`
   0% {
@@ -176,7 +175,7 @@ export const Input = styled(Field)`
   outline: none;
 `;
 
-export const Button = styled(motion.button)`
+export const Button = styled.button`
   margin-top: 24px;
   display: block;
 
@@ -193,6 +192,11 @@ export const Button = styled(motion.button)`
     height: 59px;
     margin-top: 32px;
     width: 400px;
+  }
+
+  :hover,
+  :focus {
+    color: #22252a;
   }
 `;
 

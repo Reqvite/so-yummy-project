@@ -18,19 +18,22 @@ import {
 import {
   selectIsLoading,
   selectUserFavouritesRecipes,
+  selectUserRecipes,
 } from "redux/recipes/selectors";
 import ButtonLoader from "Components/ui/ButtonLoader/ButtonLoader";
 
 const RecipePageHero = ({ title, description, time, id }) => {
   const userFavouritesRecipes = useSelector(selectUserFavouritesRecipes);
+  const userRecipes = useSelector(selectUserRecipes);
   const [first, setFirst] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
   const theme = useTheme();
 
   const isLoading = useSelector(selectIsLoading);
-
   const topRef = useRef();
+
+  const isUserRecipe = userRecipes.find((recipe) => recipe._id === id);
 
   useEffect(() => {
     if (!first) {
@@ -57,22 +60,24 @@ const RecipePageHero = ({ title, description, time, id }) => {
         {title}
       </MainPageTitle>
       <Text $isBig={title?.split(" ").length > 6}>{description}</Text>
-      <Button
-        disabled={isLoading}
-        whileHover={{
-          backgroundColor: theme.colors.accentColor,
-          borderColor: theme.colors.accentColor,
-        }}
-        onClick={() => handleFavoriteButton(id)}
-      >
-        {isLoading ? (
-          <ButtonLoader color="white" width={25} />
-        ) : isFavorite ? (
-          "Remove to favorite recipes"
-        ) : (
-          "Add to favorite recipes"
-        )}
-      </Button>
+      {!isUserRecipe && (
+        <Button
+          disabled={isLoading}
+          whileHover={{
+            backgroundColor: theme.colors.accentColor,
+            borderColor: theme.colors.accentColor,
+          }}
+          onClick={() => handleFavoriteButton(id)}
+        >
+          {isLoading ? (
+            <ButtonLoader color="white" width={25} />
+          ) : isFavorite ? (
+            "Remove to favorite recipes"
+          ) : (
+            "Add to favorite recipes"
+          )}
+        </Button>
+      )}
       <Box>
         <ClockSvg />
         <Time>{time} min</Time>
