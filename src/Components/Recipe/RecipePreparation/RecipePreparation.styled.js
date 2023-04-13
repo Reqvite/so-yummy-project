@@ -34,6 +34,7 @@ export const Text = styled.p`
 
   ${(p) => p.theme.sizes.tablet} {
     max-width: 500px;
+    font-size: 14px;
   }
   ${(p) => p.theme.sizes.desktop} {
     max-width: 730px;
