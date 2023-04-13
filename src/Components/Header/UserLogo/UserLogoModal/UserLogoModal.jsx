@@ -34,12 +34,7 @@ const UserLogoModal = ({
         <EditIcon />
       </Button>
 
-      <ButtonLogout
-        onClick={() => confirmButtonClickHandler()}
-        whileHover={{
-          color: "#23262A",
-        }}
-      >
+      <ButtonLogout onClick={() => confirmButtonClickHandler()}>
         Log out
         <ArrowIcon />
       </ButtonLogout>

@@ -328,11 +328,19 @@ export const NavLink = styled(Link)`
   :focus {
     color: ${(p) => p.theme.colors.accentColor};
   }
+
+  transition: color 1200ms cubic-bezier(0.075, 0.82, 0.165, 1);
 `;
 
 export const ArrowSvg = styled(ArrowMainPage)`
   margin-left: 7px;
   stroke: ${(p) => p.theme.colors.mainIconColor};
+
+  ${NavLink}:hover & {
+    stroke: ${(p) => p.theme.colors.accentColor};
+  }
+
+  transition: stroke 1200ms cubic-bezier(0.075, 0.82, 0.165, 1);
 `;
 
 export const Arrow = styled(ArrowMain)`

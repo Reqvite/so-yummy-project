@@ -59,6 +59,12 @@ export const Button = styled.button`
   color: ${(p) => p.theme.colors.mainText};
   line-height: 1.6;
   cursor: pointer;
+
+  &:hover {
+    color: ${(p) => p.theme.colors.accentColor};
+  }
+
+  transition: color 1200ms cubic-bezier(0.075, 0.82, 0.165, 1);
 `;
 
 export const ButtonLogout = styled(motion.button)`
@@ -68,7 +74,6 @@ export const ButtonLogout = styled(motion.button)`
   background-color: ${(p) => p.theme.colors.accentColor};
   border-radius: 18px 44px;
   color: ${(p) => p.theme.colors.secondaryText};
-  cursor: pointer;
   display: inline-flex;
   justify-content: center;
   line-height: inherit;
@@ -78,12 +83,31 @@ export const ButtonLogout = styled(motion.button)`
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
+
+  cursor: pointer;
+
+  &:hover {
+    color: #23262a;
+  }
+
+  transition: color 1200ms cubic-bezier(0.075, 0.82, 0.165, 1);
 `;
 export const Text = styled.p``;
 
 export const EditIcon = styled(UserEdit)`
   stroke: ${(p) => p.theme.colors.mainIconColor};
+
+  ${Button}:hover & {
+    stroke: ${(p) => p.theme.colors.accentColor};
+  }
+
+  transition: stroke 1200ms cubic-bezier(0.075, 0.82, 0.165, 1);
 `;
 export const ArrowIcon = styled(UserButtonArrow)`
   margin-left: 6px;
+  stroke: #fafafa;
+  ${ButtonLogout}:hover & {
+    stroke: #23262a;
+  }
+  transition: stroke 1200ms cubic-bezier(0.075, 0.82, 0.165, 1);
 `;
