@@ -21,7 +21,6 @@ const Search = () => {
           onChange={(e) => setSearchValue(e.target.value)}
           type="text"
           name="name"
-          placeholder="Beef"
         />
         <SearchBtn type="submit">Search</SearchBtn>
       </Form>

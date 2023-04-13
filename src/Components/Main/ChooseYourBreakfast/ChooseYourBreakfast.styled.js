@@ -215,7 +215,7 @@ export const Background = styled.div`
     }
   }
   ${(p) => p.theme.sizes.desktop} {
-    background-image: url(${bgDesktop});
+    background-image: url(${bgDesktop});nav
     width: 725px;
     height: 689px;
     @media (min-device-pixel-ratio: 2),
@@ -323,6 +323,11 @@ export const NavLink = styled(Link)`
   line-height: 1.2;
   text-align: center;
   letter-spacing: 0.2px;
+
+  :hover,
+  :focus {
+    color: ${(p) => p.theme.colors.accentColor};
+  }
 `;
 
 export const ArrowSvg = styled(ArrowMainPage)`
