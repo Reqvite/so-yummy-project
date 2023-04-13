@@ -18,8 +18,10 @@ const ListWithPagination = ({
   const topRef = useRef();
 
   useEffect(() => {
-    topRef.current.scrollIntoView({ behavior: "smooth" });
-  }, [currentPage]);
+    if (!isLoading && !isLoadingOperation && list.length !== 0) {
+      topRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [currentPage, isLoading, isLoadingOperation, list.length]);
 
   return (
     <MainBox>
