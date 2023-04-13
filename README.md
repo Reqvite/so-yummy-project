@@ -63,4 +63,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Back-end part
 
-[Back-end](https://facebook.github.io/create-react-app/docs/deployment)
+[Back-end](https://github.com/Reqvite/so-yummy-backend)
