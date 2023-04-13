@@ -92,7 +92,9 @@ export const ButtonLogout = styled(motion.button)`
 
   transition: color 1200ms cubic-bezier(0.075, 0.82, 0.165, 1);
 `;
-export const Text = styled.p``;
+export const Text = styled.p`
+  font-weight: bolder;
+`;
 
 export const EditIcon = styled(UserEdit)`
   stroke: ${(p) => p.theme.colors.mainIconColor};
