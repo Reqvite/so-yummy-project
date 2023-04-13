@@ -23,7 +23,7 @@ export const NavWrap = styled.nav`
 export const Link = styled(NavLink)`
   display: block;
   text-decoration: none;
-  font-weight: bolder;
+  font-weight: ${(p) => p.theme.fontWeights.medium};
   line-height: 1;
 
   :hover,

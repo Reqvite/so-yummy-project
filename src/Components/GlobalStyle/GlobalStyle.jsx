@@ -9,10 +9,35 @@ import Poppins500 from "../../fonts/Poppins-Medium.ttf";
 import Poppins400 from "../../fonts/Poppins-Regular.ttf";
 
 export const GlobalStyle = createGlobalStyle`
-@font-face {
-font-family: 'Poppins';
-      src: url(${Poppins400}), url(${Poppins500}), url(${Poppins600}), url(${Poppins700});
-    }
+  @font-face {
+    font-family: 'Poppins';
+    src: url(${Poppins400}) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url(${Poppins500}) format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    src: url(${Poppins600}) format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    src: url(${Poppins700}) format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+
 
 body {
    color: ${(p) => p.theme.colors.mainText};

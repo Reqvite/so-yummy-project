@@ -28,7 +28,7 @@ const ListWithPagination = ({
           <FavoriteRecipeSkeleton />
         ) : (
           <>
-            {list.map(({ _id, title, description, preview, time }) => (
+            {list?.map(({ _id, title, description, preview, time }) => (
               <RecipeItem
                 key={_id}
                 description={description}
