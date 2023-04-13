@@ -29,9 +29,11 @@ const SearchRecipesList = () => {
       ) : (
         <>
           {recipeCategories.length > 0 && (
-            <RecipesList array={recipeCategories} />
+            <>
+              <RecipesList array={recipeCategories} />
+              <CategoryPagination />
+            </>
           )}
-          {recipeCategories.length > 1 && <CategoryPagination />}
         </>
       )}
     </div>
