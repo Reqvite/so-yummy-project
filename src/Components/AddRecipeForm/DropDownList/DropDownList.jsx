@@ -10,7 +10,7 @@ const DropDownList = ({ list = [], option = "", setOption }) => {
   const [isActive, setIsActive] = useState(false);
   const input = useRef(null);
   const theme = useTheme();
-  const activeColor = theme.colors.accentColor;
+  const activeColor = theme.colors.activeItemDropDownList;
 
   useEffect(() => {
     const onClick = (e) => {
