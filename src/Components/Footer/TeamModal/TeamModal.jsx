@@ -32,7 +32,7 @@ const LinkStyled = styled(Link)`
 
 const TeamModal = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery("max-width:767,9px");
+  const isMobile = useMediaQuery("(max-width:767.9px)");
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
