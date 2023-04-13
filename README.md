@@ -1,7 +1,3 @@
-# Getting Started with Create React App and Redux
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
-
 ## So Yummy (Front-end part)
 
 [So Yummy page](https://so-yummy.netlify.app/)
@@ -10,17 +6,19 @@ Here you can discover a vast collection of culinary delights that will help you 
 
 ### Used technologies:
 
-HTML/CSS
-React
-React-dom
-Redux Toolkit
-Axios
-Formik
-Yup
-Toastify
-MUI
-Styled Components
-React-dom
+HTML/CSS,
+React,
+React-dom,
+Redux Toolkit,
+Axios,
+Formik,
+Yup,
+Toastify,
+MUI,
+Styled Components,
+React-dom,
+
+### About
 
 Users can create their own account on the website and log in to access various features such as saving their favorite recipes or contributing new dishes to the site.
 
@@ -35,6 +33,8 @@ There is also a shopping list on the site, where you can add the ingredients tha
 The footer of the site contains additional links to social media networks.
 
 ## Installation and launch of the project
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 In the project directory, you can run:
 
