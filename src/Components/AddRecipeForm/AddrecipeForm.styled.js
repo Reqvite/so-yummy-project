@@ -43,7 +43,7 @@ export const Button = styled.button`
   width: 129px;
   border: none;
   border-radius: 18px 44px;
-  background-color: ${(p) => p.theme.colors.buttonBg};
+  background-color: ${(p) => p.theme.colors.addButton};
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -53,8 +53,11 @@ export const Button = styled.button`
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
+  :hover {
+    background-color: ${(p) => p.theme.colors.addButtonHover};
+  }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (min-width: 767px) {
     height: 52px;
     width: 161px;
   }

@@ -48,17 +48,26 @@ export const Link = styled.a`
 export const FacebookIcon = styled(Facebook)`
   width: 18px;
   height: 18px;
+  transition: 250ms;
+  fill: ${(p) => p.theme.colors.socialIconColor};
+
+  :hover {
+    fill: ${(p) => p.theme.colors.socialIconHover};
+  }
 
   @media screen and (min-width: 768px) {
     width: 20px;
     height: 20px;
   }
-  fill: ${(p) => p.theme.colors.socialIconColor};
 `;
 
 export const YoutubeIcon = styled(Youtube)`
   width: 19px;
   height: 14px;
+  transition: 250ms;
+  :hover {
+    fill: ${(p) => p.theme.colors.socialIconHover};
+  }
 
   @media screen and (min-width: 768px) {
     width: 20px;
@@ -70,6 +79,10 @@ export const YoutubeIcon = styled(Youtube)`
 export const TwitterIcon = styled(Twitter)`
   width: 18px;
   height: 14px;
+  transition: 250ms;
+  :hover {
+    fill: ${(p) => p.theme.colors.socialIconHover};
+  }
 
   @media screen and (min-width: 768px) {
     width: 20px;
@@ -81,10 +94,53 @@ export const TwitterIcon = styled(Twitter)`
 export const InstagramIcon = styled(Instagram)`
   width: 17px;
   height: 17px;
+  transition: 250ms;
+  :hover {
+    fill: ${(p) => p.theme.colors.socialIconHover};
+  }
 
   @media screen and (min-width: 768px) {
     width: 20px;
     height: 20px;
   }
   fill: ${(p) => p.theme.colors.socialIconColor};
+`;
+
+export const FacebookIconAddRecipe = styled(Facebook)`
+  width: 26px;
+  height: 26px;
+  fill: ${(p) => p.theme.colors.socialIconColor};
+  transition: 250ms;
+  :hover {
+    fill: ${(p) => p.theme.colors.socialIconHoverAdd};
+  }
+`;
+export const YoutubeIconAddRecipe = styled(Youtube)`
+  width: 28px;
+  height: 22px;
+  fill: ${(p) => p.theme.colors.socialIconColor};
+  transition: 250ms;
+  :hover {
+    fill: ${(p) => p.theme.colors.socialIconHoverAdd};
+  }
+`;
+
+export const TwitterIconAddRecipe = styled(Twitter)`
+  width: 25px;
+  height: 22px;
+  fill: ${(p) => p.theme.colors.socialIconColor};
+  transition: 250ms;
+  :hover {
+    fill: ${(p) => p.theme.colors.socialIconHoverAdd};
+  }
+`;
+
+export const InstagramIconAddRecipe = styled(Instagram)`
+  width: 24px;
+  height: 24px;
+  fill: ${(p) => p.theme.colors.socialIconColor};
+  transition: 250ms;
+  :hover {
+    fill: ${(p) => p.theme.colors.socialIconHoverAdd};
+  }
 `;

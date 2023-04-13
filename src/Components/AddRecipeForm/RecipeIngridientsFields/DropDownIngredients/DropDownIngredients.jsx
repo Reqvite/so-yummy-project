@@ -23,7 +23,7 @@ const DropDownIngredientsList = ({ list = [], option = "", setOption }) => {
   }, [isActive]);
 
   const theme = useTheme();
-  const activeColor = theme.colors.accentColor;
+  const activeColor = theme.colors.activeItemDropDownList;
 
   const handleOptionClick = useCallback(() => {
     setIsActive(!isActive);

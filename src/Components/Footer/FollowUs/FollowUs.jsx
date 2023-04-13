@@ -8,14 +8,11 @@ import {
   TwitterIcon,
   InstagramIcon,
   FollowUsText,
+  FacebookIconAddRecipe,
+  YoutubeIconAddRecipe,
+  TwitterIconAddRecipe,
+  InstagramIconAddRecipe,
 } from "./FollowUs.styled";
-
-const stylesOnAddRecipePage = {
-  facebook: { width: "26px", height: "26px" },
-  youtube: { width: "28px", height: "22px" },
-  twitter: { width: "25px", height: "22px" },
-  instagram: { width: "24px", height: "24px" },
-};
 
 const FollowUs = ({ text, onAddRecipePage }) => {
   return (
@@ -29,9 +26,7 @@ const FollowUs = ({ text, onAddRecipePage }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FacebookIcon
-              style={onAddRecipePage ? stylesOnAddRecipePage.facebook : null}
-            />
+            {onAddRecipePage ? <FacebookIconAddRecipe /> : <FacebookIcon />}
           </Link>
         </SocialItem>
 
@@ -41,9 +36,7 @@ const FollowUs = ({ text, onAddRecipePage }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <YoutubeIcon
-              style={onAddRecipePage ? stylesOnAddRecipePage.youtube : null}
-            />
+            {onAddRecipePage ? <YoutubeIconAddRecipe /> : <YoutubeIcon />}
           </Link>
         </SocialItem>
 
@@ -53,9 +46,7 @@ const FollowUs = ({ text, onAddRecipePage }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <TwitterIcon
-              style={onAddRecipePage ? stylesOnAddRecipePage.twitter : null}
-            />
+            {onAddRecipePage ? <TwitterIconAddRecipe /> : <TwitterIcon />}
           </Link>
         </SocialItem>
 
@@ -65,9 +56,7 @@ const FollowUs = ({ text, onAddRecipePage }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <InstagramIcon
-              style={onAddRecipePage ? stylesOnAddRecipePage.instagram : null}
-            />
+            {onAddRecipePage ? <InstagramIconAddRecipe /> : <InstagramIcon />}
           </Link>
         </SocialItem>
       </SocialList>
