@@ -5,7 +5,11 @@ import RecipeSkeleton from "Components/ui/Skeletons/RecipeSkeleton";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { getRecipe, getUserFavouritesRecipes } from "redux/recipes/operations";
+import {
+  getRecipe,
+  getUserFavouritesRecipes,
+  getUserRecipesPagination,
+} from "redux/recipes/operations";
 import {
   selectRecipe,
   selectRecipeLoading,
@@ -21,6 +25,7 @@ const RecipePage = () => {
     useSelector(selectRecipe);
 
   useEffect(() => {
+    dispatch(getUserRecipesPagination());
     dispatch(getShoppingIngredients());
     dispatch(getRecipe(id));
     dispatch(getUserFavouritesRecipes());
