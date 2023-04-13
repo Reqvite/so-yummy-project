@@ -8,6 +8,7 @@ import {
   MainPageTitle,
   Text,
   Time,
+  Wrapper,
 } from "./RecipePageHero.styled";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -50,7 +51,7 @@ const RecipePageHero = ({ title, description, time, id }) => {
   };
 
   return (
-    <>
+    <Wrapper>
       <ImgBox />
       <MainPageTitle $isBig={title?.split(" ").length > 6} ref={topRef}>
         {title}
@@ -76,7 +77,7 @@ const RecipePageHero = ({ title, description, time, id }) => {
         <ClockSvg />
         <Time>{time} min</Time>
       </Box>
-    </>
+    </Wrapper>
   );
 };
 

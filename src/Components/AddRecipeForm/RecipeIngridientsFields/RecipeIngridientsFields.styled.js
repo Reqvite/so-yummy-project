@@ -105,4 +105,6 @@ export const ErrorText = styled.p`
   color: ${(p) => p.theme.colors.inputErrorColor};
 `;
 
-export const IngredientsList = styled.ul``;
+export const IngredientsList = styled.ul`
+  padding: none;
+`;
