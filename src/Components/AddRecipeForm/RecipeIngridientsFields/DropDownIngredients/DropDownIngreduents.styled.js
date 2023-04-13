@@ -80,7 +80,7 @@ export const Item = styled.li`
   line-height: 18px;
   letter-spacing: -0.02em;
   color: ${(p) => p.theme.colors.mainText};
-  opacity: 0.5;
+  /* opacity: 0.5; */
   /* width: 100%; */
   text-align: center;
   :not(:last-child) {

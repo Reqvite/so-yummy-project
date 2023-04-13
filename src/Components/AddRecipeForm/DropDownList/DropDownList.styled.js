@@ -69,7 +69,6 @@ export const Item = styled.li`
   line-height: 18px;
   letter-spacing: -0.02em;
   color: ${(p) => p.theme.colors.mainText};
-  opacity: 0.5;
 
   :not(:last-child) {
     margin-bottom: 4px;
