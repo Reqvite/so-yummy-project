@@ -92,18 +92,20 @@ export const Label = styled.label`
   position: relative;
   :not(:last-of-type) {
     margin-bottom: 12px;
-    ${(p) => p.theme.sizes.tablet} {
-      margin-bottom: 24px;
-    }
+    margin-bottom: 0;
   }
 
   :last-of-type {
-    margin-bottom: 28px;
+    margin-bottom: 20px;
 
     ${(p) => p.theme.sizes.tablet} {
-      margin-bottom: 50px;
+      margin-bottom: 35px;
     }
   }
+`;
+
+export const IconBox = styled.div`
+  height: 23px;
 `;
 
 export const SuccesIcon = styled(SuccessSvg)`
@@ -291,7 +293,7 @@ export const Link = styled(motion(NavLink))`
 export const Error = styled.p`
   color: ${(p) => p.theme.colors.inputErrorColor};
   font-size: 10px;
-  line-height: 2;
+  line-height: 1.5;
   ${(p) => p.theme.sizes.tablet} {
     font-size: 14px;
   }
@@ -300,7 +302,7 @@ export const Error = styled.p`
 export const ErrorLast = styled.p`
   color: ${(p) => p.theme.colors.inputErrorColor};
   font-size: 10px;
-  line-height: 2;
+  line-height: 1.5;
 
   ${(p) => p.theme.sizes.tablet} {
     font-size: 14px;
