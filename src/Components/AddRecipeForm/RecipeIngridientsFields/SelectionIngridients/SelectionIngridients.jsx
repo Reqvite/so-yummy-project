@@ -123,6 +123,7 @@ const SelectionIngridients = ({
           min="1"
           max="1000"
           value={amount}
+          onkeydown="return false"
           onChange={(e) => setAmount(e.target.value)}
         />
         <UnitsWrap>
