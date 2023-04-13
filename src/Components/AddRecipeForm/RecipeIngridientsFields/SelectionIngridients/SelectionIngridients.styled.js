@@ -9,11 +9,12 @@ export const IngredientSelectionItem = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
   width: 100%;
+
   :not(:last-child) {
     margin-bottom: 18px;
   }
+
   @media screen and (min-width: 768px) {
     :not(:last-child) {
       margin-bottom: 24px;
@@ -63,7 +64,7 @@ export const SearchIngredientInput = styled.input`
   line-height: 1.5;
   letter-spacing: -0.02em;
   color: ${(p) => p.theme.colors.mainText};
-  width: 198px;
+  width: 194px;
   border-radius: 6px;
   padding: 16px 32px 16px 16px;
   border: 1px solid transparent;
@@ -144,10 +145,18 @@ export const AmountWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: baseline;
-  min-width: 84px;
+  width: 84px;
   height: 53px;
   border: 1px solid rgba(250, 250, 250, 0.2);
   border-radius: 18px;
+  /* background: ${(p) => p.theme.colors.ingredientInputBg}; */
+  @media screen and (min-width: 768px) {
+    height: 59px;
+    width: 97px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 99px;
+  }
 `;
 
 export const AmountInput = styled.input`
@@ -158,25 +167,31 @@ export const AmountInput = styled.input`
   color: ${(p) => p.theme.colors.mainText};
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
-  max-width: 40px;
+  max-width: 30px;
   height: 53px;
+  justify-content: center;
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: -0.02em;
-  padding: 16px 2px 15px 2px;
-  text-align: end;
+  padding: 16px 2px 16px 2px;
+  text-align: center;
 
   ::placeholder {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
     letter-spacing: -0.02em;
     opacity: 0.5;
   }
   @media screen and (min-width: 768px) {
     height: 59px;
-    max-width: 44px;
-    font-size: 16px;
+    max-width: 40px;
+    font-size: 18px;
+    padding: 16px 0px 16px 0px;
 
     ::placeholder {
-      font-size: 16px;
+      font-size: 18px;
     }
   }
 `;
@@ -185,17 +200,18 @@ export const UnitsWrap = styled.div`
   flex-shrink: 0;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
+
   height: 53px;
-  width: 84px;
+  width: 51px;
   cursor: pointer;
   background-color: ${(p) => p.theme.colors.ingredientInputBg};
 
   @media screen and (min-width: 768px) {
     height: 59px;
-    width: 97px;
+    width: 55px;
   }
   @media screen and (min-width: 1440px) {
-    width: 99px;
+    width: 57px;
   }
 `;
 
@@ -207,6 +223,7 @@ export const DeleteButton = styled.button`
   border: none;
   background-color: inherit;
   stroke: rgba(51, 51, 51, 0.3);
+  padding: 0px;
   @media screen and (min-width: 768px) {
     margin-left: 157px;
   }

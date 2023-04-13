@@ -3,19 +3,32 @@ import styled from "styled-components";
 export const Option = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
+  padding-right: 10px;
   width: 100%;
   height: 100%;
-  gap: 4px;
-  padding-left: 2px;
-  padding-right: 10px;
+
+  @media screen and (min-width: 767px) {
+    padding-right: 5px;
+    justify-content: space-around;
+  }
 `;
 
 export const Title = styled.p`
   display: block;
   text-align: center;
-  width: 100%;
-  ${(p) => p.theme.colors.mainText}
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  margin-right: auto;
+  ${(p) => p.theme.colors.mainText};
+
+  @media screen and (min-width: 767px) {
+    font-size: 18px;
+    margin-right: 4px;
+  }
 `;
 
 export const List = styled.ul`
