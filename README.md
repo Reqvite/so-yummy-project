@@ -21,7 +21,7 @@ Styled Components.
 
 Users can create their own account on the website and log in to access various features such as saving their favorite recipes or contributing new dishes to the site.
 
-The header of the site features the main menu with essential navigation items, such as "Recipes", "Categories", "Favorites", "Add a recipe", and "About us".
+The header of the site features the main menu with essential navigation items, such as "Recipes", "Categories", "Favorites", "Add a recipe", and "Shopping list".
 
 The main page of the website showcases the most popular dishes.
 
