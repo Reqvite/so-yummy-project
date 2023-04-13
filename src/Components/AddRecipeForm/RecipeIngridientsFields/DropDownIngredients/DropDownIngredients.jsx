@@ -11,7 +11,7 @@ const DropDownIngredientsList = ({ list = [], option = "", setOption }) => {
 
   useEffect(() => {
     const onClick = (e) => {
-      input.current.contains(e.target) || setIsActive(!isActive);
+      input?.current?.contains(e.target) || setIsActive(!isActive);
     };
 
     if (isActive) {
