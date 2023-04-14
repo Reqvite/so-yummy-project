@@ -24,7 +24,8 @@ const RecipeItem = ({ _id, description, preview, time, title }) => {
   const isMobile = useMediaQuery("(max-width:767px)");
   const themeSelect = useSelector(selectTheme);
 
-  const newTitle = isMobile ? title.substring(0, 20) + "..." : title;
+  if (!title) return null;
+  const newTitle = isMobile ? title?.substring(0, 20) + "..." : title;
 
   // const editedDescripiton = description.split(/[.?!]/);
 

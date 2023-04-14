@@ -188,7 +188,7 @@ const AddRecipeForm = () => {
         id: title._id,
         measure: `${amount}${unit === "-" ? "" : ` ${unit}`}`,
       })),
-      instructions: instructions.trim().replace(/\./g, ".\n"),
+      instructions: instructions.trim().replace(/\.(?=[^\n])/g, ".\n"),
     };
 
     dispatch(addRecipe(data)).then(() => {
