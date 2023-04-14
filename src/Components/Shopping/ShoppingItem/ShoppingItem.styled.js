@@ -94,18 +94,20 @@ export const ButtonWrapper = styled.div`
 export const Button = styled.div`
   background-color: transparent;
   border: none;
-  margin-left: 46px;
+  margin-left: 30px;
+  margin-right: 20px;
   width: 25px;
   height: 25px;
 
   cursor: pointer;
 
   ${(p) => p.theme.sizes.tablet} {
-    margin-left: 110px;
+    margin-left: 120px;
+    margin-right: 55px;
   }
 
   ${(p) => p.theme.sizes.desktop} {
-    margin-left: 174px;
+    margin-left: 190px;
   }
 `;
 
