@@ -162,8 +162,9 @@ const recipeSlice = createSlice({
       .addDefaultCase((state, action) => {
         if (action.type === "auth/logout/fulfilled") {
           state.userFavouritesRecipes = [];
-          state.recipes = [];
           state.recipe = [];
+          state.pagination = {};
+          state.myRecipesPagination = {};
         }
       }),
 });
