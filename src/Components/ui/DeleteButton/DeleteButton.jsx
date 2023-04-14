@@ -10,6 +10,7 @@ import {
 import {
   selectPagination,
   selectUserFavouritesRecipes,
+  selectUserRecipes,
 } from "redux/recipes/selectors";
 
 const DeleteButton = ({ bgColor, id }) => {
@@ -17,15 +18,17 @@ const DeleteButton = ({ bgColor, id }) => {
   const { pathname } = useLocation();
   const { currentPage } = useSelector(selectPagination);
   const list = useSelector(selectUserFavouritesRecipes);
+  const myRecipePage = useSelector(selectUserRecipes);
 
   const handleDelete = async () => {
-    const page = list.length === 1 ? currentPage - 1 : currentPage;
     if (pathname.includes("favorite")) {
+      const page = list.length === 1 ? currentPage - 1 : currentPage;
       await dispatch(deleteFavoriteRecipe(id));
       await dispatch(getUserFavouritesPaginationRecipes(page));
     }
 
     if (pathname.includes("my")) {
+      const page = myRecipePage.length === 1 ? currentPage - 1 : currentPage;
       await dispatch(deleteUserRecipe(id));
       await dispatch(getUserRecipesPagination(page));
     }
